@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,11 +13,11 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass CartridgeTrap.CartridgeTrap_C
-// 0x0008 (0x09D8 - 0x09D0)
+// 0x0008 (0x09F8 - 0x09F0)
 class ACartridgeTrap_C : public AExplosiveTrapItem
 {
 public:
-	class UBP_BoxProximityTriggerComponent_C*          BoxProximityTrigger;                                      // 0x09D0(0x0008) (BlueprintVisible, ZeroConstructor, InstancedReference, IsPlainOldData)
+	class UBP_BoxProximityTriggerComponent_C*          BoxProximityTrigger;                                      // 0x09F0(0x0008) (BlueprintVisible, ZeroConstructor, InstancedReference, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{

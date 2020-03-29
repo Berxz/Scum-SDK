@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,6 +11,22 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Classes
 //---------------------------------------------------------------------------
+
+// Class MaterialShaderQualitySettings.MaterialShaderQualitySettings
+// 0x0050 (0x0078 - 0x0028)
+class UMaterialShaderQualitySettings : public UObject
+{
+public:
+	TMap<struct FName, class UShaderPlatformQualitySettings*> ForwardSettingMap;                                        // 0x0028(0x0050) (ZeroConstructor)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class MaterialShaderQualitySettings.MaterialShaderQualitySettings");
+		return ptr;
+	}
+
+};
+
 
 // Class MaterialShaderQualitySettings.ShaderPlatformQualitySettings
 // 0x0018 (0x0040 - 0x0028)
@@ -23,22 +39,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class MaterialShaderQualitySettings.ShaderPlatformQualitySettings");
-		return ptr;
-	}
-
-};
-
-
-// Class MaterialShaderQualitySettings.MaterialShaderQualitySettings
-// 0x0050 (0x0078 - 0x0028)
-class UMaterialShaderQualitySettings : public UObject
-{
-public:
-	TMap<struct FName, class UShaderPlatformQualitySettings*> ForwardSettingMap;                                        // 0x0028(0x0050) (ZeroConstructor)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class MaterialShaderQualitySettings.MaterialShaderQualitySettings");
 		return ptr;
 	}
 

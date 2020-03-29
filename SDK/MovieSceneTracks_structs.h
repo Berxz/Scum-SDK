@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -35,6 +35,15 @@ enum class EFireEventsAtPosition : uint8_t
 };
 
 
+// Enum MovieSceneTracks.ELevelVisibility
+enum class ELevelVisibility : uint8_t
+{
+	ELevelVisibility__Visible      = 0,
+	ELevelVisibility__Hidden       = 1,
+	ELevelVisibility__ELevelVisibility_MAX = 2
+};
+
+
 // Enum MovieSceneTracks.EParticleKey
 enum class EParticleKey : uint8_t
 {
@@ -42,15 +51,6 @@ enum class EParticleKey : uint8_t
 	EParticleKey__Deactivate       = 1,
 	EParticleKey__Trigger          = 2,
 	EParticleKey__EParticleKey_MAX = 3
-};
-
-
-// Enum MovieSceneTracks.ELevelVisibility
-enum class ELevelVisibility : uint8_t
-{
-	ELevelVisibility__Visible      = 0,
-	ELevelVisibility__Hidden       = 1,
-	ELevelVisibility__ELevelVisibility_MAX = 2
 };
 
 
@@ -557,6 +557,14 @@ struct FMovieSceneVector4KeyStruct : public FMovieSceneVectorKeyStructBase
 	struct FVector4                                    Vector;                                                   // 0x0030(0x0010) (Edit, IsPlainOldData)
 };
 
+// ScriptStruct MovieSceneTracks.MovieSceneVectorKeyStruct
+// 0x0010 (0x0038 - 0x0028)
+struct FMovieSceneVectorKeyStruct : public FMovieSceneVectorKeyStructBase
+{
+	struct FVector                                     Vector;                                                   // 0x0028(0x000C) (Edit, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x0034(0x0004) MISSED OFFSET
+};
+
 // ScriptStruct MovieSceneTracks.MovieSceneVector2DKeyStruct
 // 0x0008 (0x0030 - 0x0028)
 struct FMovieSceneVector2DKeyStruct : public FMovieSceneVectorKeyStructBase
@@ -569,14 +577,6 @@ struct FMovieSceneVector2DKeyStruct : public FMovieSceneVectorKeyStructBase
 struct FMovieSceneVisibilitySectionTemplate : public FMovieSceneBoolPropertySectionTemplate
 {
 
-};
-
-// ScriptStruct MovieSceneTracks.MovieSceneVectorKeyStruct
-// 0x0010 (0x0038 - 0x0028)
-struct FMovieSceneVectorKeyStruct : public FMovieSceneVectorKeyStructBase
-{
-	struct FVector                                     Vector;                                                   // 0x0028(0x000C) (Edit, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0034(0x0004) MISSED OFFSET
 };
 
 }

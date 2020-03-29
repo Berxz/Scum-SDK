@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -14,6 +14,11 @@ namespace SDK
 // Parameters
 //---------------------------------------------------------------------------
 
+// Function UI_ItemInventoryVicinity.UI_ItemInventoryVicinity_C.Blink
+struct UUI_ItemInventoryVicinity_C_Blink_Params
+{
+};
+
 // Function UI_ItemInventoryVicinity.UI_ItemInventoryVicinity_C.Tick
 struct UUI_ItemInventoryVicinity_C_Tick_Params
 {
@@ -21,9 +26,10 @@ struct UUI_ItemInventoryVicinity_C_Tick_Params
 	float*                                             InDeltaTime;                                              // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function UI_ItemInventoryVicinity.UI_ItemInventoryVicinity_C.Blink
-struct UUI_ItemInventoryVicinity_C_Blink_Params
+// Function UI_ItemInventoryVicinity.UI_ItemInventoryVicinity_C.InitBlueprint
+struct UUI_ItemInventoryVicinity_C_InitBlueprint_Params
 {
+	TScriptInterface<class UInventoryNode>*            Item;                                                     // (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
 };
 
 // Function UI_ItemInventoryVicinity.UI_ItemInventoryVicinity_C.ExecuteUbergraph_UI_ItemInventoryVicinity

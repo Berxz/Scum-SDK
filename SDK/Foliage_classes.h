@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -298,6 +298,22 @@ public:
 };
 
 
+// Class Foliage.ProceduralFoliageVolume
+// 0x0008 (0x0368 - 0x0360)
+class AProceduralFoliageVolume : public AVolume
+{
+public:
+	class UProceduralFoliageComponent*                 ProceduralComponent;                                      // 0x0360(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Foliage.ProceduralFoliageVolume");
+		return ptr;
+	}
+
+};
+
+
 // Class Foliage.ProceduralFoliageTile
 // 0x0130 (0x0158 - 0x0028)
 class UProceduralFoliageTile : public UObject
@@ -311,22 +327,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Foliage.ProceduralFoliageTile");
-		return ptr;
-	}
-
-};
-
-
-// Class Foliage.ProceduralFoliageVolume
-// 0x0008 (0x0368 - 0x0360)
-class AProceduralFoliageVolume : public AVolume
-{
-public:
-	class UProceduralFoliageComponent*                 ProceduralComponent;                                      // 0x0360(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Foliage.ProceduralFoliageVolume");
 		return ptr;
 	}
 

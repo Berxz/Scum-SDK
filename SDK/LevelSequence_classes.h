@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,6 +11,25 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Classes
 //---------------------------------------------------------------------------
+
+// Class LevelSequence.DefaultLevelSequenceInstanceData
+// 0x0048 (0x0070 - 0x0028)
+class UDefaultLevelSequenceInstanceData : public UObject
+{
+public:
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0028(0x0008) MISSED OFFSET
+	class AActor*                                      TransformOriginActor;                                     // 0x0030(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x8];                                       // 0x0038(0x0008) MISSED OFFSET
+	struct FTransform                                  TransformOrigin;                                          // 0x0040(0x0030) (Edit, BlueprintVisible, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class LevelSequence.DefaultLevelSequenceInstanceData");
+		return ptr;
+	}
+
+};
+
 
 // Class LevelSequence.LevelSequence
 // 0x0148 (0x0490 - 0x0348)
@@ -142,25 +161,6 @@ public:
 
 
 	class ULevelSequencePlayer* STATIC_CreateLevelSequencePlayer(class UObject* WorldContextObject, class ULevelSequence* LevelSequence, const struct FMovieSceneSequencePlaybackSettings& Settings, class ALevelSequenceActor** OutActor);
-};
-
-
-// Class LevelSequence.DefaultLevelSequenceInstanceData
-// 0x0048 (0x0070 - 0x0028)
-class UDefaultLevelSequenceInstanceData : public UObject
-{
-public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0028(0x0008) MISSED OFFSET
-	class AActor*                                      TransformOriginActor;                                     // 0x0030(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x8];                                       // 0x0038(0x0008) MISSED OFFSET
-	struct FTransform                                  TransformOrigin;                                          // 0x0040(0x0030) (Edit, BlueprintVisible, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class LevelSequence.DefaultLevelSequenceInstanceData");
-		return ptr;
-	}
-
 };
 
 

@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -38,6 +38,22 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Slate.CheckBoxWidgetStyle");
+		return ptr;
+	}
+
+};
+
+
+// Class Slate.ComboBoxWidgetStyle
+// 0x03D8 (0x0408 - 0x0030)
+class UComboBoxWidgetStyle : public USlateWidgetStyleContainerBase
+{
+public:
+	struct FComboBoxStyle                              ComboBoxStyle;                                            // 0x0030(0x03D8) (Edit)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Slate.ComboBoxWidgetStyle");
 		return ptr;
 	}
 
@@ -157,38 +173,6 @@ public:
 };
 
 
-// Class Slate.TextBlockWidgetStyle
-// 0x01E0 (0x0210 - 0x0030)
-class UTextBlockWidgetStyle : public USlateWidgetStyleContainerBase
-{
-public:
-	struct FTextBlockStyle                             TextBlockStyle;                                           // 0x0030(0x01E0) (Edit)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Slate.TextBlockWidgetStyle");
-		return ptr;
-	}
-
-};
-
-
-// Class Slate.ComboBoxWidgetStyle
-// 0x03D8 (0x0408 - 0x0030)
-class UComboBoxWidgetStyle : public USlateWidgetStyleContainerBase
-{
-public:
-	struct FComboBoxStyle                              ComboBoxStyle;                                            // 0x0030(0x03D8) (Edit)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Slate.ComboBoxWidgetStyle");
-		return ptr;
-	}
-
-};
-
-
 // Class Slate.SpinBoxWidgetStyle
 // 0x02E8 (0x0318 - 0x0030)
 class USpinBoxWidgetStyle : public USlateWidgetStyleContainerBase
@@ -199,6 +183,22 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Slate.SpinBoxWidgetStyle");
+		return ptr;
+	}
+
+};
+
+
+// Class Slate.TextBlockWidgetStyle
+// 0x01E0 (0x0210 - 0x0030)
+class UTextBlockWidgetStyle : public USlateWidgetStyleContainerBase
+{
+public:
+	struct FTextBlockStyle                             TextBlockStyle;                                           // 0x0030(0x01E0) (Edit)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Slate.TextBlockWidgetStyle");
 		return ptr;
 	}
 

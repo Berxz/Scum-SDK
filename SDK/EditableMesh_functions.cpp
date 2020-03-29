@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -12,6 +12,32 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Functions
 //---------------------------------------------------------------------------
+
+// Function EditableMesh.EditableMeshFactory.MakeEditableMesh
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class UPrimitiveComponent*     PrimitiveComponent             (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+// int                            LODIndex                       (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+// class UEditableMesh*           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+class UEditableMesh* UEditableMeshFactory::STATIC_MakeEditableMesh(class UPrimitiveComponent* PrimitiveComponent, int LODIndex)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function EditableMesh.EditableMeshFactory.MakeEditableMesh");
+
+	UEditableMeshFactory_MakeEditableMesh_Params params;
+	params.PrimitiveComponent = PrimitiveComponent;
+	params.LODIndex = LODIndex;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
 
 // Function EditableMesh.EditableMesh.WeldVertices
 // (Final, Native, Public, HasOutParms, BlueprintCallable)
@@ -3487,32 +3513,6 @@ bool UEditableMesh::AnyChangesToUndo()
 	static auto fn = UObject::FindObject<UFunction>("Function EditableMesh.EditableMesh.AnyChangesToUndo");
 
 	UEditableMesh_AnyChangesToUndo_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function EditableMesh.EditableMeshFactory.MakeEditableMesh
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class UPrimitiveComponent*     PrimitiveComponent             (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-// int                            LODIndex                       (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-// class UEditableMesh*           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-class UEditableMesh* UEditableMeshFactory::STATIC_MakeEditableMesh(class UPrimitiveComponent* PrimitiveComponent, int LODIndex)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function EditableMesh.EditableMeshFactory.MakeEditableMesh");
-
-	UEditableMeshFactory_MakeEditableMesh_Params params;
-	params.PrimitiveComponent = PrimitiveComponent;
-	params.LODIndex = LODIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;

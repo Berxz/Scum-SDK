@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -414,6 +414,13 @@ struct UServerBrowserWidget_C_Tick_Params
 {
 	struct FGeometry*                                  MyGeometry;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
 	float*                                             InDeltaTime;                                              // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function ServerBrowserWidget.ServerBrowserWidget_C.BndEvt__SortByVersion_K2Node_ComponentBoundEvent_6_OnClicked__DelegateSignature
+struct UServerBrowserWidget_C_BndEvt__SortByVersion_K2Node_ComponentBoundEvent_6_OnClicked__DelegateSignature_Params
+{
+	class UUI_SortByButton_C*                          Button;                                                   // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+	TEnumAsByte<ESortByTypes>                          Type;                                                     // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function ServerBrowserWidget.ServerBrowserWidget_C.ExecuteUbergraph_ServerBrowserWidget

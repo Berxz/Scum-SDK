@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -191,6 +191,22 @@ public:
 };
 
 
+// Class GameplayTags.EditableGameplayTagQueryExpression_NoExprMatch
+// 0x0010 (0x0038 - 0x0028)
+class UEditableGameplayTagQueryExpression_NoExprMatch : public UEditableGameplayTagQueryExpression
+{
+public:
+	TArray<class UEditableGameplayTagQueryExpression*> Expressions;                                              // 0x0028(0x0010) (Edit, ExportObject, ZeroConstructor)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class GameplayTags.EditableGameplayTagQueryExpression_NoExprMatch");
+		return ptr;
+	}
+
+};
+
+
 // Class GameplayTags.GameplayTagsManager
 // 0x0168 (0x0190 - 0x0028)
 class UGameplayTagsManager : public UObject
@@ -283,22 +299,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class GameplayTags.GameplayTagsDeveloperSettings");
-		return ptr;
-	}
-
-};
-
-
-// Class GameplayTags.EditableGameplayTagQueryExpression_NoExprMatch
-// 0x0010 (0x0038 - 0x0028)
-class UEditableGameplayTagQueryExpression_NoExprMatch : public UEditableGameplayTagQueryExpression
-{
-public:
-	TArray<class UEditableGameplayTagQueryExpression*> Expressions;                                              // 0x0028(0x0010) (Edit, ExportObject, ZeroConstructor)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class GameplayTags.EditableGameplayTagQueryExpression_NoExprMatch");
 		return ptr;
 	}
 

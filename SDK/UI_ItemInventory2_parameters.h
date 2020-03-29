@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -14,15 +14,15 @@ namespace SDK
 // Parameters
 //---------------------------------------------------------------------------
 
+// Function UI_ItemInventory2.UI_ItemInventory2_C.Blink
+struct UUI_ItemInventory2_C_Blink_Params
+{
+};
+
 // Function UI_ItemInventory2.UI_ItemInventory2_C.InitBlueprint
 struct UUI_ItemInventory2_C_InitBlueprint_Params
 {
 	TScriptInterface<class UInventoryNode>*            Item;                                                     // (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
-};
-
-// Function UI_ItemInventory2.UI_ItemInventory2_C.Blink
-struct UUI_ItemInventory2_C_Blink_Params
-{
 };
 
 // Function UI_ItemInventory2.UI_ItemInventory2_C.Tick

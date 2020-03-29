@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -203,6 +203,23 @@ public:
 };
 
 
+// Class ReplicationGraph.ReplicationGraphNode_TearOff_ForConnection
+// 0x0030 (0x00D0 - 0x00A0)
+class UReplicationGraphNode_TearOff_ForConnection : public UReplicationGraphNode
+{
+public:
+	TArray<struct FTearOffActorInfo>                   TearOffActors;                                            // 0x00A0(0x0010) (ZeroConstructor)
+	unsigned char                                      UnknownData00[0x20];                                      // 0x00B0(0x0020) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class ReplicationGraph.ReplicationGraphNode_TearOff_ForConnection");
+		return ptr;
+	}
+
+};
+
+
 // Class ReplicationGraph.NetReplicationGraphConnection
 // 0x0130 (0x0158 - 0x0028)
 class UNetReplicationGraphConnection : public UReplicationConnectionDriver
@@ -246,23 +263,6 @@ public:
 	void ServerPrintAllActorInfo(const struct FString& Str);
 	void ServerCellInfo();
 	void ClientCellInfo(const struct FVector& CellLocation, const struct FVector& CellExtent, TArray<class AActor*> Actors);
-};
-
-
-// Class ReplicationGraph.ReplicationGraphNode_TearOff_ForConnection
-// 0x0030 (0x00D0 - 0x00A0)
-class UReplicationGraphNode_TearOff_ForConnection : public UReplicationGraphNode
-{
-public:
-	TArray<struct FTearOffActorInfo>                   TearOffActors;                                            // 0x00A0(0x0010) (ZeroConstructor)
-	unsigned char                                      UnknownData00[0x20];                                      // 0x00B0(0x0020) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class ReplicationGraph.ReplicationGraphNode_TearOff_ForConnection");
-		return ptr;
-	}
-
 };
 
 

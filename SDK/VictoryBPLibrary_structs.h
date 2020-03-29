@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,25 +11,6 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Enums
 //---------------------------------------------------------------------------
-
-// Enum VictoryBPLibrary.ESpeedUnit
-enum class ESpeedUnit : uint8_t
-{
-	CentimeterPerSecond            = 0,
-	FootPerSecond                  = 1,
-	MeterPerSecond                 = 2,
-	MeterPerMinute                 = 3,
-	KilometerPerSecond             = 4,
-	KilometerPerMinute             = 5,
-	KilometerPerHour               = 6,
-	MilePerHour                    = 7,
-	Knot                           = 8,
-	Mach                           = 9,
-	SpeedOfLight                   = 10,
-	YardPerSecond                  = 11,
-	ESpeedUnit_MAX                 = 12
-};
-
 
 // Enum VictoryBPLibrary.EJoyGraphicsFullScreen
 enum class EJoyGraphicsFullScreen : uint8_t
@@ -64,6 +45,25 @@ enum class EJoyImageFormats : uint8_t
 	EJoyImageFormats__EXR          = 4,
 	EJoyImageFormats__ICNS         = 5,
 	EJoyImageFormats__EJoyImageFormats_MAX = 6
+};
+
+
+// Enum VictoryBPLibrary.ESpeedUnit
+enum class ESpeedUnit : uint8_t
+{
+	CentimeterPerSecond            = 0,
+	FootPerSecond                  = 1,
+	MeterPerSecond                 = 2,
+	MeterPerMinute                 = 3,
+	KilometerPerSecond             = 4,
+	KilometerPerMinute             = 5,
+	KilometerPerHour               = 6,
+	MilePerHour                    = 7,
+	Knot                           = 8,
+	Mach                           = 9,
+	SpeedOfLight                   = 10,
+	YardPerSecond                  = 11,
+	ESpeedUnit_MAX                 = 12
 };
 
 

@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -203,13 +203,12 @@ enum class EScrollDirection : uint8_t
 };
 
 
-// Enum SlateCore.EFontLoadingPolicy
-enum class EFontLoadingPolicy : uint8_t
+// Enum SlateCore.EOrientation
+enum class EOrientation : uint8_t
 {
-	EFontLoadingPolicy__LazyLoad   = 0,
-	EFontLoadingPolicy__Stream     = 1,
-	EFontLoadingPolicy__Inline     = 2,
-	EFontLoadingPolicy__EFontLoadingPolicy_MAX = 3
+	Orient_Horizontal              = 0,
+	Orient_Vertical                = 1,
+	Orient_MAX                     = 2
 };
 
 
@@ -284,12 +283,12 @@ enum class EButtonPressMethod : uint8_t
 };
 
 
-// Enum SlateCore.EOrientation
-enum class EOrientation : uint8_t
+// Enum SlateCore.EButtonTouchMethod
+enum class EButtonTouchMethod : uint8_t
 {
-	Orient_Horizontal              = 0,
-	Orient_Vertical                = 1,
-	Orient_MAX                     = 2
+	EButtonTouchMethod__DownAndUp  = 0,
+	EButtonTouchMethod__PreciseTap = 1,
+	EButtonTouchMethod__EButtonTouchMethod_MAX = 2
 };
 
 
@@ -314,6 +313,15 @@ enum class EFontFallback : uint8_t
 };
 
 
+// Enum SlateCore.ESlateCheckBoxType
+enum class ESlateCheckBoxType : uint8_t
+{
+	ESlateCheckBoxType__CheckBox   = 0,
+	ESlateCheckBoxType__ToggleButton = 1,
+	ESlateCheckBoxType__ESlateCheckBoxType_MAX = 2
+};
+
+
 // Enum SlateCore.ESlateParentWindowSearchMethod
 enum class ESlateParentWindowSearchMethod : uint8_t
 {
@@ -333,21 +341,13 @@ enum class EConsumeMouseWheel : uint8_t
 };
 
 
-// Enum SlateCore.EButtonTouchMethod
-enum class EButtonTouchMethod : uint8_t
+// Enum SlateCore.EFontLoadingPolicy
+enum class EFontLoadingPolicy : uint8_t
 {
-	EButtonTouchMethod__DownAndUp  = 0,
-	EButtonTouchMethod__PreciseTap = 1,
-	EButtonTouchMethod__EButtonTouchMethod_MAX = 2
-};
-
-
-// Enum SlateCore.ESlateCheckBoxType
-enum class ESlateCheckBoxType : uint8_t
-{
-	ESlateCheckBoxType__CheckBox   = 0,
-	ESlateCheckBoxType__ToggleButton = 1,
-	ESlateCheckBoxType__ESlateCheckBoxType_MAX = 2
+	EFontLoadingPolicy__LazyLoad   = 0,
+	EFontLoadingPolicy__Stream     = 1,
+	EFontLoadingPolicy__Inline     = 2,
+	EFontLoadingPolicy__EFontLoadingPolicy_MAX = 3
 };
 
 
@@ -675,13 +675,6 @@ struct FCompositeFont
 	TArray<struct FCompositeSubFont>                   SubTypefaces;                                             // 0x0028(0x0010) (ZeroConstructor)
 };
 
-// ScriptStruct SlateCore.CaptureLostEvent
-// 0x0008
-struct FCaptureLostEvent
-{
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0000(0x0008) MISSED OFFSET
-};
-
 // ScriptStruct SlateCore.WindowStyle
 // 0x0FC8 (0x0FD0 - 0x0008)
 struct FWindowStyle : public FSlateWidgetStyle
@@ -700,14 +693,6 @@ struct FWindowStyle : public FSlateWidgetStyle
 	struct FSlateBrush                                 BorderBrush;                                              // 0x0E38(0x0088) (Edit, BlueprintVisible)
 	struct FSlateBrush                                 BackgroundBrush;                                          // 0x0EC0(0x0088) (Edit, BlueprintVisible)
 	struct FSlateBrush                                 ChildBackgroundBrush;                                     // 0x0F48(0x0088) (Edit, BlueprintVisible)
-};
-
-// ScriptStruct SlateCore.ScrollBorderStyle
-// 0x0110 (0x0118 - 0x0008)
-struct FScrollBorderStyle : public FSlateWidgetStyle
-{
-	struct FSlateBrush                                 TopShadowBrush;                                           // 0x0008(0x0088) (Edit, BlueprintVisible)
-	struct FSlateBrush                                 BottomShadowBrush;                                        // 0x0090(0x0088) (Edit, BlueprintVisible)
 };
 
 // ScriptStruct SlateCore.ScrollBoxStyle
@@ -821,6 +806,14 @@ struct FSearchBoxStyle : public FSlateWidgetStyle
 	unsigned char                                      UnknownData00[0x7];                                       // 0x0A79(0x0007) MISSED OFFSET
 };
 
+// ScriptStruct SlateCore.ScrollBorderStyle
+// 0x0110 (0x0118 - 0x0008)
+struct FScrollBorderStyle : public FSlateWidgetStyle
+{
+	struct FSlateBrush                                 TopShadowBrush;                                           // 0x0008(0x0088) (Edit, BlueprintVisible)
+	struct FSlateBrush                                 BottomShadowBrush;                                        // 0x0090(0x0088) (Edit, BlueprintVisible)
+};
+
 // ScriptStruct SlateCore.ExpandableAreaStyle
 // 0x0118 (0x0120 - 0x0008)
 struct FExpandableAreaStyle : public FSlateWidgetStyle
@@ -831,21 +824,19 @@ struct FExpandableAreaStyle : public FSlateWidgetStyle
 	unsigned char                                      UnknownData00[0x4];                                       // 0x011C(0x0004) MISSED OFFSET
 };
 
-// ScriptStruct SlateCore.ProgressBarStyle
-// 0x0198 (0x01A0 - 0x0008)
-struct FProgressBarStyle : public FSlateWidgetStyle
-{
-	struct FSlateBrush                                 BackgroundImage;                                          // 0x0008(0x0088) (Edit, BlueprintVisible)
-	struct FSlateBrush                                 FillImage;                                                // 0x0090(0x0088) (Edit, BlueprintVisible)
-	struct FSlateBrush                                 MarqueeImage;                                             // 0x0118(0x0088) (Edit, BlueprintVisible)
-};
-
 // ScriptStruct SlateCore.InlineEditableTextBlockStyle
 // 0x09D0 (0x09D8 - 0x0008)
 struct FInlineEditableTextBlockStyle : public FSlateWidgetStyle
 {
 	struct FEditableTextBoxStyle                       EditableTextBoxStyle;                                     // 0x0008(0x07F0) (Edit, BlueprintVisible)
 	struct FTextBlockStyle                             TextStyle;                                                // 0x07F8(0x01E0) (Edit, BlueprintVisible)
+};
+
+// ScriptStruct SlateCore.CaptureLostEvent
+// 0x0008
+struct FCaptureLostEvent
+{
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0000(0x0008) MISSED OFFSET
 };
 
 // ScriptStruct SlateCore.HyperlinkStyle
@@ -878,6 +869,15 @@ struct FCheckBoxStyle : public FSlateWidgetStyle
 	struct FSlateSound                                 CheckedSlateSound;                                        // 0x0538(0x0018) (Edit, BlueprintVisible)
 	struct FSlateSound                                 UncheckedSlateSound;                                      // 0x0550(0x0018) (Edit, BlueprintVisible)
 	struct FSlateSound                                 HoveredSlateSound;                                        // 0x0568(0x0018) (Edit, BlueprintVisible)
+};
+
+// ScriptStruct SlateCore.ProgressBarStyle
+// 0x0198 (0x01A0 - 0x0008)
+struct FProgressBarStyle : public FSlateWidgetStyle
+{
+	struct FSlateBrush                                 BackgroundImage;                                          // 0x0008(0x0088) (Edit, BlueprintVisible)
+	struct FSlateBrush                                 FillImage;                                                // 0x0090(0x0088) (Edit, BlueprintVisible)
+	struct FSlateBrush                                 MarqueeImage;                                             // 0x0118(0x0088) (Edit, BlueprintVisible)
 };
 
 }

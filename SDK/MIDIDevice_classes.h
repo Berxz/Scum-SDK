@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,24 +11,6 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Classes
 //---------------------------------------------------------------------------
-
-// Class MIDIDevice.MIDIDeviceManager
-// 0x0000 (0x0028 - 0x0028)
-class UMIDIDeviceManager : public UBlueprintFunctionLibrary
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class MIDIDevice.MIDIDeviceManager");
-		return ptr;
-	}
-
-
-	void STATIC_FindMIDIDevices(TArray<struct FFoundMIDIDevice>* OutMIDIDevices);
-	class UMIDIDeviceController* STATIC_CreateMIDIDeviceController(int DeviceID, int MIDIBufferSize);
-};
-
 
 // Class MIDIDevice.MIDIDeviceController
 // 0x0038 (0x0060 - 0x0028)
@@ -47,6 +29,24 @@ public:
 		return ptr;
 	}
 
+};
+
+
+// Class MIDIDevice.MIDIDeviceManager
+// 0x0000 (0x0028 - 0x0028)
+class UMIDIDeviceManager : public UBlueprintFunctionLibrary
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class MIDIDevice.MIDIDeviceManager");
+		return ptr;
+	}
+
+
+	void STATIC_FindMIDIDevices(TArray<struct FFoundMIDIDevice>* OutMIDIDevices);
+	class UMIDIDeviceController* STATIC_CreateMIDIDeviceController(int DeviceID, int MIDIBufferSize);
 };
 
 

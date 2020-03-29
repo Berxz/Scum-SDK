@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -1440,6 +1440,12 @@ struct UCheckBox_GetCheckedState_Params
 	ECheckBoxState                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
+// Function UMG.CheckedStateBinding.GetValue
+struct UCheckedStateBinding_GetValue_Params
+{
+	ECheckBoxState                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
 // Function UMG.CircularThrobber.SetRadius
 struct UCircularThrobber_SetRadius_Params
 {
@@ -1558,42 +1564,6 @@ struct UDragDropOperation_Dragged_Params
 struct UDragDropOperation_DragCancelled_Params
 {
 	struct FPointerEvent                               PointerEvent;                                             // (ConstParm, Parm, OutParm, ReferenceParm)
-};
-
-// Function UMG.DynamicEntryBox.SetEntrySpacing
-struct UDynamicEntryBox_SetEntrySpacing_Params
-{
-	struct FVector2D                                   InEntrySpacing;                                           // (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
-};
-
-// Function UMG.DynamicEntryBox.Reset
-struct UDynamicEntryBox_Reset_Params
-{
-	bool                                               bDeleteWidgets;                                           // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function UMG.DynamicEntryBox.RemoveEntry
-struct UDynamicEntryBox_RemoveEntry_Params
-{
-	class UUserWidget*                                 EntryWidget;                                              // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-};
-
-// Function UMG.DynamicEntryBox.GetNumEntries
-struct UDynamicEntryBox_GetNumEntries_Params
-{
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function UMG.DynamicEntryBox.GetAllEntries
-struct UDynamicEntryBox_GetAllEntries_Params
-{
-	TArray<class UUserWidget*>                         ReturnValue;                                              // (ConstParm, ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm)
-};
-
-// Function UMG.DynamicEntryBox.BP_CreateEntry
-struct UDynamicEntryBox_BP_CreateEntry_Params
-{
-	class UUserWidget*                                 ReturnValue;                                              // (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
 };
 
 // Function UMG.EditableText.SetText
@@ -1892,16 +1862,105 @@ struct UImage_GetDynamicMaterial_Params
 	class UMaterialInstanceDynamic*                    ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function UMG.Int32Binding.GetValue
-struct UInt32Binding_GetValue_Params
+// Function UMG.InputKeySelector.SetTextBlockVisibility
+struct UInputKeySelector_SetTextBlockVisibility_Params
+{
+	ESlateVisibility                                   InVisibility;                                             // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function UMG.InputKeySelector.SetSelectedKey
+struct UInputKeySelector_SetSelectedKey_Params
+{
+	struct FInputChord                                 InSelectedKey;                                            // (ConstParm, Parm, OutParm, ReferenceParm)
+};
+
+// Function UMG.InputKeySelector.SetNoKeySpecifiedText
+struct UInputKeySelector_SetNoKeySpecifiedText_Params
+{
+	struct FText                                       InNoKeySpecifiedText;                                     // (Parm)
+};
+
+// Function UMG.InputKeySelector.SetKeySelectionText
+struct UInputKeySelector_SetKeySelectionText_Params
+{
+	struct FText                                       InKeySelectionText;                                       // (Parm)
+};
+
+// Function UMG.InputKeySelector.SetEscapeKeys
+struct UInputKeySelector_SetEscapeKeys_Params
+{
+	TArray<struct FKey>                                InKeys;                                                   // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
+};
+
+// Function UMG.InputKeySelector.SetAllowModifierKeys
+struct UInputKeySelector_SetAllowModifierKeys_Params
+{
+	bool                                               bInAllowModifierKeys;                                     // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function UMG.InputKeySelector.SetAllowGamepadKeys
+struct UInputKeySelector_SetAllowGamepadKeys_Params
+{
+	bool                                               bInAllowGamepadKeys;                                      // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// DelegateFunction UMG.InputKeySelector.OnKeySelected__DelegateSignature
+struct UInputKeySelector_OnKeySelected__DelegateSignature_Params
+{
+	struct FInputChord                                 SelectedKey;                                              // (Parm)
+};
+
+// DelegateFunction UMG.InputKeySelector.OnIsSelectingKeyChanged__DelegateSignature
+struct UInputKeySelector_OnIsSelectingKeyChanged__DelegateSignature_Params
+{
+};
+
+// Function UMG.InputKeySelector.GetIsSelectingKey
+struct UInputKeySelector_GetIsSelectingKey_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function UMG.DynamicEntryBox.SetEntrySpacing
+struct UDynamicEntryBox_SetEntrySpacing_Params
+{
+	struct FVector2D                                   InEntrySpacing;                                           // (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
+};
+
+// Function UMG.DynamicEntryBox.Reset
+struct UDynamicEntryBox_Reset_Params
+{
+	bool                                               bDeleteWidgets;                                           // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function UMG.DynamicEntryBox.RemoveEntry
+struct UDynamicEntryBox_RemoveEntry_Params
+{
+	class UUserWidget*                                 EntryWidget;                                              // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+};
+
+// Function UMG.DynamicEntryBox.GetNumEntries
+struct UDynamicEntryBox_GetNumEntries_Params
 {
 	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function UMG.CheckedStateBinding.GetValue
-struct UCheckedStateBinding_GetValue_Params
+// Function UMG.DynamicEntryBox.GetAllEntries
+struct UDynamicEntryBox_GetAllEntries_Params
 {
-	ECheckBoxState                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+	TArray<class UUserWidget*>                         ReturnValue;                                              // (ConstParm, ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm)
+};
+
+// Function UMG.DynamicEntryBox.BP_CreateEntry
+struct UDynamicEntryBox_BP_CreateEntry_Params
+{
+	class UUserWidget*                                 ReturnValue;                                              // (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
+};
+
+// Function UMG.Int32Binding.GetValue
+struct UInt32Binding_GetValue_Params
+{
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function UMG.NativeUserListEntry.IsListItemSelected
@@ -2100,61 +2159,19 @@ struct UListView_AddItem_Params
 	class UObject*                                     Item;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function UMG.InputKeySelector.SetTextBlockVisibility
-struct UInputKeySelector_SetTextBlockVisibility_Params
+// Function UMG.InvalidationBox.SetCanCache
+struct UInvalidationBox_SetCanCache_Params
 {
-	ESlateVisibility                                   InVisibility;                                             // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               CanCache;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function UMG.InputKeySelector.SetSelectedKey
-struct UInputKeySelector_SetSelectedKey_Params
-{
-	struct FInputChord                                 InSelectedKey;                                            // (ConstParm, Parm, OutParm, ReferenceParm)
-};
-
-// Function UMG.InputKeySelector.SetNoKeySpecifiedText
-struct UInputKeySelector_SetNoKeySpecifiedText_Params
-{
-	struct FText                                       InNoKeySpecifiedText;                                     // (Parm)
-};
-
-// Function UMG.InputKeySelector.SetKeySelectionText
-struct UInputKeySelector_SetKeySelectionText_Params
-{
-	struct FText                                       InKeySelectionText;                                       // (Parm)
-};
-
-// Function UMG.InputKeySelector.SetEscapeKeys
-struct UInputKeySelector_SetEscapeKeys_Params
-{
-	TArray<struct FKey>                                InKeys;                                                   // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
-};
-
-// Function UMG.InputKeySelector.SetAllowModifierKeys
-struct UInputKeySelector_SetAllowModifierKeys_Params
-{
-	bool                                               bInAllowModifierKeys;                                     // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function UMG.InputKeySelector.SetAllowGamepadKeys
-struct UInputKeySelector_SetAllowGamepadKeys_Params
-{
-	bool                                               bInAllowGamepadKeys;                                      // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// DelegateFunction UMG.InputKeySelector.OnKeySelected__DelegateSignature
-struct UInputKeySelector_OnKeySelected__DelegateSignature_Params
-{
-	struct FInputChord                                 SelectedKey;                                              // (Parm)
-};
-
-// DelegateFunction UMG.InputKeySelector.OnIsSelectingKeyChanged__DelegateSignature
-struct UInputKeySelector_OnIsSelectingKeyChanged__DelegateSignature_Params
+// Function UMG.InvalidationBox.InvalidateCache
+struct UInvalidationBox_InvalidateCache_Params
 {
 };
 
-// Function UMG.InputKeySelector.GetIsSelectingKey
-struct UInputKeySelector_GetIsSelectingKey_Params
+// Function UMG.InvalidationBox.GetCanCache
+struct UInvalidationBox_GetCanCache_Params
 {
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
@@ -2204,23 +2221,6 @@ struct UMenuAnchor_Close_Params
 struct UMouseCursorBinding_GetValue_Params
 {
 	TEnumAsByte<EMouseCursor>                          ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function UMG.InvalidationBox.SetCanCache
-struct UInvalidationBox_SetCanCache_Params
-{
-	bool                                               CanCache;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function UMG.InvalidationBox.InvalidateCache
-struct UInvalidationBox_InvalidateCache_Params
-{
-};
-
-// Function UMG.InvalidationBox.GetCanCache
-struct UInvalidationBox_GetCanCache_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function UMG.MultiLineEditableText.SetText
@@ -2298,24 +2298,6 @@ struct UOverlay_AddChildToOverlay_Params
 	class UOverlaySlot*                                ReturnValue;                                              // (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
 };
 
-// Function UMG.OverlaySlot.SetVerticalAlignment
-struct UOverlaySlot_SetVerticalAlignment_Params
-{
-	TEnumAsByte<EVerticalAlignment>                    InVerticalAlignment;                                      // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function UMG.OverlaySlot.SetPadding
-struct UOverlaySlot_SetPadding_Params
-{
-	struct FMargin                                     InPadding;                                                // (Parm, IsPlainOldData)
-};
-
-// Function UMG.OverlaySlot.SetHorizontalAlignment
-struct UOverlaySlot_SetHorizontalAlignment_Params
-{
-	TEnumAsByte<EHorizontalAlignment>                  InHorizontalAlignment;                                    // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
 // Function UMG.ProgressBar.SetPercent
 struct UProgressBar_SetPercent_Params
 {
@@ -2332,6 +2314,36 @@ struct UProgressBar_SetIsMarquee_Params
 struct UProgressBar_SetFillColorAndOpacity_Params
 {
 	struct FLinearColor                                InColor;                                                  // (Parm, IsPlainOldData)
+};
+
+// Function UMG.RetainerBox.SetTextureParameter
+struct URetainerBox_SetTextureParameter_Params
+{
+	struct FName                                       TextureParameter;                                         // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function UMG.RetainerBox.SetRenderingPhase
+struct URetainerBox_SetRenderingPhase_Params
+{
+	int                                                RenderPhase;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                TotalPhases;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function UMG.RetainerBox.SetEffectMaterial
+struct URetainerBox_SetEffectMaterial_Params
+{
+	class UMaterialInterface*                          EffectMaterial;                                           // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function UMG.RetainerBox.RequestRender
+struct URetainerBox_RequestRender_Params
+{
+};
+
+// Function UMG.RetainerBox.GetEffectMaterial
+struct URetainerBox_GetEffectMaterial_Params
+{
+	class UMaterialInstanceDynamic*                    ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function UMG.SafeZone.SetSidesToPad
@@ -2831,30 +2843,6 @@ struct UTextBinding_GetStringValue_Params
 	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
 };
 
-// Function UMG.Throbber.SetNumberOfPieces
-struct UThrobber_SetNumberOfPieces_Params
-{
-	int                                                InNumberOfPieces;                                         // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function UMG.Throbber.SetAnimateVertically
-struct UThrobber_SetAnimateVertically_Params
-{
-	bool                                               bInAnimateVertically;                                     // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function UMG.Throbber.SetAnimateOpacity
-struct UThrobber_SetAnimateOpacity_Params
-{
-	bool                                               bInAnimateOpacity;                                        // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function UMG.Throbber.SetAnimateHorizontally
-struct UThrobber_SetAnimateHorizontally_Params
-{
-	bool                                               bInAnimateHorizontally;                                   // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
 // Function UMG.TileView.SetEntryWidth
 struct UTileView_SetEntryWidth_Params
 {
@@ -2865,6 +2853,23 @@ struct UTileView_SetEntryWidth_Params
 struct UTileView_SetEntryHeight_Params
 {
 	float                                              NewHeight;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function UMG.TreeView.SetItemExpansion
+struct UTreeView_SetItemExpansion_Params
+{
+	class UObject*                                     Item;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bExpandItem;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function UMG.TreeView.ExpandAll
+struct UTreeView_ExpandAll_Params
+{
+};
+
+// Function UMG.TreeView.CollapseAll
+struct UTreeView_CollapseAll_Params
+{
 };
 
 // Function UMG.UniformGridPanel.SetSlotPadding
@@ -2947,6 +2952,30 @@ struct UVerticalBoxSlot_SetHorizontalAlignment_Params
 	TEnumAsByte<EHorizontalAlignment>                  InHorizontalAlignment;                                    // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
+// Function UMG.Throbber.SetNumberOfPieces
+struct UThrobber_SetNumberOfPieces_Params
+{
+	int                                                InNumberOfPieces;                                         // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function UMG.Throbber.SetAnimateVertically
+struct UThrobber_SetAnimateVertically_Params
+{
+	bool                                               bInAnimateVertically;                                     // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function UMG.Throbber.SetAnimateOpacity
+struct UThrobber_SetAnimateOpacity_Params
+{
+	bool                                               bInAnimateOpacity;                                        // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function UMG.Throbber.SetAnimateHorizontally
+struct UThrobber_SetAnimateHorizontally_Params
+{
+	bool                                               bInAnimateHorizontally;                                   // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
 // Function UMG.Viewport.Spawn
 struct UViewport_Spawn_Params
 {
@@ -2982,12 +3011,6 @@ struct UViewport_GetViewportWorld_Params
 struct UViewport_GetViewLocation_Params
 {
 	struct FVector                                     ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
-};
-
-// Function UMG.VisibilityBinding.GetValue
-struct UVisibilityBinding_GetValue_Params
-{
-	ESlateVisibility                                   ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function UMG.WidgetAnimation.GetStartTime
@@ -3427,75 +3450,10 @@ struct UWidgetBlueprintLibrary_CancelDragDrop_Params
 {
 };
 
-// Function UMG.WidgetComponent.SetWidget
-struct UWidgetComponent_SetWidget_Params
+// Function UMG.VisibilityBinding.GetValue
+struct UVisibilityBinding_GetValue_Params
 {
-	class UUserWidget*                                 Widget;                                                   // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-};
-
-// Function UMG.WidgetComponent.SetTintColorAndOpacity
-struct UWidgetComponent_SetTintColorAndOpacity_Params
-{
-	struct FLinearColor                                NewTintColorAndOpacity;                                   // (ConstParm, Parm, IsPlainOldData)
-};
-
-// Function UMG.WidgetComponent.SetOwnerPlayer
-struct UWidgetComponent_SetOwnerPlayer_Params
-{
-	class ULocalPlayer*                                LocalPlayer;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function UMG.WidgetComponent.SetManuallyRedraw
-struct UWidgetComponent_SetManuallyRedraw_Params
-{
-	bool                                               bUseManualRedraw;                                         // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function UMG.WidgetComponent.SetDrawSize
-struct UWidgetComponent_SetDrawSize_Params
-{
-	struct FVector2D                                   Size;                                                     // (Parm, IsPlainOldData)
-};
-
-// Function UMG.WidgetComponent.SetBackgroundColor
-struct UWidgetComponent_SetBackgroundColor_Params
-{
-	struct FLinearColor                                NewBackgroundColor;                                       // (ConstParm, Parm, IsPlainOldData)
-};
-
-// Function UMG.WidgetComponent.RequestRedraw
-struct UWidgetComponent_RequestRedraw_Params
-{
-};
-
-// Function UMG.WidgetComponent.GetUserWidgetObject
-struct UWidgetComponent_GetUserWidgetObject_Params
-{
-	class UUserWidget*                                 ReturnValue;                                              // (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
-};
-
-// Function UMG.WidgetComponent.GetRenderTarget
-struct UWidgetComponent_GetRenderTarget_Params
-{
-	class UTextureRenderTarget2D*                      ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function UMG.WidgetComponent.GetOwnerPlayer
-struct UWidgetComponent_GetOwnerPlayer_Params
-{
-	class ULocalPlayer*                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function UMG.WidgetComponent.GetMaterialInstance
-struct UWidgetComponent_GetMaterialInstance_Params
-{
-	class UMaterialInstanceDynamic*                    ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function UMG.WidgetComponent.GetDrawSize
-struct UWidgetComponent_GetDrawSize_Params
-{
-	struct FVector2D                                   ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
+	ESlateVisibility                                   ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function UMG.WidgetInteractionComponent.SetCustomHitResult
@@ -3702,23 +3660,6 @@ struct UWidgetLayoutLibrary_GetMousePositionOnPlatform_Params
 	struct FVector2D                                   ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
 };
 
-// Function UMG.TreeView.SetItemExpansion
-struct UTreeView_SetItemExpansion_Params
-{
-	class UObject*                                     Item;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               bExpandItem;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function UMG.TreeView.ExpandAll
-struct UTreeView_ExpandAll_Params
-{
-};
-
-// Function UMG.TreeView.CollapseAll
-struct UTreeView_CollapseAll_Params
-{
-};
-
 // Function UMG.WidgetSwitcherSlot.SetVerticalAlignment
 struct UWidgetSwitcherSlot_SetVerticalAlignment_Params
 {
@@ -3786,6 +3727,77 @@ struct UWrapBox_AddChildWrapBox_Params
 	class UWrapBoxSlot*                                ReturnValue;                                              // (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
 };
 
+// Function UMG.WidgetComponent.SetWidget
+struct UWidgetComponent_SetWidget_Params
+{
+	class UUserWidget*                                 Widget;                                                   // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+};
+
+// Function UMG.WidgetComponent.SetTintColorAndOpacity
+struct UWidgetComponent_SetTintColorAndOpacity_Params
+{
+	struct FLinearColor                                NewTintColorAndOpacity;                                   // (ConstParm, Parm, IsPlainOldData)
+};
+
+// Function UMG.WidgetComponent.SetOwnerPlayer
+struct UWidgetComponent_SetOwnerPlayer_Params
+{
+	class ULocalPlayer*                                LocalPlayer;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function UMG.WidgetComponent.SetManuallyRedraw
+struct UWidgetComponent_SetManuallyRedraw_Params
+{
+	bool                                               bUseManualRedraw;                                         // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function UMG.WidgetComponent.SetDrawSize
+struct UWidgetComponent_SetDrawSize_Params
+{
+	struct FVector2D                                   Size;                                                     // (Parm, IsPlainOldData)
+};
+
+// Function UMG.WidgetComponent.SetBackgroundColor
+struct UWidgetComponent_SetBackgroundColor_Params
+{
+	struct FLinearColor                                NewBackgroundColor;                                       // (ConstParm, Parm, IsPlainOldData)
+};
+
+// Function UMG.WidgetComponent.RequestRedraw
+struct UWidgetComponent_RequestRedraw_Params
+{
+};
+
+// Function UMG.WidgetComponent.GetUserWidgetObject
+struct UWidgetComponent_GetUserWidgetObject_Params
+{
+	class UUserWidget*                                 ReturnValue;                                              // (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
+};
+
+// Function UMG.WidgetComponent.GetRenderTarget
+struct UWidgetComponent_GetRenderTarget_Params
+{
+	class UTextureRenderTarget2D*                      ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function UMG.WidgetComponent.GetOwnerPlayer
+struct UWidgetComponent_GetOwnerPlayer_Params
+{
+	class ULocalPlayer*                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function UMG.WidgetComponent.GetMaterialInstance
+struct UWidgetComponent_GetMaterialInstance_Params
+{
+	class UMaterialInstanceDynamic*                    ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function UMG.WidgetComponent.GetDrawSize
+struct UWidgetComponent_GetDrawSize_Params
+{
+	struct FVector2D                                   ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
+};
+
 // Function UMG.WrapBoxSlot.SetVerticalAlignment
 struct UWrapBoxSlot_SetVerticalAlignment_Params
 {
@@ -3816,34 +3828,22 @@ struct UWrapBoxSlot_SetFillEmptySpace_Params
 	bool                                               InbFillEmptySpace;                                        // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function UMG.RetainerBox.SetTextureParameter
-struct URetainerBox_SetTextureParameter_Params
+// Function UMG.OverlaySlot.SetVerticalAlignment
+struct UOverlaySlot_SetVerticalAlignment_Params
 {
-	struct FName                                       TextureParameter;                                         // (Parm, ZeroConstructor, IsPlainOldData)
+	TEnumAsByte<EVerticalAlignment>                    InVerticalAlignment;                                      // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function UMG.RetainerBox.SetRenderingPhase
-struct URetainerBox_SetRenderingPhase_Params
+// Function UMG.OverlaySlot.SetPadding
+struct UOverlaySlot_SetPadding_Params
 {
-	int                                                RenderPhase;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                TotalPhases;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FMargin                                     InPadding;                                                // (Parm, IsPlainOldData)
 };
 
-// Function UMG.RetainerBox.SetEffectMaterial
-struct URetainerBox_SetEffectMaterial_Params
+// Function UMG.OverlaySlot.SetHorizontalAlignment
+struct UOverlaySlot_SetHorizontalAlignment_Params
 {
-	class UMaterialInterface*                          EffectMaterial;                                           // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function UMG.RetainerBox.RequestRender
-struct URetainerBox_RequestRender_Params
-{
-};
-
-// Function UMG.RetainerBox.GetEffectMaterial
-struct URetainerBox_GetEffectMaterial_Params
-{
-	class UMaterialInstanceDynamic*                    ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+	TEnumAsByte<EHorizontalAlignment>                  InHorizontalAlignment;                                    // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 }

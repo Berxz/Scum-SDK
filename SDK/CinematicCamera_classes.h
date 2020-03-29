@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -31,27 +31,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class CinematicCamera.CameraRig_Crane");
-		return ptr;
-	}
-
-};
-
-
-// Class CinematicCamera.CameraRig_Rail
-// 0x0020 (0x0348 - 0x0328)
-class ACameraRig_Rail : public AActor
-{
-public:
-	float                                              CurrentPositionOnRail;                                    // 0x0328(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	bool                                               bLockOrientationToRail;                                   // 0x032C(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x032D(0x0003) MISSED OFFSET
-	class USceneComponent*                             TransformComponent;                                       // 0x0330(0x0008) (Edit, ExportObject, ZeroConstructor, DisableEditOnInstance, InstancedReference, IsPlainOldData)
-	class USplineComponent*                            RailSplineComponent;                                      // 0x0338(0x0008) (Edit, ExportObject, ZeroConstructor, DisableEditOnInstance, InstancedReference, IsPlainOldData)
-	class USceneComponent*                             RailCameraMount;                                          // 0x0340(0x0008) (Edit, ExportObject, ZeroConstructor, DisableEditOnInstance, InstancedReference, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class CinematicCamera.CameraRig_Rail");
 		return ptr;
 	}
 
@@ -114,6 +93,27 @@ public:
 	struct FString GetLensPresetName();
 	float GetHorizontalFieldOfView();
 	struct FString GetFilmbackPresetName();
+};
+
+
+// Class CinematicCamera.CameraRig_Rail
+// 0x0020 (0x0348 - 0x0328)
+class ACameraRig_Rail : public AActor
+{
+public:
+	float                                              CurrentPositionOnRail;                                    // 0x0328(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	bool                                               bLockOrientationToRail;                                   // 0x032C(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x032D(0x0003) MISSED OFFSET
+	class USceneComponent*                             TransformComponent;                                       // 0x0330(0x0008) (Edit, ExportObject, ZeroConstructor, DisableEditOnInstance, InstancedReference, IsPlainOldData)
+	class USplineComponent*                            RailSplineComponent;                                      // 0x0338(0x0008) (Edit, ExportObject, ZeroConstructor, DisableEditOnInstance, InstancedReference, IsPlainOldData)
+	class USceneComponent*                             RailCameraMount;                                          // 0x0340(0x0008) (Edit, ExportObject, ZeroConstructor, DisableEditOnInstance, InstancedReference, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class CinematicCamera.CameraRig_Rail");
+		return ptr;
+	}
+
 };
 
 

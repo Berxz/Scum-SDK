@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -70,6 +70,17 @@ enum class EDragPivot : uint8_t
 	EDragPivot__BottomCenter       = 8,
 	EDragPivot__BottomRight        = 9,
 	EDragPivot__EDragPivot_MAX     = 10
+};
+
+
+// Enum UMG.EDynamicBoxType
+enum class EDynamicBoxType : uint8_t
+{
+	EDynamicBoxType__Horizontal    = 0,
+	EDynamicBoxType__Vertical      = 1,
+	EDynamicBoxType__Wrap          = 2,
+	EDynamicBoxType__Overlay       = 3,
+	EDynamicBoxType__EDynamicBoxType_MAX = 4
 };
 
 
@@ -147,17 +158,6 @@ enum class EWidgetInteractionSource : uint8_t
 	EWidgetInteractionSource__CenterScreen = 2,
 	EWidgetInteractionSource__Custom = 3,
 	EWidgetInteractionSource__EWidgetInteractionSource_MAX = 4
-};
-
-
-// Enum UMG.EDynamicBoxType
-enum class EDynamicBoxType : uint8_t
-{
-	EDynamicBoxType__Horizontal    = 0,
-	EDynamicBoxType__Vertical      = 1,
-	EDynamicBoxType__Wrap          = 2,
-	EDynamicBoxType__Overlay       = 3,
-	EDynamicBoxType__EDynamicBoxType_MAX = 4
 };
 
 
@@ -288,18 +288,6 @@ struct FWidgetNavigationData
 	struct FScriptDelegate                             CustomDelegate;                                           // 0x0018(0x0014) (ZeroConstructor, InstancedReference)
 };
 
-// ScriptStruct UMG.MovieSceneMarginSectionTemplate
-// 0x0288 (0x02D0 - 0x0048)
-struct FMovieSceneMarginSectionTemplate : public FMovieScenePropertySectionTemplate
-{
-	struct FMovieSceneFloatChannel                     TopCurve;                                                 // 0x0048(0x00A0)
-	struct FMovieSceneFloatChannel                     LeftCurve;                                                // 0x00E8(0x00A0)
-	struct FMovieSceneFloatChannel                     RightCurve;                                               // 0x0188(0x00A0)
-	struct FMovieSceneFloatChannel                     BottomCurve;                                              // 0x0228(0x00A0)
-	EMovieSceneBlendType                               BlendType;                                                // 0x02C8(0x0001) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x02C9(0x0007) MISSED OFFSET
-};
-
 // ScriptStruct UMG.MovieScene2DTransformSectionTemplate
 // 0x0468 (0x04B0 - 0x0048)
 struct FMovieScene2DTransformSectionTemplate : public FMovieScenePropertySectionTemplate
@@ -311,6 +299,18 @@ struct FMovieScene2DTransformSectionTemplate : public FMovieScenePropertySection
 	EMovieSceneBlendType                               BlendType;                                                // 0x04A8(0x0001) (ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x04A9(0x0003) MISSED OFFSET
 	struct FMovieScene2DTransformMask                  Mask;                                                     // 0x04AC(0x0004)
+};
+
+// ScriptStruct UMG.MovieSceneMarginSectionTemplate
+// 0x0288 (0x02D0 - 0x0048)
+struct FMovieSceneMarginSectionTemplate : public FMovieScenePropertySectionTemplate
+{
+	struct FMovieSceneFloatChannel                     TopCurve;                                                 // 0x0048(0x00A0)
+	struct FMovieSceneFloatChannel                     LeftCurve;                                                // 0x00E8(0x00A0)
+	struct FMovieSceneFloatChannel                     RightCurve;                                               // 0x0188(0x00A0)
+	struct FMovieSceneFloatChannel                     BottomCurve;                                              // 0x0228(0x00A0)
+	EMovieSceneBlendType                               BlendType;                                                // 0x02C8(0x0001) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x02C9(0x0007) MISSED OFFSET
 };
 
 // ScriptStruct UMG.MovieSceneWidgetMaterialSectionTemplate

@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -47,6 +47,26 @@ public:
 };
 
 
+// Class MediaAssets.FileMediaSource
+// 0x0018 (0x0050 - 0x0038)
+class UFileMediaSource : public UBaseMediaSource
+{
+public:
+	struct FString                                     FilePath;                                                 // 0x0038(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
+	bool                                               PrecacheFile;                                             // 0x0048(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0049(0x0007) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class MediaAssets.FileMediaSource");
+		return ptr;
+	}
+
+
+	void SetFilePath(const struct FString& Path);
+};
+
+
 // Class MediaAssets.MediaBlueprintFunctionLibrary
 // 0x0000 (0x0028 - 0x0028)
 class UMediaBlueprintFunctionLibrary : public UBlueprintFunctionLibrary
@@ -63,6 +83,115 @@ public:
 	void STATIC_EnumerateWebcamCaptureDevices(int Filter, TArray<struct FMediaCaptureDevice>* OutDevices);
 	void STATIC_EnumerateVideoCaptureDevices(int Filter, TArray<struct FMediaCaptureDevice>* OutDevices);
 	void STATIC_EnumerateAudioCaptureDevices(int Filter, TArray<struct FMediaCaptureDevice>* OutDevices);
+};
+
+
+// Class MediaAssets.MediaPlayer
+// 0x0110 (0x0138 - 0x0028)
+class UMediaPlayer : public UObject
+{
+public:
+	struct FScriptMulticastDelegate                    OnEndReached;                                             // 0x0028(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+	struct FScriptMulticastDelegate                    OnMediaClosed;                                            // 0x0038(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+	struct FScriptMulticastDelegate                    OnMediaOpened;                                            // 0x0048(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+	struct FScriptMulticastDelegate                    OnMediaOpenFailed;                                        // 0x0058(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+	struct FScriptMulticastDelegate                    OnPlaybackResumed;                                        // 0x0068(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+	struct FScriptMulticastDelegate                    OnPlaybackSuspended;                                      // 0x0078(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+	struct FScriptMulticastDelegate                    OnSeekCompleted;                                          // 0x0088(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+	struct FScriptMulticastDelegate                    OnTracksChanged;                                          // 0x0098(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+	struct FTimespan                                   CacheAhead;                                               // 0x00A8(0x0008) (BlueprintVisible)
+	struct FTimespan                                   CacheBehind;                                              // 0x00B0(0x0008) (BlueprintVisible)
+	struct FTimespan                                   CacheBehindGame;                                          // 0x00B8(0x0008) (BlueprintVisible)
+	bool                                               NativeAudioOut;                                           // 0x00C0(0x0001) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	bool                                               PlayOnOpen;                                               // 0x00C1(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x2];                                       // 0x00C2(0x0002) MISSED OFFSET
+	unsigned char                                      Shuffle : 1;                                              // 0x00C4(0x0001) (Edit, BlueprintVisible)
+	unsigned char                                      Loop : 1;                                                 // 0x00C4(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly)
+	unsigned char                                      UnknownData01[0x3];                                       // 0x00C5(0x0003) MISSED OFFSET
+	class UMediaPlaylist*                              Playlist;                                                 // 0x00C8(0x0008) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData)
+	int                                                PlaylistIndex;                                            // 0x00D0(0x0004) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData02[0x4];                                       // 0x00D4(0x0004) MISSED OFFSET
+	struct FTimespan                                   TimeDelay;                                                // 0x00D8(0x0008) (BlueprintVisible, BlueprintReadOnly)
+	float                                              HorizontalFieldOfView;                                    // 0x00E0(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              VerticalFieldOfView;                                      // 0x00E4(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	struct FRotator                                    ViewRotation;                                             // 0x00E8(0x000C) (Edit, IsPlainOldData)
+	unsigned char                                      UnknownData03[0x2C];                                      // 0x00F4(0x002C) MISSED OFFSET
+	struct FGuid                                       PlayerGuid;                                               // 0x0120(0x0010) (IsPlainOldData)
+	unsigned char                                      UnknownData04[0x8];                                       // 0x0130(0x0008) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class MediaAssets.MediaPlayer");
+		return ptr;
+	}
+
+
+	bool SupportsSeeking();
+	bool SupportsScrubbing();
+	bool SupportsRate(float Rate, bool Unthinned);
+	bool SetViewRotation(const struct FRotator& Rotation, bool Absolute);
+	bool SetViewField(float Horizontal, float Vertical, bool Absolute);
+	bool SetVideoTrackFrameRate(int TrackIndex, int FormatIndex, float FrameRate);
+	bool SetTrackFormat(EMediaPlayerTrack TrackType, int TrackIndex, int FormatIndex);
+	void SetTimeDelay(const struct FTimespan& TimeDelay);
+	bool SetRate(float Rate);
+	bool SetNativeVolume(float Volume);
+	bool SetLooping(bool Looping);
+	void SetDesiredPlayerName(const struct FName& PlayerName);
+	void SetBlockOnTime(const struct FTimespan& Time);
+	bool SelectTrack(EMediaPlayerTrack TrackType, int TrackIndex);
+	bool Seek(const struct FTimespan& Time);
+	bool Rewind();
+	bool Reopen();
+	bool Previous();
+	bool Play();
+	bool Pause();
+	bool OpenUrl(const struct FString& URL);
+	bool OpenSource(class UMediaSource* MediaSource);
+	bool OpenPlaylistIndex(class UMediaPlaylist* InPlaylist, int Index);
+	bool OpenPlaylist(class UMediaPlaylist* InPlaylist);
+	bool OpenFile(const struct FString& FilePath);
+	bool Next();
+	bool IsReady();
+	bool IsPreparing();
+	bool IsPlaying();
+	bool IsPaused();
+	bool IsLooping();
+	bool IsConnecting();
+	bool IsBuffering();
+	bool HasError();
+	struct FRotator GetViewRotation();
+	struct FString GetVideoTrackType(int TrackIndex, int FormatIndex);
+	struct FFloatRange GetVideoTrackFrameRates(int TrackIndex, int FormatIndex);
+	float GetVideoTrackFrameRate(int TrackIndex, int FormatIndex);
+	struct FIntPoint GetVideoTrackDimensions(int TrackIndex, int FormatIndex);
+	float GetVideoTrackAspectRatio(int TrackIndex, int FormatIndex);
+	float GetVerticalFieldOfView();
+	struct FString GetUrl();
+	struct FString GetTrackLanguage(EMediaPlayerTrack TrackType, int TrackIndex);
+	int GetTrackFormat(EMediaPlayerTrack TrackType, int TrackIndex);
+	struct FText GetTrackDisplayName(EMediaPlayerTrack TrackType, int TrackIndex);
+	struct FTimespan GetTimeDelay();
+	struct FTimespan GetTime();
+	void GetSupportedRates(bool Unthinned, TArray<struct FFloatRange>* OutRates);
+	int GetSelectedTrack(EMediaPlayerTrack TrackType);
+	float GetRate();
+	int GetPlaylistIndex();
+	class UMediaPlaylist* GetPlaylist();
+	struct FName GetPlayerName();
+	int GetNumTracks(EMediaPlayerTrack TrackType);
+	int GetNumTrackFormats(EMediaPlayerTrack TrackType, int TrackIndex);
+	struct FText GetMediaName();
+	float GetHorizontalFieldOfView();
+	struct FTimespan GetDuration();
+	struct FName GetDesiredPlayerName();
+	struct FString GetAudioTrackType(int TrackIndex, int FormatIndex);
+	int GetAudioTrackSampleRate(int TrackIndex, int FormatIndex);
+	int GetAudioTrackChannels(int TrackIndex, int FormatIndex);
+	void Close();
+	bool CanPlayUrl(const struct FString& URL);
+	bool CanPlaySource(class UMediaSource* MediaSource);
+	bool CanPause();
 };
 
 
@@ -198,135 +327,6 @@ public:
 		return ptr;
 	}
 
-};
-
-
-// Class MediaAssets.FileMediaSource
-// 0x0018 (0x0050 - 0x0038)
-class UFileMediaSource : public UBaseMediaSource
-{
-public:
-	struct FString                                     FilePath;                                                 // 0x0038(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
-	bool                                               PrecacheFile;                                             // 0x0048(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0049(0x0007) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class MediaAssets.FileMediaSource");
-		return ptr;
-	}
-
-
-	void SetFilePath(const struct FString& Path);
-};
-
-
-// Class MediaAssets.MediaPlayer
-// 0x0110 (0x0138 - 0x0028)
-class UMediaPlayer : public UObject
-{
-public:
-	struct FScriptMulticastDelegate                    OnEndReached;                                             // 0x0028(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	struct FScriptMulticastDelegate                    OnMediaClosed;                                            // 0x0038(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	struct FScriptMulticastDelegate                    OnMediaOpened;                                            // 0x0048(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	struct FScriptMulticastDelegate                    OnMediaOpenFailed;                                        // 0x0058(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	struct FScriptMulticastDelegate                    OnPlaybackResumed;                                        // 0x0068(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	struct FScriptMulticastDelegate                    OnPlaybackSuspended;                                      // 0x0078(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	struct FScriptMulticastDelegate                    OnSeekCompleted;                                          // 0x0088(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	struct FScriptMulticastDelegate                    OnTracksChanged;                                          // 0x0098(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	struct FTimespan                                   CacheAhead;                                               // 0x00A8(0x0008) (BlueprintVisible)
-	struct FTimespan                                   CacheBehind;                                              // 0x00B0(0x0008) (BlueprintVisible)
-	struct FTimespan                                   CacheBehindGame;                                          // 0x00B8(0x0008) (BlueprintVisible)
-	bool                                               NativeAudioOut;                                           // 0x00C0(0x0001) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	bool                                               PlayOnOpen;                                               // 0x00C1(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x2];                                       // 0x00C2(0x0002) MISSED OFFSET
-	unsigned char                                      Shuffle : 1;                                              // 0x00C4(0x0001) (Edit, BlueprintVisible)
-	unsigned char                                      Loop : 1;                                                 // 0x00C4(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly)
-	unsigned char                                      UnknownData01[0x3];                                       // 0x00C5(0x0003) MISSED OFFSET
-	class UMediaPlaylist*                              Playlist;                                                 // 0x00C8(0x0008) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData)
-	int                                                PlaylistIndex;                                            // 0x00D0(0x0004) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData02[0x4];                                       // 0x00D4(0x0004) MISSED OFFSET
-	struct FTimespan                                   TimeDelay;                                                // 0x00D8(0x0008) (BlueprintVisible, BlueprintReadOnly)
-	float                                              HorizontalFieldOfView;                                    // 0x00E0(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              VerticalFieldOfView;                                      // 0x00E4(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	struct FRotator                                    ViewRotation;                                             // 0x00E8(0x000C) (Edit, IsPlainOldData)
-	unsigned char                                      UnknownData03[0x2C];                                      // 0x00F4(0x002C) MISSED OFFSET
-	struct FGuid                                       PlayerGuid;                                               // 0x0120(0x0010) (IsPlainOldData)
-	unsigned char                                      UnknownData04[0x8];                                       // 0x0130(0x0008) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class MediaAssets.MediaPlayer");
-		return ptr;
-	}
-
-
-	bool SupportsSeeking();
-	bool SupportsScrubbing();
-	bool SupportsRate(float Rate, bool Unthinned);
-	bool SetViewRotation(const struct FRotator& Rotation, bool Absolute);
-	bool SetViewField(float Horizontal, float Vertical, bool Absolute);
-	bool SetVideoTrackFrameRate(int TrackIndex, int FormatIndex, float FrameRate);
-	bool SetTrackFormat(EMediaPlayerTrack TrackType, int TrackIndex, int FormatIndex);
-	void SetTimeDelay(const struct FTimespan& TimeDelay);
-	bool SetRate(float Rate);
-	bool SetNativeVolume(float Volume);
-	bool SetLooping(bool Looping);
-	void SetDesiredPlayerName(const struct FName& PlayerName);
-	void SetBlockOnTime(const struct FTimespan& Time);
-	bool SelectTrack(EMediaPlayerTrack TrackType, int TrackIndex);
-	bool Seek(const struct FTimespan& Time);
-	bool Rewind();
-	bool Reopen();
-	bool Previous();
-	bool Play();
-	bool Pause();
-	bool OpenUrl(const struct FString& URL);
-	bool OpenSource(class UMediaSource* MediaSource);
-	bool OpenPlaylistIndex(class UMediaPlaylist* InPlaylist, int Index);
-	bool OpenPlaylist(class UMediaPlaylist* InPlaylist);
-	bool OpenFile(const struct FString& FilePath);
-	bool Next();
-	bool IsReady();
-	bool IsPreparing();
-	bool IsPlaying();
-	bool IsPaused();
-	bool IsLooping();
-	bool IsConnecting();
-	bool IsBuffering();
-	bool HasError();
-	struct FRotator GetViewRotation();
-	struct FString GetVideoTrackType(int TrackIndex, int FormatIndex);
-	struct FFloatRange GetVideoTrackFrameRates(int TrackIndex, int FormatIndex);
-	float GetVideoTrackFrameRate(int TrackIndex, int FormatIndex);
-	struct FIntPoint GetVideoTrackDimensions(int TrackIndex, int FormatIndex);
-	float GetVideoTrackAspectRatio(int TrackIndex, int FormatIndex);
-	float GetVerticalFieldOfView();
-	struct FString GetUrl();
-	struct FString GetTrackLanguage(EMediaPlayerTrack TrackType, int TrackIndex);
-	int GetTrackFormat(EMediaPlayerTrack TrackType, int TrackIndex);
-	struct FText GetTrackDisplayName(EMediaPlayerTrack TrackType, int TrackIndex);
-	struct FTimespan GetTimeDelay();
-	struct FTimespan GetTime();
-	void GetSupportedRates(bool Unthinned, TArray<struct FFloatRange>* OutRates);
-	int GetSelectedTrack(EMediaPlayerTrack TrackType);
-	float GetRate();
-	int GetPlaylistIndex();
-	class UMediaPlaylist* GetPlaylist();
-	struct FName GetPlayerName();
-	int GetNumTracks(EMediaPlayerTrack TrackType);
-	int GetNumTrackFormats(EMediaPlayerTrack TrackType, int TrackIndex);
-	struct FText GetMediaName();
-	float GetHorizontalFieldOfView();
-	struct FTimespan GetDuration();
-	struct FName GetDesiredPlayerName();
-	struct FString GetAudioTrackType(int TrackIndex, int FormatIndex);
-	int GetAudioTrackSampleRate(int TrackIndex, int FormatIndex);
-	int GetAudioTrackChannels(int TrackIndex, int FormatIndex);
-	void Close();
-	bool CanPlayUrl(const struct FString& URL);
-	bool CanPlaySource(class UMediaSource* MediaSource);
-	bool CanPause();
 };
 
 

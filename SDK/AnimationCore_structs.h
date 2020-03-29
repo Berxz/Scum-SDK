@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,6 +11,15 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Enums
 //---------------------------------------------------------------------------
+
+// Enum AnimationCore.EConstraintType
+enum class EConstraintType : uint8_t
+{
+	EConstraintType__Transform     = 0,
+	EConstraintType__Aim           = 1,
+	EConstraintType__MAX           = 2
+};
+
 
 // Enum AnimationCore.ETransformConstraintType
 enum class ETransformConstraintType : uint8_t
@@ -23,28 +32,10 @@ enum class ETransformConstraintType : uint8_t
 };
 
 
-// Enum AnimationCore.EConstraintType
-enum class EConstraintType : uint8_t
-{
-	EConstraintType__Transform     = 0,
-	EConstraintType__Aim           = 1,
-	EConstraintType__MAX           = 2
-};
-
-
 
 //---------------------------------------------------------------------------
 // Script Structs
 //---------------------------------------------------------------------------
-
-// ScriptStruct AnimationCore.Axis
-// 0x0010
-struct FAxis
-{
-	struct FVector                                     Axis;                                                     // 0x0000(0x000C) (Edit, IsPlainOldData)
-	bool                                               bInLocalSpace;                                            // 0x000C(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x000D(0x0003) MISSED OFFSET
-};
 
 // ScriptStruct AnimationCore.ConstraintDescriptor
 // 0x0010
@@ -82,6 +73,15 @@ struct FConstraintDescriptionEx
 	unsigned char                                      UnknownData00[0x8];                                       // 0x0000(0x0008) MISSED OFFSET
 	struct FFilterOptionPerAxis                        AxesFilterOption;                                         // 0x0008(0x0003) (Edit)
 	unsigned char                                      UnknownData01[0x5];                                       // 0x000B(0x0005) MISSED OFFSET
+};
+
+// ScriptStruct AnimationCore.Axis
+// 0x0010
+struct FAxis
+{
+	struct FVector                                     Axis;                                                     // 0x0000(0x000C) (Edit, IsPlainOldData)
+	bool                                               bInLocalSpace;                                            // 0x000C(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x000D(0x0003) MISSED OFFSET
 };
 
 // ScriptStruct AnimationCore.AimConstraintDescription

@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,12 +13,12 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass StakePitTrap.StakePitTrap_C
-// 0x0010 (0x0940 - 0x0930)
+// 0x0010 (0x0950 - 0x0940)
 class AStakePitTrap_C : public ADamagingTrapItem
 {
 public:
-	struct FPointerToUberGraphFrame                    UberGraphFrame;                                           // 0x0930(0x0008) (Transient, DuplicateTransient)
-	class UBP_BoxProximityTriggerComponent_C*          BoxProximityTrigger;                                      // 0x0938(0x0008) (BlueprintVisible, ZeroConstructor, InstancedReference, IsPlainOldData)
+	struct FPointerToUberGraphFrame                    UberGraphFrame;                                           // 0x0940(0x0008) (Transient, DuplicateTransient)
+	class UBP_BoxProximityTriggerComponent_C*          BoxProximityTrigger;                                      // 0x0948(0x0008) (BlueprintVisible, ZeroConstructor, InstancedReference, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{

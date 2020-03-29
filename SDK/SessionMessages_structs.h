@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -62,7 +62,7 @@ struct FSessionServicePong
 // 0x0010
 struct FSessionServicePing
 {
-	struct FString                                     UserName;                                                 // 0x0000(0x0010) (Edit, ZeroConstructor)
+	struct FString                                     userName;                                                 // 0x0000(0x0010) (Edit, ZeroConstructor)
 };
 
 }

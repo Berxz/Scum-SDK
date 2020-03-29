@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -996,317 +996,6 @@ class UAIAsyncTaskBlueprintProxy* UAIBlueprintHelperLibrary::STATIC_CreateMoveTo
 }
 
 
-// Function AIModule.AIPerceptionSystem.ReportPerceptionEvent
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class UObject*                 WorldContextObject             (Parm, ZeroConstructor, IsPlainOldData)
-// class UAISenseEvent*           PerceptionEvent                (Parm, ZeroConstructor, IsPlainOldData)
-
-void UAIPerceptionSystem::STATIC_ReportPerceptionEvent(class UObject* WorldContextObject, class UAISenseEvent* PerceptionEvent)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIPerceptionSystem.ReportPerceptionEvent");
-
-	UAIPerceptionSystem_ReportPerceptionEvent_Params params;
-	params.WorldContextObject = WorldContextObject;
-	params.PerceptionEvent = PerceptionEvent;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function AIModule.AIPerceptionSystem.ReportEvent
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// class UAISenseEvent*           PerceptionEvent                (Parm, ZeroConstructor, IsPlainOldData)
-
-void UAIPerceptionSystem::ReportEvent(class UAISenseEvent* PerceptionEvent)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIPerceptionSystem.ReportEvent");
-
-	UAIPerceptionSystem_ReportEvent_Params params;
-	params.PerceptionEvent = PerceptionEvent;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function AIModule.AIPerceptionSystem.RegisterPerceptionStimuliSource
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class UObject*                 WorldContextObject             (Parm, ZeroConstructor, IsPlainOldData)
-// class UClass*                  Sense                          (Parm, ZeroConstructor, IsPlainOldData)
-// class AActor*                  Target                         (Parm, ZeroConstructor, IsPlainOldData)
-// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-bool UAIPerceptionSystem::STATIC_RegisterPerceptionStimuliSource(class UObject* WorldContextObject, class UClass* Sense, class AActor* Target)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIPerceptionSystem.RegisterPerceptionStimuliSource");
-
-	UAIPerceptionSystem_RegisterPerceptionStimuliSource_Params params;
-	params.WorldContextObject = WorldContextObject;
-	params.Sense = Sense;
-	params.Target = Target;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function AIModule.AIPerceptionSystem.OnPerceptionStimuliSourceEndPlay
-// (Final, Native, Protected)
-// Parameters:
-// class AActor*                  Actor                          (Parm, ZeroConstructor, IsPlainOldData)
-// TEnumAsByte<EEndPlayReason>    EndPlayReason                  (Parm, ZeroConstructor, IsPlainOldData)
-
-void UAIPerceptionSystem::OnPerceptionStimuliSourceEndPlay(class AActor* Actor, TEnumAsByte<EEndPlayReason> EndPlayReason)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIPerceptionSystem.OnPerceptionStimuliSourceEndPlay");
-
-	UAIPerceptionSystem_OnPerceptionStimuliSourceEndPlay_Params params;
-	params.Actor = Actor;
-	params.EndPlayReason = EndPlayReason;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function AIModule.AIPerceptionSystem.GetSenseClassForStimulus
-// (Final, Native, Static, Public, HasOutParms, BlueprintCallable)
-// Parameters:
-// class UObject*                 WorldContextObject             (Parm, ZeroConstructor, IsPlainOldData)
-// struct FAIStimulus             Stimulus                       (ConstParm, Parm, OutParm, ReferenceParm)
-// class UClass*                  ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-class UClass* UAIPerceptionSystem::STATIC_GetSenseClassForStimulus(class UObject* WorldContextObject, const struct FAIStimulus& Stimulus)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIPerceptionSystem.GetSenseClassForStimulus");
-
-	UAIPerceptionSystem_GetSenseClassForStimulus_Params params;
-	params.WorldContextObject = WorldContextObject;
-	params.Stimulus = Stimulus;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function AIModule.AIPerceptionStimuliSourceComponent.UnregisterFromSense
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// class UClass*                  SenseClass                     (Parm, ZeroConstructor, IsPlainOldData)
-
-void UAIPerceptionStimuliSourceComponent::UnregisterFromSense(class UClass* SenseClass)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIPerceptionStimuliSourceComponent.UnregisterFromSense");
-
-	UAIPerceptionStimuliSourceComponent_UnregisterFromSense_Params params;
-	params.SenseClass = SenseClass;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function AIModule.AIPerceptionStimuliSourceComponent.UnregisterFromPerceptionSystem
-// (Final, Native, Public, BlueprintCallable)
-
-void UAIPerceptionStimuliSourceComponent::UnregisterFromPerceptionSystem()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIPerceptionStimuliSourceComponent.UnregisterFromPerceptionSystem");
-
-	UAIPerceptionStimuliSourceComponent_UnregisterFromPerceptionSystem_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function AIModule.AIPerceptionStimuliSourceComponent.RegisterWithPerceptionSystem
-// (Final, Native, Public, BlueprintCallable)
-
-void UAIPerceptionStimuliSourceComponent::RegisterWithPerceptionSystem()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIPerceptionStimuliSourceComponent.RegisterWithPerceptionSystem");
-
-	UAIPerceptionStimuliSourceComponent_RegisterWithPerceptionSystem_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function AIModule.AIPerceptionStimuliSourceComponent.RegisterForSense
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// class UClass*                  SenseClass                     (Parm, ZeroConstructor, IsPlainOldData)
-
-void UAIPerceptionStimuliSourceComponent::RegisterForSense(class UClass* SenseClass)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIPerceptionStimuliSourceComponent.RegisterForSense");
-
-	UAIPerceptionStimuliSourceComponent_RegisterForSense_Params params;
-	params.SenseClass = SenseClass;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function AIModule.AISense_Damage.ReportDamageEvent
-// (Final, Native, Static, Public, HasDefaults, BlueprintCallable)
-// Parameters:
-// class UObject*                 WorldContextObject             (Parm, ZeroConstructor, IsPlainOldData)
-// class AActor*                  DamagedActor                   (Parm, ZeroConstructor, IsPlainOldData)
-// class AActor*                  Instigator                     (Parm, ZeroConstructor, IsPlainOldData)
-// float                          DamageAmount                   (Parm, ZeroConstructor, IsPlainOldData)
-// struct FVector                 EventLocation                  (Parm, IsPlainOldData)
-// struct FVector                 HitLocation                    (Parm, IsPlainOldData)
-
-void UAISense_Damage::STATIC_ReportDamageEvent(class UObject* WorldContextObject, class AActor* DamagedActor, class AActor* Instigator, float DamageAmount, const struct FVector& EventLocation, const struct FVector& HitLocation)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AISense_Damage.ReportDamageEvent");
-
-	UAISense_Damage_ReportDamageEvent_Params params;
-	params.WorldContextObject = WorldContextObject;
-	params.DamagedActor = DamagedActor;
-	params.Instigator = Instigator;
-	params.DamageAmount = DamageAmount;
-	params.EventLocation = EventLocation;
-	params.HitLocation = HitLocation;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function AIModule.AISense_Hearing.ReportNoiseEvent
-// (Final, Native, Static, Public, HasDefaults, BlueprintCallable)
-// Parameters:
-// class UObject*                 WorldContextObject             (Parm, ZeroConstructor, IsPlainOldData)
-// struct FVector                 NoiseLocation                  (Parm, IsPlainOldData)
-// float                          Loudness                       (Parm, ZeroConstructor, IsPlainOldData)
-// class AActor*                  Instigator                     (Parm, ZeroConstructor, IsPlainOldData)
-// float                          MaxRange                       (Parm, ZeroConstructor, IsPlainOldData)
-// struct FName                   Tag                            (Parm, ZeroConstructor, IsPlainOldData)
-
-void UAISense_Hearing::STATIC_ReportNoiseEvent(class UObject* WorldContextObject, const struct FVector& NoiseLocation, float Loudness, class AActor* Instigator, float MaxRange, const struct FName& Tag)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AISense_Hearing.ReportNoiseEvent");
-
-	UAISense_Hearing_ReportNoiseEvent_Params params;
-	params.WorldContextObject = WorldContextObject;
-	params.NoiseLocation = NoiseLocation;
-	params.Loudness = Loudness;
-	params.Instigator = Instigator;
-	params.MaxRange = MaxRange;
-	params.Tag = Tag;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function AIModule.AISense_Prediction.RequestPawnPredictionEvent
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class APawn*                   Requestor                      (Parm, ZeroConstructor, IsPlainOldData)
-// class AActor*                  PredictedActor                 (Parm, ZeroConstructor, IsPlainOldData)
-// float                          PredictionTime                 (Parm, ZeroConstructor, IsPlainOldData)
-
-void UAISense_Prediction::STATIC_RequestPawnPredictionEvent(class APawn* Requestor, class AActor* PredictedActor, float PredictionTime)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AISense_Prediction.RequestPawnPredictionEvent");
-
-	UAISense_Prediction_RequestPawnPredictionEvent_Params params;
-	params.Requestor = Requestor;
-	params.PredictedActor = PredictedActor;
-	params.PredictionTime = PredictionTime;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function AIModule.AISense_Prediction.RequestControllerPredictionEvent
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class AAIController*           Requestor                      (Parm, ZeroConstructor, IsPlainOldData)
-// class AActor*                  PredictedActor                 (Parm, ZeroConstructor, IsPlainOldData)
-// float                          PredictionTime                 (Parm, ZeroConstructor, IsPlainOldData)
-
-void UAISense_Prediction::STATIC_RequestControllerPredictionEvent(class AAIController* Requestor, class AActor* PredictedActor, float PredictionTime)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AISense_Prediction.RequestControllerPredictionEvent");
-
-	UAISense_Prediction_RequestControllerPredictionEvent_Params params;
-	params.Requestor = Requestor;
-	params.PredictedActor = PredictedActor;
-	params.PredictionTime = PredictionTime;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
 // Function AIModule.AIPerceptionComponent.SetSenseEnabled
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
@@ -1494,6 +1183,351 @@ bool UAIPerceptionComponent::GetActorsPerception(class AActor* Actor, struct FAc
 		*Info = params.Info;
 
 	return params.ReturnValue;
+}
+
+
+// Function AIModule.AIPerceptionStimuliSourceComponent.UnregisterFromSense
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class UClass*                  SenseClass                     (Parm, ZeroConstructor, IsPlainOldData)
+
+void UAIPerceptionStimuliSourceComponent::UnregisterFromSense(class UClass* SenseClass)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIPerceptionStimuliSourceComponent.UnregisterFromSense");
+
+	UAIPerceptionStimuliSourceComponent_UnregisterFromSense_Params params;
+	params.SenseClass = SenseClass;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function AIModule.AIPerceptionStimuliSourceComponent.UnregisterFromPerceptionSystem
+// (Final, Native, Public, BlueprintCallable)
+
+void UAIPerceptionStimuliSourceComponent::UnregisterFromPerceptionSystem()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIPerceptionStimuliSourceComponent.UnregisterFromPerceptionSystem");
+
+	UAIPerceptionStimuliSourceComponent_UnregisterFromPerceptionSystem_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function AIModule.AIPerceptionStimuliSourceComponent.RegisterWithPerceptionSystem
+// (Final, Native, Public, BlueprintCallable)
+
+void UAIPerceptionStimuliSourceComponent::RegisterWithPerceptionSystem()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIPerceptionStimuliSourceComponent.RegisterWithPerceptionSystem");
+
+	UAIPerceptionStimuliSourceComponent_RegisterWithPerceptionSystem_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function AIModule.AIPerceptionStimuliSourceComponent.RegisterForSense
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class UClass*                  SenseClass                     (Parm, ZeroConstructor, IsPlainOldData)
+
+void UAIPerceptionStimuliSourceComponent::RegisterForSense(class UClass* SenseClass)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIPerceptionStimuliSourceComponent.RegisterForSense");
+
+	UAIPerceptionStimuliSourceComponent_RegisterForSense_Params params;
+	params.SenseClass = SenseClass;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function AIModule.AISense_Blueprint.OnUpdate
+// (Event, Public, HasOutParms, BlueprintEvent)
+// Parameters:
+// TArray<class UAISenseEvent*>   EventsToProcess                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
+// float                          ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+float UAISense_Blueprint::OnUpdate(TArray<class UAISenseEvent*> EventsToProcess)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AISense_Blueprint.OnUpdate");
+
+	UAISense_Blueprint_OnUpdate_Params params;
+	params.EventsToProcess = EventsToProcess;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function AIModule.AISense_Blueprint.OnListenerUpdated
+// (Event, Public, BlueprintEvent)
+// Parameters:
+// class AActor*                  ActorListener                  (Parm, ZeroConstructor, IsPlainOldData)
+// class UAIPerceptionComponent*  PerceptionComponent            (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+
+void UAISense_Blueprint::OnListenerUpdated(class AActor* ActorListener, class UAIPerceptionComponent* PerceptionComponent)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AISense_Blueprint.OnListenerUpdated");
+
+	UAISense_Blueprint_OnListenerUpdated_Params params;
+	params.ActorListener = ActorListener;
+	params.PerceptionComponent = PerceptionComponent;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function AIModule.AISense_Blueprint.OnListenerUnregistered
+// (Event, Public, BlueprintEvent)
+// Parameters:
+// class AActor*                  ActorListener                  (Parm, ZeroConstructor, IsPlainOldData)
+// class UAIPerceptionComponent*  PerceptionComponent            (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+
+void UAISense_Blueprint::OnListenerUnregistered(class AActor* ActorListener, class UAIPerceptionComponent* PerceptionComponent)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AISense_Blueprint.OnListenerUnregistered");
+
+	UAISense_Blueprint_OnListenerUnregistered_Params params;
+	params.ActorListener = ActorListener;
+	params.PerceptionComponent = PerceptionComponent;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function AIModule.AISense_Blueprint.OnListenerRegistered
+// (Event, Public, BlueprintEvent)
+// Parameters:
+// class AActor*                  ActorListener                  (Parm, ZeroConstructor, IsPlainOldData)
+// class UAIPerceptionComponent*  PerceptionComponent            (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+
+void UAISense_Blueprint::OnListenerRegistered(class AActor* ActorListener, class UAIPerceptionComponent* PerceptionComponent)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AISense_Blueprint.OnListenerRegistered");
+
+	UAISense_Blueprint_OnListenerRegistered_Params params;
+	params.ActorListener = ActorListener;
+	params.PerceptionComponent = PerceptionComponent;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function AIModule.AISense_Blueprint.K2_OnNewPawn
+// (Event, Public, BlueprintEvent)
+// Parameters:
+// class APawn*                   NewPawn                        (Parm, ZeroConstructor, IsPlainOldData)
+
+void UAISense_Blueprint::K2_OnNewPawn(class APawn* NewPawn)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AISense_Blueprint.K2_OnNewPawn");
+
+	UAISense_Blueprint_K2_OnNewPawn_Params params;
+	params.NewPawn = NewPawn;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function AIModule.AISense_Blueprint.GetAllListenerComponents
+// (Final, Native, Public, HasOutParms, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// TArray<class UAIPerceptionComponent*> ListenerComponents             (Parm, OutParm, ZeroConstructor)
+
+void UAISense_Blueprint::GetAllListenerComponents(TArray<class UAIPerceptionComponent*>* ListenerComponents)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AISense_Blueprint.GetAllListenerComponents");
+
+	UAISense_Blueprint_GetAllListenerComponents_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	if (ListenerComponents != nullptr)
+		*ListenerComponents = params.ListenerComponents;
+}
+
+
+// Function AIModule.AISense_Blueprint.GetAllListenerActors
+// (Final, Native, Public, HasOutParms, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// TArray<class AActor*>          ListenerActors                 (Parm, OutParm, ZeroConstructor)
+
+void UAISense_Blueprint::GetAllListenerActors(TArray<class AActor*>* ListenerActors)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AISense_Blueprint.GetAllListenerActors");
+
+	UAISense_Blueprint_GetAllListenerActors_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	if (ListenerActors != nullptr)
+		*ListenerActors = params.ListenerActors;
+}
+
+
+// Function AIModule.AISense_Damage.ReportDamageEvent
+// (Final, Native, Static, Public, HasDefaults, BlueprintCallable)
+// Parameters:
+// class UObject*                 WorldContextObject             (Parm, ZeroConstructor, IsPlainOldData)
+// class AActor*                  DamagedActor                   (Parm, ZeroConstructor, IsPlainOldData)
+// class AActor*                  Instigator                     (Parm, ZeroConstructor, IsPlainOldData)
+// float                          DamageAmount                   (Parm, ZeroConstructor, IsPlainOldData)
+// struct FVector                 EventLocation                  (Parm, IsPlainOldData)
+// struct FVector                 HitLocation                    (Parm, IsPlainOldData)
+
+void UAISense_Damage::STATIC_ReportDamageEvent(class UObject* WorldContextObject, class AActor* DamagedActor, class AActor* Instigator, float DamageAmount, const struct FVector& EventLocation, const struct FVector& HitLocation)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AISense_Damage.ReportDamageEvent");
+
+	UAISense_Damage_ReportDamageEvent_Params params;
+	params.WorldContextObject = WorldContextObject;
+	params.DamagedActor = DamagedActor;
+	params.Instigator = Instigator;
+	params.DamageAmount = DamageAmount;
+	params.EventLocation = EventLocation;
+	params.HitLocation = HitLocation;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function AIModule.AISense_Hearing.ReportNoiseEvent
+// (Final, Native, Static, Public, HasDefaults, BlueprintCallable)
+// Parameters:
+// class UObject*                 WorldContextObject             (Parm, ZeroConstructor, IsPlainOldData)
+// struct FVector                 NoiseLocation                  (Parm, IsPlainOldData)
+// float                          Loudness                       (Parm, ZeroConstructor, IsPlainOldData)
+// class AActor*                  Instigator                     (Parm, ZeroConstructor, IsPlainOldData)
+// float                          MaxRange                       (Parm, ZeroConstructor, IsPlainOldData)
+// struct FName                   Tag                            (Parm, ZeroConstructor, IsPlainOldData)
+
+void UAISense_Hearing::STATIC_ReportNoiseEvent(class UObject* WorldContextObject, const struct FVector& NoiseLocation, float Loudness, class AActor* Instigator, float MaxRange, const struct FName& Tag)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AISense_Hearing.ReportNoiseEvent");
+
+	UAISense_Hearing_ReportNoiseEvent_Params params;
+	params.WorldContextObject = WorldContextObject;
+	params.NoiseLocation = NoiseLocation;
+	params.Loudness = Loudness;
+	params.Instigator = Instigator;
+	params.MaxRange = MaxRange;
+	params.Tag = Tag;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function AIModule.AISense_Prediction.RequestPawnPredictionEvent
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class APawn*                   Requestor                      (Parm, ZeroConstructor, IsPlainOldData)
+// class AActor*                  PredictedActor                 (Parm, ZeroConstructor, IsPlainOldData)
+// float                          PredictionTime                 (Parm, ZeroConstructor, IsPlainOldData)
+
+void UAISense_Prediction::STATIC_RequestPawnPredictionEvent(class APawn* Requestor, class AActor* PredictedActor, float PredictionTime)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AISense_Prediction.RequestPawnPredictionEvent");
+
+	UAISense_Prediction_RequestPawnPredictionEvent_Params params;
+	params.Requestor = Requestor;
+	params.PredictedActor = PredictedActor;
+	params.PredictionTime = PredictionTime;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function AIModule.AISense_Prediction.RequestControllerPredictionEvent
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class AAIController*           Requestor                      (Parm, ZeroConstructor, IsPlainOldData)
+// class AActor*                  PredictedActor                 (Parm, ZeroConstructor, IsPlainOldData)
+// float                          PredictionTime                 (Parm, ZeroConstructor, IsPlainOldData)
+
+void UAISense_Prediction::STATIC_RequestControllerPredictionEvent(class AAIController* Requestor, class AActor* PredictedActor, float PredictionTime)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AISense_Prediction.RequestControllerPredictionEvent");
+
+	UAISense_Prediction_RequestControllerPredictionEvent_Params params;
+	params.Requestor = Requestor;
+	params.PredictedActor = PredictedActor;
+	params.PredictionTime = PredictionTime;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
 }
 
 
@@ -2322,6 +2356,127 @@ void UBlackboardComponent::ClearValue(const struct FName& KeyName)
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+}
+
+
+// Function AIModule.AIPerceptionSystem.ReportPerceptionEvent
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class UObject*                 WorldContextObject             (Parm, ZeroConstructor, IsPlainOldData)
+// class UAISenseEvent*           PerceptionEvent                (Parm, ZeroConstructor, IsPlainOldData)
+
+void UAIPerceptionSystem::STATIC_ReportPerceptionEvent(class UObject* WorldContextObject, class UAISenseEvent* PerceptionEvent)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIPerceptionSystem.ReportPerceptionEvent");
+
+	UAIPerceptionSystem_ReportPerceptionEvent_Params params;
+	params.WorldContextObject = WorldContextObject;
+	params.PerceptionEvent = PerceptionEvent;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function AIModule.AIPerceptionSystem.ReportEvent
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class UAISenseEvent*           PerceptionEvent                (Parm, ZeroConstructor, IsPlainOldData)
+
+void UAIPerceptionSystem::ReportEvent(class UAISenseEvent* PerceptionEvent)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIPerceptionSystem.ReportEvent");
+
+	UAIPerceptionSystem_ReportEvent_Params params;
+	params.PerceptionEvent = PerceptionEvent;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function AIModule.AIPerceptionSystem.RegisterPerceptionStimuliSource
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class UObject*                 WorldContextObject             (Parm, ZeroConstructor, IsPlainOldData)
+// class UClass*                  Sense                          (Parm, ZeroConstructor, IsPlainOldData)
+// class AActor*                  Target                         (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+bool UAIPerceptionSystem::STATIC_RegisterPerceptionStimuliSource(class UObject* WorldContextObject, class UClass* Sense, class AActor* Target)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIPerceptionSystem.RegisterPerceptionStimuliSource");
+
+	UAIPerceptionSystem_RegisterPerceptionStimuliSource_Params params;
+	params.WorldContextObject = WorldContextObject;
+	params.Sense = Sense;
+	params.Target = Target;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function AIModule.AIPerceptionSystem.OnPerceptionStimuliSourceEndPlay
+// (Final, Native, Protected)
+// Parameters:
+// class AActor*                  Actor                          (Parm, ZeroConstructor, IsPlainOldData)
+// TEnumAsByte<EEndPlayReason>    EndPlayReason                  (Parm, ZeroConstructor, IsPlainOldData)
+
+void UAIPerceptionSystem::OnPerceptionStimuliSourceEndPlay(class AActor* Actor, TEnumAsByte<EEndPlayReason> EndPlayReason)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIPerceptionSystem.OnPerceptionStimuliSourceEndPlay");
+
+	UAIPerceptionSystem_OnPerceptionStimuliSourceEndPlay_Params params;
+	params.Actor = Actor;
+	params.EndPlayReason = EndPlayReason;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function AIModule.AIPerceptionSystem.GetSenseClassForStimulus
+// (Final, Native, Static, Public, HasOutParms, BlueprintCallable)
+// Parameters:
+// class UObject*                 WorldContextObject             (Parm, ZeroConstructor, IsPlainOldData)
+// struct FAIStimulus             Stimulus                       (ConstParm, Parm, OutParm, ReferenceParm)
+// class UClass*                  ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+class UClass* UAIPerceptionSystem::STATIC_GetSenseClassForStimulus(class UObject* WorldContextObject, const struct FAIStimulus& Stimulus)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIPerceptionSystem.GetSenseClassForStimulus");
+
+	UAIPerceptionSystem_GetSenseClassForStimulus_Params params;
+	params.WorldContextObject = WorldContextObject;
+	params.Stimulus = Stimulus;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
@@ -4845,161 +5000,6 @@ float UPawnSensingComponent::GetPeripheralVisionAngle()
 	fn->FunctionFlags = flags;
 
 	return params.ReturnValue;
-}
-
-
-// Function AIModule.AISense_Blueprint.OnUpdate
-// (Event, Public, HasOutParms, BlueprintEvent)
-// Parameters:
-// TArray<class UAISenseEvent*>   EventsToProcess                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
-// float                          ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-float UAISense_Blueprint::OnUpdate(TArray<class UAISenseEvent*> EventsToProcess)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AISense_Blueprint.OnUpdate");
-
-	UAISense_Blueprint_OnUpdate_Params params;
-	params.EventsToProcess = EventsToProcess;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function AIModule.AISense_Blueprint.OnListenerUpdated
-// (Event, Public, BlueprintEvent)
-// Parameters:
-// class AActor*                  ActorListener                  (Parm, ZeroConstructor, IsPlainOldData)
-// class UAIPerceptionComponent*  PerceptionComponent            (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-
-void UAISense_Blueprint::OnListenerUpdated(class AActor* ActorListener, class UAIPerceptionComponent* PerceptionComponent)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AISense_Blueprint.OnListenerUpdated");
-
-	UAISense_Blueprint_OnListenerUpdated_Params params;
-	params.ActorListener = ActorListener;
-	params.PerceptionComponent = PerceptionComponent;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function AIModule.AISense_Blueprint.OnListenerUnregistered
-// (Event, Public, BlueprintEvent)
-// Parameters:
-// class AActor*                  ActorListener                  (Parm, ZeroConstructor, IsPlainOldData)
-// class UAIPerceptionComponent*  PerceptionComponent            (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-
-void UAISense_Blueprint::OnListenerUnregistered(class AActor* ActorListener, class UAIPerceptionComponent* PerceptionComponent)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AISense_Blueprint.OnListenerUnregistered");
-
-	UAISense_Blueprint_OnListenerUnregistered_Params params;
-	params.ActorListener = ActorListener;
-	params.PerceptionComponent = PerceptionComponent;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function AIModule.AISense_Blueprint.OnListenerRegistered
-// (Event, Public, BlueprintEvent)
-// Parameters:
-// class AActor*                  ActorListener                  (Parm, ZeroConstructor, IsPlainOldData)
-// class UAIPerceptionComponent*  PerceptionComponent            (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-
-void UAISense_Blueprint::OnListenerRegistered(class AActor* ActorListener, class UAIPerceptionComponent* PerceptionComponent)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AISense_Blueprint.OnListenerRegistered");
-
-	UAISense_Blueprint_OnListenerRegistered_Params params;
-	params.ActorListener = ActorListener;
-	params.PerceptionComponent = PerceptionComponent;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function AIModule.AISense_Blueprint.K2_OnNewPawn
-// (Event, Public, BlueprintEvent)
-// Parameters:
-// class APawn*                   NewPawn                        (Parm, ZeroConstructor, IsPlainOldData)
-
-void UAISense_Blueprint::K2_OnNewPawn(class APawn* NewPawn)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AISense_Blueprint.K2_OnNewPawn");
-
-	UAISense_Blueprint_K2_OnNewPawn_Params params;
-	params.NewPawn = NewPawn;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function AIModule.AISense_Blueprint.GetAllListenerComponents
-// (Final, Native, Public, HasOutParms, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// TArray<class UAIPerceptionComponent*> ListenerComponents             (Parm, OutParm, ZeroConstructor)
-
-void UAISense_Blueprint::GetAllListenerComponents(TArray<class UAIPerceptionComponent*>* ListenerComponents)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AISense_Blueprint.GetAllListenerComponents");
-
-	UAISense_Blueprint_GetAllListenerComponents_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	if (ListenerComponents != nullptr)
-		*ListenerComponents = params.ListenerComponents;
-}
-
-
-// Function AIModule.AISense_Blueprint.GetAllListenerActors
-// (Final, Native, Public, HasOutParms, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// TArray<class AActor*>          ListenerActors                 (Parm, OutParm, ZeroConstructor)
-
-void UAISense_Blueprint::GetAllListenerActors(TArray<class AActor*>* ListenerActors)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AISense_Blueprint.GetAllListenerActors");
-
-	UAISense_Blueprint_GetAllListenerActors_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	if (ListenerActors != nullptr)
-		*ListenerActors = params.ListenerActors;
 }
 
 

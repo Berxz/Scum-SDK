@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -19,17 +19,6 @@ enum class EFlipbookCollisionMode : uint8_t
 	EFlipbookCollisionMode__FirstFrameCollision = 1,
 	EFlipbookCollisionMode__EachFrameCollision = 2,
 	EFlipbookCollisionMode__EFlipbookCollisionMode_MAX = 3
-};
-
-
-// Enum Paper2D.ETileMapProjectionMode
-enum class ETileMapProjectionMode : uint8_t
-{
-	ETileMapProjectionMode__Orthogonal = 0,
-	ETileMapProjectionMode__IsometricDiamond = 1,
-	ETileMapProjectionMode__IsometricStaggered = 2,
-	ETileMapProjectionMode__HexagonalStaggered = 3,
-	ETileMapProjectionMode__ETileMapProjectionMode_MAX = 4
 };
 
 
@@ -88,6 +77,17 @@ enum class EPaperSpriteAtlasPadding : uint8_t
 	EPaperSpriteAtlasPadding__DilateBorder = 0,
 	EPaperSpriteAtlasPadding__PadWithZero = 1,
 	EPaperSpriteAtlasPadding__EPaperSpriteAtlasPadding_MAX = 2
+};
+
+
+// Enum Paper2D.ETileMapProjectionMode
+enum class ETileMapProjectionMode : uint8_t
+{
+	ETileMapProjectionMode__Orthogonal = 0,
+	ETileMapProjectionMode__IsometricDiamond = 1,
+	ETileMapProjectionMode__IsometricStaggered = 2,
+	ETileMapProjectionMode__HexagonalStaggered = 3,
+	ETileMapProjectionMode__ETileMapProjectionMode_MAX = 4
 };
 
 
@@ -222,6 +222,13 @@ struct FPaperSpriteAtlasSlot
 	unsigned char                                      UnknownData01[0x4];                                       // 0x003C(0x0004) MISSED OFFSET
 };
 
+// ScriptStruct Paper2D.SpriteAssetInitParameters
+// 0x0040
+struct FSpriteAssetInitParameters
+{
+	unsigned char                                      UnknownData00[0x40];                                      // 0x0000(0x0040) MISSED OFFSET
+};
+
 // ScriptStruct Paper2D.SpriteDrawCallRecord
 // 0x00D0
 struct FSpriteDrawCallRecord
@@ -232,13 +239,6 @@ struct FSpriteDrawCallRecord
 	unsigned char                                      UnknownData01[0x30];                                      // 0x0018(0x0030) MISSED OFFSET
 	struct FColor                                      Color;                                                    // 0x0048(0x0004) (IsPlainOldData)
 	unsigned char                                      UnknownData02[0x84];                                      // 0x004C(0x0084) MISSED OFFSET
-};
-
-// ScriptStruct Paper2D.SpriteAssetInitParameters
-// 0x0040
-struct FSpriteAssetInitParameters
-{
-	unsigned char                                      UnknownData00[0x40];                                      // 0x0000(0x0040) MISSED OFFSET
 };
 
 }

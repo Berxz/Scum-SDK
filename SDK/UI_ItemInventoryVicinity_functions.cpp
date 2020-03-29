@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -12,6 +12,23 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Functions
 //---------------------------------------------------------------------------
+
+// Function UI_ItemInventoryVicinity.UI_ItemInventoryVicinity_C.Blink
+// (Event, Public, BlueprintEvent)
+
+void UUI_ItemInventoryVicinity_C::Blink()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UI_ItemInventoryVicinity.UI_ItemInventoryVicinity_C.Blink");
+
+	UUI_ItemInventoryVicinity_C_Blink_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
 
 // Function UI_ItemInventoryVicinity.UI_ItemInventoryVicinity_C.Tick
 // (BlueprintCosmetic, Event, Public, BlueprintEvent)
@@ -35,14 +52,17 @@ void UUI_ItemInventoryVicinity_C::Tick(struct FGeometry* MyGeometry, float* InDe
 }
 
 
-// Function UI_ItemInventoryVicinity.UI_ItemInventoryVicinity_C.Blink
-// (Event, Public, BlueprintEvent)
+// Function UI_ItemInventoryVicinity.UI_ItemInventoryVicinity_C.InitBlueprint
+// (Event, Public, HasOutParms, BlueprintEvent)
+// Parameters:
+// TScriptInterface<class UInventoryNode>* Item                           (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
 
-void UUI_ItemInventoryVicinity_C::Blink()
+void UUI_ItemInventoryVicinity_C::InitBlueprint(TScriptInterface<class UInventoryNode>* Item)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function UI_ItemInventoryVicinity.UI_ItemInventoryVicinity_C.Blink");
+	static auto fn = UObject::FindObject<UFunction>("Function UI_ItemInventoryVicinity.UI_ItemInventoryVicinity_C.InitBlueprint");
 
-	UUI_ItemInventoryVicinity_C_Blink_Params params;
+	UUI_ItemInventoryVicinity_C_InitBlueprint_Params params;
+	params.Item = Item;
 
 	auto flags = fn->FunctionFlags;
 

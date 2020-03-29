@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -142,6 +142,7 @@ public:
 	void BndEvt__SearchBox_K2Node_ComponentBoundEvent_118_OnEditableTextBoxCommittedEvent__DelegateSignature(const struct FText& Text, TEnumAsByte<ETextCommit> CommitMethod);
 	void BndEvt__SearchBox_K2Node_ComponentBoundEvent_0_OnEditableTextBoxChangedEvent__DelegateSignature(const struct FText& Text);
 	void Tick(struct FGeometry* MyGeometry, float* InDeltaTime);
+	void BndEvt__SortByVersion_K2Node_ComponentBoundEvent_6_OnClicked__DelegateSignature(class UUI_SortByButton_C* Button, TEnumAsByte<ESortByTypes> Type);
 	void ExecuteUbergraph_ServerBrowserWidget(int EntryPoint);
 };
 

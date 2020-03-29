@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -29,103 +29,6 @@ enum class EAkCallbackType : uint8_t
 	EAkCallbackType__MusicSyncPoint = 11,
 	EAkCallbackType__MIDIEvent     = 12,
 	EAkCallbackType__EAkCallbackType_MAX = 13
-};
-
-
-// Enum AkAudio.EAkResult
-enum class EAkResult : uint8_t
-{
-	EAkResult__NotImplemented      = 0,
-	EAkResult__Success             = 1,
-	EAkResult__Fail                = 2,
-	EAkResult__PartialSuccess      = 3,
-	EAkResult__NotCompatible       = 4,
-	EAkResult__AlreadyConnected    = 5,
-	EAkResult__NameNotSet          = 6,
-	EAkResult__InvalidFile         = 7,
-	EAkResult__AudioFileHeaderTooLarge = 8,
-	EAkResult__MaxReached          = 9,
-	EAkResult__InputsInUsed        = 10,
-	EAkResult__OutputsInUsed       = 11,
-	EAkResult__InvalidName         = 12,
-	EAkResult__NameAlreadyInUse    = 13,
-	EAkResult__InvalidID           = 14,
-	EAkResult__IDNotFound          = 15,
-	EAkResult__InvalidInstanceID   = 16,
-	EAkResult__NoMoreData          = 17,
-	EAkResult__NoSourceAvailable   = 18,
-	EAkResult__StateGroupAlreadyExists = 19,
-	EAkResult__InvalidStateGroup   = 20,
-	EAkResult__ChildAlreadyHasAParent = 21,
-	EAkResult__InvalidLanguage     = 22,
-	EAkResult__CannotAddItseflAsAChild = 23,
-	EAkResult__Reserved1           = 24,
-	EAkResult__Reserved2           = 25,
-	EAkResult__Reserved3           = 26,
-	EAkResult__Reserved4           = 27,
-	EAkResult__Reserved5           = 28,
-	EAkResult__UserNotInList       = 29,
-	EAkResult__NoTransitionPoint   = 30,
-	EAkResult__InvalidParameter    = 31,
-	EAkResult__ParameterAdjusted   = 32,
-	EAkResult__IsA3DSound          = 33,
-	EAkResult__NotA3DSound         = 34,
-	EAkResult__ElementAlreadyInList = 35,
-	EAkResult__PathNotFound        = 36,
-	EAkResult__PathNoVertices      = 37,
-	EAkResult__PathNotRunning      = 38,
-	EAkResult__PathNotPaused       = 39,
-	EAkResult__PathNodeAlreadyInList = 40,
-	EAkResult__PathNodeNotInList   = 41,
-	EAkResult__VoiceNotFound       = 42,
-	EAkResult__DataNeeded          = 43,
-	EAkResult__NoDataNeeded        = 44,
-	EAkResult__DataReady           = 45,
-	EAkResult__NoDataReady         = 46,
-	EAkResult__NoMoreSlotAvailable = 47,
-	EAkResult__SlotNotFound        = 48,
-	EAkResult__ProcessingOnly      = 49,
-	EAkResult__MemoryLeak          = 50,
-	EAkResult__CorruptedBlockList  = 51,
-	EAkResult__InsufficientMemory  = 52,
-	EAkResult__Cancelled           = 53,
-	EAkResult__UnknownBankID       = 54,
-	EAkResult__IsProcessing        = 55,
-	EAkResult__BankReadError       = 56,
-	EAkResult__InvalidSwitchType   = 57,
-	EAkResult__VoiceDone           = 58,
-	EAkResult__UnknownEnvironment  = 59,
-	EAkResult__EnvironmentInUse    = 60,
-	EAkResult__UnknownObject       = 61,
-	EAkResult__NoConversionNeeded  = 62,
-	EAkResult__FormatNotReady      = 63,
-	EAkResult__WrongBankVersion    = 64,
-	EAkResult__DataReadyNoProcess  = 65,
-	EAkResult__FileNotFound        = 66,
-	EAkResult__DeviceNotReady      = 67,
-	EAkResult__CouldNotCreateSecBuffer = 68,
-	EAkResult__BankAlreadyLoaded   = 69,
-	EAkResult__Reserved6           = 70,
-	EAkResult__RenderedFX          = 71,
-	EAkResult__ProcessNeeded       = 72,
-	EAkResult__ProcessDone         = 73,
-	EAkResult__MemManagerNotInitialized = 74,
-	EAkResult__StreamMgrNotInitialized = 75,
-	EAkResult__SSEInstructionsNotSupported = 76,
-	EAkResult__Busy                = 77,
-	EAkResult__UnsupportedChannelConfig = 78,
-	EAkResult__PluginMediaNotAvailable = 79,
-	EAkResult__MustBeVirtualized   = 80,
-	EAkResult__CommandTooLarge     = 81,
-	EAkResult__RejectedByFilter    = 82,
-	EAkResult__InvalidCustomPlatformName = 83,
-	EAkResult__DLLCannotLoad       = 84,
-	EAkResult__DLLPathNotFound     = 85,
-	EAkResult__NoJavaVM            = 86,
-	EAkResult__OpenSLError         = 87,
-	EAkResult__PluginNotRegistered = 88,
-	EAkResult__DataAlignmentError  = 89,
-	EAkResult__EAkResult_MAX       = 90
 };
 
 
@@ -279,28 +182,6 @@ enum class EAkCurveInterpolation : uint8_t
 };
 
 
-// Enum AkAudio.AkActionOnEventType
-enum class EAkActionOnEventType : uint8_t
-{
-	AkActionOnEventType__Stop      = 0,
-	AkActionOnEventType__Pause     = 1,
-	AkActionOnEventType__Resume    = 2,
-	AkActionOnEventType__Break     = 3,
-	AkActionOnEventType__ReleaseEnvelope = 4,
-	AkActionOnEventType__AkActionOnEventType_MAX = 5
-};
-
-
-// Enum AkAudio.AkMultiPositionType
-enum class EAkMultiPositionType : uint8_t
-{
-	AkMultiPositionType__SingleSource = 0,
-	AkMultiPositionType__MultiSources = 1,
-	AkMultiPositionType__MultiDirections = 2,
-	AkMultiPositionType__AkMultiPositionType_MAX = 3
-};
-
-
 // Enum AkAudio.AkChannelConfiguration
 enum class EAkChannelConfiguration : uint8_t
 {
@@ -345,6 +226,125 @@ enum class EPanningRule : uint8_t
 	PanningRule__PanningRule_Speakers = 0,
 	PanningRule__PanningRule_Headphones = 1,
 	PanningRule__PanningRule_MAX   = 2
+};
+
+
+// Enum AkAudio.AkActionOnEventType
+enum class EAkActionOnEventType : uint8_t
+{
+	AkActionOnEventType__Stop      = 0,
+	AkActionOnEventType__Pause     = 1,
+	AkActionOnEventType__Resume    = 2,
+	AkActionOnEventType__Break     = 3,
+	AkActionOnEventType__ReleaseEnvelope = 4,
+	AkActionOnEventType__AkActionOnEventType_MAX = 5
+};
+
+
+// Enum AkAudio.AkMultiPositionType
+enum class EAkMultiPositionType : uint8_t
+{
+	AkMultiPositionType__SingleSource = 0,
+	AkMultiPositionType__MultiSources = 1,
+	AkMultiPositionType__MultiDirections = 2,
+	AkMultiPositionType__AkMultiPositionType_MAX = 3
+};
+
+
+// Enum AkAudio.EAkResult
+enum class EAkResult : uint8_t
+{
+	EAkResult__NotImplemented      = 0,
+	EAkResult__Success             = 1,
+	EAkResult__Fail                = 2,
+	EAkResult__PartialSuccess      = 3,
+	EAkResult__NotCompatible       = 4,
+	EAkResult__AlreadyConnected    = 5,
+	EAkResult__NameNotSet          = 6,
+	EAkResult__InvalidFile         = 7,
+	EAkResult__AudioFileHeaderTooLarge = 8,
+	EAkResult__MaxReached          = 9,
+	EAkResult__InputsInUsed        = 10,
+	EAkResult__OutputsInUsed       = 11,
+	EAkResult__InvalidName         = 12,
+	EAkResult__NameAlreadyInUse    = 13,
+	EAkResult__InvalidID           = 14,
+	EAkResult__IDNotFound          = 15,
+	EAkResult__InvalidInstanceID   = 16,
+	EAkResult__NoMoreData          = 17,
+	EAkResult__NoSourceAvailable   = 18,
+	EAkResult__StateGroupAlreadyExists = 19,
+	EAkResult__InvalidStateGroup   = 20,
+	EAkResult__ChildAlreadyHasAParent = 21,
+	EAkResult__InvalidLanguage     = 22,
+	EAkResult__CannotAddItseflAsAChild = 23,
+	EAkResult__Reserved1           = 24,
+	EAkResult__Reserved2           = 25,
+	EAkResult__Reserved3           = 26,
+	EAkResult__Reserved4           = 27,
+	EAkResult__Reserved5           = 28,
+	EAkResult__UserNotInList       = 29,
+	EAkResult__NoTransitionPoint   = 30,
+	EAkResult__InvalidParameter    = 31,
+	EAkResult__ParameterAdjusted   = 32,
+	EAkResult__IsA3DSound          = 33,
+	EAkResult__NotA3DSound         = 34,
+	EAkResult__ElementAlreadyInList = 35,
+	EAkResult__PathNotFound        = 36,
+	EAkResult__PathNoVertices      = 37,
+	EAkResult__PathNotRunning      = 38,
+	EAkResult__PathNotPaused       = 39,
+	EAkResult__PathNodeAlreadyInList = 40,
+	EAkResult__PathNodeNotInList   = 41,
+	EAkResult__VoiceNotFound       = 42,
+	EAkResult__DataNeeded          = 43,
+	EAkResult__NoDataNeeded        = 44,
+	EAkResult__DataReady           = 45,
+	EAkResult__NoDataReady         = 46,
+	EAkResult__NoMoreSlotAvailable = 47,
+	EAkResult__SlotNotFound        = 48,
+	EAkResult__ProcessingOnly      = 49,
+	EAkResult__MemoryLeak          = 50,
+	EAkResult__CorruptedBlockList  = 51,
+	EAkResult__InsufficientMemory  = 52,
+	EAkResult__Cancelled           = 53,
+	EAkResult__UnknownBankID       = 54,
+	EAkResult__IsProcessing        = 55,
+	EAkResult__BankReadError       = 56,
+	EAkResult__InvalidSwitchType   = 57,
+	EAkResult__VoiceDone           = 58,
+	EAkResult__UnknownEnvironment  = 59,
+	EAkResult__EnvironmentInUse    = 60,
+	EAkResult__UnknownObject       = 61,
+	EAkResult__NoConversionNeeded  = 62,
+	EAkResult__FormatNotReady      = 63,
+	EAkResult__WrongBankVersion    = 64,
+	EAkResult__DataReadyNoProcess  = 65,
+	EAkResult__FileNotFound        = 66,
+	EAkResult__DeviceNotReady      = 67,
+	EAkResult__CouldNotCreateSecBuffer = 68,
+	EAkResult__BankAlreadyLoaded   = 69,
+	EAkResult__Reserved6           = 70,
+	EAkResult__RenderedFX          = 71,
+	EAkResult__ProcessNeeded       = 72,
+	EAkResult__ProcessDone         = 73,
+	EAkResult__MemManagerNotInitialized = 74,
+	EAkResult__StreamMgrNotInitialized = 75,
+	EAkResult__SSEInstructionsNotSupported = 76,
+	EAkResult__Busy                = 77,
+	EAkResult__UnsupportedChannelConfig = 78,
+	EAkResult__PluginMediaNotAvailable = 79,
+	EAkResult__MustBeVirtualized   = 80,
+	EAkResult__CommandTooLarge     = 81,
+	EAkResult__RejectedByFilter    = 82,
+	EAkResult__InvalidCustomPlatformName = 83,
+	EAkResult__DLLCannotLoad       = 84,
+	EAkResult__DLLPathNotFound     = 85,
+	EAkResult__NoJavaVM            = 86,
+	EAkResult__OpenSLError         = 87,
+	EAkResult__PluginNotRegistered = 88,
+	EAkResult__DataAlignmentError  = 89,
+	EAkResult__EAkResult_MAX       = 90
 };
 
 

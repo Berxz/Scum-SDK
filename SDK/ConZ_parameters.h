@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -635,6 +635,12 @@ struct AItem_DetachFromAll_Params
 struct AItem_DebugTextChangedDelegate__DelegateSignature_Params
 {
 	class AItem*                                       Item;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function ConZ.Item.DamageContainedItems
+struct AItem_DamageContainedItems_Params
+{
+	float                                              damagePercent;                                            // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function ConZ.Item.CanStackWith
@@ -1729,6 +1735,16 @@ struct UBodyTemperatureWidget_GetMaxTemperature_Params
 	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
+// Function ConZ.BombDefusalMinigame.Reload
+struct ABombDefusalMinigame_Reload_Params
+{
+};
+
+// Function ConZ.BombDefusalMinigame.PlayCutWireMontage
+struct ABombDefusalMinigame_PlayCutWireMontage_Params
+{
+};
+
 // Function ConZ.BondageComponent.UpdateVisuals
 struct UBondageComponent_UpdateVisuals_Params
 {
@@ -1951,67 +1967,26 @@ struct ABuilding_OnRep_Cleared_Params
 {
 };
 
-// Function ConZ.BuildingManagerBeaconClient.Server_RequestData
-struct ABuildingManagerBeaconClient_Server_RequestData_Params
+// Function ConZ.BuildingManager.NetMulticast_UpdateDoorData
+struct ABuildingManager_NetMulticast_UpdateDoorData_Params
 {
-};
-
-// Function ConZ.BuildingManagerBeaconClient.SendChunks
-struct ABuildingManagerBeaconClient_SendChunks_Params
-{
-};
-
-// Function ConZ.BuildingManagerBeaconClient.Client_StartReceiveData
-struct ABuildingManagerBeaconClient_Client_StartReceiveData_Params
-{
-};
-
-// Function ConZ.BuildingManagerBeaconClient.Client_ReceiveDoorDataChunk
-struct ABuildingManagerBeaconClient_Client_ReceiveDoorDataChunk_Params
-{
-	TArray<struct FString>                             Keys;                                                     // (ConstParm, Parm, ZeroConstructor, ReferenceParm)
-	TArray<struct FDoorRepData>                        Values;                                                   // (ConstParm, Parm, ZeroConstructor, ReferenceParm)
-};
-
-// Function ConZ.BuildingManagerBeaconClient.Client_ReceiveBuldingDataChunk
-struct ABuildingManagerBeaconClient_Client_ReceiveBuldingDataChunk_Params
-{
-	TArray<struct FString>                             Keys;                                                     // (ConstParm, Parm, ZeroConstructor, ReferenceParm)
-	TArray<struct FBuildingData>                       Values;                                                   // (ConstParm, Parm, ZeroConstructor, ReferenceParm)
-};
-
-// Function ConZ.BuildingManagerBeaconClient.Client_EndReceiveData
-struct ABuildingManagerBeaconClient_Client_EndReceiveData_Params
-{
-};
-
-// Function ConZ.BuildingManager.OnRep_InitializedReplication
-struct ABuildingManager_OnRep_InitializedReplication_Params
-{
-};
-
-// Function ConZ.BuildingManager.OnRep_BuildingsData
-struct ABuildingManager_OnRep_BuildingsData_Params
-{
-};
-
-// Function ConZ.BuildingManager.Multicast_UpdateDoorData
-struct ABuildingManager_Multicast_UpdateDoorData_Params
-{
+	int                                                dataVersion;                                              // (Parm, ZeroConstructor, IsPlainOldData)
 	struct FString                                     runtimeId;                                                // (Parm, ZeroConstructor)
 	struct FDoorRepData                                doorData;                                                 // (ConstParm, Parm, ReferenceParm)
 };
 
-// Function ConZ.BuildingManager.Multicast_UpdateBuildingFortificationsState
-struct ABuildingManager_Multicast_UpdateBuildingFortificationsState_Params
+// Function ConZ.BuildingManager.NetMulticast_UpdateBuildingFortificationsState
+struct ABuildingManager_NetMulticast_UpdateBuildingFortificationsState_Params
 {
+	int                                                dataVersion;                                              // (Parm, ZeroConstructor, IsPlainOldData)
 	struct FString                                     buildingId;                                               // (Parm, ZeroConstructor)
 	TArray<struct FFortificationData>                  FortificationData;                                        // (ConstParm, Parm, ZeroConstructor, ReferenceParm)
 };
 
-// Function ConZ.BuildingManager.Multicast_UpdateBuildingData
-struct ABuildingManager_Multicast_UpdateBuildingData_Params
+// Function ConZ.BuildingManager.NetMulticast_UpdateBuildingData
+struct ABuildingManager_NetMulticast_UpdateBuildingData_Params
 {
+	int                                                dataVersion;                                              // (Parm, ZeroConstructor, IsPlainOldData)
 	struct FString                                     runtimeId;                                                // (Parm, ZeroConstructor)
 	struct FBuildingData                               BuildingData;                                             // (ConstParm, Parm, ReferenceParm)
 };
@@ -2979,6 +2954,15 @@ struct UCharacterSpawnerSpawnee_SetupCharacter_Params
 	struct FCharacterSpawneeInfo                       spawneeInfo;                                              // (ConstParm, Parm, OutParm, ReferenceParm)
 };
 
+// Function ConZ.CharacterSpawningManager.SpawnCharacter
+struct ACharacterSpawningManager_SpawnCharacter_Params
+{
+	struct FTransform                                  SpawnTransform;                                           // (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
+	class UClass*                                      PawnClass;                                                // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ignoreLimit;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
 // Function ConZ.CharacterSpawningManager.OnSpawnTriggerDestroyed
 struct ACharacterSpawningManager_OnSpawnTriggerDestroyed_Params
 {
@@ -3557,11 +3541,6 @@ struct AConZBaseManager_SpawnBaseElement_Params
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function ConZ.ConZBaseManager.OnRep_IsInitialized
-struct AConZBaseManager_OnRep_IsInitialized_Params
-{
-};
-
 // Function ConZ.ConZBaseManager.NetMulticast_UpdateDoorData
 struct AConZBaseManager_NetMulticast_UpdateDoorData_Params
 {
@@ -3857,12 +3836,6 @@ struct AConZGameMode_GetGlobalAnimalSpawner_Params
 	class AGlobalAnimalSpawner*                        ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function ConZ.ConZGameMode.GetDataTransferManager
-struct AConZGameMode_GetDataTransferManager_Params
-{
-	class ADataTransferManager*                        ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
 // Function ConZ.ConZGameMode.GetDamageOverTimeDealer
 struct AConZGameMode_GetDamageOverTimeDealer_Params
 {
@@ -3885,6 +3858,84 @@ struct AConZGameMode_GetBaseManager_Params
 struct AConZGameMode_GetAchievementsManagerServer_Params
 {
 	class AAchievementsManagerServer*                  ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function ConZ.ConZGameState.SendServerTime
+struct AConZGameState_SendServerTime_Params
+{
+	float                                              Time;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function ConZ.ConZGameState.RemoveMemberFromSquad
+struct AConZGameState_RemoveMemberFromSquad_Params
+{
+	struct FDbIntegerId                                UserProfileId;                                            // (ConstParm, Parm)
+	class AConZSquad*                                  Squad;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               destroySquadIfEmpty;                                      // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function ConZ.ConZGameState.RemoveMemberFromAllSquads
+struct AConZGameState_RemoveMemberFromAllSquads_Params
+{
+	struct FDbIntegerId                                UserProfileId;                                            // (ConstParm, Parm)
+	bool                                               destroySquadIfEmpty;                                      // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function ConZ.ConZGameState.OnRep_Squads
+struct AConZGameState_OnRep_Squads_Params
+{
+};
+
+// Function ConZ.ConZGameState.Multicast_SendRespawnSettings
+struct AConZGameState_Multicast_SendRespawnSettings_Params
+{
+	struct FRespawnParameters                          parameters;                                               // (Parm)
+};
+
+// Function ConZ.ConZGameState.GetSquadForUserProfileId
+struct AConZGameState_GetSquadForUserProfileId_Params
+{
+	struct FDbIntegerId                                ID;                                                       // (ConstParm, Parm)
+	class AConZSquad*                                  ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function ConZ.ConZGameState.GetSquadForPrisoner
+struct AConZGameState_GetSquadForPrisoner_Params
+{
+	class APrisoner*                                   Prisoner;                                                 // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	class AConZSquad*                                  ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function ConZ.ConZGameState.GetSquad
+struct AConZGameState_GetSquad_Params
+{
+	struct FDbIntegerId                                squadId;                                                  // (ConstParm, Parm)
+	class AConZSquad*                                  ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function ConZ.ConZGameState.GetRegisteredPrisoners
+struct AConZGameState_GetRegisteredPrisoners_Params
+{
+	TArray<class APrisoner*>                           ReturnValue;                                              // (ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm)
+};
+
+// Function ConZ.ConZGameState.CreateSquad
+struct AConZGameState_CreateSquad_Params
+{
+	struct FDbIntegerId                                squadId;                                                  // (ConstParm, Parm)
+	class AConZSquad*                                  ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function ConZ.ConZGameState.CleanupSquadsFromDatabase
+struct AConZGameState_CleanupSquadsFromDatabase_Params
+{
+};
+
+// Function ConZ.ConZGameState.AddMemberToSquad
+struct AConZGameState_AddMemberToSquad_Params
+{
+	struct FDbIntegerId                                UserProfileId;                                            // (ConstParm, Parm)
+	class AConZSquad*                                  Squad;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function ConZ.ConZPlayerController.ToggleGameMenuEvent
@@ -4008,13 +4059,13 @@ struct AConZPlayerController_Server_RequestEventsRankingStats_Params
 	ESortOrder                                         sortOrder;                                                // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function ConZ.ConZPlayerController.Server_ReportWorldStreamed
-struct AConZPlayerController_Server_ReportWorldStreamed_Params
+// Function ConZ.ConZPlayerController.Server_ReportStartLeavingGame
+struct AConZPlayerController_Server_ReportStartLeavingGame_Params
 {
 };
 
-// Function ConZ.ConZPlayerController.Server_ReportStartLeavingGame
-struct AConZPlayerController_Server_ReportStartLeavingGame_Params
+// Function ConZ.ConZPlayerController.Server_ReportPlayPreparationsSucceeded
+struct AConZPlayerController_Server_ReportPlayPreparationsSucceeded_Params
 {
 };
 
@@ -4426,6 +4477,7 @@ struct AConZPlayerController_Client_ReceiveEventsRankingStats_Params
 struct AConZPlayerController_Client_MuteUser_Params
 {
 	struct FString                                     UserId;                                                   // (Parm, ZeroConstructor)
+	struct FString                                     userName;                                                 // (Parm, ZeroConstructor)
 };
 
 // Function ConZ.ConZPlayerController.Client_Login
@@ -4470,84 +4522,6 @@ struct AConZPlayerController_CanAddServerToFavorites_Params
 // Function ConZ.ConZPlayerController.AddServerToFavorites
 struct AConZPlayerController_AddServerToFavorites_Params
 {
-};
-
-// Function ConZ.ConZGameState.SendServerTime
-struct AConZGameState_SendServerTime_Params
-{
-	float                                              Time;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function ConZ.ConZGameState.RemoveMemberFromSquad
-struct AConZGameState_RemoveMemberFromSquad_Params
-{
-	struct FDbIntegerId                                UserProfileId;                                            // (ConstParm, Parm)
-	class AConZSquad*                                  Squad;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               destroySquadIfEmpty;                                      // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function ConZ.ConZGameState.RemoveMemberFromAllSquads
-struct AConZGameState_RemoveMemberFromAllSquads_Params
-{
-	struct FDbIntegerId                                UserProfileId;                                            // (ConstParm, Parm)
-	bool                                               destroySquadIfEmpty;                                      // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function ConZ.ConZGameState.OnRep_Squads
-struct AConZGameState_OnRep_Squads_Params
-{
-};
-
-// Function ConZ.ConZGameState.Multicast_SendRespawnSettings
-struct AConZGameState_Multicast_SendRespawnSettings_Params
-{
-	struct FRespawnParameters                          parameters;                                               // (Parm)
-};
-
-// Function ConZ.ConZGameState.GetSquadForUserProfileId
-struct AConZGameState_GetSquadForUserProfileId_Params
-{
-	struct FDbIntegerId                                ID;                                                       // (ConstParm, Parm)
-	class AConZSquad*                                  ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function ConZ.ConZGameState.GetSquadForPrisoner
-struct AConZGameState_GetSquadForPrisoner_Params
-{
-	class APrisoner*                                   Prisoner;                                                 // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	class AConZSquad*                                  ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function ConZ.ConZGameState.GetSquad
-struct AConZGameState_GetSquad_Params
-{
-	struct FDbIntegerId                                squadId;                                                  // (ConstParm, Parm)
-	class AConZSquad*                                  ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function ConZ.ConZGameState.GetRegisteredPrisoners
-struct AConZGameState_GetRegisteredPrisoners_Params
-{
-	TArray<class APrisoner*>                           ReturnValue;                                              // (ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm)
-};
-
-// Function ConZ.ConZGameState.CreateSquad
-struct AConZGameState_CreateSquad_Params
-{
-	struct FDbIntegerId                                squadId;                                                  // (ConstParm, Parm)
-	class AConZSquad*                                  ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function ConZ.ConZGameState.CleanupSquadsFromDatabase
-struct AConZGameState_CleanupSquadsFromDatabase_Params
-{
-};
-
-// Function ConZ.ConZGameState.AddMemberToSquad
-struct AConZGameState_AddMemberToSquad_Params
-{
-	struct FDbIntegerId                                UserProfileId;                                            // (ConstParm, Parm)
-	class AConZSquad*                                  Squad;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function ConZ.ConZReplicationGraph.OnVehicleItemContainerCreated
@@ -5101,6 +5075,31 @@ struct UCraftingComponentWidget_CreateTooltip_Params
 {
 };
 
+// Function ConZ.CraftingInfoWidget.SwapIngredient
+struct UCraftingInfoWidget_SwapIngredient_Params
+{
+	int                                                widgetIndex;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                orderIndex;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function ConZ.CraftingInfoWidget.SetCaptionAndDescription
+struct UCraftingInfoWidget_SetCaptionAndDescription_Params
+{
+	struct FText                                       Caption;                                                  // (ConstParm, Parm, OutParm, ReferenceParm)
+	struct FText                                       Description;                                              // (ConstParm, Parm, OutParm, ReferenceParm)
+};
+
+// Function ConZ.CraftingInfoWidget.Init
+struct UCraftingInfoWidget_Init_Params
+{
+	class AItem*                                       itemCDO;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function ConZ.CraftingInfoWidget.Close
+struct UCraftingInfoWidget_Close_Params
+{
+};
+
 // Function ConZ.CraftingPanelWidget.UpdateAvailableComponents
 struct UCraftingPanelWidget_UpdateAvailableComponents_Params
 {
@@ -5461,6 +5460,13 @@ struct AGameEventBase_GetStatusTime_Params
 	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
+// Function ConZ.GameEventBase.GetSpawnRotationForLocation
+struct AGameEventBase_GetSpawnRotationForLocation_Params
+{
+	struct FVector                                     Location;                                                 // (Parm, IsPlainOldData)
+	struct FRotator                                    ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
+};
+
 // Function ConZ.GameEventBase.GetScoreboardWidget
 struct AGameEventBase_GetScoreboardWidget_Params
 {
@@ -5776,6 +5782,12 @@ struct ATrapItem_OnRep_CurrentTrigger_Params
 {
 };
 
+// Function ConZ.TrapItem.OnLocalPrisonerSpawned
+struct ATrapItem_OnLocalPrisonerSpawned_Params
+{
+	class APrisoner*                                   Prisoner;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
 // Function ConZ.TrapItem.OnActorDestroyTimer
 struct ATrapItem_OnActorDestroyTimer_Params
 {
@@ -5812,73 +5824,6 @@ struct ATrapItem_BP_OnDisarmed_Params
 // Function ConZ.TrapItem.BP_OnArmed
 struct ATrapItem_BP_OnArmed_Params
 {
-};
-
-// Function ConZ.DataTransferBeaconClient.Server_RequestData
-struct ADataTransferBeaconClient_Server_RequestData_Params
-{
-};
-
-// Function ConZ.DataTransferBeaconClient.Client_StartReceiveData
-struct ADataTransferBeaconClient_Client_StartReceiveData_Params
-{
-};
-
-// Function ConZ.DataTransferBeaconClient.Client_EndReceiveData
-struct ADataTransferBeaconClient_Client_EndReceiveData_Params
-{
-};
-
-// Function ConZ.DataTransferBeaconClient.Client_AcceptDataChunk
-struct ADataTransferBeaconClient_Client_AcceptDataChunk_Params
-{
-	TArray<struct FConZBaseData>                       dataChunk;                                                // (ConstParm, Parm, ZeroConstructor, ReferenceParm)
-};
-
-// Function ConZ.ConZDataTransferBeaconClient.Server_ProcessDataTransferEvent
-struct AConZDataTransferBeaconClient_Server_ProcessDataTransferEvent_Params
-{
-	struct FDataTransferEvent                          E;                                                        // (Parm, IsPlainOldData)
-	class APlayerController*                           validationController;                                     // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function ConZ.ConZDataTransferBeaconClient.Client_StartReceiveData
-struct AConZDataTransferBeaconClient_Client_StartReceiveData_Params
-{
-	EDataTransferType                                  Type;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                dataVersion;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function ConZ.ConZDataTransferBeaconClient.Client_EndReceiveData
-struct AConZDataTransferBeaconClient_Client_EndReceiveData_Params
-{
-	EDataTransferType                                  Type;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function ConZ.ConZDataTransferBeaconClient.Client_AcceptDataChunk_LadderMarkers
-struct AConZDataTransferBeaconClient_Client_AcceptDataChunk_LadderMarkers_Params
-{
-	TArray<unsigned char>                              dataChunk;                                                // (ConstParm, Parm, ZeroConstructor, ReferenceParm)
-};
-
-// Function ConZ.ConZDataTransferBeaconClient.Client_AcceptDataChunk_Doors
-struct AConZDataTransferBeaconClient_Client_AcceptDataChunk_Doors_Params
-{
-	TArray<struct FString>                             Keys;                                                     // (ConstParm, Parm, ZeroConstructor, ReferenceParm)
-	TArray<struct FDoorRepData>                        Values;                                                   // (ConstParm, Parm, ZeroConstructor, ReferenceParm)
-};
-
-// Function ConZ.ConZDataTransferBeaconClient.Client_AcceptDataChunk_Buildings
-struct AConZDataTransferBeaconClient_Client_AcceptDataChunk_Buildings_Params
-{
-	TArray<struct FString>                             Keys;                                                     // (ConstParm, Parm, ZeroConstructor, ReferenceParm)
-	TArray<struct FBuildingData>                       Values;                                                   // (ConstParm, Parm, ZeroConstructor, ReferenceParm)
-};
-
-// Function ConZ.ConZDataTransferBeaconClient.Client_AcceptDataChunk_BaseBuilding
-struct AConZDataTransferBeaconClient_Client_AcceptDataChunk_BaseBuilding_Params
-{
-	TArray<struct FConZBaseData>                       dataChunk;                                                // (ConstParm, Parm, ZeroConstructor, ReferenceParm)
 };
 
 // Function ConZ.DbConnection.Open
@@ -5937,6 +5882,11 @@ struct UDecayable_ApplyDamageOverTime_Params
 
 // Function ConZ.Deer.OnRep_HartHind
 struct ADeer_OnRep_HartHind_Params
+{
+};
+
+// Function ConZ.Deer2.OnRep_HartHind
+struct ADeer2_OnRep_HartHind_Params
 {
 };
 
@@ -6120,11 +6070,6 @@ struct AFoodItem_GetEnvironmentTemperature_Params
 struct AFoodItem_GetCookingAmount_Params
 {
 	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function ConZ.DataTransferManager.OnRep_ServerInitialized
-struct ADataTransferManager_OnRep_ServerInitialized_Params
-{
 };
 
 // Function ConZ.Drone.Server_TeleportToNextOrPreviousPlayer
@@ -6360,11 +6305,6 @@ struct ADropZoneDroppable_GetGameEvent_Params
 	class ADropZoneGameEvent*                          ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function ConZ.DropZoneCrate.OnRep_HasKey
-struct ADropZoneCrate_OnRep_HasKey_Params
-{
-};
-
 // Function ConZ.DropZoneEquipmentTable.UntrackItem
 struct ADropZoneEquipmentTable_UntrackItem_Params
 {
@@ -6517,28 +6457,13 @@ struct ADropZoneSlot_GetGameEvent_Params
 	class ADropZoneGameEvent*                          ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function ConZ.CraftingInfoWidget.SwapIngredient
-struct UCraftingInfoWidget_SwapIngredient_Params
+// Function ConZ.DropZoneCrate.OnRep_HasKey
+struct ADropZoneCrate_OnRep_HasKey_Params
 {
-	int                                                widgetIndex;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                orderIndex;                                               // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function ConZ.CraftingInfoWidget.SetCaptionAndDescription
-struct UCraftingInfoWidget_SetCaptionAndDescription_Params
-{
-	struct FText                                       Caption;                                                  // (ConstParm, Parm, OutParm, ReferenceParm)
-	struct FText                                       Description;                                              // (ConstParm, Parm, OutParm, ReferenceParm)
-};
-
-// Function ConZ.CraftingInfoWidget.Init
-struct UCraftingInfoWidget_Init_Params
-{
-	class AItem*                                       itemCDO;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function ConZ.CraftingInfoWidget.Close
-struct UCraftingInfoWidget_Close_Params
+// Function ConZ.ExplosiveTrapItem.Detonate
+struct AExplosiveTrapItem_Detonate_Params
 {
 };
 
@@ -6584,11 +6509,6 @@ struct AFireItem_GetBurning_Params
 
 // Function ConZ.FireItem.CalculateBurningStage
 struct AFireItem_CalculateBurningStage_Params
-{
-};
-
-// Function ConZ.ExplosiveTrapItem.Detonate
-struct AExplosiveTrapItem_Detonate_Params
 {
 };
 
@@ -6719,11 +6639,6 @@ struct AFogSphere_OnTimeOfDayChanged_Params
 	float                                              timeOfDay;                                                // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function ConZ.Deer2.OnRep_HartHind
-struct ADeer2_OnRep_HartHind_Params
-{
-};
-
 // Function ConZ.FragGrenadeItem.Multicast_PlayEffects
 struct AFragGrenadeItem_Multicast_PlayEffects_Params
 {
@@ -6736,21 +6651,6 @@ struct AGameEventBorder_SetEnablePawnCollision_Params
 	bool                                               Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function ConZ.GameEventBorder.OnRep_Radius
-struct AGameEventBorder_OnRep_Radius_Params
-{
-};
-
-// Function ConZ.GameEventBorder.OnRep_Offset
-struct AGameEventBorder_OnRep_Offset_Params
-{
-};
-
-// Function ConZ.GameEventBorder.OnRep_Heat
-struct AGameEventBorder_OnRep_Heat_Params
-{
-};
-
 // Function ConZ.GameEventBorder.OnRep_Collision
 struct AGameEventBorder_OnRep_Collision_Params
 {
@@ -6759,7 +6659,7 @@ struct AGameEventBorder_OnRep_Collision_Params
 // Function ConZ.GameEventBorder.Multicast_SetRadius
 struct AGameEventBorder_Multicast_SetRadius_Params
 {
-	float                                              Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              Radius;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function ConZ.GameEventBorder.Multicast_SetOffset
@@ -6787,12 +6687,6 @@ struct AGameEventBorder_HeatUpAndChangeArea_Params
 struct AGameEventBorder_GetState_Params
 {
 	EGameEventBorderState                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function ConZ.GameEventBorder.GetRadiusChangeAmount
-struct AGameEventBorder_GetRadiusChangeAmount_Params
-{
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function ConZ.GameEventBorder.GetRadius
@@ -6828,22 +6722,10 @@ struct AGameEventBorder_ChangeArea_Params
 	float                                              Duration;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function ConZ.GameEventCardWidget.UpdateStats
-struct UGameEventCardWidget_UpdateStats_Params
+// Function ConZ.GameEventInfoWidget.UpdateStats
+struct UGameEventInfoWidget_UpdateStats_Params
 {
-};
-
-// Function ConZ.GameEventCardWidget.GetGameEvent
-struct UGameEventCardWidget_GetGameEvent_Params
-{
-	class AGameEventBase*                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function ConZ.GameEventCardWidget.Create
-struct UGameEventCardWidget_Create_Params
-{
-	class AGameEventBase*                              gameEvent;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	class UGameEventCardWidget*                        ReturnValue;                                              // (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
+	class AGameEventBase*                              _gameEvent;                                               // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function ConZ.GameEventLeaderboardWidget.UpdateTopPlayers
@@ -6898,12 +6780,6 @@ struct UGameEventLoadoutMenuWidget_CreateLoadout_Params
 	TArray<class UClass*>                              outfit;                                                   // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
 	TArray<class UClass*>                              support;                                                  // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
 	class UPrisonerLoadout*                            loadout;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function ConZ.GameEventInfoWidget.UpdateStats
-struct UGameEventInfoWidget_UpdateStats_Params
-{
-	class AGameEventBase*                              _gameEvent;                                               // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function ConZ.GameEventManager.TrySchedulingNextEvent
@@ -7101,6 +6977,12 @@ struct UGameEventParticipantStatsWidget_FillLabels_Params
 {
 };
 
+// Function ConZ.GameEventRoundInfoWidget.SetGameEvent
+struct UGameEventRoundInfoWidget_SetGameEvent_Params
+{
+	class AGameEventBase*                              gameEvent;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
 // Function ConZ.GameEventScoreboardWidget.SetSelectedIndex
 struct UGameEventScoreboardWidget_SetSelectedIndex_Params
 {
@@ -7156,6 +7038,24 @@ struct UGameEventTeamHeaderWidget_ClearWinCounters_Params
 // Function ConZ.GameEventTeamHeaderWidget.AddWinCounter
 struct UGameEventTeamHeaderWidget_AddWinCounter_Params
 {
+};
+
+// Function ConZ.GameEventCardWidget.UpdateStats
+struct UGameEventCardWidget_UpdateStats_Params
+{
+};
+
+// Function ConZ.GameEventCardWidget.GetGameEvent
+struct UGameEventCardWidget_GetGameEvent_Params
+{
+	class AGameEventBase*                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function ConZ.GameEventCardWidget.Create
+struct UGameEventCardWidget_Create_Params
+{
+	class AGameEventBase*                              gameEvent;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	class UGameEventCardWidget*                        ReturnValue;                                              // (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
 };
 
 // Function ConZ.GameEventTransport.TravelToDestination
@@ -7282,16 +7182,28 @@ struct UHasLadderMarkersInterface_GetLadderMarkers_Params
 	TArray<struct FLadderMarker>                       Result;                                                   // (Parm, OutParm, ZeroConstructor)
 };
 
-// Function ConZ.GameEventRoundInfoWidget.SetGameEvent
-struct UGameEventRoundInfoWidget_SetGameEvent_Params
-{
-	class AGameEventBase*                              gameEvent;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
 // Function ConZ.HasWindowMarkersInterface.GetWindowMarkers
 struct UHasWindowMarkersInterface_GetWindowMarkers_Params
 {
 	TArray<struct FWindowMarker>                       Result;                                                   // (Parm, OutParm, ZeroConstructor)
+};
+
+// Function ConZ.HealingItem.GetQuantity
+struct UHealingItem_GetQuantity_Params
+{
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function ConZ.HealingItem.GetID
+struct UHealingItem_GetID_Params
+{
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function ConZ.HealingItem.GetCaption
+struct UHealingItem_GetCaption_Params
+{
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
 };
 
 // Function ConZ.HealthWidget.SetMaxHealthPercentage
@@ -7387,24 +7299,6 @@ struct AHeatSourceManager_GetFuelCapacity_Params
 {
 	struct FDbIntegerId                                ID;                                                       // (ConstParm, Parm)
 	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function ConZ.HealingItem.GetQuantity
-struct UHealingItem_GetQuantity_Params
-{
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function ConZ.HealingItem.GetID
-struct UHealingItem_GetID_Params
-{
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function ConZ.HealingItem.GetCaption
-struct UHealingItem_GetCaption_Params
-{
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
 };
 
 // Function ConZ.Helpers.UtcToLocalDateTime
@@ -8650,6 +8544,18 @@ struct AItemSpawningManager_SimulateExamineSpawner_Params
 	int                                                numIterations;                                            // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
+// Function ConZ.ItemStatusWidget.SetTitleText
+struct UItemStatusWidget_SetTitleText_Params
+{
+	struct FString                                     Text;                                                     // (Parm, ZeroConstructor)
+};
+
+// Function ConZ.ItemStatusWidget.SetNameText
+struct UItemStatusWidget_SetNameText_Params
+{
+	struct FString                                     Text;                                                     // (Parm, ZeroConstructor)
+};
+
 // Function ConZ.ItemTooltip.UpdateVisuals
 struct UItemTooltip_UpdateVisuals_Params
 {
@@ -8917,6 +8823,19 @@ struct ULaserTriggerComponent_BoxComponent_OnComponentBeginOverlap_Params
 	struct FHitResult                                  SweepResult;                                              // (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
 };
 
+// Function ConZ.LevelUpNotificationWidget.QueueNotification
+struct ULevelUpNotificationWidget_QueueNotification_Params
+{
+	class USkill*                                      Skill;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	ESkillLevel                                        skillLevel;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function ConZ.LevelUpNotificationWidget.GetLevelUpAnimation
+struct ULevelUpNotificationWidget_GetLevelUpAnimation_Params
+{
+	class UWidgetAnimation*                            ReturnValue;                                              // (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
+};
+
 // Function ConZ.LocationObjective.OnRep_LocationMarker
 struct ALocationObjective_OnRep_LocationMarker_Params
 {
@@ -8933,6 +8852,30 @@ struct ALocationObjective_OnLocationEnter_Params
 struct ALock_OnLockpickDestroyed_Params
 {
 	class AActor*                                      Actor;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function ConZ.Lockpickable.OnLockPicked
+struct ULockpickable_OnLockPicked_Params
+{
+};
+
+// Function ConZ.Lockpickable.HasLocks
+struct ULockpickable_HasLocks_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function ConZ.Lockpickable.GetLockClass
+struct ULockpickable_GetLockClass_Params
+{
+	class UClass*                                      ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function ConZ.Lockpickable.CanInitiateLockpickingFor
+struct ULockpickable_CanInitiateLockpickingFor_Params
+{
+	class APrisoner*                                   Prisoner;                                                 // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function ConZ.LockpickingWidget.GetTensionToolCount
@@ -8977,28 +8920,10 @@ struct UMalfunctionWidget_ExecuteAction_Params
 {
 };
 
-// Function ConZ.Lockpickable.OnLockPicked
-struct ULockpickable_OnLockPicked_Params
+// Function ConZ.MechanoidsManager.Drone_OnDestroyed
+struct AMechanoidsManager_Drone_OnDestroyed_Params
 {
-};
-
-// Function ConZ.Lockpickable.HasLocks
-struct ULockpickable_HasLocks_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function ConZ.Lockpickable.GetLockClass
-struct ULockpickable_GetLockClass_Params
-{
-	class UClass*                                      ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function ConZ.Lockpickable.CanInitiateLockpickingFor
-struct ULockpickable_CanInitiateLockpickingFor_Params
-{
-	class APrisoner*                                   Prisoner;                                                 // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+	class AActor*                                      sender;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function ConZ.MeleeCombatComponent.ToggleCombatMode
@@ -9048,18 +8973,6 @@ struct UMeleeCombatComponent_GetIsInCombatMode_Params
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function ConZ.ItemStatusWidget.SetTitleText
-struct UItemStatusWidget_SetTitleText_Params
-{
-	struct FString                                     Text;                                                     // (Parm, ZeroConstructor)
-};
-
-// Function ConZ.ItemStatusWidget.SetNameText
-struct UItemStatusWidget_SetNameText_Params
-{
-	struct FString                                     Text;                                                     // (Parm, ZeroConstructor)
-};
-
 // Function ConZ.MeleeInterface.OnBeingAttackedByMelee
 struct UMeleeInterface_OnBeingAttackedByMelee_Params
 {
@@ -9083,12 +8996,6 @@ struct UMeleeInterface_CanHoldBlock_Params
 struct UMeleeInterface_CanBeAttackedByMelee_Params
 {
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function ConZ.MechanoidsManager.Drone_OnDestroyed
-struct AMechanoidsManager_Drone_OnDestroyed_Params
-{
-	class AActor*                                      sender;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function ConZ.MenuPlayerController.InputComponent_MouseReleased
@@ -9313,6 +9220,16 @@ struct AMissionManager_Client_SendMissionInvitation_Params
 	class AMission*                                    Mission;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
+// Function ConZ.MissionPrompt.OnYesClicked
+struct UMissionPrompt_OnYesClicked_Params
+{
+};
+
+// Function ConZ.MissionPrompt.OnNoClicked
+struct UMissionPrompt_OnNoClicked_Params
+{
+};
+
 // Function ConZ.MissionResult.PlayShowMissionResultAnimation
 struct UMissionResult_PlayShowMissionResultAnimation_Params
 {
@@ -9401,16 +9318,6 @@ struct UMountee_CanMount_Params
 {
 	TScriptInterface<class UMountSlot>                 Slot;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function ConZ.MissionPrompt.OnYesClicked
-struct UMissionPrompt_OnYesClicked_Params
-{
-};
-
-// Function ConZ.MissionPrompt.OnNoClicked
-struct UMissionPrompt_OnNoClicked_Params
-{
 };
 
 // Function ConZ.MountSlot.IsReachableFromSky
@@ -9548,6 +9455,23 @@ struct UNativeWindowsContent_SetParentWindow_Params
 struct UNativeWindowsContent_GetParentWindow_Params
 {
 	class UUserWidget*                                 ReturnValue;                                              // (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
+};
+
+// Function ConZ.NightVisionGogglesItem.SetActivatedOnServer
+struct ANightVisionGogglesItem_SetActivatedOnServer_Params
+{
+	bool                                               Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function ConZ.NightVisionGogglesItem.OnRep_Activated
+struct ANightVisionGogglesItem_OnRep_Activated_Params
+{
+};
+
+// DelegateFunction ConZ.NightVisionGogglesItem.ActivatedChangedEvent__DelegateSignature
+struct ANightVisionGogglesItem_ActivatedChangedEvent__DelegateSignature_Params
+{
+	class ANightVisionGogglesItem*                     sender;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function ConZ.NotificationPanelWidget.ShowNotification
@@ -9802,6 +9726,12 @@ struct UPlayerRpcChannel_TrapItem_Server_TriggerTrap_Params
 {
 	class ATrapItem*                                   TrapItem;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
 	struct FTrapTriggerParams                          Params;                                                   // (ConstParm, Parm, ReferenceParm)
+};
+
+// Function ConZ.PlayerRpcChannel.TrapItem_Server_DisarmTrap
+struct UPlayerRpcChannel_TrapItem_Server_DisarmTrap_Params
+{
+	class ATrapItem*                                   TrapItem;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function ConZ.PlayerRpcChannel.SurvivalStats_Server_HandlePlayerLogout
@@ -12273,23 +12203,6 @@ struct APrisoner_AcceptSquadInvitationOnServer_Params
 {
 	class APrisoner*                                   invitor;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
 	bool                                               accepted;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function ConZ.NightVisionGogglesItem.SetActivatedOnServer
-struct ANightVisionGogglesItem_SetActivatedOnServer_Params
-{
-	bool                                               Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function ConZ.NightVisionGogglesItem.OnRep_Activated
-struct ANightVisionGogglesItem_OnRep_Activated_Params
-{
-};
-
-// DelegateFunction ConZ.NightVisionGogglesItem.ActivatedChangedEvent__DelegateSignature
-struct ANightVisionGogglesItem_ActivatedChangedEvent__DelegateSignature_Params
-{
-	class ANightVisionGogglesItem*                     sender;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function ConZ.PrisonerAnimInstance.TakePenis
@@ -15046,6 +14959,30 @@ struct URadioComponent_OnRep_TurnedOn_Params
 {
 };
 
+// Function ConZ.RespiratoryRateWidget.SetPrisonerLifeComponent
+struct URespiratoryRateWidget_SetPrisonerLifeComponent_Params
+{
+	class UPrisonerLifeComponent*                      Value;                                                    // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+};
+
+// Function ConZ.RespiratoryRateWidget.GetPrisonerLifeComponent
+struct URespiratoryRateWidget_GetPrisonerLifeComponent_Params
+{
+	class UPrisonerLifeComponent*                      ReturnValue;                                              // (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
+};
+
+// Function ConZ.RespiratoryRateWidget.GetMinRespiratoryRate
+struct URespiratoryRateWidget_GetMinRespiratoryRate_Params
+{
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function ConZ.RespiratoryRateWidget.GetMaxRespiratoryRate
+struct URespiratoryRateWidget_GetMaxRespiratoryRate_Params
+{
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
 // Function ConZ.ScreenSpaceHealthWidget.SetMaxHealthPercentage
 struct UScreenSpaceHealthWidget_SetMaxHealthPercentage_Params
 {
@@ -15495,28 +15432,41 @@ struct USphereProximityTriggerComponent_SphereComponent_OnComponentBeginOverlap_
 	struct FHitResult                                  SweepResult;                                              // (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
 };
 
-// Function ConZ.RespiratoryRateWidget.SetPrisonerLifeComponent
-struct URespiratoryRateWidget_SetPrisonerLifeComponent_Params
+// Function ConZ.SquadPanelWidget.UpdateSquadTopData
+struct USquadPanelWidget_UpdateSquadTopData_Params
 {
-	class UPrisonerLifeComponent*                      Value;                                                    // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
 };
 
-// Function ConZ.RespiratoryRateWidget.GetPrisonerLifeComponent
-struct URespiratoryRateWidget_GetPrisonerLifeComponent_Params
+// Function ConZ.SquadPanelWidget.UpdateSquadRankingData
+struct USquadPanelWidget_UpdateSquadRankingData_Params
 {
-	class UPrisonerLifeComponent*                      ReturnValue;                                              // (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
 };
 
-// Function ConZ.RespiratoryRateWidget.GetMinRespiratoryRate
-struct URespiratoryRateWidget_GetMinRespiratoryRate_Params
+// Function ConZ.SquadPanelWidget.UpdateSquadMemberInfo
+struct USquadPanelWidget_UpdateSquadMemberInfo_Params
 {
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function ConZ.RespiratoryRateWidget.GetMaxRespiratoryRate
-struct URespiratoryRateWidget_GetMaxRespiratoryRate_Params
+// Function ConZ.SquadPanelWidget.Update
+struct USquadPanelWidget_Update_Params
 {
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function ConZ.SquadPanelWidget.RequestSquadTopData
+struct USquadPanelWidget_RequestSquadTopData_Params
+{
+	int                                                count;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function ConZ.SquadPanelWidget.RequestSquadRankingData
+struct USquadPanelWidget_RequestSquadRankingData_Params
+{
+	int                                                count;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function ConZ.SquadPanelWidget.RequestSquadMemberInfo
+struct USquadPanelWidget_RequestSquadMemberInfo_Params
+{
 };
 
 // Function ConZ.StatisticsDetailsWidget.OnTravelSubcategoryButtonClicked
@@ -15556,43 +15506,6 @@ struct UStatisticsDetailsWidget_OnCraftingSubcategoryButtonClicked_Params
 
 // Function ConZ.StatisticsDetailsWidget.OnCombatSubcategoryButtonClicked
 struct UStatisticsDetailsWidget_OnCombatSubcategoryButtonClicked_Params
-{
-};
-
-// Function ConZ.SquadPanelWidget.UpdateSquadTopData
-struct USquadPanelWidget_UpdateSquadTopData_Params
-{
-};
-
-// Function ConZ.SquadPanelWidget.UpdateSquadRankingData
-struct USquadPanelWidget_UpdateSquadRankingData_Params
-{
-};
-
-// Function ConZ.SquadPanelWidget.UpdateSquadMemberInfo
-struct USquadPanelWidget_UpdateSquadMemberInfo_Params
-{
-};
-
-// Function ConZ.SquadPanelWidget.Update
-struct USquadPanelWidget_Update_Params
-{
-};
-
-// Function ConZ.SquadPanelWidget.RequestSquadTopData
-struct USquadPanelWidget_RequestSquadTopData_Params
-{
-	int                                                count;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function ConZ.SquadPanelWidget.RequestSquadRankingData
-struct USquadPanelWidget_RequestSquadRankingData_Params
-{
-	int                                                count;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function ConZ.SquadPanelWidget.RequestSquadMemberInfo
-struct USquadPanelWidget_RequestSquadMemberInfo_Params
 {
 };
 
@@ -15693,12 +15606,6 @@ struct UThrowingComponent_Multicast_PierceHitObject_Params
 	struct FHitResult                                  ZeroBasedImpactResult;                                    // (ConstParm, Parm, ReferenceParm, IsPlainOldData)
 };
 
-// Function ConZ.TimeControllableSpotLight.OnTimeOfDayChanged
-struct ATimeControllableSpotLight_OnTimeOfDayChanged_Params
-{
-	float                                              timeOfDay;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
 // Function ConZ.TimeControllableLight.OnTimeOfDayChanged
 struct ATimeControllableLight_OnTimeOfDayChanged_Params
 {
@@ -15731,156 +15638,6 @@ struct UUserManager_DeleteUser_Params
 {
 	struct FString                                     ID;                                                       // (Parm, ZeroConstructor)
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function ConZ.UserProfile.SetPrisonerId
-struct UUserProfile_SetPrisonerId_Params
-{
-	struct FDbIntegerId                                Value;                                                    // (Parm)
-};
-
-// Function ConZ.UserProfile.SetName
-struct UUserProfile_SetName_Params
-{
-	struct FString                                     Value;                                                    // (Parm, ZeroConstructor)
-};
-
-// Function ConZ.UserProfile.SetLastLoginTime
-struct UUserProfile_SetLastLoginTime_Params
-{
-	struct FDateTime                                   Value;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
-};
-
-// Function ConZ.UserProfile.SetFamePoints
-struct UUserProfile_SetFamePoints_Params
-{
-	float                                              Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function ConZ.UserProfile.SetCreationTemplateXml
-struct UUserProfile_SetCreationTemplateXml_Params
-{
-	struct FString                                     Value;                                                    // (Parm, ZeroConstructor)
-};
-
-// Function ConZ.UserProfile.SetAuthorityInfo
-struct UUserProfile_SetAuthorityInfo_Params
-{
-	struct FUserProfileAuthorityInfo                   Value;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
-};
-
-// Function ConZ.UserProfile.MakeCharacterTemplate
-struct UUserProfile_MakeCharacterTemplate_Params
-{
-	struct FCharacterTemplate                          ReturnValue;                                              // (Parm, OutParm, ReturnParm)
-};
-
-// Function ConZ.UserProfile.LoadCharacterTemplate
-struct UUserProfile_LoadCharacterTemplate_Params
-{
-	struct FCharacterTemplate                          ReturnValue;                                              // (Parm, OutParm, ReturnParm)
-};
-
-// Function ConZ.UserProfile.GetUser
-struct UUserProfile_GetUser_Params
-{
-	class UUser*                                       ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function ConZ.UserProfile.GetType
-struct UUserProfile_GetType_Params
-{
-	EUserProfileType                                   ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function ConZ.UserProfile.GetPrisonerId
-struct UUserProfile_GetPrisonerId_Params
-{
-	struct FDbIntegerId                                ReturnValue;                                              // (Parm, OutParm, ReturnParm)
-};
-
-// Function ConZ.UserProfile.GetName
-struct UUserProfile_GetName_Params
-{
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function ConZ.UserProfile.GetLastLoginTime
-struct UUserProfile_GetLastLoginTime_Params
-{
-	struct FDateTime                                   ReturnValue;                                              // (Parm, OutParm, ReturnParm)
-};
-
-// Function ConZ.UserProfile.GetID
-struct UUserProfile_GetID_Params
-{
-	struct FDbIntegerId                                ReturnValue;                                              // (Parm, OutParm, ReturnParm)
-};
-
-// Function ConZ.UserProfile.GetFamePoints
-struct UUserProfile_GetFamePoints_Params
-{
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function ConZ.UserProfile.GetCreationTemplateXml
-struct UUserProfile_GetCreationTemplateXml_Params
-{
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function ConZ.UserProfile.GetCreationTemplate
-struct UUserProfile_GetCreationTemplate_Params
-{
-	struct FCharacterTemplate                          ReturnValue;                                              // (Parm, OutParm, ReturnParm)
-};
-
-// Function ConZ.UserProfile.GetAuthorityInfo
-struct UUserProfile_GetAuthorityInfo_Params
-{
-	struct FUserProfileAuthorityInfo                   ReturnValue;                                              // (Parm, OutParm, ReturnParm)
-};
-
-// Function ConZ.VehicleCorpse.GetMesh
-struct AVehicleCorpse_GetMesh_Params
-{
-	class UStaticMeshComponent*                        ReturnValue;                                              // (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
-};
-
-// Function ConZ.VehicleHudWidget.ShouldShowVehicleHud
-struct UVehicleHudWidget_ShouldShowVehicleHud_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function ConZ.VehicleHudWidget.HasVehicle
-struct UVehicleHudWidget_HasVehicle_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function ConZ.VehicleHudWidget.GetVehicleSpeed
-struct UVehicleHudWidget_GetVehicleSpeed_Params
-{
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function ConZ.VehicleHudWidget.GetVehicleHealthRatio
-struct UVehicleHudWidget_GetVehicleHealthRatio_Params
-{
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function ConZ.VehicleHudWidget.GetVehicleHealthBarCaption
-struct UVehicleHudWidget_GetVehicleHealthBarCaption_Params
-{
-	struct FText                                       ReturnValue;                                              // (ConstParm, Parm, OutParm, ReturnParm, ReferenceParm)
-};
-
-// Function ConZ.VehicleHudWidget.GetVehicleGear
-struct UVehicleHudWidget_GetVehicleGear_Params
-{
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function ConZ.User.SetRecentServers
@@ -16083,6 +15840,114 @@ struct UUser_AddRecentServer_Params
 struct UUser_AddFavoriteServer_Params
 {
 	struct FUserServerHistoryItem                      Item;                                                     // (ConstParm, Parm, OutParm, ReferenceParm)
+};
+
+// Function ConZ.UserProfile.SetPrisonerId
+struct UUserProfile_SetPrisonerId_Params
+{
+	struct FDbIntegerId                                Value;                                                    // (Parm)
+};
+
+// Function ConZ.UserProfile.SetName
+struct UUserProfile_SetName_Params
+{
+	struct FString                                     Value;                                                    // (Parm, ZeroConstructor)
+};
+
+// Function ConZ.UserProfile.SetLastLoginTime
+struct UUserProfile_SetLastLoginTime_Params
+{
+	struct FDateTime                                   Value;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
+};
+
+// Function ConZ.UserProfile.SetFamePoints
+struct UUserProfile_SetFamePoints_Params
+{
+	float                                              Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function ConZ.UserProfile.SetCreationTemplateXml
+struct UUserProfile_SetCreationTemplateXml_Params
+{
+	struct FString                                     Value;                                                    // (Parm, ZeroConstructor)
+};
+
+// Function ConZ.UserProfile.SetAuthorityInfo
+struct UUserProfile_SetAuthorityInfo_Params
+{
+	struct FUserProfileAuthorityInfo                   Value;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
+};
+
+// Function ConZ.UserProfile.MakeCharacterTemplate
+struct UUserProfile_MakeCharacterTemplate_Params
+{
+	struct FCharacterTemplate                          ReturnValue;                                              // (Parm, OutParm, ReturnParm)
+};
+
+// Function ConZ.UserProfile.LoadCharacterTemplate
+struct UUserProfile_LoadCharacterTemplate_Params
+{
+	struct FCharacterTemplate                          ReturnValue;                                              // (Parm, OutParm, ReturnParm)
+};
+
+// Function ConZ.UserProfile.GetUser
+struct UUserProfile_GetUser_Params
+{
+	class UUser*                                       ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function ConZ.UserProfile.GetType
+struct UUserProfile_GetType_Params
+{
+	EUserProfileType                                   ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function ConZ.UserProfile.GetPrisonerId
+struct UUserProfile_GetPrisonerId_Params
+{
+	struct FDbIntegerId                                ReturnValue;                                              // (Parm, OutParm, ReturnParm)
+};
+
+// Function ConZ.UserProfile.GetName
+struct UUserProfile_GetName_Params
+{
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function ConZ.UserProfile.GetLastLoginTime
+struct UUserProfile_GetLastLoginTime_Params
+{
+	struct FDateTime                                   ReturnValue;                                              // (Parm, OutParm, ReturnParm)
+};
+
+// Function ConZ.UserProfile.GetID
+struct UUserProfile_GetID_Params
+{
+	struct FDbIntegerId                                ReturnValue;                                              // (Parm, OutParm, ReturnParm)
+};
+
+// Function ConZ.UserProfile.GetFamePoints
+struct UUserProfile_GetFamePoints_Params
+{
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function ConZ.UserProfile.GetCreationTemplateXml
+struct UUserProfile_GetCreationTemplateXml_Params
+{
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function ConZ.UserProfile.GetCreationTemplate
+struct UUserProfile_GetCreationTemplate_Params
+{
+	struct FCharacterTemplate                          ReturnValue;                                              // (Parm, OutParm, ReturnParm)
+};
+
+// Function ConZ.UserProfile.GetAuthorityInfo
+struct UUserProfile_GetAuthorityInfo_Params
+{
+	struct FUserProfileAuthorityInfo                   ReturnValue;                                              // (Parm, OutParm, ReturnParm)
 };
 
 // Function ConZ.Vehicle.StopVehicleEngine
@@ -16306,6 +16171,48 @@ struct UVehicle_AreVehicleLightsActive_Params
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
+// Function ConZ.TimeControllableSpotLight.OnTimeOfDayChanged
+struct ATimeControllableSpotLight_OnTimeOfDayChanged_Params
+{
+	float                                              timeOfDay;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function ConZ.VehicleHudWidget.ShouldShowVehicleHud
+struct UVehicleHudWidget_ShouldShowVehicleHud_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function ConZ.VehicleHudWidget.HasVehicle
+struct UVehicleHudWidget_HasVehicle_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function ConZ.VehicleHudWidget.GetVehicleSpeed
+struct UVehicleHudWidget_GetVehicleSpeed_Params
+{
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function ConZ.VehicleHudWidget.GetVehicleHealthRatio
+struct UVehicleHudWidget_GetVehicleHealthRatio_Params
+{
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function ConZ.VehicleHudWidget.GetVehicleHealthBarCaption
+struct UVehicleHudWidget_GetVehicleHealthBarCaption_Params
+{
+	struct FText                                       ReturnValue;                                              // (ConstParm, Parm, OutParm, ReturnParm, ReferenceParm)
+};
+
+// Function ConZ.VehicleHudWidget.GetVehicleGear
+struct UVehicleHudWidget_GetVehicleGear_Params
+{
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
 // Function ConZ.VicinityPanel3.OnVicinityContainerInitialized
 struct UVicinityPanel3_OnVicinityContainerInitialized_Params
 {
@@ -16323,6 +16230,12 @@ struct UVicinityPanel3_OnItemActorDestroyed_Params
 struct UVicinityPanel3_OnCheckBoxCheckedChanged_Params
 {
 	bool                                               checked;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function ConZ.VehicleCorpse.GetMesh
+struct AVehicleCorpse_GetMesh_Params
+{
+	class UStaticMeshComponent*                        ReturnValue;                                              // (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
 };
 
 // Function ConZ.VoiceAudioComponent.QueueVoiceData
@@ -16475,6 +16388,25 @@ struct AWeaponAttachmentMagazine_GetAmmoCount_Params
 struct AWeaponAttachmentMagazine_AddAmmo_Params
 {
 	int                                                amount;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function ConZ.WeaponAttachmentScope.SetZoomLevelOnServer
+struct AWeaponAttachmentScope_SetZoomLevelOnServer_Params
+{
+	int                                                zoomLevel;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function ConZ.WeaponAttachmentScope.SetWindageOnServer
+struct AWeaponAttachmentScope_SetWindageOnServer_Params
+{
+	int                                                Windage;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function ConZ.WeaponAttachmentScope.SetLoadedVariablesOnClient
+struct AWeaponAttachmentScope_SetLoadedVariablesOnClient_Params
+{
+	int                                                zoomLevel;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                Windage;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function ConZ.WeaponBow.SetDrawWeight
@@ -16642,25 +16574,6 @@ struct UWeaponScopeWidget_BeginFadeIn_Params
 {
 };
 
-// Function ConZ.WeaponAttachmentScope.SetZoomLevelOnServer
-struct AWeaponAttachmentScope_SetZoomLevelOnServer_Params
-{
-	int                                                zoomLevel;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function ConZ.WeaponAttachmentScope.SetWindageOnServer
-struct AWeaponAttachmentScope_SetWindageOnServer_Params
-{
-	int                                                Windage;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function ConZ.WeaponAttachmentScope.SetLoadedVariablesOnClient
-struct AWeaponAttachmentScope_SetLoadedVariablesOnClient_Params
-{
-	int                                                zoomLevel;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                Windage;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
 // Function ConZ.WeaponStateChamberBullet.OnMontageEnded
 struct UWeaponStateChamberBullet_OnMontageEnded_Params
 {
@@ -16786,6 +16699,105 @@ struct UWetnessHelpers_SetMaterialsWetness_Params
 	float                                              wetness;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
+// Function ConZ.Wettable.SetWaterWeight
+struct UWettable_SetWaterWeight_Params
+{
+	float                                              Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function ConZ.Wettable.GetWaterWeight
+struct UWettable_GetWaterWeight_Params
+{
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function ConZ.Wettable.GetMaxWaterWeight
+struct UWettable_GetMaxWaterWeight_Params
+{
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function ConZ.WidgetHelpers.ProjectWorldToScreen
+struct UWidgetHelpers_ProjectWorldToScreen_Params
+{
+	class APlayerController*                           Controller;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector                                     WorldPosition;                                            // (Parm, OutParm, IsPlainOldData)
+	struct FVector2D                                   Size;                                                     // (Parm, OutParm, IsPlainOldData)
+	struct FVector2D                                   ScreenPosition;                                           // (Parm, OutParm, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function ConZ.WidgetHelpers.GetWidgetParentOfType
+struct UWidgetHelpers_GetWidgetParentOfType_Params
+{
+	class UWidget*                                     Widget;                                                   // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+	class UClass*                                      Type;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               includeUserWidgets;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+	class UWidget*                                     ReturnValue;                                              // (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
+};
+
+// Function ConZ.WidgetHelpers.GetMuscleLeanFatFactorsFromCoordinates
+struct UWidgetHelpers_GetMuscleLeanFatFactorsFromCoordinates_Params
+{
+	struct FVector2D                                   Coordinates;                                              // (Parm, IsPlainOldData)
+	struct FVector                                     ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
+};
+
+// Function ConZ.WidgetHelpers.GetDesiredWidgetClass
+struct UWidgetHelpers_GetDesiredWidgetClass_Params
+{
+	EWidgetType                                        Type;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
+	class UClass*                                      ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function ConZ.WidgetHelpers.GetDataForFieldName
+struct UWidgetHelpers_GetDataForFieldName_Params
+{
+	struct FName                                       Name;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
+	class UStruct*                                     Str;                                                      // (Parm, ZeroConstructor, IsPlainOldData)
+	class UStruct*                                     Type;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FText                                       ReturnValue;                                              // (Parm, OutParm, ReturnParm)
+};
+
+// Function ConZ.WidgetHelpers.GetAttributesFromMuscularAndFatFactors
+struct UWidgetHelpers_GetAttributesFromMuscularAndFatFactors_Params
+{
+	float                                              muscular;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              Fat;                                                      // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector4                                    ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
+};
+
+// Function ConZ.WidgetHelpers.GetAgeModifiersFromAge
+struct UWidgetHelpers_GetAgeModifiersFromAge_Params
+{
+	int                                                Age;                                                      // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector4                                    ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
+};
+
+// Function ConZ.WidgetHelpers.FilterNonNumbersFromString
+struct UWidgetHelpers_FilterNonNumbersFromString_Params
+{
+	struct FString                                     string;                                                   // (Parm, OutParm, ZeroConstructor, ReferenceParm)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function ConZ.WidgetHelpers.ColorToHex
+struct UWidgetHelpers_ColorToHex_Params
+{
+	struct FSlateColor                                 Color;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
+	struct FText                                       Text;                                                     // (Parm, OutParm)
+};
+
+// Function ConZ.Wolf.PlayAttackMontageOnClients
+struct AWolf_PlayAttackMontageOnClients_Params
+{
+};
+
+// Function ConZ.Wolf.OnRep_Scale
+struct AWolf_OnRep_Scale_Params
+{
+};
+
 // Function ConZ.WolfAnimInstance.AnimNotify_Howl
 struct UWolfAnimInstance_AnimNotify_Howl_Params
 {
@@ -16848,24 +16860,6 @@ struct AWristwatch_SetTime_Params
 struct AWristwatch_SetDisplayBrightness_Params
 {
 	float                                              Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function ConZ.Wettable.SetWaterWeight
-struct UWettable_SetWaterWeight_Params
-{
-	float                                              Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function ConZ.Wettable.GetWaterWeight
-struct UWettable_GetWaterWeight_Params
-{
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function ConZ.Wettable.GetMaxWaterWeight
-struct UWettable_GetMaxWaterWeight_Params
-{
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function ConZ.Zombie2.StartAttack
@@ -17068,87 +17062,6 @@ struct UZombieAnimInstance2_AnimNotify_GoToRagdoll_Params
 
 // Function ConZ.ZombieKamikazeComponent.NetMulticast_HandleExplosion
 struct UZombieKamikazeComponent_NetMulticast_HandleExplosion_Params
-{
-};
-
-// Function ConZ.WidgetHelpers.ProjectWorldToScreen
-struct UWidgetHelpers_ProjectWorldToScreen_Params
-{
-	class APlayerController*                           Controller;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FVector                                     WorldPosition;                                            // (Parm, OutParm, IsPlainOldData)
-	struct FVector2D                                   Size;                                                     // (Parm, OutParm, IsPlainOldData)
-	struct FVector2D                                   ScreenPosition;                                           // (Parm, OutParm, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function ConZ.WidgetHelpers.GetWidgetParentOfType
-struct UWidgetHelpers_GetWidgetParentOfType_Params
-{
-	class UWidget*                                     Widget;                                                   // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-	class UClass*                                      Type;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               includeUserWidgets;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-	class UWidget*                                     ReturnValue;                                              // (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
-};
-
-// Function ConZ.WidgetHelpers.GetMuscleLeanFatFactorsFromCoordinates
-struct UWidgetHelpers_GetMuscleLeanFatFactorsFromCoordinates_Params
-{
-	struct FVector2D                                   Coordinates;                                              // (Parm, IsPlainOldData)
-	struct FVector                                     ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
-};
-
-// Function ConZ.WidgetHelpers.GetDesiredWidgetClass
-struct UWidgetHelpers_GetDesiredWidgetClass_Params
-{
-	EWidgetType                                        Type;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
-	class UClass*                                      ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function ConZ.WidgetHelpers.GetDataForFieldName
-struct UWidgetHelpers_GetDataForFieldName_Params
-{
-	struct FName                                       Name;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
-	class UStruct*                                     Str;                                                      // (Parm, ZeroConstructor, IsPlainOldData)
-	class UStruct*                                     Type;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FText                                       ReturnValue;                                              // (Parm, OutParm, ReturnParm)
-};
-
-// Function ConZ.WidgetHelpers.GetAttributesFromMuscularAndFatFactors
-struct UWidgetHelpers_GetAttributesFromMuscularAndFatFactors_Params
-{
-	float                                              muscular;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              Fat;                                                      // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FVector4                                    ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
-};
-
-// Function ConZ.WidgetHelpers.GetAgeModifiersFromAge
-struct UWidgetHelpers_GetAgeModifiersFromAge_Params
-{
-	int                                                Age;                                                      // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FVector4                                    ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
-};
-
-// Function ConZ.WidgetHelpers.FilterNonNumbersFromString
-struct UWidgetHelpers_FilterNonNumbersFromString_Params
-{
-	struct FString                                     string;                                                   // (Parm, OutParm, ZeroConstructor, ReferenceParm)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function ConZ.WidgetHelpers.ColorToHex
-struct UWidgetHelpers_ColorToHex_Params
-{
-	struct FSlateColor                                 Color;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
-	struct FText                                       Text;                                                     // (Parm, OutParm)
-};
-
-// Function ConZ.Wolf.PlayAttackMontageOnClients
-struct AWolf_PlayAttackMontageOnClients_Params
-{
-};
-
-// Function ConZ.Wolf.OnRep_Scale
-struct AWolf_OnRep_Scale_Params
 {
 };
 

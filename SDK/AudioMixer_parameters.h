@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -41,31 +41,6 @@ struct USynthComponent_SetSubmixSend_Params
 struct USynthComponent_IsPlaying_Params
 {
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function AudioMixer.SubmixEffectDynamicsProcessorPreset.SetSettings
-struct USubmixEffectDynamicsProcessorPreset_SetSettings_Params
-{
-	struct FSubmixEffectDynamicsProcessorSettings      InSettings;                                               // (ConstParm, Parm, OutParm, ReferenceParm)
-};
-
-// Function AudioMixer.SubmixEffectSubmixEQPreset.SetSettings
-struct USubmixEffectSubmixEQPreset_SetSettings_Params
-{
-	struct FSubmixEffectSubmixEQSettings               InSettings;                                               // (ConstParm, Parm, OutParm, ReferenceParm)
-};
-
-// Function AudioMixer.SubmixEffectReverbPreset.SetSettingsWithReverbEffect
-struct USubmixEffectReverbPreset_SetSettingsWithReverbEffect_Params
-{
-	class UReverbEffect*                               InReverbEffect;                                           // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	float                                              WetLevel;                                                 // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function AudioMixer.SubmixEffectReverbPreset.SetSettings
-struct USubmixEffectReverbPreset_SetSettings_Params
-{
-	struct FSubmixEffectReverbSettings                 InSettings;                                               // (ConstParm, Parm, OutParm, ReferenceParm)
 };
 
 // Function AudioMixer.AudioMixerBlueprintLibrary.StopRecordingOutput
@@ -139,6 +114,31 @@ struct UAudioMixerBlueprintLibrary_AddMasterSubmixEffect_Params
 {
 	class UObject*                                     WorldContextObject;                                       // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
 	class USoundEffectSubmixPreset*                    SubmixEffectPreset;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function AudioMixer.SubmixEffectSubmixEQPreset.SetSettings
+struct USubmixEffectSubmixEQPreset_SetSettings_Params
+{
+	struct FSubmixEffectSubmixEQSettings               InSettings;                                               // (ConstParm, Parm, OutParm, ReferenceParm)
+};
+
+// Function AudioMixer.SubmixEffectReverbPreset.SetSettingsWithReverbEffect
+struct USubmixEffectReverbPreset_SetSettingsWithReverbEffect_Params
+{
+	class UReverbEffect*                               InReverbEffect;                                           // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              WetLevel;                                                 // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function AudioMixer.SubmixEffectReverbPreset.SetSettings
+struct USubmixEffectReverbPreset_SetSettings_Params
+{
+	struct FSubmixEffectReverbSettings                 InSettings;                                               // (ConstParm, Parm, OutParm, ReferenceParm)
+};
+
+// Function AudioMixer.SubmixEffectDynamicsProcessorPreset.SetSettings
+struct USubmixEffectDynamicsProcessorPreset_SetSettings_Params
+{
+	struct FSubmixEffectDynamicsProcessorSettings      InSettings;                                               // (ConstParm, Parm, OutParm, ReferenceParm)
 };
 
 }

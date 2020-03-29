@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -103,15 +103,6 @@ struct FDonNavigationDynamicCollisionTask : public FDonNavigationTask
 	unsigned char                                      UnknownData00[0x150];                                     // 0x0008(0x0150) MISSED OFFSET
 };
 
-// ScriptStruct DonAINavigation.DonNavigationQueryTask
-// 0x02B0 (0x02B8 - 0x0008)
-struct FDonNavigationQueryTask : public FDonNavigationTask
-{
-	unsigned char                                      UnknownData00[0x290];                                     // 0x0008(0x0290) MISSED OFFSET
-	struct FScriptDelegate                             ResultHandler;                                            // 0x0298(0x0014) (ZeroConstructor, InstancedReference)
-	struct FScriptDelegate                             DynamicCollisionListener;                                 // 0x02A8(0x0014) (ZeroConstructor, InstancedReference)
-};
-
 // ScriptStruct DonAINavigation.DonNavigationVoxel
 // 0x0030
 struct FDonNavigationVoxel
@@ -153,6 +144,15 @@ struct FDonNavigationDynamicCollisionNotifyee
 struct FDonVoxelCollisionProfile
 {
 	unsigned char                                      UnknownData00[0x20];                                      // 0x0000(0x0020) MISSED OFFSET
+};
+
+// ScriptStruct DonAINavigation.DonNavigationQueryTask
+// 0x02B0 (0x02B8 - 0x0008)
+struct FDonNavigationQueryTask : public FDonNavigationTask
+{
+	unsigned char                                      UnknownData00[0x290];                                     // 0x0008(0x0290) MISSED OFFSET
+	struct FScriptDelegate                             ResultHandler;                                            // 0x0298(0x0014) (ZeroConstructor, InstancedReference)
+	struct FScriptDelegate                             DynamicCollisionListener;                                 // 0x02A8(0x0014) (ZeroConstructor, InstancedReference)
 };
 
 }

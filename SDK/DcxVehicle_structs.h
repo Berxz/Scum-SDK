@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -58,6 +58,19 @@ enum class EDcxVehicleDriveControl4W : uint8_t
 };
 
 
+// Enum DcxVehicle.EDcxVehicleDriveControlNW
+enum class EDcxVehicleDriveControlNW : uint8_t
+{
+	EDcxVehicleDriveControlNW__Throttle = 0,
+	EDcxVehicleDriveControlNW__Brake = 1,
+	EDcxVehicleDriveControlNW__Handbrake = 2,
+	EDcxVehicleDriveControlNW__Steer = 3,
+	EDcxVehicleDriveControlNW__Clutch = 4,
+	EDcxVehicleDriveControlNW__NumControls = 5,
+	EDcxVehicleDriveControlNW__EDcxVehicleDriveControlNW_MAX = 6
+};
+
+
 // Enum DcxVehicle.EDcxVehicleDriveControlModelTank
 enum class EDcxVehicleDriveControlModelTank : uint8_t
 {
@@ -91,17 +104,6 @@ enum class EDcxVehicleGearbox : uint8_t
 };
 
 
-// Enum DcxVehicle.EDcxVehicleNoDriveControl
-enum class EDcxVehicleNoDriveControl : uint8_t
-{
-	EDcxVehicleNoDriveControl__Throttle = 0,
-	EDcxVehicleNoDriveControl__Brake = 1,
-	EDcxVehicleNoDriveControl__Steer = 2,
-	EDcxVehicleNoDriveControl__NumControls = 3,
-	EDcxVehicleNoDriveControl__EDcxVehicleNoDriveControl_MAX = 4
-};
-
-
 // Enum DcxVehicle.EDcxVehicleWheelSweep
 enum class EDcxVehicleWheelSweep : uint8_t
 {
@@ -112,16 +114,14 @@ enum class EDcxVehicleWheelSweep : uint8_t
 };
 
 
-// Enum DcxVehicle.EDcxVehicleDriveControlNW
-enum class EDcxVehicleDriveControlNW : uint8_t
+// Enum DcxVehicle.EDcxVehicleNoDriveControl
+enum class EDcxVehicleNoDriveControl : uint8_t
 {
-	EDcxVehicleDriveControlNW__Throttle = 0,
-	EDcxVehicleDriveControlNW__Brake = 1,
-	EDcxVehicleDriveControlNW__Handbrake = 2,
-	EDcxVehicleDriveControlNW__Steer = 3,
-	EDcxVehicleDriveControlNW__Clutch = 4,
-	EDcxVehicleDriveControlNW__NumControls = 5,
-	EDcxVehicleDriveControlNW__EDcxVehicleDriveControlNW_MAX = 6
+	EDcxVehicleNoDriveControl__Throttle = 0,
+	EDcxVehicleNoDriveControl__Brake = 1,
+	EDcxVehicleNoDriveControl__Steer = 2,
+	EDcxVehicleNoDriveControl__NumControls = 3,
+	EDcxVehicleNoDriveControl__EDcxVehicleNoDriveControl_MAX = 4
 };
 
 

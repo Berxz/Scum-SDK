@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,16 +11,6 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Enums
 //---------------------------------------------------------------------------
-
-// Enum Slate.ETextFlowDirection
-enum class ETextFlowDirection : uint8_t
-{
-	ETextFlowDirection__Auto       = 0,
-	ETextFlowDirection__LeftToRight = 1,
-	ETextFlowDirection__RightToLeft = 2,
-	ETextFlowDirection__ETextFlowDirection_MAX = 3
-};
-
 
 // Enum Slate.ETextJustify
 enum class ETextJustify : uint8_t
@@ -42,6 +32,16 @@ enum class EVirtualKeyboardDismissAction : uint8_t
 };
 
 
+// Enum Slate.ETextFlowDirection
+enum class ETextFlowDirection : uint8_t
+{
+	ETextFlowDirection__Auto       = 0,
+	ETextFlowDirection__LeftToRight = 1,
+	ETextFlowDirection__RightToLeft = 2,
+	ETextFlowDirection__ETextFlowDirection_MAX = 3
+};
+
+
 // Enum Slate.ETextWrappingPolicy
 enum class ETextWrappingPolicy : uint8_t
 {
@@ -58,17 +58,6 @@ enum class ETableViewMode : uint8_t
 	ETableViewMode__Tile           = 1,
 	ETableViewMode__Tree           = 2,
 	ETableViewMode__ETableViewMode_MAX = 3
-};
-
-
-// Enum Slate.ESelectionMode
-enum class ESelectionMode : uint8_t
-{
-	ESelectionMode__None           = 0,
-	ESelectionMode__Single         = 1,
-	ESelectionMode__SingleToggle   = 2,
-	ESelectionMode__Multi          = 3,
-	ESelectionMode__ESelectionMode_MAX = 4
 };
 
 
@@ -140,6 +129,17 @@ enum class EMultipleKeyBindingIndex : uint8_t
 	EMultipleKeyBindingIndex__Secondary = 1,
 	EMultipleKeyBindingIndex__NumChords = 2,
 	EMultipleKeyBindingIndex__EMultipleKeyBindingIndex_MAX = 3
+};
+
+
+// Enum Slate.ESelectionMode
+enum class ESelectionMode : uint8_t
+{
+	ESelectionMode__None           = 0,
+	ESelectionMode__Single         = 1,
+	ESelectionMode__SingleToggle   = 2,
+	ESelectionMode__Multi          = 3,
+	ESelectionMode__ESelectionMode_MAX = 4
 };
 
 

@@ -5,7 +5,7 @@
 #include <locale>
 #include <set>
 
-// SDK Berxzz: , Version: 0.3.21000
+// Berxzz: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)

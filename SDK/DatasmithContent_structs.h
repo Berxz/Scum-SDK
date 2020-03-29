@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -12,13 +12,14 @@ namespace SDK
 // Enums
 //---------------------------------------------------------------------------
 
-// Enum DatasmithContent.EDatasmithImportHierarchy
-enum class EDatasmithImportHierarchy : uint8_t
+// Enum DatasmithContent.EDatasmithAreaLightActorShape
+enum class EDatasmithAreaLightActorShape : uint8_t
 {
-	EDatasmithImportHierarchy__UseMultipleActors = 0,
-	EDatasmithImportHierarchy__UseSingleActor = 1,
-	EDatasmithImportHierarchy__UseOneBlueprint = 2,
-	EDatasmithImportHierarchy__EDatasmithImportHierarchy_MAX = 3
+	EDatasmithAreaLightActorShape__Rectangle = 0,
+	EDatasmithAreaLightActorShape__Disc = 1,
+	EDatasmithAreaLightActorShape__Sphere = 2,
+	EDatasmithAreaLightActorShape__Cylinder = 3,
+	EDatasmithAreaLightActorShape__EDatasmithAreaLightActorShape_MAX = 4
 };
 
 
@@ -79,15 +80,6 @@ enum class EDatasmithImportActorPolicy : uint8_t
 };
 
 
-// Enum DatasmithContent.EDatasmithImportSearchPackagePolicy
-enum class EDatasmithImportSearchPackagePolicy : uint8_t
-{
-	EDatasmithImportSearchPackagePolicy__Current = 0,
-	EDatasmithImportSearchPackagePolicy__All = 1,
-	EDatasmithImportSearchPackagePolicy__EDatasmithImportSearchPackagePolicy_MAX = 2
-};
-
-
 // Enum DatasmithContent.EDatasmithImportAssetConflictPolicy
 enum class EDatasmithImportAssetConflictPolicy : uint8_t
 {
@@ -99,14 +91,22 @@ enum class EDatasmithImportAssetConflictPolicy : uint8_t
 };
 
 
-// Enum DatasmithContent.EDatasmithAreaLightActorShape
-enum class EDatasmithAreaLightActorShape : uint8_t
+// Enum DatasmithContent.EDatasmithImportSearchPackagePolicy
+enum class EDatasmithImportSearchPackagePolicy : uint8_t
 {
-	EDatasmithAreaLightActorShape__Rectangle = 0,
-	EDatasmithAreaLightActorShape__Disc = 1,
-	EDatasmithAreaLightActorShape__Sphere = 2,
-	EDatasmithAreaLightActorShape__Cylinder = 3,
-	EDatasmithAreaLightActorShape__EDatasmithAreaLightActorShape_MAX = 4
+	EDatasmithImportSearchPackagePolicy__Current = 0,
+	EDatasmithImportSearchPackagePolicy__All = 1,
+	EDatasmithImportSearchPackagePolicy__EDatasmithImportSearchPackagePolicy_MAX = 2
+};
+
+
+// Enum DatasmithContent.EDatasmithImportHierarchy
+enum class EDatasmithImportHierarchy : uint8_t
+{
+	EDatasmithImportHierarchy__UseMultipleActors = 0,
+	EDatasmithImportHierarchy__UseSingleActor = 1,
+	EDatasmithImportHierarchy__UseOneBlueprint = 2,
+	EDatasmithImportHierarchy__EDatasmithImportHierarchy_MAX = 3
 };
 
 

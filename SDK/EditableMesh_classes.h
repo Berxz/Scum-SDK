@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,6 +11,57 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Classes
 //---------------------------------------------------------------------------
+
+// Class EditableMesh.EditableMeshAdapter
+// 0x0000 (0x0028 - 0x0028)
+class UEditableMeshAdapter : public UObject
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class EditableMesh.EditableMeshAdapter");
+		return ptr;
+	}
+
+};
+
+
+// Class EditableMesh.EditableMeshFactory
+// 0x0000 (0x0028 - 0x0028)
+class UEditableMeshFactory : public UObject
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class EditableMesh.EditableMeshFactory");
+		return ptr;
+	}
+
+
+	class UEditableMesh* STATIC_MakeEditableMesh(class UPrimitiveComponent* PrimitiveComponent, int LODIndex);
+};
+
+
+// Class EditableMesh.EditableStaticMeshAdapter
+// 0x00B8 (0x00E0 - 0x0028)
+class UEditableStaticMeshAdapter : public UEditableMeshAdapter
+{
+public:
+	class UStaticMesh*                                 StaticMesh;                                               // 0x0028(0x0008) (ZeroConstructor, IsPlainOldData)
+	class UStaticMesh*                                 OriginalStaticMesh;                                       // 0x0030(0x0008) (ZeroConstructor, IsPlainOldData)
+	int                                                StaticMeshLODIndex;                                       // 0x0038(0x0004) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0xA4];                                      // 0x003C(0x00A4) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class EditableMesh.EditableStaticMeshAdapter");
+		return ptr;
+	}
+
+};
+
 
 // Class EditableMesh.EditableMesh
 // 0x1048 (0x1070 - 0x0028)
@@ -175,57 +226,6 @@ public:
 	void BevelPolygons(TArray<struct FPolygonID> PolygonIDs, float BevelFixedDistance, float BevelProgressTowardCenter, TArray<struct FPolygonID>* OutNewCenterPolygonIDs, TArray<struct FPolygonID>* OutNewSidePolygonIDs);
 	void AssignPolygonsToPolygonGroups(TArray<struct FPolygonGroupForPolygon> PolygonGroupForPolygons, bool bDeleteOrphanedPolygonGroups);
 	bool AnyChangesToUndo();
-};
-
-
-// Class EditableMesh.EditableMeshAdapter
-// 0x0000 (0x0028 - 0x0028)
-class UEditableMeshAdapter : public UObject
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class EditableMesh.EditableMeshAdapter");
-		return ptr;
-	}
-
-};
-
-
-// Class EditableMesh.EditableMeshFactory
-// 0x0000 (0x0028 - 0x0028)
-class UEditableMeshFactory : public UObject
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class EditableMesh.EditableMeshFactory");
-		return ptr;
-	}
-
-
-	class UEditableMesh* STATIC_MakeEditableMesh(class UPrimitiveComponent* PrimitiveComponent, int LODIndex);
-};
-
-
-// Class EditableMesh.EditableStaticMeshAdapter
-// 0x00B8 (0x00E0 - 0x0028)
-class UEditableStaticMeshAdapter : public UEditableMeshAdapter
-{
-public:
-	class UStaticMesh*                                 StaticMesh;                                               // 0x0028(0x0008) (ZeroConstructor, IsPlainOldData)
-	class UStaticMesh*                                 OriginalStaticMesh;                                       // 0x0030(0x0008) (ZeroConstructor, IsPlainOldData)
-	int                                                StaticMeshLODIndex;                                       // 0x0038(0x0004) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0xA4];                                      // 0x003C(0x00A4) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class EditableMesh.EditableStaticMeshAdapter");
-		return ptr;
-	}
-
 };
 
 

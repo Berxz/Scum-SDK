@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -21,21 +21,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class SlateCore.FontFaceInterface");
-		return ptr;
-	}
-
-};
-
-
-// Class SlateCore.FontProviderInterface
-// 0x0000 (0x0028 - 0x0028)
-class UFontProviderInterface : public UInterface
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class SlateCore.FontProviderInterface");
 		return ptr;
 	}
 
@@ -114,6 +99,21 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class SlateCore.FontBulkData");
+		return ptr;
+	}
+
+};
+
+
+// Class SlateCore.FontProviderInterface
+// 0x0000 (0x0028 - 0x0028)
+class UFontProviderInterface : public UInterface
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class SlateCore.FontProviderInterface");
 		return ptr;
 	}
 

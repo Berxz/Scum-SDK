@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,6 +11,21 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Classes
 //---------------------------------------------------------------------------
+
+// Class Landscape.ControlPointMeshComponent
+// 0x0000 (0x05F0 - 0x05F0)
+class UControlPointMeshComponent : public UStaticMeshComponent
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Landscape.ControlPointMeshComponent");
+		return ptr;
+	}
+
+};
+
 
 // Class Landscape.LandscapeProxy
 // 0x0310 (0x0638 - 0x0328)
@@ -612,21 +627,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Landscape.MaterialExpressionLandscapeVisibilityMask");
-		return ptr;
-	}
-
-};
-
-
-// Class Landscape.ControlPointMeshComponent
-// 0x0000 (0x05F0 - 0x05F0)
-class UControlPointMeshComponent : public UStaticMeshComponent
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Landscape.ControlPointMeshComponent");
 		return ptr;
 	}
 

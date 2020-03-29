@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -12,6 +12,23 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Functions
 //---------------------------------------------------------------------------
+
+// Function UI_ItemInventory2.UI_ItemInventory2_C.Blink
+// (Event, Public, BlueprintEvent)
+
+void UUI_ItemInventory2_C::Blink()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UI_ItemInventory2.UI_ItemInventory2_C.Blink");
+
+	UUI_ItemInventory2_C_Blink_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
 
 // Function UI_ItemInventory2.UI_ItemInventory2_C.InitBlueprint
 // (Event, Public, HasOutParms, BlueprintEvent)
@@ -24,23 +41,6 @@ void UUI_ItemInventory2_C::InitBlueprint(TScriptInterface<class UInventoryNode>*
 
 	UUI_ItemInventory2_C_InitBlueprint_Params params;
 	params.Item = Item;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UI_ItemInventory2.UI_ItemInventory2_C.Blink
-// (Event, Public, BlueprintEvent)
-
-void UUI_ItemInventory2_C::Blink()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UI_ItemInventory2.UI_ItemInventory2_C.Blink");
-
-	UUI_ItemInventory2_C_Blink_Params params;
 
 	auto flags = fn->FunctionFlags;
 

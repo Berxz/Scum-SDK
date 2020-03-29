@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -183,6 +183,25 @@ public:
 	int GetInstanceCount();
 	void ClearInstances();
 	int AddInstance(const struct FTransform& Transform, class UPaperSprite* Sprite, bool bWorldSpace, const struct FLinearColor& Color);
+};
+
+
+// Class Paper2D.PaperRuntimeSettings
+// 0x0008 (0x0030 - 0x0028)
+class UPaperRuntimeSettings : public UObject
+{
+public:
+	bool                                               bEnableSpriteAtlasGroups;                                 // 0x0028(0x0001) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	bool                                               bEnableTerrainSplineEditing;                              // 0x0029(0x0001) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	bool                                               bResizeSpriteDataToMatchTextures;                         // 0x002A(0x0001) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x5];                                       // 0x002B(0x0005) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Paper2D.PaperRuntimeSettings");
+		return ptr;
+	}
+
 };
 
 
@@ -549,25 +568,6 @@ public:
 	struct FName STATIC_GetTileUserData(const struct FPaperTileInfo& Tile);
 	struct FTransform STATIC_GetTileTransform(const struct FPaperTileInfo& Tile);
 	void STATIC_BreakTile(const struct FPaperTileInfo& Tile, int* TileIndex, class UPaperTileSet** TileSet, bool* bFlipH, bool* bFlipV, bool* bFlipD);
-};
-
-
-// Class Paper2D.PaperRuntimeSettings
-// 0x0008 (0x0030 - 0x0028)
-class UPaperRuntimeSettings : public UObject
-{
-public:
-	bool                                               bEnableSpriteAtlasGroups;                                 // 0x0028(0x0001) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	bool                                               bEnableTerrainSplineEditing;                              // 0x0029(0x0001) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	bool                                               bResizeSpriteDataToMatchTextures;                         // 0x002A(0x0001) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x5];                                       // 0x002B(0x0005) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Paper2D.PaperRuntimeSettings");
-		return ptr;
-	}
-
 };
 
 

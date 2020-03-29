@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -26,6 +26,12 @@ struct UMediaSource_GetUrl_Params
 	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
 };
 
+// Function MediaAssets.FileMediaSource.SetFilePath
+struct UFileMediaSource_SetFilePath_Params
+{
+	struct FString                                     Path;                                                     // (Parm, ZeroConstructor)
+};
+
 // Function MediaAssets.MediaBlueprintFunctionLibrary.EnumerateWebcamCaptureDevices
 struct UMediaBlueprintFunctionLibrary_EnumerateWebcamCaptureDevices_Params
 {
@@ -45,145 +51,6 @@ struct UMediaBlueprintFunctionLibrary_EnumerateAudioCaptureDevices_Params
 {
 	TArray<struct FMediaCaptureDevice>                 OutDevices;                                               // (Parm, OutParm, ZeroConstructor)
 	int                                                Filter;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function MediaAssets.MediaPlaylist.Replace
-struct UMediaPlaylist_Replace_Params
-{
-	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	class UMediaSource*                                Replacement;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function MediaAssets.MediaPlaylist.RemoveAt
-struct UMediaPlaylist_RemoveAt_Params
-{
-	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function MediaAssets.MediaPlaylist.Remove
-struct UMediaPlaylist_Remove_Params
-{
-	class UMediaSource*                                MediaSource;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function MediaAssets.MediaPlaylist.Num
-struct UMediaPlaylist_Num_Params
-{
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function MediaAssets.MediaPlaylist.Insert
-struct UMediaPlaylist_Insert_Params
-{
-	class UMediaSource*                                MediaSource;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function MediaAssets.MediaPlaylist.GetRandom
-struct UMediaPlaylist_GetRandom_Params
-{
-	int                                                OutIndex;                                                 // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	class UMediaSource*                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function MediaAssets.MediaPlaylist.GetPrevious
-struct UMediaPlaylist_GetPrevious_Params
-{
-	int                                                InOutIndex;                                               // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	class UMediaSource*                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function MediaAssets.MediaPlaylist.GetNext
-struct UMediaPlaylist_GetNext_Params
-{
-	int                                                InOutIndex;                                               // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	class UMediaSource*                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function MediaAssets.MediaPlaylist.Get
-struct UMediaPlaylist_Get_Params
-{
-	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	class UMediaSource*                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function MediaAssets.MediaPlaylist.AddUrl
-struct UMediaPlaylist_AddUrl_Params
-{
-	struct FString                                     URL;                                                      // (Parm, ZeroConstructor)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function MediaAssets.MediaPlaylist.AddFile
-struct UMediaPlaylist_AddFile_Params
-{
-	struct FString                                     FilePath;                                                 // (Parm, ZeroConstructor)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function MediaAssets.MediaPlaylist.Add
-struct UMediaPlaylist_Add_Params
-{
-	class UMediaSource*                                MediaSource;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function MediaAssets.MediaSoundComponent.SetMediaPlayer
-struct UMediaSoundComponent_SetMediaPlayer_Params
-{
-	class UMediaPlayer*                                NewMediaPlayer;                                           // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function MediaAssets.MediaSoundComponent.GetMediaPlayer
-struct UMediaSoundComponent_GetMediaPlayer_Params
-{
-	class UMediaPlayer*                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function MediaAssets.MediaSoundComponent.BP_GetAttenuationSettingsToApply
-struct UMediaSoundComponent_BP_GetAttenuationSettingsToApply_Params
-{
-	struct FSoundAttenuationSettings                   OutAttenuationSettings;                                   // (Parm, OutParm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function MediaAssets.MediaTexture.SetMediaPlayer
-struct UMediaTexture_SetMediaPlayer_Params
-{
-	class UMediaPlayer*                                NewMediaPlayer;                                           // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function MediaAssets.MediaTexture.GetWidth
-struct UMediaTexture_GetWidth_Params
-{
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function MediaAssets.MediaTexture.GetMediaPlayer
-struct UMediaTexture_GetMediaPlayer_Params
-{
-	class UMediaPlayer*                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function MediaAssets.MediaTexture.GetHeight
-struct UMediaTexture_GetHeight_Params
-{
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function MediaAssets.MediaTexture.GetAspectRatio
-struct UMediaTexture_GetAspectRatio_Params
-{
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function MediaAssets.FileMediaSource.SetFilePath
-struct UFileMediaSource_SetFilePath_Params
-{
-	struct FString                                     Path;                                                     // (Parm, ZeroConstructor)
 };
 
 // Function MediaAssets.MediaPlayer.SupportsSeeking
@@ -633,6 +500,139 @@ struct UMediaPlayer_CanPlaySource_Params
 struct UMediaPlayer_CanPause_Params
 {
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function MediaAssets.MediaPlaylist.Replace
+struct UMediaPlaylist_Replace_Params
+{
+	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	class UMediaSource*                                Replacement;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function MediaAssets.MediaPlaylist.RemoveAt
+struct UMediaPlaylist_RemoveAt_Params
+{
+	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function MediaAssets.MediaPlaylist.Remove
+struct UMediaPlaylist_Remove_Params
+{
+	class UMediaSource*                                MediaSource;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function MediaAssets.MediaPlaylist.Num
+struct UMediaPlaylist_Num_Params
+{
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function MediaAssets.MediaPlaylist.Insert
+struct UMediaPlaylist_Insert_Params
+{
+	class UMediaSource*                                MediaSource;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function MediaAssets.MediaPlaylist.GetRandom
+struct UMediaPlaylist_GetRandom_Params
+{
+	int                                                OutIndex;                                                 // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	class UMediaSource*                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function MediaAssets.MediaPlaylist.GetPrevious
+struct UMediaPlaylist_GetPrevious_Params
+{
+	int                                                InOutIndex;                                               // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	class UMediaSource*                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function MediaAssets.MediaPlaylist.GetNext
+struct UMediaPlaylist_GetNext_Params
+{
+	int                                                InOutIndex;                                               // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	class UMediaSource*                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function MediaAssets.MediaPlaylist.Get
+struct UMediaPlaylist_Get_Params
+{
+	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	class UMediaSource*                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function MediaAssets.MediaPlaylist.AddUrl
+struct UMediaPlaylist_AddUrl_Params
+{
+	struct FString                                     URL;                                                      // (Parm, ZeroConstructor)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function MediaAssets.MediaPlaylist.AddFile
+struct UMediaPlaylist_AddFile_Params
+{
+	struct FString                                     FilePath;                                                 // (Parm, ZeroConstructor)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function MediaAssets.MediaPlaylist.Add
+struct UMediaPlaylist_Add_Params
+{
+	class UMediaSource*                                MediaSource;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function MediaAssets.MediaSoundComponent.SetMediaPlayer
+struct UMediaSoundComponent_SetMediaPlayer_Params
+{
+	class UMediaPlayer*                                NewMediaPlayer;                                           // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function MediaAssets.MediaSoundComponent.GetMediaPlayer
+struct UMediaSoundComponent_GetMediaPlayer_Params
+{
+	class UMediaPlayer*                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function MediaAssets.MediaSoundComponent.BP_GetAttenuationSettingsToApply
+struct UMediaSoundComponent_BP_GetAttenuationSettingsToApply_Params
+{
+	struct FSoundAttenuationSettings                   OutAttenuationSettings;                                   // (Parm, OutParm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function MediaAssets.MediaTexture.SetMediaPlayer
+struct UMediaTexture_SetMediaPlayer_Params
+{
+	class UMediaPlayer*                                NewMediaPlayer;                                           // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function MediaAssets.MediaTexture.GetWidth
+struct UMediaTexture_GetWidth_Params
+{
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function MediaAssets.MediaTexture.GetMediaPlayer
+struct UMediaTexture_GetMediaPlayer_Params
+{
+	class UMediaPlayer*                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function MediaAssets.MediaTexture.GetHeight
+struct UMediaTexture_GetHeight_Params
+{
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function MediaAssets.MediaTexture.GetAspectRatio
+struct UMediaTexture_GetAspectRatio_Params
+{
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 }

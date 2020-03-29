@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -12,198 +12,6 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Functions
 //---------------------------------------------------------------------------
-
-// Function OceanPlugin.AdvancedBuoyancyComponent.TriangleArea
-// (Final, Native, Public, HasDefaults, BlueprintCallable)
-// Parameters:
-// struct FVector                 A                              (Parm, IsPlainOldData)
-// struct FVector                 B                              (Parm, IsPlainOldData)
-// struct FVector                 C                              (Parm, IsPlainOldData)
-// float                          ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-float UAdvancedBuoyancyComponent::TriangleArea(const struct FVector& A, const struct FVector& B, const struct FVector& C)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function OceanPlugin.AdvancedBuoyancyComponent.TriangleArea");
-
-	UAdvancedBuoyancyComponent_TriangleArea_Params params;
-	params.A = A;
-	params.B = B;
-	params.C = C;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function OceanPlugin.AdvancedBuoyancyComponent.SplitTriangle
-// (Final, Native, Public, HasDefaults, BlueprintCallable)
-// Parameters:
-// struct FBuoyancyVertex         H                              (Parm)
-// struct FBuoyancyVertex         M                              (Parm)
-// struct FBuoyancyVertex         L                              (Parm)
-// struct FVector                 InArrow                        (Parm, IsPlainOldData)
-// TArray<struct FForceTriangle>  ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm)
-
-TArray<struct FForceTriangle> UAdvancedBuoyancyComponent::SplitTriangle(const struct FBuoyancyVertex& H, const struct FBuoyancyVertex& M, const struct FBuoyancyVertex& L, const struct FVector& InArrow)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function OceanPlugin.AdvancedBuoyancyComponent.SplitTriangle");
-
-	UAdvancedBuoyancyComponent_SplitTriangle_Params params;
-	params.H = H;
-	params.M = M;
-	params.L = L;
-	params.InArrow = InArrow;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function OceanPlugin.AdvancedBuoyancyComponent.SetMeshDensity
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// float                          NewDensity                     (Parm, ZeroConstructor, IsPlainOldData)
-// float                          NewWaterDensity                (Parm, ZeroConstructor, IsPlainOldData)
-
-void UAdvancedBuoyancyComponent::SetMeshDensity(float NewDensity, float NewWaterDensity)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function OceanPlugin.AdvancedBuoyancyComponent.SetMeshDensity");
-
-	UAdvancedBuoyancyComponent_SetMeshDensity_Params params;
-	params.NewDensity = NewDensity;
-	params.NewWaterDensity = NewWaterDensity;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function OceanPlugin.AdvancedBuoyancyComponent.GetOceanDepthFromGrid
-// (Final, Native, Public, HasDefaults, BlueprintCallable)
-// Parameters:
-// struct FVector                 Position                       (Parm, IsPlainOldData)
-// bool                           bJustGetHeightAtLocation       (Parm, ZeroConstructor, IsPlainOldData)
-// float                          ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-float UAdvancedBuoyancyComponent::GetOceanDepthFromGrid(const struct FVector& Position, bool bJustGetHeightAtLocation)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function OceanPlugin.AdvancedBuoyancyComponent.GetOceanDepthFromGrid");
-
-	UAdvancedBuoyancyComponent_GetOceanDepthFromGrid_Params params;
-	params.Position = Position;
-	params.bJustGetHeightAtLocation = bJustGetHeightAtLocation;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function OceanPlugin.AdvancedBuoyancyComponent.GetOcean
-// (Final, Native, Public, BlueprintCallable)
-
-void UAdvancedBuoyancyComponent::GetOcean()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function OceanPlugin.AdvancedBuoyancyComponent.GetOcean");
-
-	UAdvancedBuoyancyComponent_GetOcean_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function OceanPlugin.AdvancedBuoyancyComponent.DrawDebugStuff
-// (Final, Native, Public, HasDefaults, BlueprintCallable)
-// Parameters:
-// struct FForceTriangle          TriForce                       (Parm)
-// struct FColor                  DebugColor                     (Parm, IsPlainOldData)
-
-void UAdvancedBuoyancyComponent::DrawDebugStuff(const struct FForceTriangle& TriForce, const struct FColor& DebugColor)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function OceanPlugin.AdvancedBuoyancyComponent.DrawDebugStuff");
-
-	UAdvancedBuoyancyComponent_DrawDebugStuff_Params params;
-	params.TriForce = TriForce;
-	params.DebugColor = DebugColor;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function OceanPlugin.AdvancedBuoyancyComponent.ApplySlamForce
-// (Final, Native, Public, HasDefaults, BlueprintCallable)
-// Parameters:
-// struct FVector                 SlamForce                      (Parm, IsPlainOldData)
-// struct FVector                 TriCenter                      (Parm, IsPlainOldData)
-
-void UAdvancedBuoyancyComponent::ApplySlamForce(const struct FVector& SlamForce, const struct FVector& TriCenter)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function OceanPlugin.AdvancedBuoyancyComponent.ApplySlamForce");
-
-	UAdvancedBuoyancyComponent_ApplySlamForce_Params params;
-	params.SlamForce = SlamForce;
-	params.TriCenter = TriCenter;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function OceanPlugin.AdvancedBuoyancyComponent.ApplyForce
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// struct FForceTriangle          TriForce                       (Parm)
-
-void UAdvancedBuoyancyComponent::ApplyForce(const struct FForceTriangle& TriForce)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function OceanPlugin.AdvancedBuoyancyComponent.ApplyForce");
-
-	UAdvancedBuoyancyComponent_ApplyForce_Params params;
-	params.TriForce = TriForce;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
 
 // Function OceanPlugin.CustomVehicleController.GetIsDriving
 // (Native, Public, BlueprintCallable, BlueprintPure)
@@ -747,6 +555,198 @@ struct FRotator ATimeManager::CalculateMoonAngle()
 	fn->FunctionFlags = flags;
 
 	return params.ReturnValue;
+}
+
+
+// Function OceanPlugin.AdvancedBuoyancyComponent.TriangleArea
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
+// Parameters:
+// struct FVector                 A                              (Parm, IsPlainOldData)
+// struct FVector                 B                              (Parm, IsPlainOldData)
+// struct FVector                 C                              (Parm, IsPlainOldData)
+// float                          ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+float UAdvancedBuoyancyComponent::TriangleArea(const struct FVector& A, const struct FVector& B, const struct FVector& C)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function OceanPlugin.AdvancedBuoyancyComponent.TriangleArea");
+
+	UAdvancedBuoyancyComponent_TriangleArea_Params params;
+	params.A = A;
+	params.B = B;
+	params.C = C;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function OceanPlugin.AdvancedBuoyancyComponent.SplitTriangle
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
+// Parameters:
+// struct FBuoyancyVertex         H                              (Parm)
+// struct FBuoyancyVertex         M                              (Parm)
+// struct FBuoyancyVertex         L                              (Parm)
+// struct FVector                 InArrow                        (Parm, IsPlainOldData)
+// TArray<struct FForceTriangle>  ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm)
+
+TArray<struct FForceTriangle> UAdvancedBuoyancyComponent::SplitTriangle(const struct FBuoyancyVertex& H, const struct FBuoyancyVertex& M, const struct FBuoyancyVertex& L, const struct FVector& InArrow)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function OceanPlugin.AdvancedBuoyancyComponent.SplitTriangle");
+
+	UAdvancedBuoyancyComponent_SplitTriangle_Params params;
+	params.H = H;
+	params.M = M;
+	params.L = L;
+	params.InArrow = InArrow;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function OceanPlugin.AdvancedBuoyancyComponent.SetMeshDensity
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// float                          NewDensity                     (Parm, ZeroConstructor, IsPlainOldData)
+// float                          NewWaterDensity                (Parm, ZeroConstructor, IsPlainOldData)
+
+void UAdvancedBuoyancyComponent::SetMeshDensity(float NewDensity, float NewWaterDensity)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function OceanPlugin.AdvancedBuoyancyComponent.SetMeshDensity");
+
+	UAdvancedBuoyancyComponent_SetMeshDensity_Params params;
+	params.NewDensity = NewDensity;
+	params.NewWaterDensity = NewWaterDensity;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function OceanPlugin.AdvancedBuoyancyComponent.GetOceanDepthFromGrid
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
+// Parameters:
+// struct FVector                 Position                       (Parm, IsPlainOldData)
+// bool                           bJustGetHeightAtLocation       (Parm, ZeroConstructor, IsPlainOldData)
+// float                          ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+float UAdvancedBuoyancyComponent::GetOceanDepthFromGrid(const struct FVector& Position, bool bJustGetHeightAtLocation)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function OceanPlugin.AdvancedBuoyancyComponent.GetOceanDepthFromGrid");
+
+	UAdvancedBuoyancyComponent_GetOceanDepthFromGrid_Params params;
+	params.Position = Position;
+	params.bJustGetHeightAtLocation = bJustGetHeightAtLocation;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function OceanPlugin.AdvancedBuoyancyComponent.GetOcean
+// (Final, Native, Public, BlueprintCallable)
+
+void UAdvancedBuoyancyComponent::GetOcean()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function OceanPlugin.AdvancedBuoyancyComponent.GetOcean");
+
+	UAdvancedBuoyancyComponent_GetOcean_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function OceanPlugin.AdvancedBuoyancyComponent.DrawDebugStuff
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
+// Parameters:
+// struct FForceTriangle          TriForce                       (Parm)
+// struct FColor                  DebugColor                     (Parm, IsPlainOldData)
+
+void UAdvancedBuoyancyComponent::DrawDebugStuff(const struct FForceTriangle& TriForce, const struct FColor& DebugColor)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function OceanPlugin.AdvancedBuoyancyComponent.DrawDebugStuff");
+
+	UAdvancedBuoyancyComponent_DrawDebugStuff_Params params;
+	params.TriForce = TriForce;
+	params.DebugColor = DebugColor;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function OceanPlugin.AdvancedBuoyancyComponent.ApplySlamForce
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
+// Parameters:
+// struct FVector                 SlamForce                      (Parm, IsPlainOldData)
+// struct FVector                 TriCenter                      (Parm, IsPlainOldData)
+
+void UAdvancedBuoyancyComponent::ApplySlamForce(const struct FVector& SlamForce, const struct FVector& TriCenter)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function OceanPlugin.AdvancedBuoyancyComponent.ApplySlamForce");
+
+	UAdvancedBuoyancyComponent_ApplySlamForce_Params params;
+	params.SlamForce = SlamForce;
+	params.TriCenter = TriCenter;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function OceanPlugin.AdvancedBuoyancyComponent.ApplyForce
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// struct FForceTriangle          TriForce                       (Parm)
+
+void UAdvancedBuoyancyComponent::ApplyForce(const struct FForceTriangle& TriForce)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function OceanPlugin.AdvancedBuoyancyComponent.ApplyForce");
+
+	UAdvancedBuoyancyComponent_ApplyForce_Params params;
+	params.TriForce = TriForce;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
 }
 
 

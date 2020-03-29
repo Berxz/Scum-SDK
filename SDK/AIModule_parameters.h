@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -311,103 +311,6 @@ struct UAIBlueprintHelperLibrary_CreateMoveToProxyObject_Params
 	class UAIAsyncTaskBlueprintProxy*                  ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function AIModule.AIPerceptionSystem.ReportPerceptionEvent
-struct UAIPerceptionSystem_ReportPerceptionEvent_Params
-{
-	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-	class UAISenseEvent*                               PerceptionEvent;                                          // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function AIModule.AIPerceptionSystem.ReportEvent
-struct UAIPerceptionSystem_ReportEvent_Params
-{
-	class UAISenseEvent*                               PerceptionEvent;                                          // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function AIModule.AIPerceptionSystem.RegisterPerceptionStimuliSource
-struct UAIPerceptionSystem_RegisterPerceptionStimuliSource_Params
-{
-	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-	class UClass*                                      Sense;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	class AActor*                                      Target;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function AIModule.AIPerceptionSystem.OnPerceptionStimuliSourceEndPlay
-struct UAIPerceptionSystem_OnPerceptionStimuliSourceEndPlay_Params
-{
-	class AActor*                                      Actor;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	TEnumAsByte<EEndPlayReason>                        EndPlayReason;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function AIModule.AIPerceptionSystem.GetSenseClassForStimulus
-struct UAIPerceptionSystem_GetSenseClassForStimulus_Params
-{
-	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FAIStimulus                                 Stimulus;                                                 // (ConstParm, Parm, OutParm, ReferenceParm)
-	class UClass*                                      ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function AIModule.AIPerceptionStimuliSourceComponent.UnregisterFromSense
-struct UAIPerceptionStimuliSourceComponent_UnregisterFromSense_Params
-{
-	class UClass*                                      SenseClass;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function AIModule.AIPerceptionStimuliSourceComponent.UnregisterFromPerceptionSystem
-struct UAIPerceptionStimuliSourceComponent_UnregisterFromPerceptionSystem_Params
-{
-};
-
-// Function AIModule.AIPerceptionStimuliSourceComponent.RegisterWithPerceptionSystem
-struct UAIPerceptionStimuliSourceComponent_RegisterWithPerceptionSystem_Params
-{
-};
-
-// Function AIModule.AIPerceptionStimuliSourceComponent.RegisterForSense
-struct UAIPerceptionStimuliSourceComponent_RegisterForSense_Params
-{
-	class UClass*                                      SenseClass;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function AIModule.AISense_Damage.ReportDamageEvent
-struct UAISense_Damage_ReportDamageEvent_Params
-{
-	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-	class AActor*                                      DamagedActor;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-	class AActor*                                      Instigator;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              DamageAmount;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FVector                                     EventLocation;                                            // (Parm, IsPlainOldData)
-	struct FVector                                     HitLocation;                                              // (Parm, IsPlainOldData)
-};
-
-// Function AIModule.AISense_Hearing.ReportNoiseEvent
-struct UAISense_Hearing_ReportNoiseEvent_Params
-{
-	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FVector                                     NoiseLocation;                                            // (Parm, IsPlainOldData)
-	float                                              Loudness;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-	class AActor*                                      Instigator;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              MaxRange;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FName                                       Tag;                                                      // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function AIModule.AISense_Prediction.RequestPawnPredictionEvent
-struct UAISense_Prediction_RequestPawnPredictionEvent_Params
-{
-	class APawn*                                       Requestor;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	class AActor*                                      PredictedActor;                                           // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              PredictionTime;                                           // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function AIModule.AISense_Prediction.RequestControllerPredictionEvent
-struct UAISense_Prediction_RequestControllerPredictionEvent_Params
-{
-	class AAIController*                               Requestor;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	class AActor*                                      PredictedActor;                                           // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              PredictionTime;                                           // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
 // Function AIModule.AIPerceptionComponent.SetSenseEnabled
 struct UAIPerceptionComponent_SetSenseEnabled_Params
 {
@@ -460,6 +363,112 @@ struct UAIPerceptionComponent_GetActorsPerception_Params
 	class AActor*                                      Actor;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
 	struct FActorPerceptionBlueprintInfo               Info;                                                     // (Parm, OutParm)
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function AIModule.AIPerceptionStimuliSourceComponent.UnregisterFromSense
+struct UAIPerceptionStimuliSourceComponent_UnregisterFromSense_Params
+{
+	class UClass*                                      SenseClass;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function AIModule.AIPerceptionStimuliSourceComponent.UnregisterFromPerceptionSystem
+struct UAIPerceptionStimuliSourceComponent_UnregisterFromPerceptionSystem_Params
+{
+};
+
+// Function AIModule.AIPerceptionStimuliSourceComponent.RegisterWithPerceptionSystem
+struct UAIPerceptionStimuliSourceComponent_RegisterWithPerceptionSystem_Params
+{
+};
+
+// Function AIModule.AIPerceptionStimuliSourceComponent.RegisterForSense
+struct UAIPerceptionStimuliSourceComponent_RegisterForSense_Params
+{
+	class UClass*                                      SenseClass;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function AIModule.AISense_Blueprint.OnUpdate
+struct UAISense_Blueprint_OnUpdate_Params
+{
+	TArray<class UAISenseEvent*>                       EventsToProcess;                                          // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function AIModule.AISense_Blueprint.OnListenerUpdated
+struct UAISense_Blueprint_OnListenerUpdated_Params
+{
+	class AActor*                                      ActorListener;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+	class UAIPerceptionComponent*                      PerceptionComponent;                                      // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+};
+
+// Function AIModule.AISense_Blueprint.OnListenerUnregistered
+struct UAISense_Blueprint_OnListenerUnregistered_Params
+{
+	class AActor*                                      ActorListener;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+	class UAIPerceptionComponent*                      PerceptionComponent;                                      // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+};
+
+// Function AIModule.AISense_Blueprint.OnListenerRegistered
+struct UAISense_Blueprint_OnListenerRegistered_Params
+{
+	class AActor*                                      ActorListener;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+	class UAIPerceptionComponent*                      PerceptionComponent;                                      // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+};
+
+// Function AIModule.AISense_Blueprint.K2_OnNewPawn
+struct UAISense_Blueprint_K2_OnNewPawn_Params
+{
+	class APawn*                                       NewPawn;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function AIModule.AISense_Blueprint.GetAllListenerComponents
+struct UAISense_Blueprint_GetAllListenerComponents_Params
+{
+	TArray<class UAIPerceptionComponent*>              ListenerComponents;                                       // (Parm, OutParm, ZeroConstructor)
+};
+
+// Function AIModule.AISense_Blueprint.GetAllListenerActors
+struct UAISense_Blueprint_GetAllListenerActors_Params
+{
+	TArray<class AActor*>                              ListenerActors;                                           // (Parm, OutParm, ZeroConstructor)
+};
+
+// Function AIModule.AISense_Damage.ReportDamageEvent
+struct UAISense_Damage_ReportDamageEvent_Params
+{
+	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      DamagedActor;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      Instigator;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DamageAmount;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector                                     EventLocation;                                            // (Parm, IsPlainOldData)
+	struct FVector                                     HitLocation;                                              // (Parm, IsPlainOldData)
+};
+
+// Function AIModule.AISense_Hearing.ReportNoiseEvent
+struct UAISense_Hearing_ReportNoiseEvent_Params
+{
+	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector                                     NoiseLocation;                                            // (Parm, IsPlainOldData)
+	float                                              Loudness;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      Instigator;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              MaxRange;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FName                                       Tag;                                                      // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function AIModule.AISense_Prediction.RequestPawnPredictionEvent
+struct UAISense_Prediction_RequestPawnPredictionEvent_Params
+{
+	class APawn*                                       Requestor;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      PredictedActor;                                           // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              PredictionTime;                                           // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function AIModule.AISense_Prediction.RequestControllerPredictionEvent
+struct UAISense_Prediction_RequestControllerPredictionEvent_Params
+{
+	class AAIController*                               Requestor;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      PredictedActor;                                           // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              PredictionTime;                                           // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function AIModule.AISystem.AILoggingVerbose
@@ -707,6 +716,43 @@ struct UBlackboardComponent_GetLocationFromEntry_Params
 struct UBlackboardComponent_ClearValue_Params
 {
 	struct FName                                       KeyName;                                                  // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
+};
+
+// Function AIModule.AIPerceptionSystem.ReportPerceptionEvent
+struct UAIPerceptionSystem_ReportPerceptionEvent_Params
+{
+	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+	class UAISenseEvent*                               PerceptionEvent;                                          // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function AIModule.AIPerceptionSystem.ReportEvent
+struct UAIPerceptionSystem_ReportEvent_Params
+{
+	class UAISenseEvent*                               PerceptionEvent;                                          // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function AIModule.AIPerceptionSystem.RegisterPerceptionStimuliSource
+struct UAIPerceptionSystem_RegisterPerceptionStimuliSource_Params
+{
+	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+	class UClass*                                      Sense;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      Target;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function AIModule.AIPerceptionSystem.OnPerceptionStimuliSourceEndPlay
+struct UAIPerceptionSystem_OnPerceptionStimuliSourceEndPlay_Params
+{
+	class AActor*                                      Actor;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	TEnumAsByte<EEndPlayReason>                        EndPlayReason;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function AIModule.AIPerceptionSystem.GetSenseClassForStimulus
+struct UAIPerceptionSystem_GetSenseClassForStimulus_Params
+{
+	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FAIStimulus                                 Stimulus;                                                 // (ConstParm, Parm, OutParm, ReferenceParm)
+	class UClass*                                      ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function AIModule.BTDecorator_BlueprintBase.ReceiveTickAI
@@ -1482,52 +1528,6 @@ struct UPawnSensingComponent_GetPeripheralVisionCosine_Params
 struct UPawnSensingComponent_GetPeripheralVisionAngle_Params
 {
 	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function AIModule.AISense_Blueprint.OnUpdate
-struct UAISense_Blueprint_OnUpdate_Params
-{
-	TArray<class UAISenseEvent*>                       EventsToProcess;                                          // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function AIModule.AISense_Blueprint.OnListenerUpdated
-struct UAISense_Blueprint_OnListenerUpdated_Params
-{
-	class AActor*                                      ActorListener;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-	class UAIPerceptionComponent*                      PerceptionComponent;                                      // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-};
-
-// Function AIModule.AISense_Blueprint.OnListenerUnregistered
-struct UAISense_Blueprint_OnListenerUnregistered_Params
-{
-	class AActor*                                      ActorListener;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-	class UAIPerceptionComponent*                      PerceptionComponent;                                      // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-};
-
-// Function AIModule.AISense_Blueprint.OnListenerRegistered
-struct UAISense_Blueprint_OnListenerRegistered_Params
-{
-	class AActor*                                      ActorListener;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-	class UAIPerceptionComponent*                      PerceptionComponent;                                      // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-};
-
-// Function AIModule.AISense_Blueprint.K2_OnNewPawn
-struct UAISense_Blueprint_K2_OnNewPawn_Params
-{
-	class APawn*                                       NewPawn;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function AIModule.AISense_Blueprint.GetAllListenerComponents
-struct UAISense_Blueprint_GetAllListenerComponents_Params
-{
-	TArray<class UAIPerceptionComponent*>              ListenerComponents;                                       // (Parm, OutParm, ZeroConstructor)
-};
-
-// Function AIModule.AISense_Blueprint.GetAllListenerActors
-struct UAISense_Blueprint_GetAllListenerActors_Params
-{
-	TArray<class AActor*>                              ListenerActors;                                           // (Parm, OutParm, ZeroConstructor)
 };
 
 }

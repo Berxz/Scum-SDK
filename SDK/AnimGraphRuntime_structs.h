@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 0.3.21000
+// Name: , Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -191,6 +191,16 @@ enum class ESequenceEvalReinit : uint8_t
 };
 
 
+// Enum AnimGraphRuntime.ESplineBoneAxis
+enum class ESplineBoneAxis : uint8_t
+{
+	ESplineBoneAxis__X             = 0,
+	ESplineBoneAxis__Y             = 1,
+	ESplineBoneAxis__Z             = 2,
+	ESplineBoneAxis__ESplineBoneAxis_MAX = 3
+};
+
+
 // Enum AnimGraphRuntime.ERBFDistanceMethod
 enum class ERBFDistanceMethod : uint8_t
 {
@@ -210,16 +220,6 @@ enum class ERBFFunctionType : uint8_t
 	ERBFFunctionType__Cubic        = 3,
 	ERBFFunctionType__Quintic      = 4,
 	ERBFFunctionType__ERBFFunctionType_MAX = 5
-};
-
-
-// Enum AnimGraphRuntime.ESplineBoneAxis
-enum class ESplineBoneAxis : uint8_t
-{
-	ESplineBoneAxis__X             = 0,
-	ESplineBoneAxis__Y             = 1,
-	ESplineBoneAxis__Z             = 2,
-	ESplineBoneAxis__ESplineBoneAxis_MAX = 3
 };
 
 
@@ -471,6 +471,14 @@ struct FAnimNode_BlendListBase : public FAnimNode_Base
 	unsigned char                                      UnknownData03[0x7];                                       // 0x00C1(0x0007) MISSED OFFSET
 };
 
+// ScriptStruct AnimGraphRuntime.AnimNode_BlendListByBool
+// 0x0008 (0x00D0 - 0x00C8)
+struct FAnimNode_BlendListByBool : public FAnimNode_BlendListBase
+{
+	bool                                               bActiveValue;                                             // 0x00C8(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x00C9(0x0007) MISSED OFFSET
+};
+
 // ScriptStruct AnimGraphRuntime.AnimNode_BlendListByEnum
 // 0x0018 (0x00E0 - 0x00C8)
 struct FAnimNode_BlendListByEnum : public FAnimNode_BlendListBase
@@ -529,14 +537,6 @@ struct FAnimNode_BoneDrivenController : public FAnimNode_SkeletalControlBase
 	unsigned char                                      UnknownData04[0x2];                                       // 0x0186(0x0002) MISSED OFFSET
 	EDrivenBoneModificationMode                        ModificationMode;                                         // 0x0188(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData05[0x7];                                       // 0x0189(0x0007) MISSED OFFSET
-};
-
-// ScriptStruct AnimGraphRuntime.AnimNode_BlendListByBool
-// 0x0008 (0x00D0 - 0x00C8)
-struct FAnimNode_BlendListByBool : public FAnimNode_BlendListBase
-{
-	bool                                               bActiveValue;                                             // 0x00C8(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x00C9(0x0007) MISSED OFFSET
 };
 
 // ScriptStruct AnimGraphRuntime.Constraint
@@ -1110,29 +1110,6 @@ struct FAnimNode_SpringBone : public FAnimNode_SkeletalControlBase
 	unsigned char                                      UnknownData01[0x35];                                      // 0x014B(0x0035) MISSED OFFSET
 };
 
-// ScriptStruct AnimGraphRuntime.ReferenceBoneFrame
-// 0x0028
-struct FReferenceBoneFrame
-{
-	struct FBoneReference                              Bone;                                                     // 0x0000(0x0018) (Edit)
-	struct FAxis                                       Axis;                                                     // 0x0018(0x0010) (Edit)
-};
-
-// ScriptStruct AnimGraphRuntime.AnimNode_TwistCorrectiveNode
-// 0x0088 (0x01A0 - 0x0118)
-struct FAnimNode_TwistCorrectiveNode : public FAnimNode_SkeletalControlBase
-{
-	struct FReferenceBoneFrame                         BaseFrame;                                                // 0x0118(0x0028) (Edit)
-	struct FReferenceBoneFrame                         TwistFrame;                                               // 0x0140(0x0028) (Edit)
-	struct FAxis                                       TwistPlaneNormalAxis;                                     // 0x0168(0x0010) (Edit)
-	float                                              RangeMax;                                                 // 0x0178(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              RemappedMin;                                              // 0x017C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              RemappedMax;                                              // 0x0180(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0184(0x0004) MISSED OFFSET
-	struct FAnimCurveParam                             Curve;                                                    // 0x0188(0x0010) (Edit)
-	unsigned char                                      UnknownData01[0x8];                                       // 0x0198(0x0008) MISSED OFFSET
-};
-
 // ScriptStruct AnimGraphRuntime.AnimNode_Trail
 // 0x0178 (0x0290 - 0x0118)
 struct FAnimNode_Trail : public FAnimNode_SkeletalControlBase
@@ -1155,6 +1132,29 @@ struct FAnimNode_Trail : public FAnimNode_SkeletalControlBase
 	unsigned char                                      UnknownData03[0x3];                                       // 0x020D(0x0003) MISSED OFFSET
 	struct FBoneReference                              BaseJoint;                                                // 0x0210(0x0018) (Edit)
 	unsigned char                                      UnknownData04[0x68];                                      // 0x0228(0x0068) MISSED OFFSET
+};
+
+// ScriptStruct AnimGraphRuntime.ReferenceBoneFrame
+// 0x0028
+struct FReferenceBoneFrame
+{
+	struct FBoneReference                              Bone;                                                     // 0x0000(0x0018) (Edit)
+	struct FAxis                                       Axis;                                                     // 0x0018(0x0010) (Edit)
+};
+
+// ScriptStruct AnimGraphRuntime.AnimNode_TwistCorrectiveNode
+// 0x0088 (0x01A0 - 0x0118)
+struct FAnimNode_TwistCorrectiveNode : public FAnimNode_SkeletalControlBase
+{
+	struct FReferenceBoneFrame                         BaseFrame;                                                // 0x0118(0x0028) (Edit)
+	struct FReferenceBoneFrame                         TwistFrame;                                               // 0x0140(0x0028) (Edit)
+	struct FAxis                                       TwistPlaneNormalAxis;                                     // 0x0168(0x0010) (Edit)
+	float                                              RangeMax;                                                 // 0x0178(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              RemappedMin;                                              // 0x017C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              RemappedMax;                                              // 0x0180(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x0184(0x0004) MISSED OFFSET
+	struct FAnimCurveParam                             Curve;                                                    // 0x0188(0x0010) (Edit)
+	unsigned char                                      UnknownData01[0x8];                                       // 0x0198(0x0008) MISSED OFFSET
 };
 
 // ScriptStruct AnimGraphRuntime.AnimNode_TwoBoneIK
