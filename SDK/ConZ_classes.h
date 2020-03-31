@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 3.75.21350
+// Name: SCUM, Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -4245,22 +4245,6 @@ public:
 };
 
 
-// Class ConZ.CarbonMonoxidePoisoning
-// 0x0010 (0x01C0 - 0x01B0)
-class UCarbonMonoxidePoisoning : public UDisease
-{
-public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x01B0(0x0010) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class ConZ.CarbonMonoxidePoisoning");
-		return ptr;
-	}
-
-};
-
-
 // Class ConZ.CargoDropContainer
 // 0x0088 (0x03B0 - 0x0328)
 class ACargoDropContainer : public AActor
@@ -4649,6 +4633,22 @@ public:
 };
 
 
+// Class ConZ.CarbonMonoxidePoisoning
+// 0x0010 (0x01C0 - 0x01B0)
+class UCarbonMonoxidePoisoning : public UDisease
+{
+public:
+	unsigned char                                      UnknownData00[0x10];                                      // 0x01B0(0x0010) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class ConZ.CarbonMonoxidePoisoning");
+		return ptr;
+	}
+
+};
+
+
 // Class ConZ.WeaponAction
 // 0x0000 (0x0028 - 0x0028)
 class UWeaponAction : public UObject
@@ -4700,21 +4700,6 @@ public:
 	void End(bool Regular);
 	bool CanInterrupt();
 	bool CanExecuteUsingData(const struct FWeaponReloadData& Data);
-};
-
-
-// Class ConZ.ChamberCartridge
-// 0x0000 (0x0088 - 0x0088)
-class UChamberCartridge : public UWeaponActionReloadSequence
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class ConZ.ChamberCartridge");
-		return ptr;
-	}
-
 };
 
 
@@ -5077,6 +5062,21 @@ public:
 };
 
 
+// Class ConZ.ChamberCartridge
+// 0x0000 (0x0088 - 0x0088)
+class UChamberCartridge : public UWeaponActionReloadSequence
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class ConZ.ChamberCartridge");
+		return ptr;
+	}
+
+};
+
+
 // Class ConZ.ChatText
 // 0x0000 (0x0210 - 0x0210)
 class UChatText : public UTextBlock
@@ -5201,21 +5201,6 @@ public:
 };
 
 
-// Class ConZ.Chicken
-// 0x0000 (0x0AE0 - 0x0AE0)
-class AChicken : public AAnimal
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class ConZ.Chicken");
-		return ptr;
-	}
-
-};
-
-
 // Class ConZ.ChickenAIController
 // 0x0000 (0x04C8 - 0x04C8)
 class AChickenAIController : public AAnimalAIController
@@ -5318,16 +5303,15 @@ public:
 };
 
 
-// Class ConZ.ChoppingRecipeDataAsset
-// 0x0098 (0x00C8 - 0x0030)
-class UChoppingRecipeDataAsset : public UDataAsset
+// Class ConZ.Chicken
+// 0x0000 (0x0AE0 - 0x0AE0)
+class AChicken : public AAnimal
 {
 public:
-	struct FChoppingRecipe                             ChoppingRecipe;                                           // 0x0030(0x0098) (Edit)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class ConZ.ChoppingRecipeDataAsset");
+		static auto ptr = UObject::FindClass("Class ConZ.Chicken");
 		return ptr;
 	}
 
@@ -5444,30 +5428,19 @@ public:
 };
 
 
-// Class ConZ.CircularMenuSegmentWidget
-// 0x0058 (0x0278 - 0x0220)
-class UCircularMenuSegmentWidget : public UDesignableUserWidget
+// Class ConZ.ChoppingRecipeDataAsset
+// 0x0098 (0x00C8 - 0x0030)
+class UChoppingRecipeDataAsset : public UDataAsset
 {
 public:
-	float                                              _nonSelectableAlpha;                                      // 0x0220(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	struct FLinearColor                                _highlightedColour;                                       // 0x0224(0x0010) (Edit, IsPlainOldData)
-	struct FLinearColor                                _unHighlightedColour;                                     // 0x0234(0x0010) (Edit, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0244(0x0004) MISSED OFFSET
-	class UCircularMenuSegmentInfo*                    _info;                                                    // 0x0248(0x0008) (ZeroConstructor, IsPlainOldData)
-	class UImage*                                      _segment;                                                 // 0x0250(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
-	class UOverlay*                                    _iconOverlay;                                             // 0x0258(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
-	class UImage*                                      _icon;                                                    // 0x0260(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x10];                                      // 0x0268(0x0010) MISSED OFFSET
+	struct FChoppingRecipe                             ChoppingRecipe;                                           // 0x0030(0x0098) (Edit)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class ConZ.CircularMenuSegmentWidget");
+		static auto ptr = UObject::FindClass("Class ConZ.ChoppingRecipeDataAsset");
 		return ptr;
 	}
 
-
-	void UpdateVisualParameters(int numberOfSegments, int Index, float Offset, float middleCutoffPercentage, float Size);
-	class UCircularMenuSegmentWidget* STATIC_CreateFromInfo(class UCircularMenuSegmentInfo* Info);
 };
 
 
@@ -5615,6 +5588,33 @@ public:
 };
 
 
+// Class ConZ.CircularMenuSegmentWidget
+// 0x0058 (0x0278 - 0x0220)
+class UCircularMenuSegmentWidget : public UDesignableUserWidget
+{
+public:
+	float                                              _nonSelectableAlpha;                                      // 0x0220(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	struct FLinearColor                                _highlightedColour;                                       // 0x0224(0x0010) (Edit, IsPlainOldData)
+	struct FLinearColor                                _unHighlightedColour;                                     // 0x0234(0x0010) (Edit, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x0244(0x0004) MISSED OFFSET
+	class UCircularMenuSegmentInfo*                    _info;                                                    // 0x0248(0x0008) (ZeroConstructor, IsPlainOldData)
+	class UImage*                                      _segment;                                                 // 0x0250(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
+	class UOverlay*                                    _iconOverlay;                                             // 0x0258(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
+	class UImage*                                      _icon;                                                    // 0x0260(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x10];                                      // 0x0268(0x0010) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class ConZ.CircularMenuSegmentWidget");
+		return ptr;
+	}
+
+
+	void UpdateVisualParameters(int numberOfSegments, int Index, float Offset, float middleCutoffPercentage, float Size);
+	class UCircularMenuSegmentWidget* STATIC_CreateFromInfo(class UCircularMenuSegmentInfo* Info);
+};
+
+
 // Class ConZ.ClockFaceWidget
 // 0x0000 (0x0220 - 0x0220)
 class UClockFaceWidget : public UDesignableUserWidget
@@ -5744,22 +5744,6 @@ public:
 };
 
 
-// Class ConZ.CommandAnimalAction
-// 0x0008 (0x00B0 - 0x00A8)
-class UCommandAnimalAction : public UAnimalAction
-{
-public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x00A8(0x0008) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class ConZ.CommandAnimalAction");
-		return ptr;
-	}
-
-};
-
-
 // Class ConZ.CompassItemTag
 // 0x0008 (0x0038 - 0x0030)
 class UCompassItemTag : public UBaseItemTag
@@ -5771,6 +5755,22 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class ConZ.CompassItemTag");
+		return ptr;
+	}
+
+};
+
+
+// Class ConZ.CommandAnimalAction
+// 0x0008 (0x00B0 - 0x00A8)
+class UCommandAnimalAction : public UAnimalAction
+{
+public:
+	unsigned char                                      UnknownData00[0x8];                                       // 0x00A8(0x0008) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class ConZ.CommandAnimalAction");
 		return ptr;
 	}
 
@@ -6916,22 +6916,6 @@ public:
 };
 
 
-// Class ConZ.ConZVehicle4WPassengerMountSlot
-// 0x0008 (0x0158 - 0x0150)
-class UConZVehicle4WPassengerMountSlot : public UConZVehicle4WMountSlot
-{
-public:
-	class UBlendSpace*                                 _idleAnimation;                                           // 0x0150(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class ConZ.ConZVehicle4WPassengerMountSlot");
-		return ptr;
-	}
-
-};
-
-
 // Class ConZ.ConZVehicleAnimInstance
 // 0x0020 (0x0980 - 0x0960)
 class UConZVehicleAnimInstance : public UDcxVehicleAnimInstance
@@ -7155,6 +7139,21 @@ public:
 };
 
 
+// Class ConZ.CorpseInterface
+// 0x0000 (0x0028 - 0x0028)
+class UCorpseInterface : public UInterface
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class ConZ.CorpseInterface");
+		return ptr;
+	}
+
+};
+
+
 // Class ConZ.Crab
 // 0x0020 (0x0B00 - 0x0AE0)
 class ACrab : public AAnimal
@@ -7174,39 +7173,16 @@ public:
 };
 
 
-// Class ConZ.CorpseInterface
-// 0x0000 (0x0028 - 0x0028)
-class UCorpseInterface : public UInterface
+// Class ConZ.ConZVehicle4WPassengerMountSlot
+// 0x0008 (0x0158 - 0x0150)
+class UConZVehicle4WPassengerMountSlot : public UConZVehicle4WMountSlot
 {
 public:
+	class UBlendSpace*                                 _idleAnimation;                                           // 0x0150(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class ConZ.CorpseInterface");
-		return ptr;
-	}
-
-};
-
-
-// Class ConZ.CrabAIController
-// 0x0070 (0x04A8 - 0x0438)
-class ACrabAIController : public AAIController
-{
-public:
-	float                                              MinIdle1Time;                                             // 0x0438(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	float                                              MaxIdle1Time;                                             // 0x043C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	float                                              MinIdle2Time;                                             // 0x0440(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	float                                              MaxIdle2Time;                                             // 0x0444(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	float                                              MinWalkTime;                                              // 0x0448(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	float                                              MaxWalkTime;                                              // 0x044C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	float                                              MaxRadius;                                                // 0x0450(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	float                                              TickFrequency;                                            // 0x0454(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x50];                                      // 0x0458(0x0050) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class ConZ.CrabAIController");
+		static auto ptr = UObject::FindClass("Class ConZ.ConZVehicle4WPassengerMountSlot");
 		return ptr;
 	}
 
@@ -7355,6 +7331,30 @@ public:
 	bool GetIsSelected();
 	bool GetIsOptional();
 	void ClickedDelegate__DelegateSignature(class UCraftingAvailableItemWidget* Widget, class AItem* Item);
+};
+
+
+// Class ConZ.CrabAIController
+// 0x0070 (0x04A8 - 0x0438)
+class ACrabAIController : public AAIController
+{
+public:
+	float                                              MinIdle1Time;                                             // 0x0438(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              MaxIdle1Time;                                             // 0x043C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              MinIdle2Time;                                             // 0x0440(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              MaxIdle2Time;                                             // 0x0444(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              MinWalkTime;                                              // 0x0448(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              MaxWalkTime;                                              // 0x044C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              MaxRadius;                                                // 0x0450(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              TickFrequency;                                            // 0x0454(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x50];                                      // 0x0458(0x0050) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class ConZ.CrabAIController");
+		return ptr;
+	}
+
 };
 
 
@@ -7957,30 +7957,6 @@ public:
 };
 
 
-// Class ConZ.CTFLocationMarker
-// 0x00C0 (0x05E0 - 0x0520)
-class ACTFLocationMarker : public AGameEventLocationMarker
-{
-public:
-	struct FCTFParameters                              CTFParameters;                                            // 0x0520(0x0030) (Edit, BlueprintVisible)
-	struct FVector                                     CaptureOffsetA;                                           // 0x0550(0x000C) (Edit, BlueprintVisible, IsPlainOldData)
-	struct FVector                                     CaptureOffsetB;                                           // 0x055C(0x000C) (Edit, BlueprintVisible, IsPlainOldData)
-	float                                              CaptureRadiusA;                                           // 0x0568(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	float                                              CaptureRadiusB;                                           // 0x056C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	struct FTransform                                  FlagOffsetA;                                              // 0x0570(0x0030) (Edit, BlueprintVisible, IsPlainOldData)
-	struct FTransform                                  FlagOffsetB;                                              // 0x05A0(0x0030) (Edit, BlueprintVisible, IsPlainOldData)
-	class UStaticMeshComponent*                        FlagAPreviewMesh;                                         // 0x05D0(0x0008) (Edit, ExportObject, ZeroConstructor, DisableEditOnInstance, EditConst, InstancedReference, IsPlainOldData)
-	class UStaticMeshComponent*                        FlagBPreviewMesh;                                         // 0x05D8(0x0008) (Edit, ExportObject, ZeroConstructor, DisableEditOnInstance, EditConst, InstancedReference, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class ConZ.CTFLocationMarker");
-		return ptr;
-	}
-
-};
-
-
 // Class ConZ.CutObjectAction
 // 0x0038 (0x00E0 - 0x00A8)
 class UCutObjectAction : public UInteractionAction
@@ -8260,6 +8236,46 @@ public:
 };
 
 
+// Class ConZ.CTFLocationMarker
+// 0x00C0 (0x05E0 - 0x0520)
+class ACTFLocationMarker : public AGameEventLocationMarker
+{
+public:
+	struct FCTFParameters                              CTFParameters;                                            // 0x0520(0x0030) (Edit, BlueprintVisible)
+	struct FVector                                     CaptureOffsetA;                                           // 0x0550(0x000C) (Edit, BlueprintVisible, IsPlainOldData)
+	struct FVector                                     CaptureOffsetB;                                           // 0x055C(0x000C) (Edit, BlueprintVisible, IsPlainOldData)
+	float                                              CaptureRadiusA;                                           // 0x0568(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              CaptureRadiusB;                                           // 0x056C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	struct FTransform                                  FlagOffsetA;                                              // 0x0570(0x0030) (Edit, BlueprintVisible, IsPlainOldData)
+	struct FTransform                                  FlagOffsetB;                                              // 0x05A0(0x0030) (Edit, BlueprintVisible, IsPlainOldData)
+	class UStaticMeshComponent*                        FlagAPreviewMesh;                                         // 0x05D0(0x0008) (Edit, ExportObject, ZeroConstructor, DisableEditOnInstance, EditConst, InstancedReference, IsPlainOldData)
+	class UStaticMeshComponent*                        FlagBPreviewMesh;                                         // 0x05D8(0x0008) (Edit, ExportObject, ZeroConstructor, DisableEditOnInstance, EditConst, InstancedReference, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class ConZ.CTFLocationMarker");
+		return ptr;
+	}
+
+};
+
+
+// Class ConZ.DeadlyNightshadePoisoning
+// 0x0010 (0x01C0 - 0x01B0)
+class UDeadlyNightshadePoisoning : public UPoisoning
+{
+public:
+	unsigned char                                      UnknownData00[0x10];                                      // 0x01B0(0x0010) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class ConZ.DeadlyNightshadePoisoning");
+		return ptr;
+	}
+
+};
+
+
 // Class ConZ.DeathmatchParticipantStats
 // 0x0010 (0x0058 - 0x0048)
 class UDeathmatchParticipantStats : public UGameEventParticipantStats
@@ -8347,22 +8363,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class ConZ.DedicatedServerRequest");
-		return ptr;
-	}
-
-};
-
-
-// Class ConZ.DeadlyNightshadePoisoning
-// 0x0010 (0x01C0 - 0x01B0)
-class UDeadlyNightshadePoisoning : public UPoisoning
-{
-public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x01B0(0x0010) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class ConZ.DeadlyNightshadePoisoning");
 		return ptr;
 	}
 
@@ -8629,22 +8629,6 @@ public:
 };
 
 
-// Class ConZ.DialogueData
-// 0x0050 (0x0080 - 0x0030)
-class UDialogueData : public UDataAsset
-{
-public:
-	TMap<EDialogEvent, struct FDialogInfoContainer>    Dialogs;                                                  // 0x0030(0x0050) (Edit, BlueprintVisible, ZeroConstructor)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class ConZ.DialogueData");
-		return ptr;
-	}
-
-};
-
-
 // Class ConZ.DiarrheaSickness
 // 0x0018 (0x01C8 - 0x01B0)
 class UDiarrheaSickness : public USickness
@@ -8784,22 +8768,16 @@ public:
 };
 
 
-// Class ConZ.UpgradeWidget
-// 0x0050 (0x0270 - 0x0220)
-class UUpgradeWidget : public UDesignableUserWidget
+// Class ConZ.DialogueData
+// 0x0050 (0x0080 - 0x0030)
+class UDialogueData : public UDataAsset
 {
 public:
-	class UClass*                                      _upgradeClass;                                            // 0x0220(0x0008) (ZeroConstructor, IsPlainOldData)
-	class UImage*                                      _itemIcon;                                                // 0x0228(0x0008) (BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, IsPlainOldData)
-	class UImage*                                      _backgroundImage;                                         // 0x0230(0x0008) (BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, IsPlainOldData)
-	class UTextBlock*                                  _priceText;                                               // 0x0238(0x0008) (BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, IsPlainOldData)
-	struct FLinearColor                                _regularColour;                                           // 0x0240(0x0010) (Edit, IsPlainOldData)
-	struct FLinearColor                                _unavailableColour;                                       // 0x0250(0x0010) (Edit, IsPlainOldData)
-	struct FLinearColor                                _availableColour;                                         // 0x0260(0x0010) (Edit, IsPlainOldData)
+	TMap<EDialogEvent, struct FDialogInfoContainer>    Dialogs;                                                  // 0x0030(0x0050) (Edit, BlueprintVisible, ZeroConstructor)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class ConZ.UpgradeWidget");
+		static auto ptr = UObject::FindClass("Class ConZ.DialogueData");
 		return ptr;
 	}
 
@@ -8883,6 +8861,25 @@ public:
 };
 
 
+// Class ConZ.DoubleRegularDoorStatic
+// 0x0030 (0x0498 - 0x0468)
+class ADoubleRegularDoorStatic : public ADoubleDoor
+{
+public:
+	struct FRotator                                    _openRotation0;                                           // 0x0468(0x000C) (Edit, BlueprintVisible, IsPlainOldData)
+	struct FRotator                                    _openRotation1;                                           // 0x0474(0x000C) (Edit, BlueprintVisible, IsPlainOldData)
+	struct FRotator                                    _closedRotation0;                                         // 0x0480(0x000C) (Edit, BlueprintVisible, IsPlainOldData)
+	struct FRotator                                    _closedRotation1;                                         // 0x048C(0x000C) (Edit, BlueprintVisible, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class ConZ.DoubleRegularDoorStatic");
+		return ptr;
+	}
+
+};
+
+
 // Class ConZ.DoubleRegularDoorDestructible
 // 0x0030 (0x0498 - 0x0468)
 class ADoubleRegularDoorDestructible : public ADoubleDoor
@@ -8896,25 +8893,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class ConZ.DoubleRegularDoorDestructible");
-		return ptr;
-	}
-
-};
-
-
-// Class ConZ.DoubleSlidingDoorStatic
-// 0x0020 (0x0488 - 0x0468)
-class ADoubleSlidingDoorStatic : public ADoubleDoor
-{
-public:
-	class USceneComponent*                             ClosedPositionComponent0;                                 // 0x0468(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
-	class USceneComponent*                             ClosedPositionComponent1;                                 // 0x0470(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
-	class USceneComponent*                             OpenPositionComponent0;                                   // 0x0478(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
-	class USceneComponent*                             OpenPositionComponent1;                                   // 0x0480(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class ConZ.DoubleSlidingDoorStatic");
 		return ptr;
 	}
 
@@ -9099,63 +9077,22 @@ public:
 };
 
 
-// Class ConZ.Drone
-// 0x0220 (0x0B50 - 0x0930)
-class ADrone : public AConZCharacter
+// Class ConZ.DoubleSlidingDoorStatic
+// 0x0020 (0x0488 - 0x0468)
+class ADoubleSlidingDoorStatic : public ADoubleDoor
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0930(0x0008) MISSED OFFSET
-	TArray<float>                                      SpeedSteps;                                               // 0x0938(0x0010) (Edit, ZeroConstructor)
-	float                                              MovementInertiaPlayer;                                    // 0x0948(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              MovementInertiaAI;                                        // 0x094C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              MovementRotationSpeedExpFactor;                           // 0x0950(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              EngineParticlesChangeSpeedExpFactor;                      // 0x0954(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	class UCurveFloat*                                 EngineVolumeFromSpeed;                                    // 0x0958(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              MovementBreathingInterval;                                // 0x0960(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              MovementBreathingIntensity;                               // 0x0964(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              ScanBeamOpeningSpeed;                                     // 0x0968(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              ScanBeamScanningSpeed;                                    // 0x096C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              ScanFaceHalfHeight;                                       // 0x0970(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x4];                                       // 0x0974(0x0004) MISSED OFFSET
-	class UParticleSystem*                             SelfDestructParticles;                                    // 0x0978(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	class UAkAudioEvent*                               EngineAudioEvent;                                         // 0x0980(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	class UAkAudioEvent*                               EngineStopAudioEvent;                                     // 0x0988(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	class UAkAudioEvent*                               SelfDestructAudioEvent;                                   // 0x0990(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData02[0x30];                                      // 0x0998(0x0030) MISSED OFFSET
-	class UMaterialInterface*                          _nightVisionMaterial;                                     // 0x09C8(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      _currentSpeedStep;                                        // 0x09D0(0x0001) (Net, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData03[0x3];                                       // 0x09D1(0x0003) MISSED OFFSET
-	float                                              _movementInertia;                                         // 0x09D4(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData04[0xA0];                                      // 0x09D8(0x00A0) MISSED OFFSET
-	float                                              _health;                                                  // 0x0A78(0x0004) (Edit, ZeroConstructor, EditConst, IsPlainOldData)
-	unsigned char                                      UnknownData05[0x1D];                                      // 0x0A7C(0x001D) MISSED OFFSET
-	bool                                               _silentMode;                                              // 0x0A99(0x0001) (Net, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData06[0x9A];                                      // 0x0A9A(0x009A) MISSED OFFSET
-	float                                              _interactionDistance;                                     // 0x0B34(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	class UActionProgressWidget*                       _progressWidget;                                          // 0x0B38(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
-	unsigned char                                      UnknownData07[0x10];                                      // 0x0B40(0x0010) MISSED OFFSET
+	class USceneComponent*                             ClosedPositionComponent0;                                 // 0x0468(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
+	class USceneComponent*                             ClosedPositionComponent1;                                 // 0x0470(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
+	class USceneComponent*                             OpenPositionComponent0;                                   // 0x0478(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
+	class USceneComponent*                             OpenPositionComponent1;                                   // 0x0480(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class ConZ.Drone");
+		static auto ptr = UObject::FindClass("Class ConZ.DoubleSlidingDoorStatic");
 		return ptr;
 	}
 
-
-	void Server_TeleportToNextOrPreviousPlayer(bool Next);
-	void Server_SetSilentMode(bool Value);
-	void Server_SetCurrentSpeedStep(int step);
-	void Server_OpenDoor(class ADoor* Door);
-	void Server_DestroyBaseElement(const struct FVector& Location);
-	void Server_CloseDoor(class ADoor* Door);
-	void SelfDestruct();
-	void OnSilentModeChanged_BP(bool Value);
-	void OnRep_SilentMode();
-	void OnRep_CurrentSpeedStep();
-	void OnProgressWidgetFinished();
-	void OnHit(class UPrimitiveComponent* HitComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, const struct FVector& NormalImpulse, const struct FHitResult& Hit);
-	void NetMulticast_SpawnDestroyedEffects();
-	void NetMulticast_PlaySoundOnClients(EDroneSound SoundToPlay, bool Force);
 };
 
 
@@ -9276,25 +9213,6 @@ public:
 };
 
 
-// Class ConZ.DoubleRegularDoorStatic
-// 0x0030 (0x0498 - 0x0468)
-class ADoubleRegularDoorStatic : public ADoubleDoor
-{
-public:
-	struct FRotator                                    _openRotation0;                                           // 0x0468(0x000C) (Edit, BlueprintVisible, IsPlainOldData)
-	struct FRotator                                    _openRotation1;                                           // 0x0474(0x000C) (Edit, BlueprintVisible, IsPlainOldData)
-	struct FRotator                                    _closedRotation0;                                         // 0x0480(0x000C) (Edit, BlueprintVisible, IsPlainOldData)
-	struct FRotator                                    _closedRotation1;                                         // 0x048C(0x000C) (Edit, BlueprintVisible, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class ConZ.DoubleRegularDoorStatic");
-		return ptr;
-	}
-
-};
-
-
 // Class ConZ.DropdownMenuWidget
 // 0x0020 (0x0228 - 0x0208)
 class UDropdownMenuWidget : public UUserWidget
@@ -9375,26 +9293,105 @@ public:
 };
 
 
-// Class ConZ.DropZoneEquipmentTable
-// 0x0018 (0x0340 - 0x0328)
-class ADropZoneEquipmentTable : public AActor
+// Class ConZ.DropZoneCrate
+// 0x0010 (0x0398 - 0x0388)
+class ADropZoneCrate : public ADropZoneDroppable
 {
 public:
-	TArray<class AItem*>                               _trackedItems;                                            // 0x0328(0x0010) (ZeroConstructor)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0338(0x0008) MISSED OFFSET
+	class UClass*                                      KeyClass;                                                 // 0x0388(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	bool                                               _hasKey;                                                  // 0x0390(0x0001) (Net, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0391(0x0007) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class ConZ.DropZoneEquipmentTable");
+		static auto ptr = UObject::FindClass("Class ConZ.DropZoneCrate");
 		return ptr;
 	}
 
 
-	void UntrackItem(class AItem* Item);
-	void TrackItem(class AItem* Item);
-	void OnTrackedItemDestroyed(class AActor* Actor);
-	void EndCleaningItems();
-	void BeginCleaningItems();
+	void OnRep_HasKey();
+};
+
+
+// Class ConZ.UpgradeWidget
+// 0x0050 (0x0270 - 0x0220)
+class UUpgradeWidget : public UDesignableUserWidget
+{
+public:
+	class UClass*                                      _upgradeClass;                                            // 0x0220(0x0008) (ZeroConstructor, IsPlainOldData)
+	class UImage*                                      _itemIcon;                                                // 0x0228(0x0008) (BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, IsPlainOldData)
+	class UImage*                                      _backgroundImage;                                         // 0x0230(0x0008) (BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, IsPlainOldData)
+	class UTextBlock*                                  _priceText;                                               // 0x0238(0x0008) (BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, IsPlainOldData)
+	struct FLinearColor                                _regularColour;                                           // 0x0240(0x0010) (Edit, IsPlainOldData)
+	struct FLinearColor                                _unavailableColour;                                       // 0x0250(0x0010) (Edit, IsPlainOldData)
+	struct FLinearColor                                _availableColour;                                         // 0x0260(0x0010) (Edit, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class ConZ.UpgradeWidget");
+		return ptr;
+	}
+
+};
+
+
+// Class ConZ.Drone
+// 0x0220 (0x0B50 - 0x0930)
+class ADrone : public AConZCharacter
+{
+public:
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0930(0x0008) MISSED OFFSET
+	TArray<float>                                      SpeedSteps;                                               // 0x0938(0x0010) (Edit, ZeroConstructor)
+	float                                              MovementInertiaPlayer;                                    // 0x0948(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              MovementInertiaAI;                                        // 0x094C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              MovementRotationSpeedExpFactor;                           // 0x0950(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              EngineParticlesChangeSpeedExpFactor;                      // 0x0954(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	class UCurveFloat*                                 EngineVolumeFromSpeed;                                    // 0x0958(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              MovementBreathingInterval;                                // 0x0960(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              MovementBreathingIntensity;                               // 0x0964(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              ScanBeamOpeningSpeed;                                     // 0x0968(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              ScanBeamScanningSpeed;                                    // 0x096C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              ScanFaceHalfHeight;                                       // 0x0970(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x4];                                       // 0x0974(0x0004) MISSED OFFSET
+	class UParticleSystem*                             SelfDestructParticles;                                    // 0x0978(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	class UAkAudioEvent*                               EngineAudioEvent;                                         // 0x0980(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	class UAkAudioEvent*                               EngineStopAudioEvent;                                     // 0x0988(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	class UAkAudioEvent*                               SelfDestructAudioEvent;                                   // 0x0990(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData02[0x30];                                      // 0x0998(0x0030) MISSED OFFSET
+	class UMaterialInterface*                          _nightVisionMaterial;                                     // 0x09C8(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      _currentSpeedStep;                                        // 0x09D0(0x0001) (Net, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData03[0x3];                                       // 0x09D1(0x0003) MISSED OFFSET
+	float                                              _movementInertia;                                         // 0x09D4(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData04[0xA0];                                      // 0x09D8(0x00A0) MISSED OFFSET
+	float                                              _health;                                                  // 0x0A78(0x0004) (Edit, ZeroConstructor, EditConst, IsPlainOldData)
+	unsigned char                                      UnknownData05[0x1D];                                      // 0x0A7C(0x001D) MISSED OFFSET
+	bool                                               _silentMode;                                              // 0x0A99(0x0001) (Net, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData06[0x9A];                                      // 0x0A9A(0x009A) MISSED OFFSET
+	float                                              _interactionDistance;                                     // 0x0B34(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	class UActionProgressWidget*                       _progressWidget;                                          // 0x0B38(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
+	unsigned char                                      UnknownData07[0x10];                                      // 0x0B40(0x0010) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class ConZ.Drone");
+		return ptr;
+	}
+
+
+	void Server_TeleportToNextOrPreviousPlayer(bool Next);
+	void Server_SetSilentMode(bool Value);
+	void Server_SetCurrentSpeedStep(int step);
+	void Server_OpenDoor(class ADoor* Door);
+	void Server_DestroyBaseElement(const struct FVector& Location);
+	void Server_CloseDoor(class ADoor* Door);
+	void SelfDestruct();
+	void OnSilentModeChanged_BP(bool Value);
+	void OnRep_SilentMode();
+	void OnRep_CurrentSpeedStep();
+	void OnProgressWidgetFinished();
+	void OnHit(class UPrimitiveComponent* HitComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, const struct FVector& NormalImpulse, const struct FHitResult& Hit);
+	void NetMulticast_SpawnDestroyedEffects();
+	void NetMulticast_PlaySoundOnClients(EDroneSound SoundToPlay, bool Force);
 };
 
 
@@ -9482,27 +9479,6 @@ public:
 };
 
 
-// Class ConZ.DropZoneKey
-// 0x0010 (0x0878 - 0x0868)
-class ADropZoneKey : public AItem
-{
-public:
-	class USphereComponent*                            SphereComponent;                                          // 0x0868(0x0008) (Edit, BlueprintVisible, ExportObject, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
-	class ADropZoneGameEvent*                          _gameEvent;                                               // 0x0870(0x0008) (Net, ZeroConstructor, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class ConZ.DropZoneKey");
-		return ptr;
-	}
-
-
-	void SphereOverlap(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int OtherBodyIndex, bool bFromSweep, const struct FHitResult& SweepResult);
-	void SetGameEvent(class ADropZoneGameEvent* gameEvent);
-	class ADropZoneGameEvent* GetGameEvent();
-};
-
-
 // Class ConZ.DropZoneLocationMarker
 // 0x0100 (0x0620 - 0x0520)
 class ADropZoneLocationMarker : public AGameEventLocationMarker
@@ -9559,23 +9535,19 @@ public:
 };
 
 
-// Class ConZ.DropZoneCrate
-// 0x0010 (0x0398 - 0x0388)
-class ADropZoneCrate : public ADropZoneDroppable
+// Class ConZ.DrunkennessSickness
+// 0x0010 (0x01C0 - 0x01B0)
+class UDrunkennessSickness : public USickness
 {
 public:
-	class UClass*                                      KeyClass;                                                 // 0x0388(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	bool                                               _hasKey;                                                  // 0x0390(0x0001) (Net, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0391(0x0007) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x10];                                      // 0x01B0(0x0010) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class ConZ.DropZoneCrate");
+		static auto ptr = UObject::FindClass("Class ConZ.DrunkennessSickness");
 		return ptr;
 	}
 
-
-	void OnRep_HasKey();
 };
 
 
@@ -9595,16 +9567,17 @@ public:
 };
 
 
-// Class ConZ.DrunkennessSickness
-// 0x0010 (0x01C0 - 0x01B0)
-class UDrunkennessSickness : public USickness
+// Class ConZ.ElectricalNetwork
+// 0x0020 (0x0370 - 0x0350)
+class AElectricalNetwork : public AElectricalDevice
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x01B0(0x0010) MISSED OFFSET
+	TArray<class ADoor*>                               AttachedDoors;                                            // 0x0350(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
+	TArray<class AElectricalDevice*>                   AttachedDevices;                                          // 0x0360(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class ConZ.DrunkennessSickness");
+		static auto ptr = UObject::FindClass("Class ConZ.ElectricalNetwork");
 		return ptr;
 	}
 
@@ -9696,17 +9669,15 @@ public:
 };
 
 
-// Class ConZ.ElectricalNetwork
-// 0x0020 (0x0370 - 0x0350)
-class AElectricalNetwork : public AElectricalDevice
+// Class ConZ.EnergyDeficiency
+// 0x0000 (0x01C0 - 0x01C0)
+class UEnergyDeficiency : public UDeficiency
 {
 public:
-	TArray<class ADoor*>                               AttachedDoors;                                            // 0x0350(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
-	TArray<class AElectricalDevice*>                   AttachedDevices;                                          // 0x0360(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class ConZ.ElectricalNetwork");
+		static auto ptr = UObject::FindClass("Class ConZ.EnergyDeficiency");
 		return ptr;
 	}
 
@@ -9860,6 +9831,27 @@ public:
 };
 
 
+// Class ConZ.DropZoneKey
+// 0x0010 (0x0878 - 0x0868)
+class ADropZoneKey : public AItem
+{
+public:
+	class USphereComponent*                            SphereComponent;                                          // 0x0868(0x0008) (Edit, BlueprintVisible, ExportObject, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
+	class ADropZoneGameEvent*                          _gameEvent;                                               // 0x0870(0x0008) (Net, ZeroConstructor, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class ConZ.DropZoneKey");
+		return ptr;
+	}
+
+
+	void SphereOverlap(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int OtherBodyIndex, bool bFromSweep, const struct FHitResult& SweepResult);
+	void SetGameEvent(class ADropZoneGameEvent* gameEvent);
+	class ADropZoneGameEvent* GetGameEvent();
+};
+
+
 // Class ConZ.ExamineAssetData
 // 0x01F0 (0x0220 - 0x0030)
 class UExamineAssetData : public UInteractionAssetData
@@ -9902,22 +9894,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class ConZ.ExamineAssetData");
-		return ptr;
-	}
-
-};
-
-
-// Class ConZ.ExamineObjectAction
-// 0x0018 (0x00C0 - 0x00A8)
-class UExamineObjectAction : public UExamineAction
-{
-public:
-	unsigned char                                      UnknownData00[0x18];                                      // 0x00A8(0x0018) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class ConZ.ExamineObjectAction");
 		return ptr;
 	}
 
@@ -10046,21 +10022,6 @@ public:
 };
 
 
-// Class ConZ.EnergyDeficiency
-// 0x0000 (0x01C0 - 0x01C0)
-class UEnergyDeficiency : public UDeficiency
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class ConZ.EnergyDeficiency");
-		return ptr;
-	}
-
-};
-
-
 // Class ConZ.FeedAnimalAction
 // 0x0000 (0x00A8 - 0x00A8)
 class UFeedAnimalAction : public UAnimalAction
@@ -10070,6 +10031,21 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class ConZ.FeedAnimalAction");
+		return ptr;
+	}
+
+};
+
+
+// Class ConZ.FiberDeficiency
+// 0x0000 (0x01C0 - 0x01C0)
+class UFiberDeficiency : public UDeficiency
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class ConZ.FiberDeficiency");
 		return ptr;
 	}
 
@@ -10086,21 +10062,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class ConZ.FillWaterAction");
-		return ptr;
-	}
-
-};
-
-
-// Class ConZ.FiberDeficiency
-// 0x0000 (0x01C0 - 0x01C0)
-class UFiberDeficiency : public UDeficiency
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class ConZ.FiberDeficiency");
 		return ptr;
 	}
 
@@ -10214,6 +10175,22 @@ public:
 };
 
 
+// Class ConZ.ExamineObjectAction
+// 0x0018 (0x00C0 - 0x00A8)
+class UExamineObjectAction : public UExamineAction
+{
+public:
+	unsigned char                                      UnknownData00[0x18];                                      // 0x00A8(0x0018) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class ConZ.ExamineObjectAction");
+		return ptr;
+	}
+
+};
+
+
 // Class ConZ.FishAIController
 // 0x0060 (0x0498 - 0x0438)
 class AFishAIController : public AAIController
@@ -10265,25 +10242,6 @@ public:
 
 
 	void UpdateWaterVolumeAssignment();
-};
-
-
-// Class ConZ.FlagAreaVisualizer
-// 0x0010 (0x0338 - 0x0328)
-class AFlagAreaVisualizer : public AActor
-{
-public:
-	class UStaticMeshComponent*                        _staticMeshComponent;                                     // 0x0328(0x0008) (Edit, ExportObject, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0330(0x0008) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class ConZ.FlagAreaVisualizer");
-		return ptr;
-	}
-
-
-	void DestroyVisualizer();
 };
 
 
@@ -10459,6 +10417,25 @@ public:
 
 	void SetFogDensity(float Density);
 	void OnTimeOfDayChanged(float timeOfDay);
+};
+
+
+// Class ConZ.FlagAreaVisualizer
+// 0x0010 (0x0338 - 0x0328)
+class AFlagAreaVisualizer : public AActor
+{
+public:
+	class UStaticMeshComponent*                        _staticMeshComponent;                                     // 0x0328(0x0008) (Edit, ExportObject, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0330(0x0008) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class ConZ.FlagAreaVisualizer");
+		return ptr;
+	}
+
+
+	void DestroyVisualizer();
 };
 
 
@@ -10739,6 +10716,26 @@ public:
 };
 
 
+// Class ConZ.GameEventCardWidget
+// 0x0008 (0x0228 - 0x0220)
+class UGameEventCardWidget : public UDesignableUserWidget
+{
+public:
+	class AGameEventBase*                              _gameEvent;                                               // 0x0220(0x0008) (ZeroConstructor, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class ConZ.GameEventCardWidget");
+		return ptr;
+	}
+
+
+	void UpdateStats();
+	class AGameEventBase* GetGameEvent();
+	class UGameEventCardWidget* STATIC_Create(class AGameEventBase* gameEvent);
+};
+
+
 // Class ConZ.GameEventInfoWidget
 // 0x0000 (0x0220 - 0x0220)
 class UGameEventInfoWidget : public UDesignableUserWidget
@@ -10879,38 +10876,6 @@ public:
 };
 
 
-// Class ConZ.GameEventParticipantStatsWidget
-// 0x0020 (0x0240 - 0x0220)
-class UGameEventParticipantStatsWidget : public UDesignableUserWidget
-{
-public:
-	class AGameEventBase*                              _gameEvent;                                               // 0x0220(0x0008) (ZeroConstructor, IsPlainOldData)
-	int                                                _index;                                                   // 0x0228(0x0004) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x022C(0x0004) MISSED OFFSET
-	class UGameEventScoreboardWidget*                  _scoreboard;                                              // 0x0230(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
-	int                                                _teamIndex;                                               // 0x0238(0x0004) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x4];                                       // 0x023C(0x0004) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class ConZ.GameEventParticipantStatsWidget");
-		return ptr;
-	}
-
-
-	void UpdateStats();
-	void UpdateColours();
-	void SetTeamIndex(int Index);
-	void SetColours(const struct FGameEventTeamColours& colours);
-	bool IsValid();
-	int GetTeamIndex();
-	class UGameEventScoreboardWidget* GetScoreboard();
-	int GetIndex();
-	class AGameEventBase* GetGameEvent();
-	void FillLabels();
-};
-
-
 // Class ConZ.GameEventRoundInfoWidget
 // 0x0000 (0x0220 - 0x0220)
 class UGameEventRoundInfoWidget : public UDesignableUserWidget
@@ -10973,26 +10938,6 @@ public:
 	void SetGameEvent(class AGameEventBase* gameEvent);
 	void ClearWinCounters();
 	void AddWinCounter();
-};
-
-
-// Class ConZ.GameEventCardWidget
-// 0x0008 (0x0228 - 0x0220)
-class UGameEventCardWidget : public UDesignableUserWidget
-{
-public:
-	class AGameEventBase*                              _gameEvent;                                               // 0x0220(0x0008) (ZeroConstructor, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class ConZ.GameEventCardWidget");
-		return ptr;
-	}
-
-
-	void UpdateStats();
-	class AGameEventBase* GetGameEvent();
-	class UGameEventCardWidget* STATIC_Create(class AGameEventBase* gameEvent);
 };
 
 
@@ -11415,6 +11360,29 @@ public:
 };
 
 
+// Class ConZ.DropZoneEquipmentTable
+// 0x0018 (0x0340 - 0x0328)
+class ADropZoneEquipmentTable : public AActor
+{
+public:
+	TArray<class AItem*>                               _trackedItems;                                            // 0x0328(0x0010) (ZeroConstructor)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0338(0x0008) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class ConZ.DropZoneEquipmentTable");
+		return ptr;
+	}
+
+
+	void UntrackItem(class AItem* Item);
+	void TrackItem(class AItem* Item);
+	void OnTrackedItemDestroyed(class AActor* Actor);
+	void EndCleaningItems();
+	void BeginCleaningItems();
+};
+
+
 // Class ConZ.HeatSourceManager
 // 0x0070 (0x0398 - 0x0328)
 class AHeatSourceManager : public AActor
@@ -11624,6 +11592,38 @@ public:
 		return ptr;
 	}
 
+};
+
+
+// Class ConZ.GameEventParticipantStatsWidget
+// 0x0020 (0x0240 - 0x0220)
+class UGameEventParticipantStatsWidget : public UDesignableUserWidget
+{
+public:
+	class AGameEventBase*                              _gameEvent;                                               // 0x0220(0x0008) (ZeroConstructor, IsPlainOldData)
+	int                                                _index;                                                   // 0x0228(0x0004) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x022C(0x0004) MISSED OFFSET
+	class UGameEventScoreboardWidget*                  _scoreboard;                                              // 0x0230(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
+	int                                                _teamIndex;                                               // 0x0238(0x0004) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x4];                                       // 0x023C(0x0004) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class ConZ.GameEventParticipantStatsWidget");
+		return ptr;
+	}
+
+
+	void UpdateStats();
+	void UpdateColours();
+	void SetTeamIndex(int Index);
+	void SetColours(const struct FGameEventTeamColours& colours);
+	bool IsValid();
+	int GetTeamIndex();
+	class UGameEventScoreboardWidget* GetScoreboard();
+	int GetIndex();
+	class AGameEventBase* GetGameEvent();
+	void FillLabels();
 };
 
 
@@ -17759,22 +17759,6 @@ public:
 };
 
 
-// Class ConZ.PrisonerActionPatchWoundsDescription
-// 0x0010 (0x0040 - 0x0030)
-class UPrisonerActionPatchWoundsDescription : public UCharacterActionDescription
-{
-public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0030(0x0010) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class ConZ.PrisonerActionPatchWoundsDescription");
-		return ptr;
-	}
-
-};
-
-
 // Class ConZ.PrisonerActionPerformAnesthesia
 // 0x0008 (0x00B8 - 0x00B0)
 class UPrisonerActionPerformAnesthesia : public UCharacterAction
@@ -18061,15 +18045,16 @@ public:
 };
 
 
-// Class ConZ.PrisonerActionRepairVehicle
-// 0x0000 (0x00B8 - 0x00B8)
-class UPrisonerActionRepairVehicle : public UPrisonerActionRepair
+// Class ConZ.PrisonerActionPatchWoundsDescription
+// 0x0010 (0x0040 - 0x0030)
+class UPrisonerActionPatchWoundsDescription : public UCharacterActionDescription
 {
 public:
+	unsigned char                                      UnknownData00[0x10];                                      // 0x0030(0x0010) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class ConZ.PrisonerActionRepairVehicle");
+		static auto ptr = UObject::FindClass("Class ConZ.PrisonerActionPatchWoundsDescription");
 		return ptr;
 	}
 
@@ -18236,16 +18221,15 @@ public:
 };
 
 
-// Class ConZ.PrisonerActionStartCarryingItemDescription
-// 0x0008 (0x0038 - 0x0030)
-class UPrisonerActionStartCarryingItemDescription : public UCharacterActionDescription
+// Class ConZ.PrisonerActionRepairVehicle
+// 0x0000 (0x00B8 - 0x00B8)
+class UPrisonerActionRepairVehicle : public UPrisonerActionRepair
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0030(0x0008) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class ConZ.PrisonerActionStartCarryingItemDescription");
+		static auto ptr = UObject::FindClass("Class ConZ.PrisonerActionRepairVehicle");
 		return ptr;
 	}
 
@@ -18519,16 +18503,16 @@ public:
 };
 
 
-// Class ConZ.PrisonerActionTreatBrokenLimbsDescription
-// 0x0010 (0x0040 - 0x0030)
-class UPrisonerActionTreatBrokenLimbsDescription : public UCharacterActionDescription
+// Class ConZ.PrisonerActionStartCarryingItemDescription
+// 0x0008 (0x0038 - 0x0030)
+class UPrisonerActionStartCarryingItemDescription : public UCharacterActionDescription
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0030(0x0010) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0030(0x0008) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class ConZ.PrisonerActionTreatBrokenLimbsDescription");
+		static auto ptr = UObject::FindClass("Class ConZ.PrisonerActionStartCarryingItemDescription");
 		return ptr;
 	}
 
@@ -18789,18 +18773,16 @@ public:
 };
 
 
-// Class ConZ.PrisonerAIController
-// 0x0028 (0x0460 - 0x0438)
-class APrisonerAIController : public AAIController
+// Class ConZ.PrisonerActionTreatBrokenLimbsDescription
+// 0x0010 (0x0040 - 0x0030)
+class UPrisonerActionTreatBrokenLimbsDescription : public UCharacterActionDescription
 {
 public:
-	class APrisoner*                                   _prisoner;                                                // 0x0438(0x0008) (ZeroConstructor, IsPlainOldData)
-	class UPrisonerMovementComponent*                  _prisonerMovementComponent;                               // 0x0440(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x18];                                      // 0x0448(0x0018) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x10];                                      // 0x0030(0x0010) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class ConZ.PrisonerAIController");
+		static auto ptr = UObject::FindClass("Class ConZ.PrisonerActionTreatBrokenLimbsDescription");
 		return ptr;
 	}
 
@@ -20906,6 +20888,24 @@ public:
 };
 
 
+// Class ConZ.PrisonerAIController
+// 0x0028 (0x0460 - 0x0438)
+class APrisonerAIController : public AAIController
+{
+public:
+	class APrisoner*                                   _prisoner;                                                // 0x0438(0x0008) (ZeroConstructor, IsPlainOldData)
+	class UPrisonerMovementComponent*                  _prisonerMovementComponent;                               // 0x0440(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x18];                                      // 0x0448(0x0018) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class ConZ.PrisonerAIController");
+		return ptr;
+	}
+
+};
+
+
 // Class ConZ.RecastNavMesh_Humanoids
 // 0x0000 (0x0590 - 0x0590)
 class ARecastNavMesh_Humanoids : public ARecastNavMesh
@@ -21009,21 +21009,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class ConZ.RemoveMagazineInsertCartridge");
-		return ptr;
-	}
-
-};
-
-
-// Class ConZ.RemoveMagazineInsertMagazine
-// 0x0000 (0x0088 - 0x0088)
-class URemoveMagazineInsertMagazine : public UWeaponActionReloadSequence
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class ConZ.RemoveMagazineInsertMagazine");
 		return ptr;
 	}
 
@@ -21812,16 +21797,15 @@ public:
 };
 
 
-// Class ConZ.SkillEventHandler
-// 0x0008 (0x0030 - 0x0028)
-class USkillEventHandler : public UObject
+// Class ConZ.RemoveMagazineInsertMagazine
+// 0x0000 (0x0088 - 0x0088)
+class URemoveMagazineInsertMagazine : public UWeaponActionReloadSequence
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0028(0x0008) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class ConZ.SkillEventHandler");
+		static auto ptr = UObject::FindClass("Class ConZ.RemoveMagazineInsertMagazine");
 		return ptr;
 	}
 
@@ -22044,15 +22028,16 @@ public:
 };
 
 
-// Class ConZ.SodiumDeficiency
-// 0x0000 (0x01C0 - 0x01C0)
-class USodiumDeficiency : public UDeficiency
+// Class ConZ.SkillEventHandler
+// 0x0008 (0x0030 - 0x0028)
+class USkillEventHandler : public UObject
 {
 public:
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0028(0x0008) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class ConZ.SodiumDeficiency");
+		static auto ptr = UObject::FindClass("Class ConZ.SkillEventHandler");
 		return ptr;
 	}
 
@@ -22146,6 +22131,21 @@ public:
 };
 
 
+// Class ConZ.SodiumDeficiency
+// 0x0000 (0x01C0 - 0x01C0)
+class USodiumDeficiency : public UDeficiency
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class ConZ.SodiumDeficiency");
+		return ptr;
+	}
+
+};
+
+
 // Class ConZ.SphereProximityTriggerComponent
 // 0x0020 (0x0620 - 0x0600)
 class USphereProximityTriggerComponent : public UProximityTriggerComponent
@@ -22166,44 +22166,6 @@ public:
 
 	void SphereComponent_OnComponentEndOverlap(class UPrimitiveComponent* activatedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int OtherBodyIndex);
 	void SphereComponent_OnComponentBeginOverlap(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int OtherBodyIndex, bool bFromSweep, const struct FHitResult& SweepResult);
-};
-
-
-// Class ConZ.SquadPanelWidget
-// 0x00D8 (0x02E0 - 0x0208)
-class USquadPanelWidget : public UUserWidget
-{
-public:
-	int                                                squadRank;                                                // 0x0208(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	int                                                squadIndex;                                               // 0x020C(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	TArray<struct FString>                             SquadTopNames;                                            // 0x0210(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
-	TArray<struct FString>                             SquadTopInformation;                                      // 0x0220(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
-	TArray<struct FConZSquadEmblem>                    SquadTopEmblems;                                          // 0x0230(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
-	TArray<float>                                      SquadTopScore;                                            // 0x0240(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
-	TArray<struct FString>                             SquadRankingNames;                                        // 0x0250(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
-	TArray<struct FString>                             SquadRankingInformation;                                  // 0x0260(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
-	TArray<struct FConZSquadEmblem>                    SquadRankingEmblems;                                      // 0x0270(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
-	TArray<float>                                      SquadRankingScore;                                        // 0x0280(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
-	TArray<struct FDbIntegerId>                        MemberUserProfileIds;                                     // 0x0290(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
-	TArray<struct FString>                             MemberNames;                                              // 0x02A0(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
-	TArray<EConZSquadMemberRank>                       MemberRanks;                                              // 0x02B0(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
-	TArray<float>                                      MemberFamePoints;                                         // 0x02C0(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
-	TArray<bool>                                       MemberOnline;                                             // 0x02D0(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class ConZ.SquadPanelWidget");
-		return ptr;
-	}
-
-
-	void UpdateSquadTopData();
-	void UpdateSquadRankingData();
-	void UpdateSquadMemberInfo();
-	void Update();
-	void RequestSquadTopData(int count);
-	void RequestSquadRankingData(int count);
-	void RequestSquadMemberInfo();
 };
 
 
@@ -22314,6 +22276,44 @@ public:
 		return ptr;
 	}
 
+};
+
+
+// Class ConZ.SquadPanelWidget
+// 0x00D8 (0x02E0 - 0x0208)
+class USquadPanelWidget : public UUserWidget
+{
+public:
+	int                                                squadRank;                                                // 0x0208(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	int                                                squadIndex;                                               // 0x020C(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	TArray<struct FString>                             SquadTopNames;                                            // 0x0210(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
+	TArray<struct FString>                             SquadTopInformation;                                      // 0x0220(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
+	TArray<struct FConZSquadEmblem>                    SquadTopEmblems;                                          // 0x0230(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
+	TArray<float>                                      SquadTopScore;                                            // 0x0240(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
+	TArray<struct FString>                             SquadRankingNames;                                        // 0x0250(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
+	TArray<struct FString>                             SquadRankingInformation;                                  // 0x0260(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
+	TArray<struct FConZSquadEmblem>                    SquadRankingEmblems;                                      // 0x0270(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
+	TArray<float>                                      SquadRankingScore;                                        // 0x0280(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
+	TArray<struct FDbIntegerId>                        MemberUserProfileIds;                                     // 0x0290(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
+	TArray<struct FString>                             MemberNames;                                              // 0x02A0(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
+	TArray<EConZSquadMemberRank>                       MemberRanks;                                              // 0x02B0(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
+	TArray<float>                                      MemberFamePoints;                                         // 0x02C0(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
+	TArray<bool>                                       MemberOnline;                                             // 0x02D0(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class ConZ.SquadPanelWidget");
+		return ptr;
+	}
+
+
+	void UpdateSquadTopData();
+	void UpdateSquadRankingData();
+	void UpdateSquadMemberInfo();
+	void Update();
+	void RequestSquadTopData(int count);
+	void RequestSquadRankingData(int count);
+	void RequestSquadMemberInfo();
 };
 
 
@@ -22432,21 +22432,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class ConZ.SurveillanceCamera");
-		return ptr;
-	}
-
-};
-
-
-// Class ConZ.SurveillanceReflector
-// 0x0000 (0x0350 - 0x0350)
-class ASurveillanceReflector : public AElectricalDevice
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class ConZ.SurveillanceReflector");
 		return ptr;
 	}
 
@@ -22928,6 +22913,21 @@ public:
 };
 
 
+// Class ConZ.SurveillanceReflector
+// 0x0000 (0x0350 - 0x0350)
+class ASurveillanceReflector : public AElectricalDevice
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class ConZ.SurveillanceReflector");
+		return ptr;
+	}
+
+};
+
+
 // Class ConZ.ThrowingComponent
 // 0x0040 (0x01E0 - 0x01A0)
 class UThrowingComponent : public UProjectileMovementComponent
@@ -23000,6 +23000,27 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class ConZ.TimeControllableLight");
+		return ptr;
+	}
+
+
+	void OnTimeOfDayChanged(float timeOfDay);
+};
+
+
+// Class ConZ.TimeControllableSpotLight
+// 0x0018 (0x0350 - 0x0338)
+class ATimeControllableSpotLight : public ALight
+{
+public:
+	bool                                               _shouldExistOnDedicatedServer;                            // 0x0338(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0339(0x0007) MISSED OFFSET
+	class UCurveFloat*                                 _intensityVsTimeOfDayCurve;                               // 0x0340(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	class USpotLightComponent*                         _pointLightComponent;                                     // 0x0348(0x0008) (Edit, ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class ConZ.TimeControllableSpotLight");
 		return ptr;
 	}
 
@@ -23429,24 +23450,30 @@ public:
 };
 
 
-// Class ConZ.TimeControllableSpotLight
-// 0x0018 (0x0350 - 0x0338)
-class ATimeControllableSpotLight : public ALight
+// Class ConZ.VehicleCorpse
+// 0x0078 (0x03A0 - 0x0328)
+class AVehicleCorpse : public AActor
 {
 public:
-	bool                                               _shouldExistOnDedicatedServer;                            // 0x0338(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0339(0x0007) MISSED OFFSET
-	class UCurveFloat*                                 _intensityVsTimeOfDayCurve;                               // 0x0340(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	class USpotLightComponent*                         _pointLightComponent;                                     // 0x0348(0x0008) (Edit, ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0328(0x0008) MISSED OFFSET
+	class UStaticMeshComponent*                        _mesh;                                                    // 0x0330(0x0008) (Edit, ExportObject, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
+	class UParticleSystem*                             _explosionParticles;                                      // 0x0338(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	struct FTransform                                  _explosionParticlesTransform;                             // 0x0340(0x0030) (Edit, IsPlainOldData)
+	class UAkAudioEvent*                               _explosionAudioEvent;                                     // 0x0370(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              _explosionForceMagnitude;                                 // 0x0378(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x4];                                       // 0x037C(0x0004) MISSED OFFSET
+	TArray<struct FVehicleCorpseBurningParticles>      _burningParticles;                                        // 0x0380(0x0010) (Edit, ZeroConstructor)
+	class UAkAudioEvent*                               _burningAudioEvent;                                       // 0x0390(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData02[0x8];                                       // 0x0398(0x0008) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class ConZ.TimeControllableSpotLight");
+		static auto ptr = UObject::FindClass("Class ConZ.VehicleCorpse");
 		return ptr;
 	}
 
 
-	void OnTimeOfDayChanged(float timeOfDay);
+	class UStaticMeshComponent* GetMesh();
 };
 
 
@@ -23804,33 +23831,6 @@ public:
 };
 
 
-// Class ConZ.VehicleCorpse
-// 0x0078 (0x03A0 - 0x0328)
-class AVehicleCorpse : public AActor
-{
-public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0328(0x0008) MISSED OFFSET
-	class UStaticMeshComponent*                        _mesh;                                                    // 0x0330(0x0008) (Edit, ExportObject, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
-	class UParticleSystem*                             _explosionParticles;                                      // 0x0338(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	struct FTransform                                  _explosionParticlesTransform;                             // 0x0340(0x0030) (Edit, IsPlainOldData)
-	class UAkAudioEvent*                               _explosionAudioEvent;                                     // 0x0370(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              _explosionForceMagnitude;                                 // 0x0378(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x4];                                       // 0x037C(0x0004) MISSED OFFSET
-	TArray<struct FVehicleCorpseBurningParticles>      _burningParticles;                                        // 0x0380(0x0010) (Edit, ZeroConstructor)
-	class UAkAudioEvent*                               _burningAudioEvent;                                       // 0x0390(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData02[0x8];                                       // 0x0398(0x0008) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class ConZ.VehicleCorpse");
-		return ptr;
-	}
-
-
-	class UStaticMeshComponent* GetMesh();
-};
-
-
 // Class ConZ.VitaminB4Deficiency
 // 0x0000 (0x01C0 - 0x01C0)
 class UVitaminB4Deficiency : public UDeficiency
@@ -23891,21 +23891,6 @@ public:
 };
 
 
-// Class ConZ.VitaminCDeficiency
-// 0x0000 (0x01C0 - 0x01C0)
-class UVitaminCDeficiency : public UDeficiency
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class ConZ.VitaminCDeficiency");
-		return ptr;
-	}
-
-};
-
-
 // Class ConZ.VitaminDDeficiency
 // 0x0000 (0x01C0 - 0x01C0)
 class UVitaminDDeficiency : public UDeficiency
@@ -23921,15 +23906,15 @@ public:
 };
 
 
-// Class ConZ.VitaminEDeficiency
+// Class ConZ.VitaminCDeficiency
 // 0x0000 (0x01C0 - 0x01C0)
-class UVitaminEDeficiency : public UDeficiency
+class UVitaminCDeficiency : public UDeficiency
 {
 public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class ConZ.VitaminEDeficiency");
+		static auto ptr = UObject::FindClass("Class ConZ.VitaminCDeficiency");
 		return ptr;
 	}
 
@@ -24775,6 +24760,21 @@ public:
 };
 
 
+// Class ConZ.VitaminEDeficiency
+// 0x0000 (0x01C0 - 0x01C0)
+class UVitaminEDeficiency : public UDeficiency
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class ConZ.VitaminEDeficiency");
+		return ptr;
+	}
+
+};
+
+
 // Class ConZ.WeaponStateFiringAutomatic
 // 0x0010 (0x0040 - 0x0030)
 class UWeaponStateFiringAutomatic : public UWeaponStateFiring
@@ -25486,24 +25486,6 @@ public:
 };
 
 
-// Class ConZ.ZombieCorpse
-// 0x0010 (0x0510 - 0x0500)
-class AZombieCorpse : public ACorpse
-{
-public:
-	class USkeletalMesh*                               StrippedMesh;                                             // 0x0500(0x0008) (Net, ZeroConstructor, IsPlainOldData)
-	bool                                               _isSearched;                                              // 0x0508(0x0001) (Net, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0509(0x0007) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class ConZ.ZombieCorpse");
-		return ptr;
-	}
-
-};
-
-
 // Class ConZ.ZombieKamikazeComponent
 // 0x00E8 (0x01D8 - 0x00F0)
 class UZombieKamikazeComponent : public UActorComponent
@@ -25610,6 +25592,24 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class ConZ.ZombieVariationsDataAsset");
+		return ptr;
+	}
+
+};
+
+
+// Class ConZ.ZombieCorpse
+// 0x0010 (0x0510 - 0x0500)
+class AZombieCorpse : public ACorpse
+{
+public:
+	class USkeletalMesh*                               StrippedMesh;                                             // 0x0500(0x0008) (Net, ZeroConstructor, IsPlainOldData)
+	bool                                               _isSearched;                                              // 0x0508(0x0001) (Net, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0509(0x0007) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class ConZ.ZombieCorpse");
 		return ptr;
 	}
 

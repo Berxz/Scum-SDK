@@ -1,0 +1,34 @@
+#pragma once
+
+// Name: SCUM, Version: 3.75.21350
+
+#ifdef _MSC_VER
+	#pragma pack(push, 0x8)
+#endif
+
+namespace SDK
+{
+//---------------------------------------------------------------------------
+// Classes
+//---------------------------------------------------------------------------
+
+// BlueprintGeneratedClass Knockout.Knockout_C
+// 0x0000 (0x0080 - 0x0080)
+class UKnockout_C : public UAdminCommand_Knockout
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("BlueprintGeneratedClass Knockout.Knockout_C");
+		return ptr;
+	}
+
+};
+
+
+}
+
+#ifdef _MSC_VER
+	#pragma pack(pop)
+#endif

@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 3.75.21350
+// Name: SCUM, Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,6 +11,54 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Classes
 //---------------------------------------------------------------------------
+
+// Class OceanPlugin.AdvancedBuoyancyComponent
+// 0x0110 (0x0350 - 0x0240)
+class UAdvancedBuoyancyComponent : public USceneComponent
+{
+public:
+	class AOceanManager*                               TheOcean;                                                 // 0x0240(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              WaterDensity;                                             // 0x0248(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              Gravity;                                                  // 0x024C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              MeshDensity;                                              // 0x0250(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x14];                                      // 0x0254(0x0014) MISSED OFFSET
+	class UStaticMeshComponent*                        BuoyantMesh;                                              // 0x0268(0x0008) (Edit, BlueprintVisible, ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
+	struct FTransform                                  MeshTransform;                                            // 0x0270(0x0030) (Edit, BlueprintVisible, IsPlainOldData)
+	float                                              FalseVolume;                                              // 0x02A0(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              BuoyancyReductionCoefficient;                             // 0x02A4(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              BuoyancyPitchReductionCoefficient;                        // 0x02A8(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              DensityCorrection;                                        // 0x02AC(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              DensityCorrectionModifier;                                // 0x02B0(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              SubmergedVolume;                                          // 0x02B4(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              ImpactCoefficient;                                        // 0x02B8(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	struct FVector                                     DragCoefficient;                                          // 0x02BC(0x000C) (Edit, BlueprintVisible, IsPlainOldData)
+	struct FVector                                     SuctionCoefficient;                                       // 0x02C8(0x000C) (Edit, BlueprintVisible, IsPlainOldData)
+	float                                              ViscousDragCoefficient;                                   // 0x02D4(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              MaxSlamAcceleration;                                      // 0x02D8(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x4];                                       // 0x02DC(0x0004) MISSED OFFSET
+	TArray<struct FVector>                             AdvancedGridHeight;                                       // 0x02E0(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
+	TArray<struct FForceTriangle>                      SubmergedTris;                                            // 0x02F0(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
+	TArray<float>                                      TriSizes;                                                 // 0x0300(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
+	TArray<float>                                      TriSubmergedArea;                                         // 0x0310(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
+	unsigned char                                      UnknownData02[0x30];                                      // 0x0320(0x0030) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class OceanPlugin.AdvancedBuoyancyComponent");
+		return ptr;
+	}
+
+
+	float TriangleArea(const struct FVector& A, const struct FVector& B, const struct FVector& C);
+	TArray<struct FForceTriangle> SplitTriangle(const struct FBuoyancyVertex& H, const struct FBuoyancyVertex& M, const struct FBuoyancyVertex& L, const struct FVector& InArrow);
+	void SetMeshDensity(float NewDensity, float NewWaterDensity);
+	float GetOceanDepthFromGrid(const struct FVector& Position, bool bJustGetHeightAtLocation);
+	void GetOcean();
+	void DrawDebugStuff(const struct FForceTriangle& TriForce, const struct FColor& DebugColor);
+	void ApplySlamForce(const struct FVector& SlamForce, const struct FVector& TriCenter);
+	void ApplyForce(const struct FForceTriangle& TriForce);
+};
+
 
 // Class OceanPlugin.BuoyancyComponent
 // 0x0090 (0x01C8 - 0x0138)
@@ -417,54 +465,6 @@ public:
 		return ptr;
 	}
 
-};
-
-
-// Class OceanPlugin.AdvancedBuoyancyComponent
-// 0x0110 (0x0350 - 0x0240)
-class UAdvancedBuoyancyComponent : public USceneComponent
-{
-public:
-	class AOceanManager*                               TheOcean;                                                 // 0x0240(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	float                                              WaterDensity;                                             // 0x0248(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	float                                              Gravity;                                                  // 0x024C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	float                                              MeshDensity;                                              // 0x0250(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x14];                                      // 0x0254(0x0014) MISSED OFFSET
-	class UStaticMeshComponent*                        BuoyantMesh;                                              // 0x0268(0x0008) (Edit, BlueprintVisible, ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
-	struct FTransform                                  MeshTransform;                                            // 0x0270(0x0030) (Edit, BlueprintVisible, IsPlainOldData)
-	float                                              FalseVolume;                                              // 0x02A0(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	float                                              BuoyancyReductionCoefficient;                             // 0x02A4(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	float                                              BuoyancyPitchReductionCoefficient;                        // 0x02A8(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	float                                              DensityCorrection;                                        // 0x02AC(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	float                                              DensityCorrectionModifier;                                // 0x02B0(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	float                                              SubmergedVolume;                                          // 0x02B4(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	float                                              ImpactCoefficient;                                        // 0x02B8(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	struct FVector                                     DragCoefficient;                                          // 0x02BC(0x000C) (Edit, BlueprintVisible, IsPlainOldData)
-	struct FVector                                     SuctionCoefficient;                                       // 0x02C8(0x000C) (Edit, BlueprintVisible, IsPlainOldData)
-	float                                              ViscousDragCoefficient;                                   // 0x02D4(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	float                                              MaxSlamAcceleration;                                      // 0x02D8(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x4];                                       // 0x02DC(0x0004) MISSED OFFSET
-	TArray<struct FVector>                             AdvancedGridHeight;                                       // 0x02E0(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
-	TArray<struct FForceTriangle>                      SubmergedTris;                                            // 0x02F0(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
-	TArray<float>                                      TriSizes;                                                 // 0x0300(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
-	TArray<float>                                      TriSubmergedArea;                                         // 0x0310(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
-	unsigned char                                      UnknownData02[0x30];                                      // 0x0320(0x0030) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class OceanPlugin.AdvancedBuoyancyComponent");
-		return ptr;
-	}
-
-
-	float TriangleArea(const struct FVector& A, const struct FVector& B, const struct FVector& C);
-	TArray<struct FForceTriangle> SplitTriangle(const struct FBuoyancyVertex& H, const struct FBuoyancyVertex& M, const struct FBuoyancyVertex& L, const struct FVector& InArrow);
-	void SetMeshDensity(float NewDensity, float NewWaterDensity);
-	float GetOceanDepthFromGrid(const struct FVector& Position, bool bJustGetHeightAtLocation);
-	void GetOcean();
-	void DrawDebugStuff(const struct FForceTriangle& TriForce, const struct FColor& DebugColor);
-	void ApplySlamForce(const struct FVector& SlamForce, const struct FVector& TriCenter);
-	void ApplyForce(const struct FForceTriangle& TriForce);
 };
 
 

@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 3.75.21350
+// Name: SCUM, Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -58,19 +58,6 @@ enum class EDcxVehicleDriveControl4W : uint8_t
 };
 
 
-// Enum DcxVehicle.EDcxVehicleDriveControlNW
-enum class EDcxVehicleDriveControlNW : uint8_t
-{
-	EDcxVehicleDriveControlNW__Throttle = 0,
-	EDcxVehicleDriveControlNW__Brake = 1,
-	EDcxVehicleDriveControlNW__Handbrake = 2,
-	EDcxVehicleDriveControlNW__Steer = 3,
-	EDcxVehicleDriveControlNW__Clutch = 4,
-	EDcxVehicleDriveControlNW__NumControls = 5,
-	EDcxVehicleDriveControlNW__EDcxVehicleDriveControlNW_MAX = 6
-};
-
-
 // Enum DcxVehicle.EDcxVehicleDriveControlModelTank
 enum class EDcxVehicleDriveControlModelTank : uint8_t
 {
@@ -94,13 +81,14 @@ enum class EDcxVehicleDriveControlTank : uint8_t
 };
 
 
-// Enum DcxVehicle.EDcxVehicleGearbox
-enum class EDcxVehicleGearbox : uint8_t
+// Enum DcxVehicle.EDcxVehicleNoDriveControl
+enum class EDcxVehicleNoDriveControl : uint8_t
 {
-	EDcxVehicleGearbox__Automatic  = 0,
-	EDcxVehicleGearbox__SemiAutomatic = 1,
-	EDcxVehicleGearbox__Manual     = 2,
-	EDcxVehicleGearbox__EDcxVehicleGearbox_MAX = 3
+	EDcxVehicleNoDriveControl__Throttle = 0,
+	EDcxVehicleNoDriveControl__Brake = 1,
+	EDcxVehicleNoDriveControl__Steer = 2,
+	EDcxVehicleNoDriveControl__NumControls = 3,
+	EDcxVehicleNoDriveControl__EDcxVehicleNoDriveControl_MAX = 4
 };
 
 
@@ -114,14 +102,26 @@ enum class EDcxVehicleWheelSweep : uint8_t
 };
 
 
-// Enum DcxVehicle.EDcxVehicleNoDriveControl
-enum class EDcxVehicleNoDriveControl : uint8_t
+// Enum DcxVehicle.EDcxVehicleGearbox
+enum class EDcxVehicleGearbox : uint8_t
 {
-	EDcxVehicleNoDriveControl__Throttle = 0,
-	EDcxVehicleNoDriveControl__Brake = 1,
-	EDcxVehicleNoDriveControl__Steer = 2,
-	EDcxVehicleNoDriveControl__NumControls = 3,
-	EDcxVehicleNoDriveControl__EDcxVehicleNoDriveControl_MAX = 4
+	EDcxVehicleGearbox__Automatic  = 0,
+	EDcxVehicleGearbox__SemiAutomatic = 1,
+	EDcxVehicleGearbox__Manual     = 2,
+	EDcxVehicleGearbox__EDcxVehicleGearbox_MAX = 3
+};
+
+
+// Enum DcxVehicle.EDcxVehicleDriveControlNW
+enum class EDcxVehicleDriveControlNW : uint8_t
+{
+	EDcxVehicleDriveControlNW__Throttle = 0,
+	EDcxVehicleDriveControlNW__Brake = 1,
+	EDcxVehicleDriveControlNW__Handbrake = 2,
+	EDcxVehicleDriveControlNW__Steer = 3,
+	EDcxVehicleDriveControlNW__Clutch = 4,
+	EDcxVehicleDriveControlNW__NumControls = 5,
+	EDcxVehicleDriveControlNW__EDcxVehicleDriveControlNW_MAX = 6
 };
 
 
@@ -313,18 +313,18 @@ struct FDcxDrivableSurfaceToTireFrictionPair
 	unsigned char                                      UnknownData00[0x4];                                       // 0x000C(0x0004) MISSED OFFSET
 };
 
-// ScriptStruct DcxVehicle.DcxAnimNodeWheelSimulator
-// 0x0018 (0x0130 - 0x0118)
-struct FDcxAnimNodeWheelSimulator : public FAnimNode_SkeletalControlBase
-{
-	unsigned char                                      UnknownData00[0x18];                                      // 0x0118(0x0018) MISSED OFFSET
-};
-
 // ScriptStruct DcxVehicle.DcxMath
 // 0x0001
 struct FDcxMath
 {
 	unsigned char                                      UnknownData00[0x1];                                       // 0x0000(0x0001) MISSED OFFSET
+};
+
+// ScriptStruct DcxVehicle.DcxAnimNodeWheelSimulator
+// 0x0018 (0x0130 - 0x0118)
+struct FDcxAnimNodeWheelSimulator : public FAnimNode_SkeletalControlBase
+{
+	unsigned char                                      UnknownData00[0x18];                                      // 0x0118(0x0018) MISSED OFFSET
 };
 
 // ScriptStruct DcxVehicle.DcxVehicleAnimInstanceProxy

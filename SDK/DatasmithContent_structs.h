@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 3.75.21350
+// Name: SCUM, Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -20,6 +20,16 @@ enum class EDatasmithAreaLightActorShape : uint8_t
 	EDatasmithAreaLightActorShape__Sphere = 2,
 	EDatasmithAreaLightActorShape__Cylinder = 3,
 	EDatasmithAreaLightActorShape__EDatasmithAreaLightActorShape_MAX = 4
+};
+
+
+// Enum DatasmithContent.EDatasmithImportHierarchy
+enum class EDatasmithImportHierarchy : uint8_t
+{
+	EDatasmithImportHierarchy__UseMultipleActors = 0,
+	EDatasmithImportHierarchy__UseSingleActor = 1,
+	EDatasmithImportHierarchy__UseOneBlueprint = 2,
+	EDatasmithImportHierarchy__EDatasmithImportHierarchy_MAX = 3
 };
 
 
@@ -70,16 +80,6 @@ enum class EDatasmithImportMaterialQuality : uint8_t
 };
 
 
-// Enum DatasmithContent.EDatasmithImportActorPolicy
-enum class EDatasmithImportActorPolicy : uint8_t
-{
-	EDatasmithImportActorPolicy__Update = 0,
-	EDatasmithImportActorPolicy__Full = 1,
-	EDatasmithImportActorPolicy__Ignore = 2,
-	EDatasmithImportActorPolicy__EDatasmithImportActorPolicy_MAX = 3
-};
-
-
 // Enum DatasmithContent.EDatasmithImportAssetConflictPolicy
 enum class EDatasmithImportAssetConflictPolicy : uint8_t
 {
@@ -100,13 +100,13 @@ enum class EDatasmithImportSearchPackagePolicy : uint8_t
 };
 
 
-// Enum DatasmithContent.EDatasmithImportHierarchy
-enum class EDatasmithImportHierarchy : uint8_t
+// Enum DatasmithContent.EDatasmithImportActorPolicy
+enum class EDatasmithImportActorPolicy : uint8_t
 {
-	EDatasmithImportHierarchy__UseMultipleActors = 0,
-	EDatasmithImportHierarchy__UseSingleActor = 1,
-	EDatasmithImportHierarchy__UseOneBlueprint = 2,
-	EDatasmithImportHierarchy__EDatasmithImportHierarchy_MAX = 3
+	EDatasmithImportActorPolicy__Update = 0,
+	EDatasmithImportActorPolicy__Full = 1,
+	EDatasmithImportActorPolicy__Ignore = 2,
+	EDatasmithImportActorPolicy__EDatasmithImportActorPolicy_MAX = 3
 };
 
 

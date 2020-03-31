@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 3.75.21350
+// Name: SCUM, Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -56,16 +56,6 @@ enum class EControllerHand : uint8_t
 };
 
 
-// Enum InputCore.EConsoleForGamepadLabels
-enum class EConsoleForGamepadLabels : uint8_t
-{
-	EConsoleForGamepadLabels__None = 0,
-	EConsoleForGamepadLabels__XBoxOne = 1,
-	EConsoleForGamepadLabels__PS4  = 2,
-	EConsoleForGamepadLabels__EConsoleForGamepadLabels_MAX = 3
-};
-
-
 // Enum InputCore.ETouchType
 enum class ETouchType : uint8_t
 {
@@ -75,6 +65,16 @@ enum class ETouchType : uint8_t
 	ETouchType__Ended              = 3,
 	ETouchType__NumTypes           = 4,
 	ETouchType__ETouchType_MAX     = 5
+};
+
+
+// Enum InputCore.EConsoleForGamepadLabels
+enum class EConsoleForGamepadLabels : uint8_t
+{
+	EConsoleForGamepadLabels__None = 0,
+	EConsoleForGamepadLabels__XBoxOne = 1,
+	EConsoleForGamepadLabels__PS4  = 2,
+	EConsoleForGamepadLabels__EConsoleForGamepadLabels_MAX = 3
 };
 
 

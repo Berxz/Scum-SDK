@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: , Version: 3.75.21350
+// Name: SCUM, Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -6822,6 +6822,16 @@ struct AGameStateBase_GetPlayerRespawnDelay_Params
 	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
+// Function Engine.GameState.OnRep_MatchState
+struct AGameState_OnRep_MatchState_Params
+{
+};
+
+// Function Engine.GameState.OnRep_ElapsedTime
+struct AGameState_OnRep_ElapsedTime_Params
+{
+};
+
 // Function Engine.PlayerState.ReceiveOverrideWith
 struct APlayerState_ReceiveOverrideWith_Params
 {
@@ -7357,16 +7367,6 @@ struct UCapsuleComponent_GetScaledCapsuleHalfHeight_WithoutHemisphere_Params
 struct UCapsuleComponent_GetScaledCapsuleHalfHeight_Params
 {
 	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameState.OnRep_MatchState
-struct AGameState_OnRep_MatchState_Params
-{
-};
-
-// Function Engine.GameState.OnRep_ElapsedTime
-struct AGameState_OnRep_ElapsedTime_Params
-{
 };
 
 // Function Engine.CameraComponent.SetUseFieldOfViewForLOD
@@ -9283,20 +9283,6 @@ struct AExponentialHeightFog_OnRep_bEnabled_Params
 {
 };
 
-// Function Engine.Exporter.RunAssetExportTasks
-struct UExporter_RunAssetExportTasks_Params
-{
-	TArray<class UAssetExportTask*>                    ExportTasks;                                              // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.Exporter.RunAssetExportTask
-struct UExporter_RunAssetExportTask_Params
-{
-	class UAssetExportTask*                            Task;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
 // Function Engine.ExponentialHeightFogComponent.SetVolumetricFogScatteringDistribution
 struct UExponentialHeightFogComponent_SetVolumetricFogScatteringDistribution_Params
 {
@@ -9415,6 +9401,56 @@ struct UExponentialHeightFogComponent_SetDirectionalInscatteringExponent_Params
 struct UExponentialHeightFogComponent_SetDirectionalInscatteringColor_Params
 {
 	struct FLinearColor                                Value;                                                    // (Parm, IsPlainOldData)
+};
+
+// Function Engine.Exporter.RunAssetExportTasks
+struct UExporter_RunAssetExportTasks_Params
+{
+	TArray<class UAssetExportTask*>                    ExportTasks;                                              // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.Exporter.RunAssetExportTask
+struct UExporter_RunAssetExportTask_Params
+{
+	class UAssetExportTask*                            Task;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.ForceFeedbackComponent.Stop
+struct UForceFeedbackComponent_Stop_Params
+{
+};
+
+// Function Engine.ForceFeedbackComponent.SetIntensityMultiplier
+struct UForceFeedbackComponent_SetIntensityMultiplier_Params
+{
+	float                                              NewIntensityMultiplier;                                   // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.ForceFeedbackComponent.SetForceFeedbackEffect
+struct UForceFeedbackComponent_SetForceFeedbackEffect_Params
+{
+	class UForceFeedbackEffect*                        NewForceFeedbackEffect;                                   // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.ForceFeedbackComponent.Play
+struct UForceFeedbackComponent_Play_Params
+{
+	float                                              StartTime;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.ForceFeedbackComponent.BP_GetAttenuationSettingsToApply
+struct UForceFeedbackComponent_BP_GetAttenuationSettingsToApply_Params
+{
+	struct FForceFeedbackAttenuationSettings           OutAttenuationSettings;                                   // (Parm, OutParm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.ForceFeedbackComponent.AdjustAttenuation
+struct UForceFeedbackComponent_AdjustAttenuation_Params
+{
+	struct FForceFeedbackAttenuationSettings           InAttenuationSettings;                                    // (ConstParm, Parm, OutParm, ReferenceParm)
 };
 
 // Function Engine.GameplayStatics.UnloadStreamLevel
@@ -10458,275 +10494,6 @@ struct UGameplayStatics_ActivateReverbEffect_Params
 	float                                              FadeTime;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function Engine.ForceFeedbackComponent.Stop
-struct UForceFeedbackComponent_Stop_Params
-{
-};
-
-// Function Engine.ForceFeedbackComponent.SetIntensityMultiplier
-struct UForceFeedbackComponent_SetIntensityMultiplier_Params
-{
-	float                                              NewIntensityMultiplier;                                   // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.ForceFeedbackComponent.SetForceFeedbackEffect
-struct UForceFeedbackComponent_SetForceFeedbackEffect_Params
-{
-	class UForceFeedbackEffect*                        NewForceFeedbackEffect;                                   // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.ForceFeedbackComponent.Play
-struct UForceFeedbackComponent_Play_Params
-{
-	float                                              StartTime;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.ForceFeedbackComponent.BP_GetAttenuationSettingsToApply
-struct UForceFeedbackComponent_BP_GetAttenuationSettingsToApply_Params
-{
-	struct FForceFeedbackAttenuationSettings           OutAttenuationSettings;                                   // (Parm, OutParm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.ForceFeedbackComponent.AdjustAttenuation
-struct UForceFeedbackComponent_AdjustAttenuation_Params
-{
-	struct FForceFeedbackAttenuationSettings           InAttenuationSettings;                                    // (ConstParm, Parm, OutParm, ReferenceParm)
-};
-
-// Function Engine.SpotLight.SetOuterConeAngle
-struct ASpotLight_SetOuterConeAngle_Params
-{
-	float                                              NewOuterConeAngle;                                        // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.SpotLight.SetInnerConeAngle
-struct ASpotLight_SetInnerConeAngle_Params
-{
-	float                                              NewInnerConeAngle;                                        // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.ImportanceSamplingLibrary.RandomSobolFloat
-struct UImportanceSamplingLibrary_RandomSobolFloat_Params
-{
-	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                Dimension;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              Seed;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.ImportanceSamplingLibrary.RandomSobolCell3D
-struct UImportanceSamplingLibrary_RandomSobolCell3D_Params
-{
-	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                NumCells;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FVector                                     Cell;                                                     // (Parm, IsPlainOldData)
-	struct FVector                                     Seed;                                                     // (Parm, IsPlainOldData)
-	struct FVector                                     ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.ImportanceSamplingLibrary.RandomSobolCell2D
-struct UImportanceSamplingLibrary_RandomSobolCell2D_Params
-{
-	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                NumCells;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FVector2D                                   Cell;                                                     // (Parm, IsPlainOldData)
-	struct FVector2D                                   Seed;                                                     // (Parm, IsPlainOldData)
-	struct FVector2D                                   ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.ImportanceSamplingLibrary.NextSobolFloat
-struct UImportanceSamplingLibrary_NextSobolFloat_Params
-{
-	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                Dimension;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              PreviousValue;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.ImportanceSamplingLibrary.NextSobolCell3D
-struct UImportanceSamplingLibrary_NextSobolCell3D_Params
-{
-	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                NumCells;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FVector                                     PreviousValue;                                            // (Parm, IsPlainOldData)
-	struct FVector                                     ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.ImportanceSamplingLibrary.NextSobolCell2D
-struct UImportanceSamplingLibrary_NextSobolCell2D_Params
-{
-	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                NumCells;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FVector2D                                   PreviousValue;                                            // (Parm, IsPlainOldData)
-	struct FVector2D                                   ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.ImportanceSamplingLibrary.MakeImportanceTexture
-struct UImportanceSamplingLibrary_MakeImportanceTexture_Params
-{
-	class UTexture2D*                                  Texture;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
-	TEnumAsByte<EImportanceWeight>                     WeightingFunc;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FImportanceTexture                          ReturnValue;                                              // (Parm, OutParm, ReturnParm)
-};
-
-// Function Engine.ImportanceSamplingLibrary.ImportanceSample
-struct UImportanceSamplingLibrary_ImportanceSample_Params
-{
-	struct FImportanceTexture                          Texture;                                                  // (ConstParm, Parm, OutParm, ReferenceParm)
-	struct FVector2D                                   Rand;                                                     // (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
-	int                                                Samples;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              Intensity;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FVector2D                                   SamplePosition;                                           // (Parm, OutParm, IsPlainOldData)
-	struct FLinearColor                                SampleColor;                                              // (Parm, OutParm, IsPlainOldData)
-	float                                              SampleIntensity;                                          // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	float                                              SampleSize;                                               // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.ImportanceSamplingLibrary.BreakImportanceTexture
-struct UImportanceSamplingLibrary_BreakImportanceTexture_Params
-{
-	struct FImportanceTexture                          ImportanceTexture;                                        // (ConstParm, Parm, OutParm, ReferenceParm)
-	class UTexture2D*                                  Texture;                                                  // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	TEnumAsByte<EImportanceWeight>                     WeightingFunc;                                            // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.InputComponent.WasControllerKeyJustReleased
-struct UInputComponent_WasControllerKeyJustReleased_Params
-{
-	struct FKey                                        Key;                                                      // (Parm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.InputComponent.WasControllerKeyJustPressed
-struct UInputComponent_WasControllerKeyJustPressed_Params
-{
-	struct FKey                                        Key;                                                      // (Parm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.InputComponent.IsControllerKeyDown
-struct UInputComponent_IsControllerKeyDown_Params
-{
-	struct FKey                                        Key;                                                      // (Parm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.InputComponent.GetTouchState
-struct UInputComponent_GetTouchState_Params
-{
-	int                                                FingerIndex;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              LocationX;                                                // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	float                                              LocationY;                                                // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	bool                                               bIsCurrentlyPressed;                                      // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.InputComponent.GetControllerVectorKeyState
-struct UInputComponent_GetControllerVectorKeyState_Params
-{
-	struct FKey                                        Key;                                                      // (Parm)
-	struct FVector                                     ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.InputComponent.GetControllerMouseDelta
-struct UInputComponent_GetControllerMouseDelta_Params
-{
-	float                                              DeltaX;                                                   // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	float                                              DeltaY;                                                   // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.InputComponent.GetControllerKeyTimeDown
-struct UInputComponent_GetControllerKeyTimeDown_Params
-{
-	struct FKey                                        Key;                                                      // (Parm)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.InputComponent.GetControllerAnalogStickState
-struct UInputComponent_GetControllerAnalogStickState_Params
-{
-	TEnumAsByte<EControllerAnalogStick>                WhichStick;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              StickX;                                                   // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	float                                              StickY;                                                   // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.InputComponent.GetControllerAnalogKeyState
-struct UInputComponent_GetControllerAnalogKeyState_Params
-{
-	struct FKey                                        Key;                                                      // (Parm)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.InputSettings.SaveKeyMappings
-struct UInputSettings_SaveKeyMappings_Params
-{
-};
-
-// Function Engine.InputSettings.RemoveAxisMapping
-struct UInputSettings_RemoveAxisMapping_Params
-{
-	struct FInputAxisKeyMapping                        KeyMapping;                                               // (ConstParm, Parm, OutParm, ReferenceParm)
-	bool                                               bForceRebuildKeymaps;                                     // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.InputSettings.RemoveActionMapping
-struct UInputSettings_RemoveActionMapping_Params
-{
-	struct FInputActionKeyMapping                      KeyMapping;                                               // (ConstParm, Parm, OutParm, ReferenceParm)
-	bool                                               bForceRebuildKeymaps;                                     // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.InputSettings.GetInputSettings
-struct UInputSettings_GetInputSettings_Params
-{
-	class UInputSettings*                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.InputSettings.GetAxisNames
-struct UInputSettings_GetAxisNames_Params
-{
-	TArray<struct FName>                               AxisNames;                                                // (Parm, OutParm, ZeroConstructor)
-};
-
-// Function Engine.InputSettings.GetAxisMappingByName
-struct UInputSettings_GetAxisMappingByName_Params
-{
-	struct FName                                       InAxisName;                                               // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	TArray<struct FInputAxisKeyMapping>                OutMappings;                                              // (Parm, OutParm, ZeroConstructor)
-};
-
-// Function Engine.InputSettings.GetActionNames
-struct UInputSettings_GetActionNames_Params
-{
-	TArray<struct FName>                               ActionNames;                                              // (Parm, OutParm, ZeroConstructor)
-};
-
-// Function Engine.InputSettings.GetActionMappingByName
-struct UInputSettings_GetActionMappingByName_Params
-{
-	struct FName                                       InActionName;                                             // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	TArray<struct FInputActionKeyMapping>              OutMappings;                                              // (Parm, OutParm, ZeroConstructor)
-};
-
-// Function Engine.InputSettings.ForceRebuildKeymaps
-struct UInputSettings_ForceRebuildKeymaps_Params
-{
-};
-
-// Function Engine.InputSettings.AddAxisMapping
-struct UInputSettings_AddAxisMapping_Params
-{
-	struct FInputAxisKeyMapping                        KeyMapping;                                               // (ConstParm, Parm, OutParm, ReferenceParm)
-	bool                                               bForceRebuildKeymaps;                                     // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.InputSettings.AddActionMapping
-struct UInputSettings_AddActionMapping_Params
-{
-	struct FInputActionKeyMapping                      KeyMapping;                                               // (ConstParm, Parm, OutParm, ReferenceParm)
-	bool                                               bForceRebuildKeymaps;                                     // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
 // Function Engine.GameUserSettings.ValidateSettings
 struct UGameUserSettings_ValidateSettings_Params
 {
@@ -11117,6 +10884,239 @@ struct UGameUserSettings_ApplyHardwareBenchmarkResults_Params
 {
 };
 
+// Function Engine.SpotLight.SetOuterConeAngle
+struct ASpotLight_SetOuterConeAngle_Params
+{
+	float                                              NewOuterConeAngle;                                        // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.SpotLight.SetInnerConeAngle
+struct ASpotLight_SetInnerConeAngle_Params
+{
+	float                                              NewInnerConeAngle;                                        // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.ImportanceSamplingLibrary.RandomSobolFloat
+struct UImportanceSamplingLibrary_RandomSobolFloat_Params
+{
+	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                Dimension;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              Seed;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.ImportanceSamplingLibrary.RandomSobolCell3D
+struct UImportanceSamplingLibrary_RandomSobolCell3D_Params
+{
+	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                NumCells;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector                                     Cell;                                                     // (Parm, IsPlainOldData)
+	struct FVector                                     Seed;                                                     // (Parm, IsPlainOldData)
+	struct FVector                                     ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.ImportanceSamplingLibrary.RandomSobolCell2D
+struct UImportanceSamplingLibrary_RandomSobolCell2D_Params
+{
+	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                NumCells;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector2D                                   Cell;                                                     // (Parm, IsPlainOldData)
+	struct FVector2D                                   Seed;                                                     // (Parm, IsPlainOldData)
+	struct FVector2D                                   ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.ImportanceSamplingLibrary.NextSobolFloat
+struct UImportanceSamplingLibrary_NextSobolFloat_Params
+{
+	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                Dimension;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              PreviousValue;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.ImportanceSamplingLibrary.NextSobolCell3D
+struct UImportanceSamplingLibrary_NextSobolCell3D_Params
+{
+	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                NumCells;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector                                     PreviousValue;                                            // (Parm, IsPlainOldData)
+	struct FVector                                     ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.ImportanceSamplingLibrary.NextSobolCell2D
+struct UImportanceSamplingLibrary_NextSobolCell2D_Params
+{
+	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                NumCells;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector2D                                   PreviousValue;                                            // (Parm, IsPlainOldData)
+	struct FVector2D                                   ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.ImportanceSamplingLibrary.MakeImportanceTexture
+struct UImportanceSamplingLibrary_MakeImportanceTexture_Params
+{
+	class UTexture2D*                                  Texture;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+	TEnumAsByte<EImportanceWeight>                     WeightingFunc;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FImportanceTexture                          ReturnValue;                                              // (Parm, OutParm, ReturnParm)
+};
+
+// Function Engine.ImportanceSamplingLibrary.ImportanceSample
+struct UImportanceSamplingLibrary_ImportanceSample_Params
+{
+	struct FImportanceTexture                          Texture;                                                  // (ConstParm, Parm, OutParm, ReferenceParm)
+	struct FVector2D                                   Rand;                                                     // (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
+	int                                                Samples;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              Intensity;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector2D                                   SamplePosition;                                           // (Parm, OutParm, IsPlainOldData)
+	struct FLinearColor                                SampleColor;                                              // (Parm, OutParm, IsPlainOldData)
+	float                                              SampleIntensity;                                          // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	float                                              SampleSize;                                               // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.ImportanceSamplingLibrary.BreakImportanceTexture
+struct UImportanceSamplingLibrary_BreakImportanceTexture_Params
+{
+	struct FImportanceTexture                          ImportanceTexture;                                        // (ConstParm, Parm, OutParm, ReferenceParm)
+	class UTexture2D*                                  Texture;                                                  // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	TEnumAsByte<EImportanceWeight>                     WeightingFunc;                                            // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.InputComponent.WasControllerKeyJustReleased
+struct UInputComponent_WasControllerKeyJustReleased_Params
+{
+	struct FKey                                        Key;                                                      // (Parm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.InputComponent.WasControllerKeyJustPressed
+struct UInputComponent_WasControllerKeyJustPressed_Params
+{
+	struct FKey                                        Key;                                                      // (Parm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.InputComponent.IsControllerKeyDown
+struct UInputComponent_IsControllerKeyDown_Params
+{
+	struct FKey                                        Key;                                                      // (Parm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.InputComponent.GetTouchState
+struct UInputComponent_GetTouchState_Params
+{
+	int                                                FingerIndex;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              LocationX;                                                // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	float                                              LocationY;                                                // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	bool                                               bIsCurrentlyPressed;                                      // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.InputComponent.GetControllerVectorKeyState
+struct UInputComponent_GetControllerVectorKeyState_Params
+{
+	struct FKey                                        Key;                                                      // (Parm)
+	struct FVector                                     ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.InputComponent.GetControllerMouseDelta
+struct UInputComponent_GetControllerMouseDelta_Params
+{
+	float                                              DeltaX;                                                   // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaY;                                                   // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.InputComponent.GetControllerKeyTimeDown
+struct UInputComponent_GetControllerKeyTimeDown_Params
+{
+	struct FKey                                        Key;                                                      // (Parm)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.InputComponent.GetControllerAnalogStickState
+struct UInputComponent_GetControllerAnalogStickState_Params
+{
+	TEnumAsByte<EControllerAnalogStick>                WhichStick;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              StickX;                                                   // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	float                                              StickY;                                                   // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.InputComponent.GetControllerAnalogKeyState
+struct UInputComponent_GetControllerAnalogKeyState_Params
+{
+	struct FKey                                        Key;                                                      // (Parm)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.InputSettings.SaveKeyMappings
+struct UInputSettings_SaveKeyMappings_Params
+{
+};
+
+// Function Engine.InputSettings.RemoveAxisMapping
+struct UInputSettings_RemoveAxisMapping_Params
+{
+	struct FInputAxisKeyMapping                        KeyMapping;                                               // (ConstParm, Parm, OutParm, ReferenceParm)
+	bool                                               bForceRebuildKeymaps;                                     // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.InputSettings.RemoveActionMapping
+struct UInputSettings_RemoveActionMapping_Params
+{
+	struct FInputActionKeyMapping                      KeyMapping;                                               // (ConstParm, Parm, OutParm, ReferenceParm)
+	bool                                               bForceRebuildKeymaps;                                     // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.InputSettings.GetInputSettings
+struct UInputSettings_GetInputSettings_Params
+{
+	class UInputSettings*                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.InputSettings.GetAxisNames
+struct UInputSettings_GetAxisNames_Params
+{
+	TArray<struct FName>                               AxisNames;                                                // (Parm, OutParm, ZeroConstructor)
+};
+
+// Function Engine.InputSettings.GetAxisMappingByName
+struct UInputSettings_GetAxisMappingByName_Params
+{
+	struct FName                                       InAxisName;                                               // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	TArray<struct FInputAxisKeyMapping>                OutMappings;                                              // (Parm, OutParm, ZeroConstructor)
+};
+
+// Function Engine.InputSettings.GetActionNames
+struct UInputSettings_GetActionNames_Params
+{
+	TArray<struct FName>                               ActionNames;                                              // (Parm, OutParm, ZeroConstructor)
+};
+
+// Function Engine.InputSettings.GetActionMappingByName
+struct UInputSettings_GetActionMappingByName_Params
+{
+	struct FName                                       InActionName;                                             // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	TArray<struct FInputActionKeyMapping>              OutMappings;                                              // (Parm, OutParm, ZeroConstructor)
+};
+
+// Function Engine.InputSettings.ForceRebuildKeymaps
+struct UInputSettings_ForceRebuildKeymaps_Params
+{
+};
+
+// Function Engine.InputSettings.AddAxisMapping
+struct UInputSettings_AddAxisMapping_Params
+{
+	struct FInputAxisKeyMapping                        KeyMapping;                                               // (ConstParm, Parm, OutParm, ReferenceParm)
+	bool                                               bForceRebuildKeymaps;                                     // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.InputSettings.AddActionMapping
+struct UInputSettings_AddActionMapping_Params
+{
+	struct FInputActionKeyMapping                      KeyMapping;                                               // (ConstParm, Parm, OutParm, ReferenceParm)
+	bool                                               bForceRebuildKeymaps;                                     // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
 // Function Engine.InterpToMovementComponent.StopSimulating
 struct UInterpToMovementComponent_StopSimulating_Params
 {
@@ -11361,6 +11361,280 @@ struct UKismetGuidLibrary_Conv_GuidToString_Params
 {
 	struct FGuid                                       InGuid;                                                   // (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
 	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetInputLibrary.PointerEvent_IsTouchEvent
+struct UKismetInputLibrary_PointerEvent_IsTouchEvent_Params
+{
+	struct FPointerEvent                               Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetInputLibrary.PointerEvent_IsMouseButtonDown
+struct UKismetInputLibrary_PointerEvent_IsMouseButtonDown_Params
+{
+	struct FPointerEvent                               Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
+	struct FKey                                        MouseButton;                                              // (Parm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetInputLibrary.PointerEvent_GetWheelDelta
+struct UKismetInputLibrary_PointerEvent_GetWheelDelta_Params
+{
+	struct FPointerEvent                               Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetInputLibrary.PointerEvent_GetUserIndex
+struct UKismetInputLibrary_PointerEvent_GetUserIndex_Params
+{
+	struct FPointerEvent                               Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetInputLibrary.PointerEvent_GetTouchpadIndex
+struct UKismetInputLibrary_PointerEvent_GetTouchpadIndex_Params
+{
+	struct FPointerEvent                               Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetInputLibrary.PointerEvent_GetScreenSpacePosition
+struct UKismetInputLibrary_PointerEvent_GetScreenSpacePosition_Params
+{
+	struct FPointerEvent                               Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
+	struct FVector2D                                   ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetInputLibrary.PointerEvent_GetPointerIndex
+struct UKismetInputLibrary_PointerEvent_GetPointerIndex_Params
+{
+	struct FPointerEvent                               Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetInputLibrary.PointerEvent_GetLastScreenSpacePosition
+struct UKismetInputLibrary_PointerEvent_GetLastScreenSpacePosition_Params
+{
+	struct FPointerEvent                               Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
+	struct FVector2D                                   ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetInputLibrary.PointerEvent_GetGestureType
+struct UKismetInputLibrary_PointerEvent_GetGestureType_Params
+{
+	struct FPointerEvent                               Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
+	ESlateGesture                                      ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetInputLibrary.PointerEvent_GetGestureDelta
+struct UKismetInputLibrary_PointerEvent_GetGestureDelta_Params
+{
+	struct FPointerEvent                               Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
+	struct FVector2D                                   ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetInputLibrary.PointerEvent_GetEffectingButton
+struct UKismetInputLibrary_PointerEvent_GetEffectingButton_Params
+{
+	struct FPointerEvent                               Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
+	struct FKey                                        ReturnValue;                                              // (Parm, OutParm, ReturnParm)
+};
+
+// Function Engine.KismetInputLibrary.PointerEvent_GetCursorDelta
+struct UKismetInputLibrary_PointerEvent_GetCursorDelta_Params
+{
+	struct FPointerEvent                               Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
+	struct FVector2D                                   ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetInputLibrary.Key_IsVectorAxis
+struct UKismetInputLibrary_Key_IsVectorAxis_Params
+{
+	struct FKey                                        Key;                                                      // (ConstParm, Parm, OutParm, ReferenceParm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetInputLibrary.Key_IsValid
+struct UKismetInputLibrary_Key_IsValid_Params
+{
+	struct FKey                                        Key;                                                      // (ConstParm, Parm, OutParm, ReferenceParm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetInputLibrary.Key_IsMouseButton
+struct UKismetInputLibrary_Key_IsMouseButton_Params
+{
+	struct FKey                                        Key;                                                      // (ConstParm, Parm, OutParm, ReferenceParm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetInputLibrary.Key_IsModifierKey
+struct UKismetInputLibrary_Key_IsModifierKey_Params
+{
+	struct FKey                                        Key;                                                      // (ConstParm, Parm, OutParm, ReferenceParm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetInputLibrary.Key_IsKeyboardKey
+struct UKismetInputLibrary_Key_IsKeyboardKey_Params
+{
+	struct FKey                                        Key;                                                      // (ConstParm, Parm, OutParm, ReferenceParm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetInputLibrary.Key_IsGamepadKey
+struct UKismetInputLibrary_Key_IsGamepadKey_Params
+{
+	struct FKey                                        Key;                                                      // (ConstParm, Parm, OutParm, ReferenceParm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetInputLibrary.Key_IsFloatAxis
+struct UKismetInputLibrary_Key_IsFloatAxis_Params
+{
+	struct FKey                                        Key;                                                      // (ConstParm, Parm, OutParm, ReferenceParm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetInputLibrary.Key_GetDisplayName
+struct UKismetInputLibrary_Key_GetDisplayName_Params
+{
+	struct FKey                                        Key;                                                      // (ConstParm, Parm, OutParm, ReferenceParm)
+	struct FText                                       ReturnValue;                                              // (Parm, OutParm, ReturnParm)
+};
+
+// Function Engine.KismetInputLibrary.InputEvent_IsShiftDown
+struct UKismetInputLibrary_InputEvent_IsShiftDown_Params
+{
+	struct FInputEvent                                 Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetInputLibrary.InputEvent_IsRightShiftDown
+struct UKismetInputLibrary_InputEvent_IsRightShiftDown_Params
+{
+	struct FInputEvent                                 Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetInputLibrary.InputEvent_IsRightControlDown
+struct UKismetInputLibrary_InputEvent_IsRightControlDown_Params
+{
+	struct FInputEvent                                 Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetInputLibrary.InputEvent_IsRightCommandDown
+struct UKismetInputLibrary_InputEvent_IsRightCommandDown_Params
+{
+	struct FInputEvent                                 Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetInputLibrary.InputEvent_IsRightAltDown
+struct UKismetInputLibrary_InputEvent_IsRightAltDown_Params
+{
+	struct FInputEvent                                 Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetInputLibrary.InputEvent_IsRepeat
+struct UKismetInputLibrary_InputEvent_IsRepeat_Params
+{
+	struct FInputEvent                                 Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetInputLibrary.InputEvent_IsLeftShiftDown
+struct UKismetInputLibrary_InputEvent_IsLeftShiftDown_Params
+{
+	struct FInputEvent                                 Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetInputLibrary.InputEvent_IsLeftControlDown
+struct UKismetInputLibrary_InputEvent_IsLeftControlDown_Params
+{
+	struct FInputEvent                                 Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetInputLibrary.InputEvent_IsLeftCommandDown
+struct UKismetInputLibrary_InputEvent_IsLeftCommandDown_Params
+{
+	struct FInputEvent                                 Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetInputLibrary.InputEvent_IsLeftAltDown
+struct UKismetInputLibrary_InputEvent_IsLeftAltDown_Params
+{
+	struct FInputEvent                                 Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetInputLibrary.InputEvent_IsControlDown
+struct UKismetInputLibrary_InputEvent_IsControlDown_Params
+{
+	struct FInputEvent                                 Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetInputLibrary.InputEvent_IsCommandDown
+struct UKismetInputLibrary_InputEvent_IsCommandDown_Params
+{
+	struct FInputEvent                                 Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetInputLibrary.InputEvent_IsAltDown
+struct UKismetInputLibrary_InputEvent_IsAltDown_Params
+{
+	struct FInputEvent                                 Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetInputLibrary.GetUserIndex
+struct UKismetInputLibrary_GetUserIndex_Params
+{
+	struct FKeyEvent                                   Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetInputLibrary.GetKey
+struct UKismetInputLibrary_GetKey_Params
+{
+	struct FKeyEvent                                   Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
+	struct FKey                                        ReturnValue;                                              // (Parm, OutParm, ReturnParm)
+};
+
+// Function Engine.KismetInputLibrary.GetAnalogValue
+struct UKismetInputLibrary_GetAnalogValue_Params
+{
+	struct FAnalogInputEvent                           Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetInputLibrary.EqualEqual_KeyKey
+struct UKismetInputLibrary_EqualEqual_KeyKey_Params
+{
+	struct FKey                                        A;                                                        // (Parm)
+	struct FKey                                        B;                                                        // (Parm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetInputLibrary.EqualEqual_InputChordInputChord
+struct UKismetInputLibrary_EqualEqual_InputChordInputChord_Params
+{
+	struct FInputChord                                 A;                                                        // (Parm)
+	struct FInputChord                                 B;                                                        // (Parm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetInputLibrary.CalibrateTilt
+struct UKismetInputLibrary_CalibrateTilt_Params
+{
 };
 
 // Function Engine.KismetInternationalizationLibrary.SetCurrentLocale
@@ -17923,280 +18197,6 @@ struct UMaterialBillboardComponent_AddElement_Params
 	class UCurveFloat*                                 DistanceToSizeCurve;                                      // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function Engine.KismetInputLibrary.PointerEvent_IsTouchEvent
-struct UKismetInputLibrary_PointerEvent_IsTouchEvent_Params
-{
-	struct FPointerEvent                               Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetInputLibrary.PointerEvent_IsMouseButtonDown
-struct UKismetInputLibrary_PointerEvent_IsMouseButtonDown_Params
-{
-	struct FPointerEvent                               Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
-	struct FKey                                        MouseButton;                                              // (Parm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetInputLibrary.PointerEvent_GetWheelDelta
-struct UKismetInputLibrary_PointerEvent_GetWheelDelta_Params
-{
-	struct FPointerEvent                               Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetInputLibrary.PointerEvent_GetUserIndex
-struct UKismetInputLibrary_PointerEvent_GetUserIndex_Params
-{
-	struct FPointerEvent                               Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetInputLibrary.PointerEvent_GetTouchpadIndex
-struct UKismetInputLibrary_PointerEvent_GetTouchpadIndex_Params
-{
-	struct FPointerEvent                               Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetInputLibrary.PointerEvent_GetScreenSpacePosition
-struct UKismetInputLibrary_PointerEvent_GetScreenSpacePosition_Params
-{
-	struct FPointerEvent                               Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
-	struct FVector2D                                   ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetInputLibrary.PointerEvent_GetPointerIndex
-struct UKismetInputLibrary_PointerEvent_GetPointerIndex_Params
-{
-	struct FPointerEvent                               Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetInputLibrary.PointerEvent_GetLastScreenSpacePosition
-struct UKismetInputLibrary_PointerEvent_GetLastScreenSpacePosition_Params
-{
-	struct FPointerEvent                               Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
-	struct FVector2D                                   ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetInputLibrary.PointerEvent_GetGestureType
-struct UKismetInputLibrary_PointerEvent_GetGestureType_Params
-{
-	struct FPointerEvent                               Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
-	ESlateGesture                                      ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetInputLibrary.PointerEvent_GetGestureDelta
-struct UKismetInputLibrary_PointerEvent_GetGestureDelta_Params
-{
-	struct FPointerEvent                               Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
-	struct FVector2D                                   ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetInputLibrary.PointerEvent_GetEffectingButton
-struct UKismetInputLibrary_PointerEvent_GetEffectingButton_Params
-{
-	struct FPointerEvent                               Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
-	struct FKey                                        ReturnValue;                                              // (Parm, OutParm, ReturnParm)
-};
-
-// Function Engine.KismetInputLibrary.PointerEvent_GetCursorDelta
-struct UKismetInputLibrary_PointerEvent_GetCursorDelta_Params
-{
-	struct FPointerEvent                               Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
-	struct FVector2D                                   ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetInputLibrary.Key_IsVectorAxis
-struct UKismetInputLibrary_Key_IsVectorAxis_Params
-{
-	struct FKey                                        Key;                                                      // (ConstParm, Parm, OutParm, ReferenceParm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetInputLibrary.Key_IsValid
-struct UKismetInputLibrary_Key_IsValid_Params
-{
-	struct FKey                                        Key;                                                      // (ConstParm, Parm, OutParm, ReferenceParm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetInputLibrary.Key_IsMouseButton
-struct UKismetInputLibrary_Key_IsMouseButton_Params
-{
-	struct FKey                                        Key;                                                      // (ConstParm, Parm, OutParm, ReferenceParm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetInputLibrary.Key_IsModifierKey
-struct UKismetInputLibrary_Key_IsModifierKey_Params
-{
-	struct FKey                                        Key;                                                      // (ConstParm, Parm, OutParm, ReferenceParm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetInputLibrary.Key_IsKeyboardKey
-struct UKismetInputLibrary_Key_IsKeyboardKey_Params
-{
-	struct FKey                                        Key;                                                      // (ConstParm, Parm, OutParm, ReferenceParm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetInputLibrary.Key_IsGamepadKey
-struct UKismetInputLibrary_Key_IsGamepadKey_Params
-{
-	struct FKey                                        Key;                                                      // (ConstParm, Parm, OutParm, ReferenceParm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetInputLibrary.Key_IsFloatAxis
-struct UKismetInputLibrary_Key_IsFloatAxis_Params
-{
-	struct FKey                                        Key;                                                      // (ConstParm, Parm, OutParm, ReferenceParm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetInputLibrary.Key_GetDisplayName
-struct UKismetInputLibrary_Key_GetDisplayName_Params
-{
-	struct FKey                                        Key;                                                      // (ConstParm, Parm, OutParm, ReferenceParm)
-	struct FText                                       ReturnValue;                                              // (Parm, OutParm, ReturnParm)
-};
-
-// Function Engine.KismetInputLibrary.InputEvent_IsShiftDown
-struct UKismetInputLibrary_InputEvent_IsShiftDown_Params
-{
-	struct FInputEvent                                 Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetInputLibrary.InputEvent_IsRightShiftDown
-struct UKismetInputLibrary_InputEvent_IsRightShiftDown_Params
-{
-	struct FInputEvent                                 Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetInputLibrary.InputEvent_IsRightControlDown
-struct UKismetInputLibrary_InputEvent_IsRightControlDown_Params
-{
-	struct FInputEvent                                 Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetInputLibrary.InputEvent_IsRightCommandDown
-struct UKismetInputLibrary_InputEvent_IsRightCommandDown_Params
-{
-	struct FInputEvent                                 Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetInputLibrary.InputEvent_IsRightAltDown
-struct UKismetInputLibrary_InputEvent_IsRightAltDown_Params
-{
-	struct FInputEvent                                 Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetInputLibrary.InputEvent_IsRepeat
-struct UKismetInputLibrary_InputEvent_IsRepeat_Params
-{
-	struct FInputEvent                                 Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetInputLibrary.InputEvent_IsLeftShiftDown
-struct UKismetInputLibrary_InputEvent_IsLeftShiftDown_Params
-{
-	struct FInputEvent                                 Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetInputLibrary.InputEvent_IsLeftControlDown
-struct UKismetInputLibrary_InputEvent_IsLeftControlDown_Params
-{
-	struct FInputEvent                                 Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetInputLibrary.InputEvent_IsLeftCommandDown
-struct UKismetInputLibrary_InputEvent_IsLeftCommandDown_Params
-{
-	struct FInputEvent                                 Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetInputLibrary.InputEvent_IsLeftAltDown
-struct UKismetInputLibrary_InputEvent_IsLeftAltDown_Params
-{
-	struct FInputEvent                                 Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetInputLibrary.InputEvent_IsControlDown
-struct UKismetInputLibrary_InputEvent_IsControlDown_Params
-{
-	struct FInputEvent                                 Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetInputLibrary.InputEvent_IsCommandDown
-struct UKismetInputLibrary_InputEvent_IsCommandDown_Params
-{
-	struct FInputEvent                                 Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetInputLibrary.InputEvent_IsAltDown
-struct UKismetInputLibrary_InputEvent_IsAltDown_Params
-{
-	struct FInputEvent                                 Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetInputLibrary.GetUserIndex
-struct UKismetInputLibrary_GetUserIndex_Params
-{
-	struct FKeyEvent                                   Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetInputLibrary.GetKey
-struct UKismetInputLibrary_GetKey_Params
-{
-	struct FKeyEvent                                   Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
-	struct FKey                                        ReturnValue;                                              // (Parm, OutParm, ReturnParm)
-};
-
-// Function Engine.KismetInputLibrary.GetAnalogValue
-struct UKismetInputLibrary_GetAnalogValue_Params
-{
-	struct FAnalogInputEvent                           Input;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetInputLibrary.EqualEqual_KeyKey
-struct UKismetInputLibrary_EqualEqual_KeyKey_Params
-{
-	struct FKey                                        A;                                                        // (Parm)
-	struct FKey                                        B;                                                        // (Parm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetInputLibrary.EqualEqual_InputChordInputChord
-struct UKismetInputLibrary_EqualEqual_InputChordInputChord_Params
-{
-	struct FInputChord                                 A;                                                        // (Parm)
-	struct FInputChord                                 B;                                                        // (Parm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetInputLibrary.CalibrateTilt
-struct UKismetInputLibrary_CalibrateTilt_Params
-{
-};
-
 // Function Engine.MaterialInstanceDynamic.SetVectorParameterValue
 struct UMaterialInstanceDynamic_SetVectorParameterValue_Params
 {
@@ -18333,13 +18333,6 @@ struct UMeshVertexPainterKismetLibrary_PaintVerticesLerpAlongAxis_Params
 	struct FLinearColor                                EndColor;                                                 // (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
 	EVertexPaintAxis                                   Axis;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
 	bool                                               bConvertToSRGB;                                           // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.ParticleSystem.ContainsEmitterType
-struct UParticleSystem_ContainsEmitterType_Params
-{
-	class UClass*                                      TypeData;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function Engine.ParticleSystemComponent.SetVectorParameter
@@ -19235,6 +19228,13 @@ struct UPostProcessComponent_AddOrUpdateBlendable_Params
 	float                                              InWeight;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
+// Function Engine.ParticleSystem.ContainsEmitterType
+struct UParticleSystem_ContainsEmitterType_Params
+{
+	class UClass*                                      TypeData;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
 // Function Engine.RadialForceActor.ToggleForce
 struct ARadialForceActor_ToggleForce_Params
 {
@@ -19284,23 +19284,6 @@ struct URectLightComponent_SetSourceHeight_Params
 	float                                              NewValue;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function Engine.SceneCaptureComponent2D.CaptureScene
-struct USceneCaptureComponent2D_CaptureScene_Params
-{
-};
-
-// Function Engine.SceneCaptureComponent2D.AddOrUpdateBlendable
-struct USceneCaptureComponent2D_AddOrUpdateBlendable_Params
-{
-	TScriptInterface<class UBlendableInterface>        InBlendableObject;                                        // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              InWeight;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.SceneCaptureComponentCube.CaptureScene
-struct USceneCaptureComponentCube_CaptureScene_Params
-{
-};
-
 // Function Engine.SceneCaptureCube.OnInterpToggle
 struct ASceneCaptureCube_OnInterpToggle_Params
 {
@@ -19345,6 +19328,18 @@ struct USkeletalMeshSocket_GetSocketLocation_Params
 // Function Engine.SkyLight.OnRep_bEnabled
 struct ASkyLight_OnRep_bEnabled_Params
 {
+};
+
+// Function Engine.SceneCaptureComponent2D.CaptureScene
+struct USceneCaptureComponent2D_CaptureScene_Params
+{
+};
+
+// Function Engine.SceneCaptureComponent2D.AddOrUpdateBlendable
+struct USceneCaptureComponent2D_AddOrUpdateBlendable_Params
+{
+	TScriptInterface<class UBlendableInterface>        InBlendableObject;                                        // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              InWeight;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function Engine.SkyLightComponent.SetVolumetricScatteringIntensity
@@ -19417,6 +19412,11 @@ struct USkyLightComponent_SetCubemap_Params
 
 // Function Engine.SkyLightComponent.RecaptureSky
 struct USkyLightComponent_RecaptureSky_Params
+{
+};
+
+// Function Engine.SceneCaptureComponentCube.CaptureScene
+struct USceneCaptureComponentCube_CaptureScene_Params
 {
 };
 
@@ -20058,64 +20058,6 @@ struct UVectorFieldComponent_SetIntensity_Params
 	float                                              NewIntensity;                                             // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function Engine.VisualLoggerKismetLibrary.RedirectVislog
-struct UVisualLoggerKismetLibrary_RedirectVislog_Params
-{
-	class UObject*                                     SourceOwner;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-	class UObject*                                     DestinationOwner;                                         // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.VisualLoggerKismetLibrary.LogText
-struct UVisualLoggerKismetLibrary_LogText_Params
-{
-	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FString                                     Text;                                                     // (Parm, ZeroConstructor)
-	struct FName                                       LogCategory;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               bAddToMessageLog;                                         // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.VisualLoggerKismetLibrary.LogSegment
-struct UVisualLoggerKismetLibrary_LogSegment_Params
-{
-	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FVector                                     SegmentStart;                                             // (ConstParm, Parm, IsPlainOldData)
-	struct FVector                                     SegmentEnd;                                               // (ConstParm, Parm, IsPlainOldData)
-	struct FString                                     Text;                                                     // (Parm, ZeroConstructor)
-	struct FLinearColor                                ObjectColor;                                              // (Parm, IsPlainOldData)
-	float                                              Thickness;                                                // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	struct FName                                       CategoryName;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               bAddToMessageLog;                                         // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.VisualLoggerKismetLibrary.LogLocation
-struct UVisualLoggerKismetLibrary_LogLocation_Params
-{
-	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FVector                                     Location;                                                 // (Parm, IsPlainOldData)
-	struct FString                                     Text;                                                     // (Parm, ZeroConstructor)
-	struct FLinearColor                                ObjectColor;                                              // (Parm, IsPlainOldData)
-	float                                              Radius;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FName                                       LogCategory;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               bAddToMessageLog;                                         // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.VisualLoggerKismetLibrary.LogBox
-struct UVisualLoggerKismetLibrary_LogBox_Params
-{
-	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FBox                                        BoxShape;                                                 // (Parm, IsPlainOldData)
-	struct FString                                     Text;                                                     // (Parm, ZeroConstructor)
-	struct FLinearColor                                ObjectColor;                                              // (Parm, IsPlainOldData)
-	struct FName                                       LogCategory;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               bAddToMessageLog;                                         // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.VisualLoggerKismetLibrary.EnableRecording
-struct UVisualLoggerKismetLibrary_EnableRecording_Params
-{
-	bool                                               bEnabled;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
 // Function Engine.VOIPTalker.RegisterWithPlayerState
 struct UVOIPTalker_RegisterWithPlayerState_Params
 {
@@ -20186,6 +20128,64 @@ struct UWindDirectionalSourceComponent_SetMinimumGustAmount_Params
 struct UWindDirectionalSourceComponent_SetMaximumGustAmount_Params
 {
 	float                                              InNewMaxGust;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.VisualLoggerKismetLibrary.RedirectVislog
+struct UVisualLoggerKismetLibrary_RedirectVislog_Params
+{
+	class UObject*                                     SourceOwner;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+	class UObject*                                     DestinationOwner;                                         // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.VisualLoggerKismetLibrary.LogText
+struct UVisualLoggerKismetLibrary_LogText_Params
+{
+	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     Text;                                                     // (Parm, ZeroConstructor)
+	struct FName                                       LogCategory;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bAddToMessageLog;                                         // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.VisualLoggerKismetLibrary.LogSegment
+struct UVisualLoggerKismetLibrary_LogSegment_Params
+{
+	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector                                     SegmentStart;                                             // (ConstParm, Parm, IsPlainOldData)
+	struct FVector                                     SegmentEnd;                                               // (ConstParm, Parm, IsPlainOldData)
+	struct FString                                     Text;                                                     // (Parm, ZeroConstructor)
+	struct FLinearColor                                ObjectColor;                                              // (Parm, IsPlainOldData)
+	float                                              Thickness;                                                // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	struct FName                                       CategoryName;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bAddToMessageLog;                                         // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.VisualLoggerKismetLibrary.LogLocation
+struct UVisualLoggerKismetLibrary_LogLocation_Params
+{
+	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector                                     Location;                                                 // (Parm, IsPlainOldData)
+	struct FString                                     Text;                                                     // (Parm, ZeroConstructor)
+	struct FLinearColor                                ObjectColor;                                              // (Parm, IsPlainOldData)
+	float                                              Radius;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FName                                       LogCategory;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bAddToMessageLog;                                         // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.VisualLoggerKismetLibrary.LogBox
+struct UVisualLoggerKismetLibrary_LogBox_Params
+{
+	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FBox                                        BoxShape;                                                 // (Parm, IsPlainOldData)
+	struct FString                                     Text;                                                     // (Parm, ZeroConstructor)
+	struct FLinearColor                                ObjectColor;                                              // (Parm, IsPlainOldData)
+	struct FName                                       LogCategory;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bAddToMessageLog;                                         // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.VisualLoggerKismetLibrary.EnableRecording
+struct UVisualLoggerKismetLibrary_EnableRecording_Params
+{
+	bool                                               bEnabled;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 }

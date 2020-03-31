@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 3.75.21350
+// Name: SCUM, Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -189,6 +189,16 @@ enum class EInteractionType : uint8_t
 };
 
 
+// Enum ConZ.EItemExhausted
+enum class EItemExhausted : uint8_t
+{
+	EItemExhausted__DoNothing      = 0,
+	EItemExhausted__Destroy        = 1,
+	EItemExhausted__Uncraft        = 2,
+	EItemExhausted__EItemExhausted_MAX = 3
+};
+
+
 // Enum ConZ.ENoiseLevel
 enum class ENoiseLevel : uint8_t
 {
@@ -200,16 +210,6 @@ enum class ENoiseLevel : uint8_t
 	ENoiseLevel__VeryLoud          = 5,
 	ENoiseLevel__Count             = 6,
 	ENoiseLevel__ENoiseLevel_MAX   = 7
-};
-
-
-// Enum ConZ.EItemExhausted
-enum class EItemExhausted : uint8_t
-{
-	EItemExhausted__DoNothing      = 0,
-	EItemExhausted__Destroy        = 1,
-	EItemExhausted__Uncraft        = 2,
-	EItemExhausted__EItemExhausted_MAX = 3
 };
 
 
@@ -462,6 +462,19 @@ enum class EPrisonerBorderCrossingPenalty : uint8_t
 };
 
 
+// Enum ConZ.EWeaponMalfunction
+enum class EWeaponMalfunction : uint8_t
+{
+	EWeaponMalfunction__None       = 0,
+	EWeaponMalfunction__BadRound   = 1,
+	EWeaponMalfunction__StovePipe  = 2,
+	EWeaponMalfunction__RoundNotLoaded = 3,
+	EWeaponMalfunction__DoubleFeed = 4,
+	EWeaponMalfunction__Count      = 5,
+	EWeaponMalfunction__EWeaponMalfunction_MAX = 6
+};
+
+
 // Enum ConZ.ETabMode
 enum class ETabMode : uint8_t
 {
@@ -474,19 +487,6 @@ enum class ETabMode : uint8_t
 	ETabMode__Events               = 6,
 	ETabMode__Last                 = 7,
 	ETabMode__ETabMode_MAX         = 8
-};
-
-
-// Enum ConZ.EWeaponMalfunction
-enum class EWeaponMalfunction : uint8_t
-{
-	EWeaponMalfunction__None       = 0,
-	EWeaponMalfunction__BadRound   = 1,
-	EWeaponMalfunction__StovePipe  = 2,
-	EWeaponMalfunction__RoundNotLoaded = 3,
-	EWeaponMalfunction__DoubleFeed = 4,
-	EWeaponMalfunction__Count      = 5,
-	EWeaponMalfunction__EWeaponMalfunction_MAX = 6
 };
 
 
@@ -1169,18 +1169,6 @@ enum class EAnimal2Sound : uint8_t
 };
 
 
-// Enum ConZ.EAnimalSound
-enum class EAnimalSound : uint8_t
-{
-	EAnimalSound__None             = 0,
-	EAnimalSound__Idle             = 1,
-	EAnimalSound__Angry            = 2,
-	EAnimalSound__Attack           = 3,
-	EAnimalSound__Kill             = 4,
-	EAnimalSound__EAnimalSound_MAX = 5
-};
-
-
 // Enum ConZ.EAnimalLearnLevel
 enum class EAnimalLearnLevel : uint8_t
 {
@@ -1375,14 +1363,15 @@ enum class ECharacterActionConstraint : uint8_t
 };
 
 
-// Enum ConZ.ECharacterLegsImpactSoundCategory
-enum class ECharacterLegsImpactSoundCategory : uint8_t
+// Enum ConZ.EAnimalSound
+enum class EAnimalSound : uint8_t
 {
-	ECharacterLegsImpactSoundCategory__Any = 0,
-	ECharacterLegsImpactSoundCategory__Bare = 1,
-	ECharacterLegsImpactSoundCategory__Blocked = 2,
-	ECharacterLegsImpactSoundCategory__LightlyClothed = 3,
-	ECharacterLegsImpactSoundCategory__ECharacterLegsImpactSoundCategory_MAX = 4
+	EAnimalSound__None             = 0,
+	EAnimalSound__Idle             = 1,
+	EAnimalSound__Angry            = 2,
+	EAnimalSound__Attack           = 3,
+	EAnimalSound__Kill             = 4,
+	EAnimalSound__EAnimalSound_MAX = 5
 };
 
 
@@ -1451,14 +1440,14 @@ enum class ESpawnType : uint8_t
 };
 
 
-// Enum ConZ.ECharacterStatsOrderByField
-enum class ECharacterStatsOrderByField : uint8_t
+// Enum ConZ.ECharacterLegsImpactSoundCategory
+enum class ECharacterLegsImpactSoundCategory : uint8_t
 {
-	ECharacterStatsOrderByField__FamePoints = 0,
-	ECharacterStatsOrderByField__EventScore = 1,
-	ECharacterStatsOrderByField__EventKills = 2,
-	ECharacterStatsOrderByField__EventDeaths = 3,
-	ECharacterStatsOrderByField__ECharacterStatsOrderByField_MAX = 4
+	ECharacterLegsImpactSoundCategory__Any = 0,
+	ECharacterLegsImpactSoundCategory__Bare = 1,
+	ECharacterLegsImpactSoundCategory__Blocked = 2,
+	ECharacterLegsImpactSoundCategory__LightlyClothed = 3,
+	ECharacterLegsImpactSoundCategory__ECharacterLegsImpactSoundCategory_MAX = 4
 };
 
 
@@ -1591,17 +1580,14 @@ enum class EBaseElementType : uint8_t
 };
 
 
-// Enum ConZ.EPlayPreparationsState
-enum class EPlayPreparationsState : uint8_t
+// Enum ConZ.ECharacterStatsOrderByField
+enum class ECharacterStatsOrderByField : uint8_t
 {
-	EPlayPreparationsState__StreamingCheck = 0,
-	EPlayPreparationsState__AuthSend = 1,
-	EPlayPreparationsState__AuthReceive = 2,
-	EPlayPreparationsState__InitialSyncSend = 3,
-	EPlayPreparationsState__InitialSyncReceive = 4,
-	EPlayPreparationsState__Succeeded = 5,
-	EPlayPreparationsState__Failed = 6,
-	EPlayPreparationsState__EPlayPreparationsState_MAX = 7
+	ECharacterStatsOrderByField__FamePoints = 0,
+	ECharacterStatsOrderByField__EventScore = 1,
+	ECharacterStatsOrderByField__EventKills = 2,
+	ECharacterStatsOrderByField__EventDeaths = 3,
+	ECharacterStatsOrderByField__ECharacterStatsOrderByField_MAX = 4
 };
 
 
@@ -1669,14 +1655,17 @@ enum class EDoorType : uint8_t
 };
 
 
-// Enum ConZ.EDroneSound
-enum class EDroneSound : uint8_t
+// Enum ConZ.EPlayPreparationsState
+enum class EPlayPreparationsState : uint8_t
 {
-	EDroneSound__None              = 0,
-	EDroneSound__Idle              = 1,
-	EDroneSound__Attack            = 2,
-	EDroneSound__Kill              = 3,
-	EDroneSound__EDroneSound_MAX   = 4
+	EPlayPreparationsState__StreamingCheck = 0,
+	EPlayPreparationsState__AuthSend = 1,
+	EPlayPreparationsState__AuthReceive = 2,
+	EPlayPreparationsState__InitialSyncSend = 3,
+	EPlayPreparationsState__InitialSyncReceive = 4,
+	EPlayPreparationsState__Succeeded = 5,
+	EPlayPreparationsState__Failed = 6,
+	EPlayPreparationsState__EPlayPreparationsState_MAX = 7
 };
 
 
@@ -1799,6 +1788,17 @@ enum class EGameEventState : uint8_t
 };
 
 
+// Enum ConZ.EDroneSound
+enum class EDroneSound : uint8_t
+{
+	EDroneSound__None              = 0,
+	EDroneSound__Idle              = 1,
+	EDroneSound__Attack            = 2,
+	EDroneSound__Kill              = 3,
+	EDroneSound__EDroneSound_MAX   = 4
+};
+
+
 // Enum ConZ.EGameEventBorderState
 enum class EGameEventBorderState : uint8_t
 {
@@ -1806,6 +1806,17 @@ enum class EGameEventBorderState : uint8_t
 	EGameEventBorderState__On      = 1,
 	EGameEventBorderState__Bright  = 2,
 	EGameEventBorderState__EGameEventBorderState_MAX = 3
+};
+
+
+// Enum ConZ.ERagdollTransitionState
+enum class ERagdollTransitionState : uint8_t
+{
+	ERagdollTransitionState__None  = 0,
+	ERagdollTransitionState__GoTo  = 1,
+	ERagdollTransitionState__RecoverFrom = 2,
+	ERagdollTransitionState__RecoverFromImmediately = 3,
+	ERagdollTransitionState__ERagdollTransitionState_MAX = 4
 };
 
 
@@ -1818,17 +1829,6 @@ enum class EGameEventTransportState : uint8_t
 	EGameEventTransportState__Landing = 3,
 	EGameEventTransportState__LiftOff = 4,
 	EGameEventTransportState__EGameEventTransportState_MAX = 5
-};
-
-
-// Enum ConZ.ERagdollTransitionState
-enum class ERagdollTransitionState : uint8_t
-{
-	ERagdollTransitionState__None  = 0,
-	ERagdollTransitionState__GoTo  = 1,
-	ERagdollTransitionState__RecoverFrom = 2,
-	ERagdollTransitionState__RecoverFromImmediately = 3,
-	ERagdollTransitionState__ERagdollTransitionState_MAX = 4
 };
 
 
@@ -1967,18 +1967,6 @@ enum class EMedicationUsage : uint8_t
 	EMedicationUsage__Injections   = 1,
 	EMedicationUsage__Infusions    = 2,
 	EMedicationUsage__EMedicationUsage_MAX = 3
-};
-
-
-// Enum ConZ.EMeleeActionType
-enum class EMeleeActionType : uint8_t
-{
-	EMeleeActionType__None         = 0,
-	EMeleeActionType__Attack       = 1,
-	EMeleeActionType__PrepareForBlockOrDodge = 2,
-	EMeleeActionType__Block        = 3,
-	EMeleeActionType__Dodge        = 4,
-	EMeleeActionType__EMeleeActionType_MAX = 5
 };
 
 
@@ -2156,6 +2144,18 @@ enum class EPickupItemOperation : uint8_t
 };
 
 
+// Enum ConZ.EMeleeActionType
+enum class EMeleeActionType : uint8_t
+{
+	EMeleeActionType__None         = 0,
+	EMeleeActionType__Attack       = 1,
+	EMeleeActionType__PrepareForBlockOrDodge = 2,
+	EMeleeActionType__Block        = 3,
+	EMeleeActionType__Dodge        = 4,
+	EMeleeActionType__EMeleeActionType_MAX = 5
+};
+
+
 // Enum ConZ.EPlacementState
 enum class EPlacementState : uint8_t
 {
@@ -2276,15 +2276,6 @@ enum class EPlayableInstrumentChord : uint8_t
 };
 
 
-// Enum ConZ.EInstrumentEventType
-enum class EInstrumentEventType : uint8_t
-{
-	EInstrumentEventType__PlayTone = 0,
-	EInstrumentEventType__StopTone = 1,
-	EInstrumentEventType__EInstrumentEventType_MAX = 2
-};
-
-
 // Enum ConZ.EStanceChangeFlag
 enum class EStanceChangeFlag : uint8_t
 {
@@ -2303,32 +2294,6 @@ enum class ESwapItemsType : uint8_t
 	ESwapItemsType__NotWeaponToWeapon = 3,
 	ESwapItemsType__WeaponToNotWeapon = 4,
 	ESwapItemsType__ESwapItemsType_MAX = 5
-};
-
-
-// Enum ConZ.EPrisonerAnimationCurve
-enum class EPrisonerAnimationCurve : uint8_t
-{
-	EPrisonerAnimationCurve__LegsPose = 0,
-	EPrisonerAnimationCurve__CanStartGoToLoop = 1,
-	EPrisonerAnimationCurve__CanStartGoToStopLU = 2,
-	EPrisonerAnimationCurve__CanStartGoToStopRU = 3,
-	EPrisonerAnimationCurve__DistanceToPivot = 4,
-	EPrisonerAnimationCurve__CanLandGoToLoop = 5,
-	EPrisonerAnimationCurve__CanFireWeapon = 6,
-	EPrisonerAnimationCurve__LeftHandIK = 7,
-	EPrisonerAnimationCurve__MoveInputScale = 8,
-	EPrisonerAnimationCurve__MoveInputModifierScale = 9,
-	EPrisonerAnimationCurve__MoveInputModifierCourseAngle = 10,
-	EPrisonerAnimationCurve__IgnoreMoveInput = 11,
-	EPrisonerAnimationCurve__IgnoreTurnInput = 12,
-	EPrisonerAnimationCurve__IsStanceTransitionActive = 13,
-	EPrisonerAnimationCurve__MeshOffsetWhenInWater = 14,
-	EPrisonerAnimationCurve__ViewRoll = 15,
-	EPrisonerAnimationCurve__ViewPitch = 16,
-	EPrisonerAnimationCurve__ViewYaw = 17,
-	EPrisonerAnimationCurve__Count = 18,
-	EPrisonerAnimationCurve__EPrisonerAnimationCurve_MAX = 19
 };
 
 
@@ -2497,15 +2462,29 @@ enum class EPrisonerRestingMode : uint8_t
 };
 
 
-// Enum ConZ.EPrisonerVisibilityFlag
-enum class EPrisonerVisibilityFlag : uint8_t
+// Enum ConZ.EPrisonerAnimationCurve
+enum class EPrisonerAnimationCurve : uint8_t
 {
-	EPrisonerVisibilityFlag__None  = 0,
-	EPrisonerVisibilityFlag__Default = 1,
-	EPrisonerVisibilityFlag__View  = 2,
-	EPrisonerVisibilityFlag__Awareness = 3,
-	EPrisonerVisibilityFlag__All   = 4,
-	EPrisonerVisibilityFlag__EPrisonerVisibilityFlag_MAX = 5
+	EPrisonerAnimationCurve__LegsPose = 0,
+	EPrisonerAnimationCurve__CanStartGoToLoop = 1,
+	EPrisonerAnimationCurve__CanStartGoToStopLU = 2,
+	EPrisonerAnimationCurve__CanStartGoToStopRU = 3,
+	EPrisonerAnimationCurve__DistanceToPivot = 4,
+	EPrisonerAnimationCurve__CanLandGoToLoop = 5,
+	EPrisonerAnimationCurve__CanFireWeapon = 6,
+	EPrisonerAnimationCurve__LeftHandIK = 7,
+	EPrisonerAnimationCurve__MoveInputScale = 8,
+	EPrisonerAnimationCurve__MoveInputModifierScale = 9,
+	EPrisonerAnimationCurve__MoveInputModifierCourseAngle = 10,
+	EPrisonerAnimationCurve__IgnoreMoveInput = 11,
+	EPrisonerAnimationCurve__IgnoreTurnInput = 12,
+	EPrisonerAnimationCurve__IsStanceTransitionActive = 13,
+	EPrisonerAnimationCurve__MeshOffsetWhenInWater = 14,
+	EPrisonerAnimationCurve__ViewRoll = 15,
+	EPrisonerAnimationCurve__ViewPitch = 16,
+	EPrisonerAnimationCurve__ViewYaw = 17,
+	EPrisonerAnimationCurve__Count = 18,
+	EPrisonerAnimationCurve__EPrisonerAnimationCurve_MAX = 19
 };
 
 
@@ -2941,6 +2920,18 @@ enum class ETrapTriggerType : uint8_t
 };
 
 
+// Enum ConZ.EPrisonerVisibilityFlag
+enum class EPrisonerVisibilityFlag : uint8_t
+{
+	EPrisonerVisibilityFlag__None  = 0,
+	EPrisonerVisibilityFlag__Default = 1,
+	EPrisonerVisibilityFlag__View  = 2,
+	EPrisonerVisibilityFlag__Awareness = 3,
+	EPrisonerVisibilityFlag__All   = 4,
+	EPrisonerVisibilityFlag__EPrisonerVisibilityFlag_MAX = 5
+};
+
+
 // Enum ConZ.EUnarmedCombatInput
 enum class EUnarmedCombatInput : uint8_t
 {
@@ -3036,14 +3027,12 @@ enum class EBowAimingTestType : uint8_t
 };
 
 
-// Enum ConZ.EBowDrawPercentage
-enum class EBowDrawPercentage : uint8_t
+// Enum ConZ.EInstrumentEventType
+enum class EInstrumentEventType : uint8_t
 {
-	EBowDrawPercentage__Draw50percent = 0,
-	EBowDrawPercentage__Draw75percent = 1,
-	EBowDrawPercentage__Draw100percent = 2,
-	EBowDrawPercentage__Count      = 3,
-	EBowDrawPercentage__EBowDrawPercentage_MAX = 4
+	EInstrumentEventType__PlayTone = 0,
+	EInstrumentEventType__StopTone = 1,
+	EInstrumentEventType__EInstrumentEventType_MAX = 2
 };
 
 
@@ -3102,6 +3091,17 @@ enum class EWeaponType : uint8_t
 	EWeaponType__Bow               = 2,
 	EWeaponType__Count             = 3,
 	EWeaponType__EWeaponType_MAX   = 4
+};
+
+
+// Enum ConZ.EBowDrawPercentage
+enum class EBowDrawPercentage : uint8_t
+{
+	EBowDrawPercentage__Draw50percent = 0,
+	EBowDrawPercentage__Draw75percent = 1,
+	EBowDrawPercentage__Draw100percent = 2,
+	EBowDrawPercentage__Count      = 3,
+	EBowDrawPercentage__EBowDrawPercentage_MAX = 4
 };
 
 
@@ -3182,16 +3182,6 @@ enum class EWidgetType : uint8_t
 };
 
 
-// Enum ConZ.EWolfAttackState
-enum class EWolfAttackState : uint8_t
-{
-	EWolfAttackState__Peace        = 0,
-	EWolfAttackState__Chasing      = 1,
-	EWolfAttackState__Attacking    = 2,
-	EWolfAttackState__EWolfAttackState_MAX = 3
-};
-
-
 // Enum ConZ.ECraftingMarkerMode
 enum class ECraftingMarkerMode : uint8_t
 {
@@ -3232,6 +3222,16 @@ enum class EZombieStance : uint8_t
 	EZombieStance__Alerted         = 2,
 	EZombieStance__Combat          = 3,
 	EZombieStance__EZombieStance_MAX = 4
+};
+
+
+// Enum ConZ.EWolfAttackState
+enum class EWolfAttackState : uint8_t
+{
+	EWolfAttackState__Peace        = 0,
+	EWolfAttackState__Chasing      = 1,
+	EWolfAttackState__Attacking    = 2,
+	EWolfAttackState__EWolfAttackState_MAX = 3
 };
 
 
@@ -4013,6 +4013,16 @@ struct FCharacterSpawnerData
 	TArray<class UClass*>                              CharacterClasses;                                         // 0x0000(0x0010) (Edit, ZeroConstructor)
 };
 
+// ScriptStruct ConZ.InteractionStruct
+// 0x0068
+struct FInteractionStruct
+{
+	EInteractionType                                   interactionType;                                          // 0x0000(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0001(0x0007) MISSED OFFSET
+	struct FString                                     InteractionCaption;                                       // 0x0008(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
+	unsigned char                                      UnknownData01[0x50];                                      // 0x0018(0x0050) MISSED OFFSET
+};
+
 // ScriptStruct ConZ.ChoppingIngredient
 // 0x0028
 struct FChoppingIngredient
@@ -4086,16 +4096,6 @@ struct FChoppingRecipe
 	struct FChoppingParametersPerSkillLevel            MediumLevelData;                                          // 0x007C(0x000C) (Edit)
 	struct FChoppingParametersPerSkillLevel            AdvancedLevelData;                                        // 0x0088(0x000C) (Edit)
 	unsigned char                                      UnknownData01[0x4];                                       // 0x0094(0x0004) MISSED OFFSET
-};
-
-// ScriptStruct ConZ.InteractionStruct
-// 0x0068
-struct FInteractionStruct
-{
-	EInteractionType                                   interactionType;                                          // 0x0000(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0001(0x0007) MISSED OFFSET
-	struct FString                                     InteractionCaption;                                       // 0x0008(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
-	unsigned char                                      UnknownData01[0x50];                                      // 0x0018(0x0050) MISSED OFFSET
 };
 
 // ScriptStruct ConZ.CircularLayerData
@@ -4982,13 +4982,6 @@ struct FTooltipPanelData
 	unsigned char                                      UnknownData01[0x7];                                       // 0x0019(0x0007) MISSED OFFSET
 };
 
-// ScriptStruct ConZ.DialogInfoContainer
-// 0x0010
-struct FDialogInfoContainer
-{
-	TArray<struct FDialogueInfo>                       DialogInfos;                                              // 0x0000(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
-};
-
 // ScriptStruct ConZ.DistantLevel
 // 0x0020
 struct FDistantLevel
@@ -4996,6 +4989,13 @@ struct FDistantLevel
 	class AActor*                                      Level;                                                    // 0x0000(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
 	struct FString                                     Name;                                                     // 0x0008(0x0010) (Edit, ZeroConstructor)
 	unsigned char                                      UnknownData00[0x8];                                       // 0x0018(0x0008) MISSED OFFSET
+};
+
+// ScriptStruct ConZ.DialogInfoContainer
+// 0x0010
+struct FDialogInfoContainer
+{
+	TArray<struct FDialogueInfo>                       DialogInfos;                                              // 0x0000(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
 };
 
 // ScriptStruct ConZ.DrivingSkillExperienceAwards
@@ -5216,18 +5216,6 @@ struct FFoliageAIPerceptionData
 	EPrisonerStance                                    MaxUndetectedPrisonerStance;                              // 0x0001(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 };
 
-// ScriptStruct ConZ.GameEventTeamColours
-// 0x0060
-struct FGameEventTeamColours
-{
-	struct FLinearColor                                TeamName;                                                 // 0x0000(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
-	struct FLinearColor                                ParticipantStatsDarker;                                   // 0x0010(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
-	struct FLinearColor                                ParticipantStatsLighter;                                  // 0x0020(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
-	struct FLinearColor                                ParticipantStatsHighlighted;                              // 0x0030(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
-	struct FLinearColor                                ParticipantStatsDisabled;                                 // 0x0040(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
-	struct FLinearColor                                ParticipantStatsMini;                                     // 0x0050(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
-};
-
 // ScriptStruct ConZ.GlobalAnimalSpawnInfo
 // 0x001C
 struct FGlobalAnimalSpawnInfo
@@ -5306,6 +5294,18 @@ struct FHitReactLandingData
 	float                                              MinRagdollDuration;                                       // 0x001C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
 	float                                              MaxRagdollDuration;                                       // 0x0020(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
 	float                                              RagdollDurationPerSpeedUnit;                              // 0x0024(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+};
+
+// ScriptStruct ConZ.GameEventTeamColours
+// 0x0060
+struct FGameEventTeamColours
+{
+	struct FLinearColor                                TeamName;                                                 // 0x0000(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	struct FLinearColor                                ParticipantStatsDarker;                                   // 0x0010(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	struct FLinearColor                                ParticipantStatsLighter;                                  // 0x0020(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	struct FLinearColor                                ParticipantStatsHighlighted;                              // 0x0030(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	struct FLinearColor                                ParticipantStatsDisabled;                                 // 0x0040(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	struct FLinearColor                                ParticipantStatsMini;                                     // 0x0050(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
 };
 
 // ScriptStruct ConZ.InteractionQueryParameters
@@ -6628,6 +6628,18 @@ struct FUserProfileAuthorityInfo
 	struct FString                                     AuthToken;                                                // 0x0030(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
 };
 
+// ScriptStruct ConZ.VehicleCorpseBurningParticles
+// 0x0070
+struct FVehicleCorpseBurningParticles
+{
+	class UParticleSystem*                             Particles;                                                // 0x0000(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0008(0x0008) MISSED OFFSET
+	struct FTransform                                  ParticlesTransform;                                       // 0x0010(0x0030) (Edit, IsPlainOldData)
+	struct FHeatSourceParameters                       HeatSourceParameters;                                     // 0x0040(0x0020) (Edit)
+	struct FDbIntegerId                                HeatSourceId;                                             // 0x0060(0x0008)
+	unsigned char                                      UnknownData01[0x8];                                       // 0x0068(0x0008) MISSED OFFSET
+};
+
 // ScriptStruct ConZ.VehicleSpawnerDataBasedOnPreset
 // 0x0028
 struct FVehicleSpawnerDataBasedOnPreset
@@ -6676,18 +6688,6 @@ struct FClassesArray
 {
 	TArray<class UClass*>                              Classes;                                                  // 0x0000(0x0010) (Edit, ZeroConstructor)
 	TArray<class UClass*>                              ProhibitedClasses;                                        // 0x0010(0x0010) (Edit, ZeroConstructor)
-};
-
-// ScriptStruct ConZ.VehicleCorpseBurningParticles
-// 0x0070
-struct FVehicleCorpseBurningParticles
-{
-	class UParticleSystem*                             Particles;                                                // 0x0000(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0008(0x0008) MISSED OFFSET
-	struct FTransform                                  ParticlesTransform;                                       // 0x0010(0x0030) (Edit, IsPlainOldData)
-	struct FHeatSourceParameters                       HeatSourceParameters;                                     // 0x0040(0x0020) (Edit)
-	struct FDbIntegerId                                HeatSourceId;                                             // 0x0060(0x0008)
-	unsigned char                                      UnknownData01[0x8];                                       // 0x0068(0x0008) MISSED OFFSET
 };
 
 // ScriptStruct ConZ.WashItemData

@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 3.75.21350
+// Name: SCUM, Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -345,6 +345,15 @@ struct FMovieSceneCameraAnimSectionTemplate : public FMovieSceneAdditiveCameraAn
 	unsigned char                                      UnknownData00[0x4];                                       // 0x0044(0x0004) MISSED OFFSET
 };
 
+// ScriptStruct MovieSceneTracks.MovieSceneColorKeyStruct
+// 0x0030 (0x0038 - 0x0008)
+struct FMovieSceneColorKeyStruct : public FMovieSceneKeyStruct
+{
+	struct FLinearColor                                Color;                                                    // 0x0008(0x0010) (Edit, IsPlainOldData)
+	struct FFrameNumber                                Time;                                                     // 0x0018(0x0004) (Edit)
+	unsigned char                                      UnknownData00[0x1C];                                      // 0x001C(0x001C) MISSED OFFSET
+};
+
 // ScriptStruct MovieSceneTracks.MovieSceneCameraCutSectionTemplate
 // 0x0060 (0x0080 - 0x0020)
 struct FMovieSceneCameraCutSectionTemplate : public FMovieSceneEvalTemplate
@@ -354,15 +363,6 @@ struct FMovieSceneCameraCutSectionTemplate : public FMovieSceneEvalTemplate
 	struct FTransform                                  CutTransform;                                             // 0x0040(0x0030) (IsPlainOldData)
 	bool                                               bHasCutTransform;                                         // 0x0070(0x0001) (ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData01[0xF];                                       // 0x0071(0x000F) MISSED OFFSET
-};
-
-// ScriptStruct MovieSceneTracks.MovieSceneColorKeyStruct
-// 0x0030 (0x0038 - 0x0008)
-struct FMovieSceneColorKeyStruct : public FMovieSceneKeyStruct
-{
-	struct FLinearColor                                Color;                                                    // 0x0008(0x0010) (Edit, IsPlainOldData)
-	struct FFrameNumber                                Time;                                                     // 0x0018(0x0004) (Edit)
-	unsigned char                                      UnknownData00[0x1C];                                      // 0x001C(0x001C) MISSED OFFSET
 };
 
 // ScriptStruct MovieSceneTracks.MovieSceneColorSectionTemplate

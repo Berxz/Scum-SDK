@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 3.75.21350
+// Name: SCUM, Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -397,6 +397,31 @@ public:
 	void UnregisterFromPerceptionSystem();
 	void RegisterWithPerceptionSystem();
 	void RegisterForSense(class UClass* SenseClass);
+};
+
+
+// Class AIModule.AIPerceptionSystem
+// 0x0108 (0x0130 - 0x0028)
+class UAIPerceptionSystem : public UObject
+{
+public:
+	unsigned char                                      UnknownData00[0x58];                                      // 0x0028(0x0058) MISSED OFFSET
+	TArray<class UAISense*>                            Senses;                                                   // 0x0080(0x0010) (ZeroConstructor)
+	float                                              PerceptionAgingRate;                                      // 0x0090(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x9C];                                      // 0x0094(0x009C) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class AIModule.AIPerceptionSystem");
+		return ptr;
+	}
+
+
+	void STATIC_ReportPerceptionEvent(class UObject* WorldContextObject, class UAISenseEvent* PerceptionEvent);
+	void ReportEvent(class UAISenseEvent* PerceptionEvent);
+	bool STATIC_RegisterPerceptionStimuliSource(class UObject* WorldContextObject, class UClass* Sense, class AActor* Target);
+	void OnPerceptionStimuliSourceEndPlay(class AActor* Actor, TEnumAsByte<EEndPlayReason> EndPlayReason);
+	class UClass* STATIC_GetSenseClassForStimulus(class UObject* WorldContextObject, const struct FAIStimulus& Stimulus);
 };
 
 
@@ -882,21 +907,6 @@ public:
 };
 
 
-// Class AIModule.AITask_LockLogic
-// 0x0000 (0x0070 - 0x0070)
-class UAITask_LockLogic : public UAITask
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class AIModule.AITask_LockLogic");
-		return ptr;
-	}
-
-};
-
-
 // Class AIModule.AITask_MoveTo
 // 0x00A0 (0x0110 - 0x0070)
 class UAITask_MoveTo : public UAITask
@@ -1116,6 +1126,21 @@ public:
 };
 
 
+// Class AIModule.AITask_LockLogic
+// 0x0000 (0x0070 - 0x0070)
+class UAITask_LockLogic : public UAITask
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class AIModule.AITask_LockLogic");
+		return ptr;
+	}
+
+};
+
+
 // Class AIModule.BlackboardKeyType_Bool
 // 0x0000 (0x0030 - 0x0030)
 class UBlackboardKeyType_Bool : public UBlackboardKeyType
@@ -1131,28 +1156,19 @@ public:
 };
 
 
-// Class AIModule.AIPerceptionSystem
-// 0x0108 (0x0130 - 0x0028)
-class UAIPerceptionSystem : public UObject
+// Class AIModule.BlackboardKeyType_Class
+// 0x0008 (0x0038 - 0x0030)
+class UBlackboardKeyType_Class : public UBlackboardKeyType
 {
 public:
-	unsigned char                                      UnknownData00[0x58];                                      // 0x0028(0x0058) MISSED OFFSET
-	TArray<class UAISense*>                            Senses;                                                   // 0x0080(0x0010) (ZeroConstructor)
-	float                                              PerceptionAgingRate;                                      // 0x0090(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x9C];                                      // 0x0094(0x009C) MISSED OFFSET
+	class UClass*                                      BaseClass;                                                // 0x0030(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class AIModule.AIPerceptionSystem");
+		static auto ptr = UObject::FindClass("Class AIModule.BlackboardKeyType_Class");
 		return ptr;
 	}
 
-
-	void STATIC_ReportPerceptionEvent(class UObject* WorldContextObject, class UAISenseEvent* PerceptionEvent);
-	void ReportEvent(class UAISenseEvent* PerceptionEvent);
-	bool STATIC_RegisterPerceptionStimuliSource(class UObject* WorldContextObject, class UClass* Sense, class AActor* Target);
-	void OnPerceptionStimuliSourceEndPlay(class AActor* Actor, TEnumAsByte<EEndPlayReason> EndPlayReason);
-	class UClass* STATIC_GetSenseClassForStimulus(class UObject* WorldContextObject, const struct FAIStimulus& Stimulus);
 };
 
 
@@ -1184,21 +1200,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class AIModule.BlackboardKeyType_Float");
-		return ptr;
-	}
-
-};
-
-
-// Class AIModule.BlackboardKeyType_Int
-// 0x0000 (0x0030 - 0x0030)
-class UBlackboardKeyType_Int : public UBlackboardKeyType
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class AIModule.BlackboardKeyType_Int");
 		return ptr;
 	}
 
@@ -1262,22 +1263,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class AIModule.BlackboardKeyType_Rotator");
-		return ptr;
-	}
-
-};
-
-
-// Class AIModule.BlackboardKeyType_Class
-// 0x0008 (0x0038 - 0x0030)
-class UBlackboardKeyType_Class : public UBlackboardKeyType
-{
-public:
-	class UClass*                                      BaseClass;                                                // 0x0030(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class AIModule.BlackboardKeyType_Class");
 		return ptr;
 	}
 
@@ -1514,25 +1499,6 @@ public:
 };
 
 
-// Class AIModule.BTDecorator_CompareBBEntries
-// 0x0058 (0x00C0 - 0x0068)
-class UBTDecorator_CompareBBEntries : public UBTDecorator
-{
-public:
-	TEnumAsByte<EBlackBoardEntryComparison>            Operator;                                                 // 0x0068(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0069(0x0007) MISSED OFFSET
-	struct FBlackboardKeySelector                      BlackboardKeyA;                                           // 0x0070(0x0028) (Edit)
-	struct FBlackboardKeySelector                      BlackboardKeyB;                                           // 0x0098(0x0028) (Edit)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class AIModule.BTDecorator_CompareBBEntries");
-		return ptr;
-	}
-
-};
-
-
 // Class AIModule.BTDecorator_ConditionalLoop
 // 0x0000 (0x00C0 - 0x00C0)
 class UBTDecorator_ConditionalLoop : public UBTDecorator_Blackboard
@@ -1663,6 +1629,25 @@ public:
 };
 
 
+// Class AIModule.BTDecorator_CompareBBEntries
+// 0x0058 (0x00C0 - 0x0068)
+class UBTDecorator_CompareBBEntries : public UBTDecorator
+{
+public:
+	TEnumAsByte<EBlackBoardEntryComparison>            Operator;                                                 // 0x0068(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0069(0x0007) MISSED OFFSET
+	struct FBlackboardKeySelector                      BlackboardKeyA;                                           // 0x0070(0x0028) (Edit)
+	struct FBlackboardKeySelector                      BlackboardKeyB;                                           // 0x0098(0x0028) (Edit)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class AIModule.BTDecorator_CompareBBEntries");
+		return ptr;
+	}
+
+};
+
+
 // Class AIModule.BTDecorator_KeepInCone
 // 0x0060 (0x00C8 - 0x0068)
 class UBTDecorator_KeepInCone : public UBTDecorator
@@ -1679,6 +1664,26 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class AIModule.BTDecorator_KeepInCone");
+		return ptr;
+	}
+
+};
+
+
+// Class AIModule.BTDecorator_Loop
+// 0x0010 (0x0078 - 0x0068)
+class UBTDecorator_Loop : public UBTDecorator
+{
+public:
+	int                                                NumLoops;                                                 // 0x0068(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	bool                                               bInfiniteLoop;                                            // 0x006C(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x006D(0x0003) MISSED OFFSET
+	float                                              InfiniteLoopTimeoutTime;                                  // 0x0070(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x4];                                       // 0x0074(0x0004) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class AIModule.BTDecorator_Loop");
 		return ptr;
 	}
 
@@ -1750,69 +1755,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class AIModule.BTDecorator_TimeLimit");
-		return ptr;
-	}
-
-};
-
-
-// Class AIModule.BTFunctionLibrary
-// 0x0000 (0x0028 - 0x0028)
-class UBTFunctionLibrary : public UBlueprintFunctionLibrary
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class AIModule.BTFunctionLibrary");
-		return ptr;
-	}
-
-
-	void STATIC_StopUsingExternalEvent(class UBTNode* NodeOwner);
-	void STATIC_StartUsingExternalEvent(class UBTNode* NodeOwner, class AActor* OwningActor);
-	void STATIC_SetBlackboardValueAsVector(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key, const struct FVector& Value);
-	void STATIC_SetBlackboardValueAsString(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key, const struct FString& Value);
-	void STATIC_SetBlackboardValueAsRotator(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key, const struct FRotator& Value);
-	void STATIC_SetBlackboardValueAsObject(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key, class UObject* Value);
-	void STATIC_SetBlackboardValueAsName(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key, const struct FName& Value);
-	void STATIC_SetBlackboardValueAsInt(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key, int Value);
-	void STATIC_SetBlackboardValueAsFloat(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key, float Value);
-	void STATIC_SetBlackboardValueAsEnum(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key, unsigned char Value);
-	void STATIC_SetBlackboardValueAsClass(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key, class UClass* Value);
-	void STATIC_SetBlackboardValueAsBool(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key, bool Value);
-	class UBlackboardComponent* STATIC_GetOwnersBlackboard(class UBTNode* NodeOwner);
-	class UBehaviorTreeComponent* STATIC_GetOwnerComponent(class UBTNode* NodeOwner);
-	struct FVector STATIC_GetBlackboardValueAsVector(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key);
-	struct FString STATIC_GetBlackboardValueAsString(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key);
-	struct FRotator STATIC_GetBlackboardValueAsRotator(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key);
-	class UObject* STATIC_GetBlackboardValueAsObject(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key);
-	struct FName STATIC_GetBlackboardValueAsName(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key);
-	int STATIC_GetBlackboardValueAsInt(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key);
-	float STATIC_GetBlackboardValueAsFloat(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key);
-	unsigned char STATIC_GetBlackboardValueAsEnum(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key);
-	class UClass* STATIC_GetBlackboardValueAsClass(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key);
-	bool STATIC_GetBlackboardValueAsBool(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key);
-	class AActor* STATIC_GetBlackboardValueAsActor(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key);
-	void STATIC_ClearBlackboardValueAsVector(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key);
-	void STATIC_ClearBlackboardValue(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key);
-};
-
-
-// Class AIModule.BTDecorator_Loop
-// 0x0010 (0x0078 - 0x0068)
-class UBTDecorator_Loop : public UBTDecorator
-{
-public:
-	int                                                NumLoops;                                                 // 0x0068(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	bool                                               bInfiniteLoop;                                            // 0x006C(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x006D(0x0003) MISSED OFFSET
-	float                                              InfiniteLoopTimeoutTime;                                  // 0x0070(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x4];                                       // 0x0074(0x0004) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class AIModule.BTDecorator_Loop");
 		return ptr;
 	}
 
@@ -1920,6 +1862,49 @@ public:
 };
 
 
+// Class AIModule.BTFunctionLibrary
+// 0x0000 (0x0028 - 0x0028)
+class UBTFunctionLibrary : public UBlueprintFunctionLibrary
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class AIModule.BTFunctionLibrary");
+		return ptr;
+	}
+
+
+	void STATIC_StopUsingExternalEvent(class UBTNode* NodeOwner);
+	void STATIC_StartUsingExternalEvent(class UBTNode* NodeOwner, class AActor* OwningActor);
+	void STATIC_SetBlackboardValueAsVector(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key, const struct FVector& Value);
+	void STATIC_SetBlackboardValueAsString(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key, const struct FString& Value);
+	void STATIC_SetBlackboardValueAsRotator(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key, const struct FRotator& Value);
+	void STATIC_SetBlackboardValueAsObject(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key, class UObject* Value);
+	void STATIC_SetBlackboardValueAsName(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key, const struct FName& Value);
+	void STATIC_SetBlackboardValueAsInt(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key, int Value);
+	void STATIC_SetBlackboardValueAsFloat(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key, float Value);
+	void STATIC_SetBlackboardValueAsEnum(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key, unsigned char Value);
+	void STATIC_SetBlackboardValueAsClass(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key, class UClass* Value);
+	void STATIC_SetBlackboardValueAsBool(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key, bool Value);
+	class UBlackboardComponent* STATIC_GetOwnersBlackboard(class UBTNode* NodeOwner);
+	class UBehaviorTreeComponent* STATIC_GetOwnerComponent(class UBTNode* NodeOwner);
+	struct FVector STATIC_GetBlackboardValueAsVector(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key);
+	struct FString STATIC_GetBlackboardValueAsString(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key);
+	struct FRotator STATIC_GetBlackboardValueAsRotator(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key);
+	class UObject* STATIC_GetBlackboardValueAsObject(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key);
+	struct FName STATIC_GetBlackboardValueAsName(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key);
+	int STATIC_GetBlackboardValueAsInt(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key);
+	float STATIC_GetBlackboardValueAsFloat(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key);
+	unsigned char STATIC_GetBlackboardValueAsEnum(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key);
+	class UClass* STATIC_GetBlackboardValueAsClass(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key);
+	bool STATIC_GetBlackboardValueAsBool(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key);
+	class AActor* STATIC_GetBlackboardValueAsActor(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key);
+	void STATIC_ClearBlackboardValueAsVector(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key);
+	void STATIC_ClearBlackboardValue(class UBTNode* NodeOwner, const struct FBlackboardKeySelector& Key);
+};
+
+
 // Class AIModule.BTTask_BlackboardBase
 // 0x0028 (0x0098 - 0x0070)
 class UBTTask_BlackboardBase : public UBTTaskNode
@@ -1936,50 +1921,17 @@ public:
 };
 
 
-// Class AIModule.BTTask_BlueprintBase
-// 0x0030 (0x00A0 - 0x0070)
-class UBTTask_BlueprintBase : public UBTTaskNode
-{
-public:
-	class AAIController*                               AIOwner;                                                  // 0x0070(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
-	class AActor*                                      ActorOwner;                                               // 0x0078(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x18];                                      // 0x0080(0x0018) MISSED OFFSET
-	unsigned char                                      bShowPropertyDetails : 1;                                 // 0x0098(0x0001) (Edit, DisableEditOnTemplate)
-	unsigned char                                      UnknownData01[0x7];                                       // 0x0099(0x0007) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class AIModule.BTTask_BlueprintBase");
-		return ptr;
-	}
-
-
-	void SetFinishOnMessageWithId(const struct FName& MessageName, int RequestID);
-	void SetFinishOnMessage(const struct FName& MessageName);
-	void ReceiveTickAI(class AAIController* OwnerController, class APawn* ControlledPawn, float DeltaSeconds);
-	void ReceiveTick(class AActor* OwnerActor, float DeltaSeconds);
-	void ReceiveExecuteAI(class AAIController* OwnerController, class APawn* ControlledPawn);
-	void ReceiveExecute(class AActor* OwnerActor);
-	void ReceiveAbortAI(class AAIController* OwnerController, class APawn* ControlledPawn);
-	void ReceiveAbort(class AActor* OwnerActor);
-	bool IsTaskExecuting();
-	bool IsTaskAborting();
-	void FinishExecute(bool bSuccess);
-	void FinishAbort();
-};
-
-
-// Class AIModule.BTTask_GameplayTaskBase
+// Class AIModule.BTTask_MakeNoise
 // 0x0008 (0x0078 - 0x0070)
-class UBTTask_GameplayTaskBase : public UBTTaskNode
+class UBTTask_MakeNoise : public UBTTaskNode
 {
 public:
-	unsigned char                                      bWaitForGameplayTask : 1;                                 // 0x0070(0x0001) (Edit)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0071(0x0007) MISSED OFFSET
+	float                                              Loudnes;                                                  // 0x0070(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x0074(0x0004) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class AIModule.BTTask_GameplayTaskBase");
+		static auto ptr = UObject::FindClass("Class AIModule.BTTask_MakeNoise");
 		return ptr;
 	}
 
@@ -2087,17 +2039,33 @@ public:
 };
 
 
-// Class AIModule.BTTask_RotateToFaceBBEntry
-// 0x0008 (0x00A0 - 0x0098)
-class UBTTask_RotateToFaceBBEntry : public UBTTask_BlackboardBase
+// Class AIModule.BTTask_PushPawnAction
+// 0x0008 (0x0078 - 0x0070)
+class UBTTask_PushPawnAction : public UBTTask_PawnActionBase
 {
 public:
-	float                                              Precision;                                                // 0x0098(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x009C(0x0004) MISSED OFFSET
+	class UPawnAction*                                 Action;                                                   // 0x0070(0x0008) (Edit, ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class AIModule.BTTask_RotateToFaceBBEntry");
+		static auto ptr = UObject::FindClass("Class AIModule.BTTask_PushPawnAction");
+		return ptr;
+	}
+
+};
+
+
+// Class AIModule.BTTask_GameplayTaskBase
+// 0x0008 (0x0078 - 0x0070)
+class UBTTask_GameplayTaskBase : public UBTTaskNode
+{
+public:
+	unsigned char                                      bWaitForGameplayTask : 1;                                 // 0x0070(0x0001) (Edit)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0071(0x0007) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class AIModule.BTTask_GameplayTaskBase");
 		return ptr;
 	}
 
@@ -2230,23 +2198,6 @@ public:
 };
 
 
-// Class AIModule.BTTask_MakeNoise
-// 0x0008 (0x0078 - 0x0070)
-class UBTTask_MakeNoise : public UBTTaskNode
-{
-public:
-	float                                              Loudnes;                                                  // 0x0070(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0074(0x0004) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class AIModule.BTTask_MakeNoise");
-		return ptr;
-	}
-
-};
-
-
 // Class AIModule.CrowdManager
 // 0x00C8 (0x00F0 - 0x0028)
 class UCrowdManager : public UCrowdManagerBase
@@ -2276,6 +2227,21 @@ public:
 };
 
 
+// Class AIModule.DetourCrowdAIController
+// 0x0000 (0x0438 - 0x0438)
+class ADetourCrowdAIController : public AAIController
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class AIModule.DetourCrowdAIController");
+		return ptr;
+	}
+
+};
+
+
 // Class AIModule.EnvQuery
 // 0x0018 (0x0048 - 0x0030)
 class UEnvQuery : public UDataAsset
@@ -2290,6 +2256,39 @@ public:
 		return ptr;
 	}
 
+};
+
+
+// Class AIModule.BTTask_BlueprintBase
+// 0x0030 (0x00A0 - 0x0070)
+class UBTTask_BlueprintBase : public UBTTaskNode
+{
+public:
+	class AAIController*                               AIOwner;                                                  // 0x0070(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
+	class AActor*                                      ActorOwner;                                               // 0x0078(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x18];                                      // 0x0080(0x0018) MISSED OFFSET
+	unsigned char                                      bShowPropertyDetails : 1;                                 // 0x0098(0x0001) (Edit, DisableEditOnTemplate)
+	unsigned char                                      UnknownData01[0x7];                                       // 0x0099(0x0007) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class AIModule.BTTask_BlueprintBase");
+		return ptr;
+	}
+
+
+	void SetFinishOnMessageWithId(const struct FName& MessageName, int RequestID);
+	void SetFinishOnMessage(const struct FName& MessageName);
+	void ReceiveTickAI(class AAIController* OwnerController, class APawn* ControlledPawn, float DeltaSeconds);
+	void ReceiveTick(class AActor* OwnerActor, float DeltaSeconds);
+	void ReceiveExecuteAI(class AAIController* OwnerController, class APawn* ControlledPawn);
+	void ReceiveExecute(class AActor* OwnerActor);
+	void ReceiveAbortAI(class AAIController* OwnerController, class APawn* ControlledPawn);
+	void ReceiveAbort(class AActor* OwnerActor);
+	bool IsTaskExecuting();
+	bool IsTaskAborting();
+	void FinishExecute(bool bSuccess);
+	void FinishAbort();
 };
 
 
@@ -2510,6 +2509,23 @@ public:
 };
 
 
+// Class AIModule.BTTask_RotateToFaceBBEntry
+// 0x0008 (0x00A0 - 0x0098)
+class UBTTask_RotateToFaceBBEntry : public UBTTask_BlackboardBase
+{
+public:
+	float                                              Precision;                                                // 0x0098(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x009C(0x0004) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class AIModule.BTTask_RotateToFaceBBEntry");
+		return ptr;
+	}
+
+};
+
+
 // Class AIModule.EnvQueryGenerator_Donut
 // 0x0128 (0x01A8 - 0x0080)
 class UEnvQueryGenerator_Donut : public UEnvQueryGenerator_ProjectedPoints
@@ -2603,34 +2619,6 @@ public:
 };
 
 
-// Class AIModule.EnvQueryInstanceBlueprintWrapper
-// 0x0050 (0x0078 - 0x0028)
-class UEnvQueryInstanceBlueprintWrapper : public UObject
-{
-public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0028(0x0008) MISSED OFFSET
-	int                                                QueryID;                                                  // 0x0030(0x0004) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x24];                                      // 0x0034(0x0024) MISSED OFFSET
-	class UClass*                                      ItemType;                                                 // 0x0058(0x0008) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	int                                                OptionIndex;                                              // 0x0060(0x0004) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData02[0x4];                                       // 0x0064(0x0004) MISSED OFFSET
-	struct FScriptMulticastDelegate                    OnQueryFinishedEvent;                                     // 0x0068(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class AIModule.EnvQueryInstanceBlueprintWrapper");
-		return ptr;
-	}
-
-
-	void SetNamedParam(const struct FName& ParamName, float Value);
-	TArray<struct FVector> GetResultsAsLocations();
-	TArray<class AActor*> GetResultsAsActors();
-	float GetItemScore(int ItemIndex);
-	void EQSQueryDoneSignature__DelegateSignature(class UEnvQueryInstanceBlueprintWrapper* QueryInstance, TEnumAsByte<EEnvQueryStatus> QueryStatus);
-};
-
-
 // Class AIModule.EnvQueryItemType
 // 0x0008 (0x0030 - 0x0028)
 class UEnvQueryItemType : public UObject
@@ -2662,18 +2650,31 @@ public:
 };
 
 
-// Class AIModule.EnvQueryItemType_ActorBase
-// 0x0000 (0x0030 - 0x0030)
-class UEnvQueryItemType_ActorBase : public UEnvQueryItemType_VectorBase
+// Class AIModule.EnvQueryInstanceBlueprintWrapper
+// 0x0050 (0x0078 - 0x0028)
+class UEnvQueryInstanceBlueprintWrapper : public UObject
 {
 public:
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0028(0x0008) MISSED OFFSET
+	int                                                QueryID;                                                  // 0x0030(0x0004) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x24];                                      // 0x0034(0x0024) MISSED OFFSET
+	class UClass*                                      ItemType;                                                 // 0x0058(0x0008) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	int                                                OptionIndex;                                              // 0x0060(0x0004) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData02[0x4];                                       // 0x0064(0x0004) MISSED OFFSET
+	struct FScriptMulticastDelegate                    OnQueryFinishedEvent;                                     // 0x0068(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class AIModule.EnvQueryItemType_ActorBase");
+		static auto ptr = UObject::FindClass("Class AIModule.EnvQueryInstanceBlueprintWrapper");
 		return ptr;
 	}
 
+
+	void SetNamedParam(const struct FName& ParamName, float Value);
+	TArray<struct FVector> GetResultsAsLocations();
+	TArray<class AActor*> GetResultsAsActors();
+	float GetItemScore(int ItemIndex);
+	void EQSQueryDoneSignature__DelegateSignature(class UEnvQueryInstanceBlueprintWrapper* QueryInstance, TEnumAsByte<EEnvQueryStatus> QueryStatus);
 };
 
 
@@ -2769,30 +2770,40 @@ public:
 };
 
 
-// Class AIModule.DetourCrowdAIController
-// 0x0000 (0x0438 - 0x0438)
-class ADetourCrowdAIController : public AAIController
+// Class AIModule.EnvQueryTest_Dot
+// 0x0048 (0x0208 - 0x01C0)
+class UEnvQueryTest_Dot : public UEnvQueryTest
 {
 public:
+	struct FEnvDirection                               LineA;                                                    // 0x01C0(0x0020) (Edit, DisableEditOnInstance)
+	struct FEnvDirection                               LineB;                                                    // 0x01E0(0x0020) (Edit, DisableEditOnInstance)
+	EEnvTestDot                                        TestMode;                                                 // 0x0200(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	bool                                               bAbsoluteValue;                                           // 0x0201(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x6];                                       // 0x0202(0x0006) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class AIModule.DetourCrowdAIController");
+		static auto ptr = UObject::FindClass("Class AIModule.EnvQueryTest_Dot");
 		return ptr;
 	}
 
 };
 
 
-// Class AIModule.EnvQueryItemType_Actor
-// 0x0000 (0x0030 - 0x0030)
-class UEnvQueryItemType_Actor : public UEnvQueryItemType_ActorBase
+// Class AIModule.EnvQueryTest_GameplayTags
+// 0x0070 (0x0230 - 0x01C0)
+class UEnvQueryTest_GameplayTags : public UEnvQueryTest
 {
 public:
+	struct FGameplayTagQuery                           TagQueryToMatch;                                          // 0x01C0(0x0048) (Edit)
+	bool                                               bUpdatedToUseQuery;                                       // 0x0208(0x0001) (ZeroConstructor, IsPlainOldData)
+	EGameplayContainerMatchType                        TagsToMatch;                                              // 0x0209(0x0001) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x6];                                       // 0x020A(0x0006) MISSED OFFSET
+	struct FGameplayTagContainer                       GameplayTags;                                             // 0x0210(0x0020)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class AIModule.EnvQueryItemType_Actor");
+		static auto ptr = UObject::FindClass("Class AIModule.EnvQueryTest_GameplayTags");
 		return ptr;
 	}
 
@@ -3322,56 +3333,45 @@ public:
 };
 
 
-// Class AIModule.EnvQueryTest_GameplayTags
-// 0x0070 (0x0230 - 0x01C0)
-class UEnvQueryTest_GameplayTags : public UEnvQueryTest
+// Class AIModule.EnvQueryItemType_ActorBase
+// 0x0000 (0x0030 - 0x0030)
+class UEnvQueryItemType_ActorBase : public UEnvQueryItemType_VectorBase
 {
 public:
-	struct FGameplayTagQuery                           TagQueryToMatch;                                          // 0x01C0(0x0048) (Edit)
-	bool                                               bUpdatedToUseQuery;                                       // 0x0208(0x0001) (ZeroConstructor, IsPlainOldData)
-	EGameplayContainerMatchType                        TagsToMatch;                                              // 0x0209(0x0001) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x6];                                       // 0x020A(0x0006) MISSED OFFSET
-	struct FGameplayTagContainer                       GameplayTags;                                             // 0x0210(0x0020)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class AIModule.EnvQueryTest_GameplayTags");
+		static auto ptr = UObject::FindClass("Class AIModule.EnvQueryItemType_ActorBase");
 		return ptr;
 	}
 
 };
 
 
-// Class AIModule.BTTask_PushPawnAction
-// 0x0008 (0x0078 - 0x0070)
-class UBTTask_PushPawnAction : public UBTTask_PawnActionBase
+// Class AIModule.EnvQueryItemType_Actor
+// 0x0000 (0x0030 - 0x0030)
+class UEnvQueryItemType_Actor : public UEnvQueryItemType_ActorBase
 {
 public:
-	class UPawnAction*                                 Action;                                                   // 0x0070(0x0008) (Edit, ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class AIModule.BTTask_PushPawnAction");
+		static auto ptr = UObject::FindClass("Class AIModule.EnvQueryItemType_Actor");
 		return ptr;
 	}
 
 };
 
 
-// Class AIModule.EnvQueryTest_Dot
-// 0x0048 (0x0208 - 0x01C0)
-class UEnvQueryTest_Dot : public UEnvQueryTest
+// Class AIModule.BlackboardKeyType_Int
+// 0x0000 (0x0030 - 0x0030)
+class UBlackboardKeyType_Int : public UBlackboardKeyType
 {
 public:
-	struct FEnvDirection                               LineA;                                                    // 0x01C0(0x0020) (Edit, DisableEditOnInstance)
-	struct FEnvDirection                               LineB;                                                    // 0x01E0(0x0020) (Edit, DisableEditOnInstance)
-	EEnvTestDot                                        TestMode;                                                 // 0x0200(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	bool                                               bAbsoluteValue;                                           // 0x0201(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x6];                                       // 0x0202(0x0006) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class AIModule.EnvQueryTest_Dot");
+		static auto ptr = UObject::FindClass("Class AIModule.BlackboardKeyType_Int");
 		return ptr;
 	}
 

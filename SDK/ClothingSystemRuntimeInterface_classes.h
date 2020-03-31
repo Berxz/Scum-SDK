@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 3.75.21350
+// Name: SCUM, Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -29,6 +29,21 @@ public:
 };
 
 
+// Class ClothingSystemRuntimeInterface.ClothingSimulationFactory
+// 0x0000 (0x0028 - 0x0028)
+class UClothingSimulationFactory : public UObject
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class ClothingSystemRuntimeInterface.ClothingSimulationFactory");
+		return ptr;
+	}
+
+};
+
+
 // Class ClothingSystemRuntimeInterface.ClothingSimulationInteractor
 // 0x0008 (0x0030 - 0x0028)
 class UClothingSimulationInteractor : public UObject
@@ -45,21 +60,6 @@ public:
 
 	void PhysicsAssetUpdated();
 	void ClothConfigUpdated();
-};
-
-
-// Class ClothingSystemRuntimeInterface.ClothingSimulationFactory
-// 0x0000 (0x0028 - 0x0028)
-class UClothingSimulationFactory : public UObject
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class ClothingSystemRuntimeInterface.ClothingSimulationFactory");
-		return ptr;
-	}
-
 };
 
 

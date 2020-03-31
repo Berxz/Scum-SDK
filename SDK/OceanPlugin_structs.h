@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 3.75.21350
+// Name: SCUM, Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -27,6 +27,20 @@ enum class EFollowMethod : uint8_t
 //---------------------------------------------------------------------------
 // Script Structs
 //---------------------------------------------------------------------------
+
+// ScriptStruct OceanPlugin.ForceTriangle
+// 0x006C
+struct FForceTriangle
+{
+	unsigned char                                      UnknownData00[0x6C];                                      // 0x0000(0x006C) MISSED OFFSET
+};
+
+// ScriptStruct OceanPlugin.BuoyancyVertex
+// 0x0010
+struct FBuoyancyVertex
+{
+	unsigned char                                      UnknownData00[0x10];                                      // 0x0000(0x0010) MISSED OFFSET
+};
 
 // ScriptStruct OceanPlugin.StructBoneOverride
 // 0x0010
@@ -73,20 +87,6 @@ struct FTimeDate
 	int                                                Day;                                                      // 0x0010(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	int                                                Month;                                                    // 0x0014(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	int                                                Year;                                                     // 0x0018(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-};
-
-// ScriptStruct OceanPlugin.ForceTriangle
-// 0x006C
-struct FForceTriangle
-{
-	unsigned char                                      UnknownData00[0x6C];                                      // 0x0000(0x006C) MISSED OFFSET
-};
-
-// ScriptStruct OceanPlugin.BuoyancyVertex
-// 0x0010
-struct FBuoyancyVertex
-{
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0000(0x0010) MISSED OFFSET
 };
 
 }

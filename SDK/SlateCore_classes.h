@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 3.75.21350
+// Name: SCUM, Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -12,6 +12,22 @@ namespace SDK
 // Classes
 //---------------------------------------------------------------------------
 
+// Class SlateCore.FontBulkData
+// 0x0098 (0x00C0 - 0x0028)
+class UFontBulkData : public UObject
+{
+public:
+	unsigned char                                      UnknownData00[0x98];                                      // 0x0028(0x0098) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class SlateCore.FontBulkData");
+		return ptr;
+	}
+
+};
+
+
 // Class SlateCore.FontFaceInterface
 // 0x0000 (0x0028 - 0x0028)
 class UFontFaceInterface : public UInterface
@@ -21,6 +37,21 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class SlateCore.FontFaceInterface");
+		return ptr;
+	}
+
+};
+
+
+// Class SlateCore.FontProviderInterface
+// 0x0000 (0x0028 - 0x0028)
+class UFontProviderInterface : public UInterface
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class SlateCore.FontProviderInterface");
 		return ptr;
 	}
 
@@ -83,37 +114,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class SlateCore.SlateWidgetStyleContainerInterface");
-		return ptr;
-	}
-
-};
-
-
-// Class SlateCore.FontBulkData
-// 0x0098 (0x00C0 - 0x0028)
-class UFontBulkData : public UObject
-{
-public:
-	unsigned char                                      UnknownData00[0x98];                                      // 0x0028(0x0098) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class SlateCore.FontBulkData");
-		return ptr;
-	}
-
-};
-
-
-// Class SlateCore.FontProviderInterface
-// 0x0000 (0x0028 - 0x0028)
-class UFontProviderInterface : public UInterface
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class SlateCore.FontProviderInterface");
 		return ptr;
 	}
 

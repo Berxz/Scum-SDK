@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: , Version: 3.75.21350
+// Name: SCUM, Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,6 +13,65 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Parameters
 //---------------------------------------------------------------------------
+
+// Function OceanPlugin.AdvancedBuoyancyComponent.TriangleArea
+struct UAdvancedBuoyancyComponent_TriangleArea_Params
+{
+	struct FVector                                     A;                                                        // (Parm, IsPlainOldData)
+	struct FVector                                     B;                                                        // (Parm, IsPlainOldData)
+	struct FVector                                     C;                                                        // (Parm, IsPlainOldData)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function OceanPlugin.AdvancedBuoyancyComponent.SplitTriangle
+struct UAdvancedBuoyancyComponent_SplitTriangle_Params
+{
+	struct FBuoyancyVertex                             H;                                                        // (Parm)
+	struct FBuoyancyVertex                             M;                                                        // (Parm)
+	struct FBuoyancyVertex                             L;                                                        // (Parm)
+	struct FVector                                     InArrow;                                                  // (Parm, IsPlainOldData)
+	TArray<struct FForceTriangle>                      ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function OceanPlugin.AdvancedBuoyancyComponent.SetMeshDensity
+struct UAdvancedBuoyancyComponent_SetMeshDensity_Params
+{
+	float                                              NewDensity;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              NewWaterDensity;                                          // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function OceanPlugin.AdvancedBuoyancyComponent.GetOceanDepthFromGrid
+struct UAdvancedBuoyancyComponent_GetOceanDepthFromGrid_Params
+{
+	struct FVector                                     Position;                                                 // (Parm, IsPlainOldData)
+	bool                                               bJustGetHeightAtLocation;                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function OceanPlugin.AdvancedBuoyancyComponent.GetOcean
+struct UAdvancedBuoyancyComponent_GetOcean_Params
+{
+};
+
+// Function OceanPlugin.AdvancedBuoyancyComponent.DrawDebugStuff
+struct UAdvancedBuoyancyComponent_DrawDebugStuff_Params
+{
+	struct FForceTriangle                              TriForce;                                                 // (Parm)
+	struct FColor                                      DebugColor;                                               // (Parm, IsPlainOldData)
+};
+
+// Function OceanPlugin.AdvancedBuoyancyComponent.ApplySlamForce
+struct UAdvancedBuoyancyComponent_ApplySlamForce_Params
+{
+	struct FVector                                     SlamForce;                                                // (Parm, IsPlainOldData)
+	struct FVector                                     TriCenter;                                                // (Parm, IsPlainOldData)
+};
+
+// Function OceanPlugin.AdvancedBuoyancyComponent.ApplyForce
+struct UAdvancedBuoyancyComponent_ApplyForce_Params
+{
+	struct FForceTriangle                              TriForce;                                                 // (Parm)
+};
 
 // Function OceanPlugin.CustomVehicleController.GetIsDriving
 struct ACustomVehicleController_GetIsDriving_Params
@@ -172,65 +231,6 @@ struct ATimeManager_CalculateMoonPhase_Params
 struct ATimeManager_CalculateMoonAngle_Params
 {
 	struct FRotator                                    ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
-};
-
-// Function OceanPlugin.AdvancedBuoyancyComponent.TriangleArea
-struct UAdvancedBuoyancyComponent_TriangleArea_Params
-{
-	struct FVector                                     A;                                                        // (Parm, IsPlainOldData)
-	struct FVector                                     B;                                                        // (Parm, IsPlainOldData)
-	struct FVector                                     C;                                                        // (Parm, IsPlainOldData)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function OceanPlugin.AdvancedBuoyancyComponent.SplitTriangle
-struct UAdvancedBuoyancyComponent_SplitTriangle_Params
-{
-	struct FBuoyancyVertex                             H;                                                        // (Parm)
-	struct FBuoyancyVertex                             M;                                                        // (Parm)
-	struct FBuoyancyVertex                             L;                                                        // (Parm)
-	struct FVector                                     InArrow;                                                  // (Parm, IsPlainOldData)
-	TArray<struct FForceTriangle>                      ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function OceanPlugin.AdvancedBuoyancyComponent.SetMeshDensity
-struct UAdvancedBuoyancyComponent_SetMeshDensity_Params
-{
-	float                                              NewDensity;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              NewWaterDensity;                                          // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function OceanPlugin.AdvancedBuoyancyComponent.GetOceanDepthFromGrid
-struct UAdvancedBuoyancyComponent_GetOceanDepthFromGrid_Params
-{
-	struct FVector                                     Position;                                                 // (Parm, IsPlainOldData)
-	bool                                               bJustGetHeightAtLocation;                                 // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function OceanPlugin.AdvancedBuoyancyComponent.GetOcean
-struct UAdvancedBuoyancyComponent_GetOcean_Params
-{
-};
-
-// Function OceanPlugin.AdvancedBuoyancyComponent.DrawDebugStuff
-struct UAdvancedBuoyancyComponent_DrawDebugStuff_Params
-{
-	struct FForceTriangle                              TriForce;                                                 // (Parm)
-	struct FColor                                      DebugColor;                                               // (Parm, IsPlainOldData)
-};
-
-// Function OceanPlugin.AdvancedBuoyancyComponent.ApplySlamForce
-struct UAdvancedBuoyancyComponent_ApplySlamForce_Params
-{
-	struct FVector                                     SlamForce;                                                // (Parm, IsPlainOldData)
-	struct FVector                                     TriCenter;                                                // (Parm, IsPlainOldData)
-};
-
-// Function OceanPlugin.AdvancedBuoyancyComponent.ApplyForce
-struct UAdvancedBuoyancyComponent_ApplyForce_Params
-{
-	struct FForceTriangle                              TriForce;                                                 // (Parm)
 };
 
 }

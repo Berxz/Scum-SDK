@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: , Version: 3.75.21350
+// Name: SCUM, Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -387,6 +387,43 @@ struct UAIPerceptionStimuliSourceComponent_RegisterForSense_Params
 	class UClass*                                      SenseClass;                                               // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
+// Function AIModule.AIPerceptionSystem.ReportPerceptionEvent
+struct UAIPerceptionSystem_ReportPerceptionEvent_Params
+{
+	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+	class UAISenseEvent*                               PerceptionEvent;                                          // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function AIModule.AIPerceptionSystem.ReportEvent
+struct UAIPerceptionSystem_ReportEvent_Params
+{
+	class UAISenseEvent*                               PerceptionEvent;                                          // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function AIModule.AIPerceptionSystem.RegisterPerceptionStimuliSource
+struct UAIPerceptionSystem_RegisterPerceptionStimuliSource_Params
+{
+	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+	class UClass*                                      Sense;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      Target;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function AIModule.AIPerceptionSystem.OnPerceptionStimuliSourceEndPlay
+struct UAIPerceptionSystem_OnPerceptionStimuliSourceEndPlay_Params
+{
+	class AActor*                                      Actor;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	TEnumAsByte<EEndPlayReason>                        EndPlayReason;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function AIModule.AIPerceptionSystem.GetSenseClassForStimulus
+struct UAIPerceptionSystem_GetSenseClassForStimulus_Params
+{
+	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FAIStimulus                                 Stimulus;                                                 // (ConstParm, Parm, OutParm, ReferenceParm)
+	class UClass*                                      ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
 // Function AIModule.AISense_Blueprint.OnUpdate
 struct UAISense_Blueprint_OnUpdate_Params
 {
@@ -718,43 +755,6 @@ struct UBlackboardComponent_ClearValue_Params
 	struct FName                                       KeyName;                                                  // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
 };
 
-// Function AIModule.AIPerceptionSystem.ReportPerceptionEvent
-struct UAIPerceptionSystem_ReportPerceptionEvent_Params
-{
-	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-	class UAISenseEvent*                               PerceptionEvent;                                          // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function AIModule.AIPerceptionSystem.ReportEvent
-struct UAIPerceptionSystem_ReportEvent_Params
-{
-	class UAISenseEvent*                               PerceptionEvent;                                          // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function AIModule.AIPerceptionSystem.RegisterPerceptionStimuliSource
-struct UAIPerceptionSystem_RegisterPerceptionStimuliSource_Params
-{
-	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-	class UClass*                                      Sense;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	class AActor*                                      Target;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function AIModule.AIPerceptionSystem.OnPerceptionStimuliSourceEndPlay
-struct UAIPerceptionSystem_OnPerceptionStimuliSourceEndPlay_Params
-{
-	class AActor*                                      Actor;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	TEnumAsByte<EEndPlayReason>                        EndPlayReason;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function AIModule.AIPerceptionSystem.GetSenseClassForStimulus
-struct UAIPerceptionSystem_GetSenseClassForStimulus_Params
-{
-	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FAIStimulus                                 Stimulus;                                                 // (ConstParm, Parm, OutParm, ReferenceParm)
-	class UClass*                                      ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
 // Function AIModule.BTDecorator_BlueprintBase.ReceiveTickAI
 struct UBTDecorator_BlueprintBase_ReceiveTickAI_Params
 {
@@ -847,6 +847,66 @@ struct UBTDecorator_BlueprintBase_IsDecoratorObserverActive_Params
 
 // Function AIModule.BTDecorator_BlueprintBase.IsDecoratorExecutionActive
 struct UBTDecorator_BlueprintBase_IsDecoratorExecutionActive_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function AIModule.BTService_BlueprintBase.ReceiveTickAI
+struct UBTService_BlueprintBase_ReceiveTickAI_Params
+{
+	class AAIController*                               OwnerController;                                          // (Parm, ZeroConstructor, IsPlainOldData)
+	class APawn*                                       ControlledPawn;                                           // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function AIModule.BTService_BlueprintBase.ReceiveTick
+struct UBTService_BlueprintBase_ReceiveTick_Params
+{
+	class AActor*                                      OwnerActor;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function AIModule.BTService_BlueprintBase.ReceiveSearchStartAI
+struct UBTService_BlueprintBase_ReceiveSearchStartAI_Params
+{
+	class AAIController*                               OwnerController;                                          // (Parm, ZeroConstructor, IsPlainOldData)
+	class APawn*                                       ControlledPawn;                                           // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function AIModule.BTService_BlueprintBase.ReceiveSearchStart
+struct UBTService_BlueprintBase_ReceiveSearchStart_Params
+{
+	class AActor*                                      OwnerActor;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function AIModule.BTService_BlueprintBase.ReceiveDeactivationAI
+struct UBTService_BlueprintBase_ReceiveDeactivationAI_Params
+{
+	class AAIController*                               OwnerController;                                          // (Parm, ZeroConstructor, IsPlainOldData)
+	class APawn*                                       ControlledPawn;                                           // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function AIModule.BTService_BlueprintBase.ReceiveDeactivation
+struct UBTService_BlueprintBase_ReceiveDeactivation_Params
+{
+	class AActor*                                      OwnerActor;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function AIModule.BTService_BlueprintBase.ReceiveActivationAI
+struct UBTService_BlueprintBase_ReceiveActivationAI_Params
+{
+	class AAIController*                               OwnerController;                                          // (Parm, ZeroConstructor, IsPlainOldData)
+	class APawn*                                       ControlledPawn;                                           // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function AIModule.BTService_BlueprintBase.ReceiveActivation
+struct UBTService_BlueprintBase_ReceiveActivation_Params
+{
+	class AActor*                                      OwnerActor;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function AIModule.BTService_BlueprintBase.IsServiceActive
+struct UBTService_BlueprintBase_IsServiceActive_Params
 {
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
@@ -1058,66 +1118,6 @@ struct UBTFunctionLibrary_ClearBlackboardValue_Params
 {
 	class UBTNode*                                     NodeOwner;                                                // (Parm, ZeroConstructor, IsPlainOldData)
 	struct FBlackboardKeySelector                      Key;                                                      // (ConstParm, Parm, OutParm, ReferenceParm)
-};
-
-// Function AIModule.BTService_BlueprintBase.ReceiveTickAI
-struct UBTService_BlueprintBase_ReceiveTickAI_Params
-{
-	class AAIController*                               OwnerController;                                          // (Parm, ZeroConstructor, IsPlainOldData)
-	class APawn*                                       ControlledPawn;                                           // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              DeltaSeconds;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function AIModule.BTService_BlueprintBase.ReceiveTick
-struct UBTService_BlueprintBase_ReceiveTick_Params
-{
-	class AActor*                                      OwnerActor;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              DeltaSeconds;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function AIModule.BTService_BlueprintBase.ReceiveSearchStartAI
-struct UBTService_BlueprintBase_ReceiveSearchStartAI_Params
-{
-	class AAIController*                               OwnerController;                                          // (Parm, ZeroConstructor, IsPlainOldData)
-	class APawn*                                       ControlledPawn;                                           // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function AIModule.BTService_BlueprintBase.ReceiveSearchStart
-struct UBTService_BlueprintBase_ReceiveSearchStart_Params
-{
-	class AActor*                                      OwnerActor;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function AIModule.BTService_BlueprintBase.ReceiveDeactivationAI
-struct UBTService_BlueprintBase_ReceiveDeactivationAI_Params
-{
-	class AAIController*                               OwnerController;                                          // (Parm, ZeroConstructor, IsPlainOldData)
-	class APawn*                                       ControlledPawn;                                           // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function AIModule.BTService_BlueprintBase.ReceiveDeactivation
-struct UBTService_BlueprintBase_ReceiveDeactivation_Params
-{
-	class AActor*                                      OwnerActor;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function AIModule.BTService_BlueprintBase.ReceiveActivationAI
-struct UBTService_BlueprintBase_ReceiveActivationAI_Params
-{
-	class AAIController*                               OwnerController;                                          // (Parm, ZeroConstructor, IsPlainOldData)
-	class APawn*                                       ControlledPawn;                                           // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function AIModule.BTService_BlueprintBase.ReceiveActivation
-struct UBTService_BlueprintBase_ReceiveActivation_Params
-{
-	class AActor*                                      OwnerActor;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function AIModule.BTService_BlueprintBase.IsServiceActive
-struct UBTService_BlueprintBase_IsServiceActive_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function AIModule.BTTask_BlueprintBase.SetFinishOnMessageWithId

@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 3.75.21350
+// Name: SCUM, Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -362,22 +362,6 @@ public:
 };
 
 
-// Class CoreUObject.Property
-// 0x0040 (0x0070 - 0x0030)
-class UProperty : public UField
-{
-public:
-	unsigned char                                      UnknownData00[0x40];                                      // 0x0030(0x0040) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class CoreUObject.Property");
-		return ptr;
-	}
-
-};
-
-
 // Class CoreUObject.Enum
 // 0x0030 (0x0060 - 0x0030)
 class UEnum : public UField
@@ -388,6 +372,22 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class CoreUObject.Enum");
+		return ptr;
+	}
+
+};
+
+
+// Class CoreUObject.Property
+// 0x0040 (0x0070 - 0x0030)
+class UProperty : public UField
+{
+public:
+	unsigned char                                      UnknownData00[0x40];                                      // 0x0030(0x0040) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class CoreUObject.Property");
 		return ptr;
 	}
 
@@ -615,15 +615,16 @@ public:
 };
 
 
-// Class CoreUObject.FloatProperty
-// 0x0000 (0x0070 - 0x0070)
-class UFloatProperty : public UNumericProperty
+// Class CoreUObject.EnumProperty
+// 0x0010 (0x0080 - 0x0070)
+class UEnumProperty : public UProperty
 {
 public:
+	unsigned char                                      UnknownData00[0x10];                                      // 0x0070(0x0010) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class CoreUObject.FloatProperty");
+		static auto ptr = UObject::FindClass("Class CoreUObject.EnumProperty");
 		return ptr;
 	}
 
@@ -891,21 +892,6 @@ public:
 };
 
 
-// Class CoreUObject.WeakObjectProperty
-// 0x0000 (0x0078 - 0x0078)
-class UWeakObjectProperty : public UObjectPropertyBase
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class CoreUObject.WeakObjectProperty");
-		return ptr;
-	}
-
-};
-
-
 // Class CoreUObject.TextProperty
 // 0x0000 (0x0070 - 0x0070)
 class UTextProperty : public UProperty
@@ -921,16 +907,30 @@ public:
 };
 
 
-// Class CoreUObject.EnumProperty
-// 0x0010 (0x0080 - 0x0070)
-class UEnumProperty : public UProperty
+// Class CoreUObject.WeakObjectProperty
+// 0x0000 (0x0078 - 0x0078)
+class UWeakObjectProperty : public UObjectPropertyBase
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0070(0x0010) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class CoreUObject.EnumProperty");
+		static auto ptr = UObject::FindClass("Class CoreUObject.WeakObjectProperty");
+		return ptr;
+	}
+
+};
+
+
+// Class CoreUObject.FloatProperty
+// 0x0000 (0x0070 - 0x0070)
+class UFloatProperty : public UNumericProperty
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class CoreUObject.FloatProperty");
 		return ptr;
 	}
 

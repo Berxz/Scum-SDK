@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 3.75.21350
+// Name: SCUM, Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,6 +11,16 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Enums
 //---------------------------------------------------------------------------
+
+// Enum Slate.ETextFlowDirection
+enum class ETextFlowDirection : uint8_t
+{
+	ETextFlowDirection__Auto       = 0,
+	ETextFlowDirection__LeftToRight = 1,
+	ETextFlowDirection__RightToLeft = 2,
+	ETextFlowDirection__ETextFlowDirection_MAX = 3
+};
+
 
 // Enum Slate.ETextJustify
 enum class ETextJustify : uint8_t
@@ -29,16 +39,6 @@ enum class EVirtualKeyboardDismissAction : uint8_t
 	EVirtualKeyboardDismissAction__TextCommitOnAccept = 1,
 	EVirtualKeyboardDismissAction__TextCommitOnDismiss = 2,
 	EVirtualKeyboardDismissAction__EVirtualKeyboardDismissAction_MAX = 3
-};
-
-
-// Enum Slate.ETextFlowDirection
-enum class ETextFlowDirection : uint8_t
-{
-	ETextFlowDirection__Auto       = 0,
-	ETextFlowDirection__LeftToRight = 1,
-	ETextFlowDirection__RightToLeft = 2,
-	ETextFlowDirection__ETextFlowDirection_MAX = 3
 };
 
 
@@ -108,6 +108,16 @@ enum class EDescendantScrollDestination : uint8_t
 };
 
 
+// Enum Slate.EMultipleKeyBindingIndex
+enum class EMultipleKeyBindingIndex : uint8_t
+{
+	EMultipleKeyBindingIndex__Primary = 0,
+	EMultipleKeyBindingIndex__Secondary = 1,
+	EMultipleKeyBindingIndex__NumChords = 2,
+	EMultipleKeyBindingIndex__EMultipleKeyBindingIndex_MAX = 3
+};
+
+
 // Enum Slate.EListItemAlignment
 enum class EListItemAlignment : uint8_t
 {
@@ -119,16 +129,6 @@ enum class EListItemAlignment : uint8_t
 	EListItemAlignment__CenterAligned = 5,
 	EListItemAlignment__Fill       = 6,
 	EListItemAlignment__EListItemAlignment_MAX = 7
-};
-
-
-// Enum Slate.EMultipleKeyBindingIndex
-enum class EMultipleKeyBindingIndex : uint8_t
-{
-	EMultipleKeyBindingIndex__Primary = 0,
-	EMultipleKeyBindingIndex__Secondary = 1,
-	EMultipleKeyBindingIndex__NumChords = 2,
-	EMultipleKeyBindingIndex__EMultipleKeyBindingIndex_MAX = 3
 };
 
 

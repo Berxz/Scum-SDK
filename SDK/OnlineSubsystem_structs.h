@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 3.75.21350
+// Name: SCUM, Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,6 +11,21 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Enums
 //---------------------------------------------------------------------------
+
+// Enum OnlineSubsystem.EInAppPurchaseState
+enum class EInAppPurchaseState : uint8_t
+{
+	EInAppPurchaseState__Unknown   = 0,
+	EInAppPurchaseState__Success   = 1,
+	EInAppPurchaseState__Failed    = 2,
+	EInAppPurchaseState__Cancelled = 3,
+	EInAppPurchaseState__Invalid   = 4,
+	EInAppPurchaseState__NotAllowed = 5,
+	EInAppPurchaseState__Restored  = 6,
+	EInAppPurchaseState__AlreadyOwned = 7,
+	EInAppPurchaseState__EInAppPurchaseState_MAX = 8
+};
+
 
 // Enum OnlineSubsystem.EMPMatchOutcome
 enum class EMPMatchOutcome : uint8_t
@@ -26,21 +41,6 @@ enum class EMPMatchOutcome : uint8_t
 	EMPMatchOutcome__Third         = 8,
 	EMPMatchOutcome__Fourth        = 9,
 	EMPMatchOutcome__EMPMatchOutcome_MAX = 10
-};
-
-
-// Enum OnlineSubsystem.EInAppPurchaseState
-enum class EInAppPurchaseState : uint8_t
-{
-	EInAppPurchaseState__Unknown   = 0,
-	EInAppPurchaseState__Success   = 1,
-	EInAppPurchaseState__Failed    = 2,
-	EInAppPurchaseState__Cancelled = 3,
-	EInAppPurchaseState__Invalid   = 4,
-	EInAppPurchaseState__NotAllowed = 5,
-	EInAppPurchaseState__Restored  = 6,
-	EInAppPurchaseState__AlreadyOwned = 7,
-	EInAppPurchaseState__EInAppPurchaseState_MAX = 8
 };
 
 

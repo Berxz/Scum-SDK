@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: , Version: 3.75.21350
+// Name: SCUM, Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -47,7 +47,7 @@ struct UOxygenSaturationMonitor_C_SetPrisonerAndLifeComponentToMonitor_Params
 // Function OxygenSaturationMonitor.OxygenSaturationMonitor_C.ProvideOxygenSaturationExtremes
 struct UOxygenSaturationMonitor_C_ProvideOxygenSaturationExtremes_Params
 {
-	struct FText                                       OxygenSaturationExtremes;                                 // (Parm, OutParm)
+	struct FText                                       oxygenSaturationExtremes;                                 // (Parm, OutParm)
 };
 
 // Function OxygenSaturationMonitor.OxygenSaturationMonitor_C.GetHeartRateBPM

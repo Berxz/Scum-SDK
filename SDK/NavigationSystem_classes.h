@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 3.75.21350
+// Name: SCUM, Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -328,6 +328,21 @@ public:
 };
 
 
+// Class NavigationSystem.NavigationGraphNode
+// 0x0000 (0x0328 - 0x0328)
+class ANavigationGraphNode : public AActor
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class NavigationSystem.NavigationGraphNode");
+		return ptr;
+	}
+
+};
+
+
 // Class NavigationSystem.NavigationGraphNodeComponent
 // 0x0020 (0x0260 - 0x0240)
 class UNavigationGraphNodeComponent : public USceneComponent
@@ -389,6 +404,21 @@ public:
 	struct FString GetDebugString();
 	void EnableRecalculationOnInvalidation(TEnumAsByte<ENavigationOptionFlag> DoRecalculation);
 	void EnableDebugDrawing(bool bShouldDrawDebugData, const struct FLinearColor& PathColor);
+};
+
+
+// Class NavigationSystem.NavigationPathGenerator
+// 0x0000 (0x0028 - 0x0028)
+class UNavigationPathGenerator : public UInterface
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class NavigationSystem.NavigationPathGenerator");
+		return ptr;
+	}
+
 };
 
 
@@ -588,6 +618,42 @@ public:
 };
 
 
+// Class NavigationSystem.NavLinkCustomComponent
+// 0x00A8 (0x01C8 - 0x0120)
+class UNavLinkCustomComponent : public UNavRelevantComponent
+{
+public:
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0120(0x0008) MISSED OFFSET
+	uint32_t                                           NavLinkUserId;                                            // 0x0128(0x0004) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x4];                                       // 0x012C(0x0004) MISSED OFFSET
+	class UClass*                                      EnabledAreaClass;                                         // 0x0130(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	class UClass*                                      DisabledAreaClass;                                        // 0x0138(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	struct FVector                                     LinkRelativeStart;                                        // 0x0140(0x000C) (Edit, IsPlainOldData)
+	struct FVector                                     LinkRelativeEnd;                                          // 0x014C(0x000C) (Edit, IsPlainOldData)
+	TEnumAsByte<ENavLinkDirection>                     LinkDirection;                                            // 0x0158(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData02[0x3];                                       // 0x0159(0x0003) MISSED OFFSET
+	unsigned char                                      bLinkEnabled : 1;                                         // 0x015C(0x0001) (Edit)
+	unsigned char                                      bNotifyWhenEnabled : 1;                                   // 0x015C(0x0001) (Edit)
+	unsigned char                                      bNotifyWhenDisabled : 1;                                  // 0x015C(0x0001) (Edit)
+	unsigned char                                      bCreateBoxObstacle : 1;                                   // 0x015C(0x0001) (Edit)
+	unsigned char                                      UnknownData03[0x3];                                       // 0x015D(0x0003) MISSED OFFSET
+	struct FVector                                     ObstacleOffset;                                           // 0x0160(0x000C) (Edit, IsPlainOldData)
+	struct FVector                                     ObstacleExtent;                                           // 0x016C(0x000C) (Edit, IsPlainOldData)
+	class UClass*                                      ObstacleAreaClass;                                        // 0x0178(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              BroadcastRadius;                                          // 0x0180(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              BroadcastInterval;                                        // 0x0184(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	TEnumAsByte<ECollisionChannel>                     BroadcastChannel;                                         // 0x0188(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData04[0x3F];                                      // 0x0189(0x003F) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class NavigationSystem.NavLinkCustomComponent");
+		return ptr;
+	}
+
+};
+
+
 // Class NavigationSystem.NavLinkCustomInterface
 // 0x0000 (0x0028 - 0x0028)
 class UNavLinkCustomInterface : public UInterface
@@ -665,15 +731,16 @@ public:
 };
 
 
-// Class NavigationSystem.NavigationPathGenerator
-// 0x0000 (0x0028 - 0x0028)
-class UNavigationPathGenerator : public UInterface
+// Class NavigationSystem.NavMeshRenderingComponent
+// 0x0010 (0x0570 - 0x0560)
+class UNavMeshRenderingComponent : public UPrimitiveComponent
 {
 public:
+	unsigned char                                      UnknownData00[0x10];                                      // 0x0560(0x0010) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class NavigationSystem.NavigationPathGenerator");
+		static auto ptr = UObject::FindClass("Class NavigationSystem.NavMeshRenderingComponent");
 		return ptr;
 	}
 
@@ -720,52 +787,15 @@ public:
 };
 
 
-// Class NavigationSystem.NavLinkCustomComponent
-// 0x00A8 (0x01C8 - 0x0120)
-class UNavLinkCustomComponent : public UNavRelevantComponent
+// Class NavigationSystem.NavNodeInterface
+// 0x0000 (0x0028 - 0x0028)
+class UNavNodeInterface : public UInterface
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0120(0x0008) MISSED OFFSET
-	uint32_t                                           NavLinkUserId;                                            // 0x0128(0x0004) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x4];                                       // 0x012C(0x0004) MISSED OFFSET
-	class UClass*                                      EnabledAreaClass;                                         // 0x0130(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	class UClass*                                      DisabledAreaClass;                                        // 0x0138(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	struct FVector                                     LinkRelativeStart;                                        // 0x0140(0x000C) (Edit, IsPlainOldData)
-	struct FVector                                     LinkRelativeEnd;                                          // 0x014C(0x000C) (Edit, IsPlainOldData)
-	TEnumAsByte<ENavLinkDirection>                     LinkDirection;                                            // 0x0158(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData02[0x3];                                       // 0x0159(0x0003) MISSED OFFSET
-	unsigned char                                      bLinkEnabled : 1;                                         // 0x015C(0x0001) (Edit)
-	unsigned char                                      bNotifyWhenEnabled : 1;                                   // 0x015C(0x0001) (Edit)
-	unsigned char                                      bNotifyWhenDisabled : 1;                                  // 0x015C(0x0001) (Edit)
-	unsigned char                                      bCreateBoxObstacle : 1;                                   // 0x015C(0x0001) (Edit)
-	unsigned char                                      UnknownData03[0x3];                                       // 0x015D(0x0003) MISSED OFFSET
-	struct FVector                                     ObstacleOffset;                                           // 0x0160(0x000C) (Edit, IsPlainOldData)
-	struct FVector                                     ObstacleExtent;                                           // 0x016C(0x000C) (Edit, IsPlainOldData)
-	class UClass*                                      ObstacleAreaClass;                                        // 0x0178(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              BroadcastRadius;                                          // 0x0180(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              BroadcastInterval;                                        // 0x0184(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	TEnumAsByte<ECollisionChannel>                     BroadcastChannel;                                         // 0x0188(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData04[0x3F];                                      // 0x0189(0x003F) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class NavigationSystem.NavLinkCustomComponent");
-		return ptr;
-	}
-
-};
-
-
-// Class NavigationSystem.NavMeshRenderingComponent
-// 0x0010 (0x0570 - 0x0560)
-class UNavMeshRenderingComponent : public UPrimitiveComponent
-{
-public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0560(0x0010) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class NavigationSystem.NavMeshRenderingComponent");
+		static auto ptr = UObject::FindClass("Class NavigationSystem.NavNodeInterface");
 		return ptr;
 	}
 
@@ -787,37 +817,6 @@ public:
 };
 
 
-// Class NavigationSystem.RecastNavMeshDataChunk
-// 0x0010 (0x0040 - 0x0030)
-class URecastNavMeshDataChunk : public UNavigationDataChunk
-{
-public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0030(0x0010) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class NavigationSystem.RecastNavMeshDataChunk");
-		return ptr;
-	}
-
-};
-
-
-// Class NavigationSystem.NavNodeInterface
-// 0x0000 (0x0028 - 0x0028)
-class UNavNodeInterface : public UInterface
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class NavigationSystem.NavNodeInterface");
-		return ptr;
-	}
-
-};
-
-
 // Class NavigationSystem.RecastFilter_UseDefaultArea
 // 0x0000 (0x0048 - 0x0048)
 class URecastFilter_UseDefaultArea : public UNavigationQueryFilter
@@ -833,15 +832,16 @@ public:
 };
 
 
-// Class NavigationSystem.NavigationGraphNode
-// 0x0000 (0x0328 - 0x0328)
-class ANavigationGraphNode : public AActor
+// Class NavigationSystem.RecastNavMeshDataChunk
+// 0x0010 (0x0040 - 0x0030)
+class URecastNavMeshDataChunk : public UNavigationDataChunk
 {
 public:
+	unsigned char                                      UnknownData00[0x10];                                      // 0x0030(0x0010) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class NavigationSystem.NavigationGraphNode");
+		static auto ptr = UObject::FindClass("Class NavigationSystem.RecastNavMeshDataChunk");
 		return ptr;
 	}
 

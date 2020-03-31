@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 3.75.21350
+// Name: SCUM, Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -89,17 +89,6 @@ struct FGameplayTagQuery
 	struct FString                                     AutoDescription;                                          // 0x0038(0x0010) (ZeroConstructor)
 };
 
-// ScriptStruct GameplayTags.GameplayTagSource
-// 0x0020
-struct FGameplayTagSource
-{
-	struct FName                                       SourceName;                                               // 0x0000(0x0008) (ZeroConstructor, IsPlainOldData)
-	EGameplayTagSourceType                             SourceType;                                               // 0x0008(0x0001) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0009(0x0007) MISSED OFFSET
-	class UGameplayTagsList*                           SourceTagList;                                            // 0x0010(0x0008) (ZeroConstructor, IsPlainOldData)
-	class URestrictedGameplayTagsList*                 SourceRestrictedTagList;                                  // 0x0018(0x0008) (ZeroConstructor, IsPlainOldData)
-};
-
 // ScriptStruct GameplayTags.GameplayTagTableRow
 // 0x0018 (0x0020 - 0x0008)
 struct FGameplayTagTableRow : public FTableRowBase
@@ -138,6 +127,17 @@ struct FRestrictedConfigInfo
 {
 	struct FString                                     RestrictedConfigName;                                     // 0x0000(0x0010) (Edit, ZeroConstructor, Config)
 	TArray<struct FString>                             Owners;                                                   // 0x0010(0x0010) (Edit, ZeroConstructor, Config)
+};
+
+// ScriptStruct GameplayTags.GameplayTagSource
+// 0x0020
+struct FGameplayTagSource
+{
+	struct FName                                       SourceName;                                               // 0x0000(0x0008) (ZeroConstructor, IsPlainOldData)
+	EGameplayTagSourceType                             SourceType;                                               // 0x0008(0x0001) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0009(0x0007) MISSED OFFSET
+	class UGameplayTagsList*                           SourceTagList;                                            // 0x0010(0x0008) (ZeroConstructor, IsPlainOldData)
+	class URestrictedGameplayTagsList*                 SourceRestrictedTagList;                                  // 0x0018(0x0008) (ZeroConstructor, IsPlainOldData)
 };
 
 // ScriptStruct GameplayTags.GameplayTagCreationWidgetHelper

@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 3.75.21350
+// Name: SCUM, Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,21 +11,6 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Classes
 //---------------------------------------------------------------------------
-
-// Class ClothingSystemRuntime.ClothingAssetCustomData
-// 0x0000 (0x0028 - 0x0028)
-class UClothingAssetCustomData : public UObject
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class ClothingSystemRuntime.ClothingAssetCustomData");
-		return ptr;
-	}
-
-};
-
 
 // Class ClothingSystemRuntime.ClothingAsset
 // 0x0120 (0x0168 - 0x0048)
@@ -46,6 +31,21 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class ClothingSystemRuntime.ClothingAsset");
+		return ptr;
+	}
+
+};
+
+
+// Class ClothingSystemRuntime.ClothingAssetCustomData
+// 0x0000 (0x0028 - 0x0028)
+class UClothingAssetCustomData : public UObject
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class ClothingSystemRuntime.ClothingAssetCustomData");
 		return ptr;
 	}
 

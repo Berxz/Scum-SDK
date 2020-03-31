@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 3.75.21350
+// Name: SCUM, Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -1043,16 +1043,6 @@ struct FAnimNode_SequenceEvaluator : public FAnimNode_AssetPlayerBase
 	unsigned char                                      UnknownData01[0x2];                                       // 0x006E(0x0002) MISSED OFFSET
 };
 
-// ScriptStruct AnimGraphRuntime.AnimNode_Slot
-// 0x0040 (0x0070 - 0x0030)
-struct FAnimNode_Slot : public FAnimNode_Base
-{
-	struct FPoseLink                                   Source;                                                   // 0x0030(0x0018) (Edit, BlueprintVisible)
-	struct FName                                       SlotName;                                                 // 0x0048(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	bool                                               bAlwaysUpdateSourcePose;                                  // 0x0050(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x1F];                                      // 0x0051(0x001F) MISSED OFFSET
-};
-
 // ScriptStruct AnimGraphRuntime.SplineIKCachedBoneData
 // 0x0020
 struct FSplineIKCachedBoneData
@@ -1087,6 +1077,16 @@ struct FAnimNode_SplineIK : public FAnimNode_SkeletalControlBase
 	TArray<struct FSplineIKCachedBoneData>             CachedBoneReferences;                                     // 0x0288(0x0010) (ZeroConstructor)
 	TArray<float>                                      CachedBoneLengths;                                        // 0x0298(0x0010) (ZeroConstructor)
 	TArray<struct FQuat>                               CachedOffsetRotations;                                    // 0x02A8(0x0010) (ZeroConstructor)
+};
+
+// ScriptStruct AnimGraphRuntime.AnimNode_Slot
+// 0x0040 (0x0070 - 0x0030)
+struct FAnimNode_Slot : public FAnimNode_Base
+{
+	struct FPoseLink                                   Source;                                                   // 0x0030(0x0018) (Edit, BlueprintVisible)
+	struct FName                                       SlotName;                                                 // 0x0048(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	bool                                               bAlwaysUpdateSourcePose;                                  // 0x0050(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x1F];                                      // 0x0051(0x001F) MISSED OFFSET
 };
 
 // ScriptStruct AnimGraphRuntime.AnimNode_SpringBone

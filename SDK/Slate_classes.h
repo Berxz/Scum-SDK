@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 3.75.21350
+// Name: SCUM, Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -156,23 +156,6 @@ public:
 };
 
 
-// Class Slate.SlateSettings
-// 0x0008 (0x0030 - 0x0028)
-class USlateSettings : public UObject
-{
-public:
-	bool                                               bExplicitCanvasChildZOrder;                               // 0x0028(0x0001) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0029(0x0007) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Slate.SlateSettings");
-		return ptr;
-	}
-
-};
-
-
 // Class Slate.SpinBoxWidgetStyle
 // 0x02E8 (0x0318 - 0x0030)
 class USpinBoxWidgetStyle : public USlateWidgetStyleContainerBase
@@ -199,6 +182,23 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Slate.TextBlockWidgetStyle");
+		return ptr;
+	}
+
+};
+
+
+// Class Slate.SlateSettings
+// 0x0008 (0x0030 - 0x0028)
+class USlateSettings : public UObject
+{
+public:
+	bool                                               bExplicitCanvasChildZOrder;                               // 0x0028(0x0001) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0029(0x0007) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Slate.SlateSettings");
 		return ptr;
 	}
 

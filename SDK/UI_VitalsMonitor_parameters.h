@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: , Version: 3.75.21350
+// Name: SCUM, Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -17,7 +17,7 @@ namespace SDK
 // Function UI_VitalsMonitor.UI_VitalsMonitor_C.GetOxygenSaturationExtremesText
 struct UUI_VitalsMonitor_C_GetOxygenSaturationExtremesText_Params
 {
-	struct FText                                       OxygenSaturationExtremes;                                 // (Parm, OutParm)
+	struct FText                                       oxygenSaturationExtremes;                                 // (Parm, OutParm)
 };
 
 // Function UI_VitalsMonitor.UI_VitalsMonitor_C.GetTemperatureExtremesText

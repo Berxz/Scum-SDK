@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 3.75.21350
+// Name: SCUM, Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -56,6 +56,20 @@ enum class EAITaskPriority : uint8_t
 	EAITaskPriority__High          = 3,
 	EAITaskPriority__Ultimate      = 4,
 	EAITaskPriority__EAITaskPriority_MAX = 5
+};
+
+
+// Enum AIModule.EGenericAICheck
+enum class EGenericAICheck : uint8_t
+{
+	EGenericAICheck__Less          = 0,
+	EGenericAICheck__LessOrEqual   = 1,
+	EGenericAICheck__Equal         = 2,
+	EGenericAICheck__NotEqual      = 3,
+	EGenericAICheck__GreaterOrEqual = 4,
+	EGenericAICheck__Greater       = 5,
+	EGenericAICheck__IsTrue        = 6,
+	EGenericAICheck__MAX           = 7
 };
 
 
@@ -139,17 +153,14 @@ enum class EAIOptionFlag : uint8_t
 };
 
 
-// Enum AIModule.EGenericAICheck
-enum class EGenericAICheck : uint8_t
+// Enum AIModule.EBTFlowAbortMode
+enum class EBTFlowAbortMode : uint8_t
 {
-	EGenericAICheck__Less          = 0,
-	EGenericAICheck__LessOrEqual   = 1,
-	EGenericAICheck__Equal         = 2,
-	EGenericAICheck__NotEqual      = 3,
-	EGenericAICheck__GreaterOrEqual = 4,
-	EGenericAICheck__Greater       = 5,
-	EGenericAICheck__IsTrue        = 6,
-	EGenericAICheck__MAX           = 7
+	EBTFlowAbortMode__None         = 0,
+	EBTFlowAbortMode__LowerPriority = 1,
+	EBTFlowAbortMode__Self         = 2,
+	EBTFlowAbortMode__Both         = 3,
+	EBTFlowAbortMode__EBTFlowAbortMode_MAX = 4
 };
 
 
@@ -354,17 +365,6 @@ enum class EEnvQueryTrace : uint8_t
 };
 
 
-// Enum AIModule.EBTFlowAbortMode
-enum class EBTFlowAbortMode : uint8_t
-{
-	EBTFlowAbortMode__None         = 0,
-	EBTFlowAbortMode__LowerPriority = 1,
-	EBTFlowAbortMode__Self         = 2,
-	EBTFlowAbortMode__Both         = 3,
-	EBTFlowAbortMode__EBTFlowAbortMode_MAX = 4
-};
-
-
 // Enum AIModule.EAIParamType
 enum class EAIParamType : uint8_t
 {
@@ -438,6 +438,18 @@ enum class EEnvTestWeight : uint8_t
 };
 
 
+// Enum AIModule.EEnvTestScoreEquation
+enum class EEnvTestScoreEquation : uint8_t
+{
+	EEnvTestScoreEquation__Linear  = 0,
+	EEnvTestScoreEquation__Square  = 1,
+	EEnvTestScoreEquation__InverseLinear = 2,
+	EEnvTestScoreEquation__SquareRoot = 3,
+	EEnvTestScoreEquation__Constant = 4,
+	EEnvTestScoreEquation__EEnvTestScoreEquation_MAX = 5
+};
+
+
 // Enum AIModule.EEnvTestFilterType
 enum class EEnvTestFilterType : uint8_t
 {
@@ -479,15 +491,13 @@ enum class ETeamAttitude : uint8_t
 };
 
 
-// Enum AIModule.EEnvTestScoreEquation
-enum class EEnvTestScoreEquation : uint8_t
+// Enum AIModule.EPathFollowingRequestResult
+enum class EPathFollowingRequestResult : uint8_t
 {
-	EEnvTestScoreEquation__Linear  = 0,
-	EEnvTestScoreEquation__Square  = 1,
-	EEnvTestScoreEquation__InverseLinear = 2,
-	EEnvTestScoreEquation__SquareRoot = 3,
-	EEnvTestScoreEquation__Constant = 4,
-	EEnvTestScoreEquation__EEnvTestScoreEquation_MAX = 5
+	EPathFollowingRequestResult__Failed = 0,
+	EPathFollowingRequestResult__AlreadyAtGoal = 1,
+	EPathFollowingRequestResult__RequestSuccessful = 2,
+	EPathFollowingRequestResult__EPathFollowingRequestResult_MAX = 3
 };
 
 
@@ -538,16 +548,6 @@ enum class EPawnActionMoveMode : uint8_t
 	EPawnActionMoveMode__UsePathfinding = 0,
 	EPawnActionMoveMode__StraightLine = 1,
 	EPawnActionMoveMode__EPawnActionMoveMode_MAX = 2
-};
-
-
-// Enum AIModule.EPathFollowingRequestResult
-enum class EPathFollowingRequestResult : uint8_t
-{
-	EPathFollowingRequestResult__Failed = 0,
-	EPathFollowingRequestResult__AlreadyAtGoal = 1,
-	EPathFollowingRequestResult__RequestSuccessful = 2,
-	EPathFollowingRequestResult__EPathFollowingRequestResult_MAX = 3
 };
 
 

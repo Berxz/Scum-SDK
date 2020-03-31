@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 3.75.21350
+// Name: SCUM, Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -37,7 +37,7 @@ public:
 	void ActivateAlarm();
 	void CheckBloodOxygenationAlarm(float oxygenationLevel, int* alarmCode);
 	void SetPrisonerAndLifeComponentToMonitor(class APrisoner* prisonerToSet, bool* Success);
-	void ProvideOxygenSaturationExtremes(struct FText* OxygenSaturationExtremes);
+	void ProvideOxygenSaturationExtremes(struct FText* oxygenSaturationExtremes);
 	struct FText GetHeartRateBPM();
 	void Construct();
 	void Tick(struct FGeometry* MyGeometry, float* InDeltaTime);

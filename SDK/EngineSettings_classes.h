@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 3.75.21350
+// Name: SCUM, Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -117,21 +117,6 @@ public:
 };
 
 
-// Class EngineSettings.GeneralEngineSettings
-// 0x0000 (0x0028 - 0x0028)
-class UGeneralEngineSettings : public UObject
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class EngineSettings.GeneralEngineSettings");
-		return ptr;
-	}
-
-};
-
-
 // Class EngineSettings.GeneralProjectSettings
 // 0x00F0 (0x0118 - 0x0028)
 class UGeneralProjectSettings : public UObject
@@ -182,6 +167,21 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class EngineSettings.HudSettings");
+		return ptr;
+	}
+
+};
+
+
+// Class EngineSettings.GeneralEngineSettings
+// 0x0000 (0x0028 - 0x0028)
+class UGeneralEngineSettings : public UObject
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class EngineSettings.GeneralEngineSettings");
 		return ptr;
 	}
 

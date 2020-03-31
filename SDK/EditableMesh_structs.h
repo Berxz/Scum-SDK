@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 3.75.21350
+// Name: SCUM, Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -21,16 +21,6 @@ enum class ETriangleTessellationMode : uint8_t
 };
 
 
-// Enum EditableMesh.EInsetPolygonsMode
-enum class EInsetPolygonsMode : uint8_t
-{
-	EInsetPolygonsMode__All        = 0,
-	EInsetPolygonsMode__CenterPolygonOnly = 1,
-	EInsetPolygonsMode__SidePolygonsOnly = 2,
-	EInsetPolygonsMode__EInsetPolygonsMode_MAX = 3
-};
-
-
 // Enum EditableMesh.EPolygonEdgeHardness
 enum class EPolygonEdgeHardness : uint8_t
 {
@@ -39,21 +29,6 @@ enum class EPolygonEdgeHardness : uint8_t
 	EPolygonEdgeHardness__AllEdgesSoft = 2,
 	EPolygonEdgeHardness__AllEdgesHard = 3,
 	EPolygonEdgeHardness__EPolygonEdgeHardness_MAX = 4
-};
-
-
-// Enum EditableMesh.EMeshElementAttributeType
-enum class EMeshElementAttributeType : uint8_t
-{
-	EMeshElementAttributeType__None = 0,
-	EMeshElementAttributeType__FVector4 = 1,
-	EMeshElementAttributeType__FVector = 2,
-	EMeshElementAttributeType__FVector2D = 3,
-	EMeshElementAttributeType__Float = 4,
-	EMeshElementAttributeType__Int = 5,
-	EMeshElementAttributeType__Bool = 6,
-	EMeshElementAttributeType__FName = 7,
-	EMeshElementAttributeType__EMeshElementAttributeType_MAX = 8
 };
 
 
@@ -73,6 +48,31 @@ enum class EMeshModificationType : uint8_t
 	EMeshModificationType__Interim = 1,
 	EMeshModificationType__Final   = 2,
 	EMeshModificationType__EMeshModificationType_MAX = 3
+};
+
+
+// Enum EditableMesh.EMeshElementAttributeType
+enum class EMeshElementAttributeType : uint8_t
+{
+	EMeshElementAttributeType__None = 0,
+	EMeshElementAttributeType__FVector4 = 1,
+	EMeshElementAttributeType__FVector = 2,
+	EMeshElementAttributeType__FVector2D = 3,
+	EMeshElementAttributeType__Float = 4,
+	EMeshElementAttributeType__Int = 5,
+	EMeshElementAttributeType__Bool = 6,
+	EMeshElementAttributeType__FName = 7,
+	EMeshElementAttributeType__EMeshElementAttributeType_MAX = 8
+};
+
+
+// Enum EditableMesh.EInsetPolygonsMode
+enum class EInsetPolygonsMode : uint8_t
+{
+	EInsetPolygonsMode__All        = 0,
+	EInsetPolygonsMode__CenterPolygonOnly = 1,
+	EInsetPolygonsMode__SidePolygonsOnly = 2,
+	EInsetPolygonsMode__EInsetPolygonsMode_MAX = 3
 };
 
 

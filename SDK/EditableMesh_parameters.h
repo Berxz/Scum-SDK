@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: , Version: 3.75.21350
+// Name: SCUM, Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,14 +13,6 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Parameters
 //---------------------------------------------------------------------------
-
-// Function EditableMesh.EditableMeshFactory.MakeEditableMesh
-struct UEditableMeshFactory_MakeEditableMesh_Params
-{
-	class UPrimitiveComponent*                         PrimitiveComponent;                                       // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-	int                                                LODIndex;                                                 // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	class UEditableMesh*                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
 
 // Function EditableMesh.EditableMesh.WeldVertices
 struct UEditableMesh_WeldVertices_Params
@@ -1040,6 +1032,14 @@ struct UEditableMesh_AssignPolygonsToPolygonGroups_Params
 struct UEditableMesh_AnyChangesToUndo_Params
 {
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function EditableMesh.EditableMeshFactory.MakeEditableMesh
+struct UEditableMeshFactory_MakeEditableMesh_Params
+{
+	class UPrimitiveComponent*                         PrimitiveComponent;                                       // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+	int                                                LODIndex;                                                 // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	class UEditableMesh*                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 }

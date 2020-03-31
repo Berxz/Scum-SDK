@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 3.75.21350
+// Name: SCUM, Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,17 +11,6 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Enums
 //---------------------------------------------------------------------------
-
-// Enum Landscape.ELandscapeSetupErrors
-enum class ELandscapeSetupErrors : uint8_t
-{
-	LSE_None                       = 0,
-	LSE_NoLandscapeInfo            = 1,
-	LSE_CollsionXY                 = 2,
-	LSE_NoLayerInfo                = 3,
-	LSE_MAX                        = 4
-};
-
 
 // Enum Landscape.ELandscapeGizmoType
 enum class ELandscapeGizmoType : uint8_t
@@ -91,13 +80,14 @@ enum class ELandscapeSplineMeshOrientation : uint8_t
 };
 
 
-// Enum Landscape.ELandscapeLayerBlendType
-enum class ELandscapeLayerBlendType : uint8_t
+// Enum Landscape.ELandscapeSetupErrors
+enum class ELandscapeSetupErrors : uint8_t
 {
-	LB_WeightBlend                 = 0,
-	LB_AlphaBlend                  = 1,
-	LB_HeightBlend                 = 2,
-	LB_MAX                         = 3
+	LSE_None                       = 0,
+	LSE_NoLandscapeInfo            = 1,
+	LSE_CollsionXY                 = 2,
+	LSE_NoLayerInfo                = 3,
+	LSE_MAX                        = 4
 };
 
 
@@ -121,6 +111,16 @@ enum class ETerrainCoordMappingType : uint8_t
 	TCMT_XZ                        = 2,
 	TCMT_YZ                        = 3,
 	TCMT_MAX                       = 4
+};
+
+
+// Enum Landscape.ELandscapeLayerBlendType
+enum class ELandscapeLayerBlendType : uint8_t
+{
+	LB_WeightBlend                 = 0,
+	LB_AlphaBlend                  = 1,
+	LB_HeightBlend                 = 2,
+	LB_MAX                         = 3
 };
 
 
@@ -221,6 +221,13 @@ struct FLayerBlendInput
 	unsigned char                                      UnknownData01[0x4];                                       // 0x0084(0x0004) MISSED OFFSET
 };
 
+// ScriptStruct Landscape.GizmoSelectData
+// 0x0050
+struct FGizmoSelectData
+{
+	unsigned char                                      UnknownData00[0x50];                                      // 0x0000(0x0050) MISSED OFFSET
+};
+
 // ScriptStruct Landscape.LandscapeEditToolRenderData
 // 0x0028
 struct FLandscapeEditToolRenderData
@@ -232,13 +239,6 @@ struct FLandscapeEditToolRenderData
 	int                                                DebugChannelG;                                            // 0x0018(0x0004) (ZeroConstructor, IsPlainOldData)
 	int                                                DebugChannelB;                                            // 0x001C(0x0004) (ZeroConstructor, IsPlainOldData)
 	class UTexture2D*                                  DataTexture;                                              // 0x0020(0x0008) (ZeroConstructor, IsPlainOldData)
-};
-
-// ScriptStruct Landscape.GizmoSelectData
-// 0x0050
-struct FGizmoSelectData
-{
-	unsigned char                                      UnknownData00[0x50];                                      // 0x0000(0x0050) MISSED OFFSET
 };
 
 // ScriptStruct Landscape.LandscapeInfoLayerSettings

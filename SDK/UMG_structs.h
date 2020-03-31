@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: , Version: 3.75.21350
+// Name: SCUM, Version: 3.75.21350
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -70,17 +70,6 @@ enum class EDragPivot : uint8_t
 	EDragPivot__BottomCenter       = 8,
 	EDragPivot__BottomRight        = 9,
 	EDragPivot__EDragPivot_MAX     = 10
-};
-
-
-// Enum UMG.EDynamicBoxType
-enum class EDynamicBoxType : uint8_t
-{
-	EDynamicBoxType__Horizontal    = 0,
-	EDynamicBoxType__Vertical      = 1,
-	EDynamicBoxType__Wrap          = 2,
-	EDynamicBoxType__Overlay       = 3,
-	EDynamicBoxType__EDynamicBoxType_MAX = 4
 };
 
 
@@ -158,6 +147,17 @@ enum class EWidgetInteractionSource : uint8_t
 	EWidgetInteractionSource__CenterScreen = 2,
 	EWidgetInteractionSource__Custom = 3,
 	EWidgetInteractionSource__EWidgetInteractionSource_MAX = 4
+};
+
+
+// Enum UMG.EDynamicBoxType
+enum class EDynamicBoxType : uint8_t
+{
+	EDynamicBoxType__Horizontal    = 0,
+	EDynamicBoxType__Vertical      = 1,
+	EDynamicBoxType__Wrap          = 2,
+	EDynamicBoxType__Overlay       = 3,
+	EDynamicBoxType__EDynamicBoxType_MAX = 4
 };
 
 
@@ -313,13 +313,6 @@ struct FMovieSceneMarginSectionTemplate : public FMovieScenePropertySectionTempl
 	unsigned char                                      UnknownData00[0x7];                                       // 0x02C9(0x0007) MISSED OFFSET
 };
 
-// ScriptStruct UMG.MovieSceneWidgetMaterialSectionTemplate
-// 0x0010 (0x0060 - 0x0050)
-struct FMovieSceneWidgetMaterialSectionTemplate : public FMovieSceneParameterSectionTemplate
-{
-	TArray<struct FName>                               BrushPropertyNamePath;                                    // 0x0050(0x0010) (ZeroConstructor)
-};
-
 // ScriptStruct UMG.RichTextStyleRow
 // 0x01E0 (0x01E8 - 0x0008)
 struct FRichTextStyleRow : public FTableRowBase
@@ -332,6 +325,13 @@ struct FRichTextStyleRow : public FTableRowBase
 struct FRichImageRow : public FTableRowBase
 {
 	struct FSlateBrush                                 Brush;                                                    // 0x0008(0x0088) (Edit)
+};
+
+// ScriptStruct UMG.MovieSceneWidgetMaterialSectionTemplate
+// 0x0010 (0x0060 - 0x0050)
+struct FMovieSceneWidgetMaterialSectionTemplate : public FMovieSceneParameterSectionTemplate
+{
+	TArray<struct FName>                               BrushPropertyNamePath;                                    // 0x0050(0x0010) (ZeroConstructor)
 };
 
 }
